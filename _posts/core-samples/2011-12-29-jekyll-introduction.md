@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 category : lessons
 tagline: "Supporting tagline"
 tags : [intro, beginner, jekyll, tutorial]
