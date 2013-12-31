@@ -5,5 +5,9 @@ tagline: Done is Better Than Perfect
 ---
 {% include JB/setup %}
 
-![Alt text](/assets/images/qrcode_for_gh_aa23c6563b3d_1280.jpg)
-
+{% for post in site.posts %}
+##{{post.title}}
+{{post.date|date: "%Y-%m-%d"}}   
+{{post.description}}
+[阅读全文]({{post.url}})
+{% endfor %}
