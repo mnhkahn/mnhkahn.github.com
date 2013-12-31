@@ -10,4 +10,6 @@ tagline: Done is Better Than Perfect
 {{post.date|date: "%Y-%m-%d"}}   
 {{post.description}}
 [阅读全文]({{post.url}})
+
+---
 {% endfor %}
