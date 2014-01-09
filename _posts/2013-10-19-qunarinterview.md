@@ -147,5 +147,5 @@ MacKay也提供了一个修改版的堆排序：每次不是将堆底的元素�
 
 ---
 一面后直接就被委婉的告知没戏了。下午还有完美世界的笔试，走在去清华的路上，拍到的这张北大的博雅塔。
-![Alt text](/assets/images/博雅塔.JPG)
+![IMG-THUMBNAIL](/assets/images/博雅塔.JPG)
 {% include JB/setup %}

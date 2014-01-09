@@ -29,6 +29,6 @@ tags: []
  
 2013年9月16日于寝室
 
-![Alt text](/assets/images/cyeam.png)
+![IMG-THUMBNAIL](/assets/images/cyeam.png)
 
 {% include JB/setup %}
