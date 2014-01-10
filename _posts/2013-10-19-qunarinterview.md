@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "去哪网Java开发面经"
+title: "去哪网2014校园招聘Java开发面经"
 figure: "/assets/images/qunar_logo.jpg"
 description: "去哪网待遇非常给力，一个FE都能给到14x16。而且刚刚上市，发展很不错。我的面试官是重庆人，看到我的简历上写着本科是重庆大学的，也很照顾我，可惜我很不给力。一直摊开了问，从基础到Java源码、C++源码都问了一圈，还有C语言小技巧。面试难度符合他们公司的工资水平。"
 category: "Collection"

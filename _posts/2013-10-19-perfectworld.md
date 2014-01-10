@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "完美世界2013校园招聘笔试"
+title: "完美世界2014校园招聘笔试"
 figure: "/assets/images/perfectworld_logo.jpg"
 description: "只是简单了参加了一下笔试，地点是在清华。没有面试机会。这种游戏公司招人要求都有点高。"
 category: "Collection"
