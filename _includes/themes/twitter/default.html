@@ -39,11 +39,18 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container-narrow">
+          <div class="wrapperLogo" id="wrapperLogo" style="float: left; width: 80px;">
+            <a href="{{ HOME_PATH }}"><img src="/assets/images/logo.png"></a>
+          </div>
           <ul class="nav">
-          	<li><a href="{{ HOME_PATH }}">Home</a>
-            {% assign pages_list = site.pages %}
+          	<li><a href="{{ HOME_PATH }}"><span class="icon-home"></span> Home</a></li>
+            <li><a href="categories.html"><span class="icon-th-list"></span> Categories</a></li>
+            <li><a href="archive.html"><span class="icon-ok"></span> Archive</a></li>
+            <li><a href="tags.html"><span class="icon-tags"></span> Tags</a></li>
+            <li><a href="pages.html"><span class="icon-th"></span> Pages</a></li>
+            <!--{% assign pages_list = site.pages %}
             {% assign group = 'navigation' %}
-            {% include JB/pages_list %}
+            {% include JB/pages_list %}-->
           </ul>
         </div>
       </div>
