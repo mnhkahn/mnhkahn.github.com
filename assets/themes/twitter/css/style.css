@@ -165,3 +165,12 @@ img[alt=IMG-THUMBNAIL] {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
+
+/* google translate */
+.google_translate_element {
+	position: fixed;
+	margin: 0px auto;
+	z-index: 999;
+	top: 76px;
+	right: 30px;
+}
