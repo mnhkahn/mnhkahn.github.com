@@ -1,0 +1,2225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Cyeam</title>
+ <link href="http://mnhkahn.github.io/" rel="self"/>
+ <link href="http://mnhkahn.github.io"/>
+ <updated>2014-01-12T17:04:40+08:00</updated>
+ <id>http://mnhkahn.github.io</id>
+ <author>
+   <name>Bryce</name>
+   <email>lichao0407@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Linux Mint 64bit下安装Dota 2</title>
+   <link href="http://mnhkahn.github.io/toss/2014/01/11/dota2"/>
+   <updated>2014-01-11T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/toss/2014/01/11/dota2</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/images/dota-2-logo.jpg&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;为了能在Linux下玩Dota 2，前前后后折腾了好几个礼拜，先写一下Linux下安装环境的难度，这也是这个解决问题的思路。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Linux下Nvidia显卡驱动不支持自动切换显卡的功能，需要安装第三方驱动。Nvidia显卡切换技术叫做Optimus，也就是擎天柱 现在在Linux下面柱子无效，因此第三方开发团队的开发了好基友Bumblebee大黄蜂；&lt;/li&gt;
+
+&lt;li&gt;Bumblebee在开发的时候也对Nvidia原生驱动进行了修改，所以还需要安装第三方的驱动（如果已经安装了Nvidia的驱动，需要删除）;&lt;/li&gt;
+
+&lt;li&gt;最恶心人的不是这些还不算。Steam是开发的32位版本，而如果你是64位电脑，那么还要注意，Steam提供的解决方案默认是32位的解决方案，所以你还得去找找64位的安装方案。这也是一直让我纠结的地方，所有都安好了，就是一直报错&lt;code&gt;You appear to have OpenGL 1.4.0, but we need at least 2.0.0!&lt;/code&gt;，让我一直以为是OpenGL的原因，在这里绕弯子了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;1_bumblebee&quot;&gt;1. 安装Bumblebee的方法参考下面的网址，我就不抄了。&lt;/h5&gt;
+
+&lt;p&gt;http://cjenkins.wordpress.com/2013/01/01/steam-for-linux-on-optimus-enabled-computer-running-ubuntu-12-04-64bits/#install_bumblebee&lt;/p&gt;
+
+&lt;h5 id=&quot;2_glxspheres64&quot;&gt;2. 测试安装要用到glxspheres，64位系统的安装方法也比较特殊。。。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;wget http://goo.gl/L7rsGZ -O virtualgl_2.3.3_amd64.deb 
+sudo dpkg -i --force-depends virtualgl_2.3.3_amd64.deb 
+sudo apt-get -f install&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行的命令如下，也可以创建一个快捷方式到/usr/bin下，这样用起来方便一些。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/opt/VirtualGL/bin/glxspheres64&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;http://www.upubuntu.com/2013/11/how-to-check-3d-acceleration-fps-in.html&lt;/p&gt;
+
+&lt;h5 id=&quot;3_&quot;&gt;3. 安装好之后，出现了这个问题&lt;/h5&gt;
+
+&lt;p&gt;一般等这些都安好以后，安装提示，将运行Dota 2的命令改成&lt;code&gt;primusrun %command%&lt;/code&gt;，运行Dota 2，就会出现这个错误了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;PROBLEM: You appear to have OpenGL 1.4.0, but we need at least 2.0.0!&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第一次装的时候一直一位是OpenGL的问题，今天又去查了查，无意中发现了Steam文档中的一句话：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Note - Primus must be installed with 32-bit support because Steam for Linux (and most games downloaded from Steam) are 32-bit.&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;https://support.steampowered.com/kb_article.php?ref=6316-GJKC-7437&lt;/p&gt;
+
+&lt;p&gt;我意识到可能是我安装成64位Primus造成的。所以开始着手安装32位版本。Steam官方也没特别明确的提供，还得自己找。。。&lt;/p&gt;
+
+&lt;h5 id=&quot;4_linux_6432primus&quot;&gt;4. Linux 64位系统下32位Primus安装&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install primus-libs-ia32:i386&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;http://www.webupd8.org/2012/11/primus-better-performance-and-less.html&lt;/p&gt;
+
+&lt;h5 id=&quot;5_nvidia&quot;&gt;5. 查看Nvidia显卡是否启动&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;lspci |grep VGA&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;类似结果如下&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
+01:00.0 VGA compatible controller: NVIDIA Corporation GF108M [NVS 5400M] (rev ff)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;rev代表启动状态，ff为未启动。其他为已启动（其实电脑发热量大了，风扇开始响了，就代表启动了。。。）。 http://www.webupd8.org/2012/11/primus-better-performance-and-less.html&lt;/p&gt;
+
+&lt;h5 id=&quot;6_training&quot;&gt;6. 跳过Training&lt;/h5&gt;
+
+&lt;p&gt;进入Dota 2以后，还要蛋疼的强迫你Training，作为资深Dota玩家的我，果断是要跳过的啊。在Steam里面启动Dota 2的环境变量最后加上如下参数，就可以跳过了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+dota_full_ui 1&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;完整的变量如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;primusrun %command% +dota_full_ui 1&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;7_&quot;&gt;7. 游戏修改为中文界面&lt;/h5&gt;
+
+&lt;p&gt;增加启动参数，改为完美世界的&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-perfectworld -language schinese&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;完整的变量如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;primusrun %command% +dota_full_ui 1 perfectworld -language schinese&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;http://www.douban.com/group/topic/41787706/&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;最后奉上游戏截图，我最爱的Pom &lt;img src=&quot;/assets/images/post/dota2_pom.png&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>青帝使用手册</title>
+   <link href="http://mnhkahn.github.io/qingdy/2014/01/07/qingdymanual"/>
+   <updated>2014-01-07T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/qingdy/2014/01/07/qingdymanual</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/images/qingdy_logo.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;阿蒙，当你看到这个文档的时候，项目核心已经基本完成了。我从2012年7月份开始给你做，做了整整一年半，到2013年年末，网站才算初具规模，实在惭愧。这里面有我的问题，也有沟通的问题。我跟你说声抱歉。 项目一开始我定的起点很高，是完全按照易贷网的规模来进行开发的。所以项目实施起来难度很大，再加上只有我一个人在做，所以难免有不完善和疏漏的地方，尤其是展示和安全防护方面，依然存在漏洞，我会在接下来的时间里尽快完善。也希望我们能一起，将青帝网第一个版本做得很好。&lt;/p&gt;
+
+&lt;p&gt;如果在使用的时候遇到了任何问题或者Bug，你可以在下面留言，给我打电话，还可以给我发邮件（最好发邮件，这样可以发送截图，也方便我以后查看）。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Email: lichao0407@gmail.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;测试帐号如下： &lt;br /&gt;&lt;code&gt;借贷者 用户名: lender 密码: lender&lt;/code&gt; &lt;br /&gt;&lt;code&gt;放贷者 用户名: loaner 密码: loaner&lt;/code&gt; &lt;br /&gt;&lt;code&gt;管理员 用户名: admin 密码: admin&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;网站设计时已经做到了让用户0成本学习使用，所以使用应该问题不大，这里就先不写具体使用方法了，如果具体问题，可以给我留言，我来帮你补充。&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>搜狗2014校园招聘笔试题</title>
+   <link href="http://mnhkahn.github.io/collection/2013/11/23/sogou"/>
+   <updated>2013-11-23T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/11/23/sogou</id>
+   <content type="html">&lt;h5 id=&quot;1_jstlelcd&quot;&gt;1. 以下关于JSTL和EL表述正确的有：（CD）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. JSTL标签&lt;code&gt;&amp;lt;c:if&amp;gt;&lt;/code&gt;和&lt;code&gt;&amp;lt;c:when&amp;gt;&lt;/code&gt;都拥有test属性&lt;/li&gt;
+
+&lt;li&gt;B. 使用JSTL标签&lt;code&gt;&amp;lt;fmt:formatDate format=”yyyy年MM月dd日 HH点mm分ss秒”&lt;/code&gt;可以得到&lt;code&gt;”2009年01月05日22点00分23秒”&lt;/code&gt;格式的时间值&lt;/li&gt;
+
+&lt;li&gt;C. 使用EL表达式可以输出request中的值&lt;/li&gt;
+
+&lt;li&gt;D. 使用EL表达式可以输出cookie中的值 e&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;2_cafiletxt&quot;&gt;2. 一下程序执行后将有（C）个字节被写入到文件afile.txt中。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;try {
+	FileOutputStream fos = new FileOutputStream(“afile.txt”);
+	DataOutputStream dos = new DataOutputStream(fos);
+	dos.writeInt(3);
+	dos.writeChar(1);
+	dos.close();
+} catch(IOException e) {}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 3&lt;/li&gt;
+
+&lt;li&gt;B. 5&lt;/li&gt;
+
+&lt;li&gt;C. 6&lt;/li&gt;
+
+&lt;li&gt;D. 不确定，与软硬件环境有关&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;char占两个字节，int占4个。&lt;/p&gt;
+
+&lt;h5 id=&quot;3_d&quot;&gt;3. 下面哪些说法是正确的（D）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 如果引用x和引用y表示2个不同的对象，那么x.equals(y)始终为false&lt;/li&gt;
+
+&lt;li&gt;B. 如果引用x和引用y表示2个不同的对象，那么(x.hashCode()==y.hashCode())始终为false&lt;/li&gt;
+
+&lt;li&gt;C. Object的hashCode方法被声明为final&lt;/li&gt;
+
+&lt;li&gt;D. 所有数组都有一个clone()方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;4_&quot;&gt;4. 哪两个说法是正确的？（）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;class A {
+	A() {}
+} 
+class B extends A {
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. B类的构造函数应该是public&lt;/li&gt;
+
+&lt;li&gt;B. B类的构造器应该是没有参数的&lt;/li&gt;
+
+&lt;li&gt;C. B类的构造器应该调用this()&lt;/li&gt;
+
+&lt;li&gt;D. B类的构造器应该调用super()&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;5_c&quot;&gt;5. 下面代码的输出为：（C）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;String s = “hello world”;
+String s1 = “Hello world”;
+s.replace(“hello”, “Hello”);
+System.out.println((s == s1) + “,” + s.equals(s1));&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. true, true&lt;/li&gt;
+
+&lt;li&gt;B. false, true&lt;/li&gt;
+
+&lt;li&gt;C. false, false&lt;/li&gt;
+
+&lt;li&gt;D. true, false&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;String的replace不会改变String的内容，只能返回一个被修改的字符串。&lt;/p&gt;
+
+&lt;h5 id=&quot;6_collectionc&quot;&gt;6. 下面那些类，不是实现于Collection接口（C）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. TreeSet&lt;/li&gt;
+
+&lt;li&gt;B. ArrayList&lt;/li&gt;
+
+&lt;li&gt;C. HashMap&lt;/li&gt;
+
+&lt;li&gt;D. Vector&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ABD都是实现的List接口。HashMap实现Map接口。&lt;/p&gt;
+
+&lt;h5 id=&quot;7_jsp&quot;&gt;7. 下列哪些不是JSP中的隐含变量（）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. session&lt;/li&gt;
+
+&lt;li&gt;B. servletContext&lt;/li&gt;
+
+&lt;li&gt;C. config&lt;/li&gt;
+
+&lt;li&gt;D. application&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;8_java&quot;&gt;8. 以下对Java垃圾收集的描述中正确的是（）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 发生垃圾回收时，如果一个对象被垃圾收集器认定为不可达，那么它一定会被垃圾回收器回收&lt;/li&gt;
+
+&lt;li&gt;B. 一个对象的finalize()方法可能会被垃圾收集器调用多次&lt;/li&gt;
+
+&lt;li&gt;C. 发生垃圾回收时，无论回收之后的内存是否足够，都会回收掉都被SoftReference的内存&lt;/li&gt;
+
+&lt;li&gt;D. 一个对象是否被PhantomReference引用完全不会对它的生命周期造成影响&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;9_javad&quot;&gt;9. 下列Java类中，哪个类不是线程安全的（D）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. StringBuffer&lt;/li&gt;
+
+&lt;li&gt;B. Hashtable&lt;/li&gt;
+
+&lt;li&gt;C. Vector&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ABC都是线程安全的。&lt;/p&gt;
+
+&lt;h5 id=&quot;10_javac&quot;&gt;10. 下列Java程序的输出是什么？（C）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Test{
+	public static String output=””;
+	public static void test(int i) {
+		try {
+			if (i == 0) {
+				throw new Exception();
+			}
+			output += “a”;
+		} catch (Exception e) {
+			output += “b”;
+			return ;
+		} finally {
+			output += “c”;
+		}
+		output += “d”;
+	}
+	public static void main(String args[]) {
+		test(3);
+		test(0);
+		System.out.println(output);
+	}
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. adb&lt;/li&gt;
+
+&lt;li&gt;B. acbc&lt;/li&gt;
+
+&lt;li&gt;C. acdbc&lt;/li&gt;
+
+&lt;li&gt;D. acdbcd&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果try执行了，finally不论有没有Exception都会被执行，而且即使之前return了还是会执行完再return。&lt;/p&gt;
+
+&lt;h5 id=&quot;11_stringbuilder_str__new_stringbuildersogouc&quot;&gt;11. 对于变量StringBuilder str = new StringBuilder(“搜狗Sogou”)，下面描述正确的是（C）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. str.length()的值为11&lt;/li&gt;
+
+&lt;li&gt;B. str.capacity()的值为11&lt;/li&gt;
+
+&lt;li&gt;C. str.indexOf(“S”)的值为2&lt;/li&gt;
+
+&lt;li&gt;D. str.charAt(6)为g&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Java中char可以表示中文，且每个char占两个字节。该字符串长度为7个单位。catapcity是字符串长度加16，为23。S的下标为2（从0开始算）。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h5 id=&quot;&quot;&gt;搜狗大厦&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/55ff00a85e1911e3aa4d12bed4c9a5f4_8.jpg&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;_2&quot;&gt;搜狗的茶水间里等待二面&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/1b26c7605e1c11e3a53212c7eaf3a6f9_8.jpg&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;google&quot;&gt;旁边的Google中国&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/1700014a5c8e11e389ad0edc7ffa5063_8.jpg&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>中科曙光2014校园招聘笔试</title>
+   <link href="http://mnhkahn.github.io/collection/2013/11/05/sugon"/>
+   <updated>2013-11-05T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/11/05/sugon</id>
+   <content type="html">&lt;h3 id=&quot;&quot;&gt;一、单项选择题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_a&quot;&gt;1. 为了区分重载多态中同名不同方法，要求（A）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 形式参数个数或者类型不同&lt;/li&gt;
+
+&lt;li&gt;B. 返回值类型不同&lt;/li&gt;
+
+&lt;li&gt;C. 调用时用类名或对象名做前缀&lt;/li&gt;
+
+&lt;li&gt;D. 形式参数名称不同&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;2_java_b&quot;&gt;2. 给定Java代码如下，运行时， 会产生（B）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;String s = null;
+s.concat(“abc”);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. ArithmeticException&lt;/li&gt;
+
+&lt;li&gt;B. NullPointerException&lt;/li&gt;
+
+&lt;li&gt;C. IOExcepiton&lt;/li&gt;
+
+&lt;li&gt;D. EOFException&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;3_javac&quot;&gt;3. 给定如下Java代码，编译时会在（C）出现错误。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Sugon {
+    static int arr[] = new int[10];
+    public static void main(String args[]) {
+        System.out.println(arr[1]);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 编译时将产生错误&lt;/li&gt;
+
+&lt;li&gt;B. 编译时正确，运行时将产生错误&lt;/li&gt;
+
+&lt;li&gt;C. 输出零&lt;/li&gt;
+
+&lt;li&gt;D. 输出空&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;4_teacher&quot;&gt;4. 表（TEACHER）包含以下列&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;ID NUMBER(7) PK
+SALARY NUMBER(7, 2)
+SUBJECT_ID NUMBER(7)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;分别执行以下两个SQL语句：（B）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT ROUND(SUM(salary), -2) FROM teacher;
+SELECT subject_id, ROUND(SUM(salary), -2) FROM teacher GROUP BY id &lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 语句1将返回每个老师一个结果&lt;/li&gt;
+
+&lt;li&gt;B. 语句2将返回多个结果&lt;/li&gt;
+
+&lt;li&gt;C. 结果相同，显示不同&lt;/li&gt;
+
+&lt;li&gt;D. 将有一个句子产生错误&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;5_gputestjavaa&quot;&gt;5. 下面哪个是正确的类声明？假设每一段文本都作为一个名称为GPUTest.java的文件的全部内容？（A）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  public class GPUTest {
+      public int x = 0;
+      public GPUTest(int x) {
+          this.x = x;
+      }
+  } &lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;B.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  public class gpuTest {
+      public int x = 0;
+      public gpuTest(int x) {
+          this.x = x;
+      }
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;C.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  public class GPUTest extends MyBaseClass, MyOtherBaseClass {
+      public int x = 0;
+      public GPUTest(int xval) {
+          x = xval;
+      }
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;D.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  protected class GPUTest {
+      private int x = 0;
+      private GPUTest (int xval) {
+          x = xval;
+      }
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;首先说明了文件是GPUTest.java，那么，这个名称就要和该文件中public声明的类文件名相同，包括大小写，排除B。Java只有单继承，C错。class只能用public和空修饰，D错。&lt;/p&gt;
+
+&lt;h5 id=&quot;6_10005b&quot;&gt;6. 如果只想得到1000个元素组成的序列中第5个元素之前的部分排列的序列（B）方法最快。&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 冒泡排序&lt;/li&gt;
+
+&lt;li&gt;B. 快速排序&lt;/li&gt;
+
+&lt;li&gt;C. Shell排序&lt;/li&gt;
+
+&lt;li&gt;D. 对排序&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;7javaa&quot;&gt;7.在Java中下列关于自动类型转换的说法正确的是（A）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 基本类型和String类型相加结果一定是字符串类型&lt;/li&gt;
+
+&lt;li&gt;B. char类型和int类型相加结果一定是字符&lt;/li&gt;
+
+&lt;li&gt;C. double类型可以自动转换为int&lt;/li&gt;
+
+&lt;li&gt;D. &lt;code&gt;char + int + double + “”&lt;/code&gt;的结果一定是double&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;8_threadc&quot;&gt;8. 以下不属于Thread类提供的线程控制方法是（C）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. sleep()&lt;/li&gt;
+
+&lt;li&gt;B. interrupted&lt;/li&gt;
+
+&lt;li&gt;C. init()&lt;/li&gt;
+
+&lt;li&gt;D. yield()&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;9_plsqlexampleb&quot;&gt;9. 执行下面PL/SQL代码块，被插入到表EXAMPLE中的行数为（B）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;BEGIN
+FOR i IN 1..6 LOOP
+IF i=2 OR i=3 THEN null;
+ELSE
+INSERT INTO example(one) VALUES(i);
+END IF;
+ROLLBACK;
+END LOOP;
+COMMIT;
+END;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 0&lt;/li&gt;
+
+&lt;li&gt;B. 1&lt;/li&gt;
+
+&lt;li&gt;C. 2&lt;/li&gt;
+
+&lt;li&gt;D. 3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;_2&quot;&gt;二、填空题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_&quot;&gt;1. 类变量在类中声明，而不是在类的某个方法中声明，它的作用域是（整个当前类）。&lt;/h5&gt;
+
+&lt;h5 id=&quot;2_url&quot;&gt;2. 一个完整的URL地址由（协议类型）、（主机地址）、端口和文件四部分组成。&lt;/h5&gt;
+
+&lt;h5 id=&quot;3_java4&quot;&gt;3. Java中线程4个状态，初始状态、运行状态、阻塞状态、阻塞状态。&lt;/h5&gt;
+
+&lt;h5 id=&quot;4_4foobasketball&quot;&gt;4. 如下第4行执行后foo的值是（basketball）。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;String foo = “base”;
+foo.substring(0, 3);
+foo.concat(“ket”);
+foo += “ball”;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;5_throwableerrorexception&quot;&gt;5. Throwable类有两个字类：（Error）类和（Exception）类。&lt;/h5&gt;
+
+&lt;h5 id=&quot;6_thread_t_new_threadrr_instanceof_threadfalse&quot;&gt;6. 用Thread t new Thread(r)创建一个新的线程的时候，表达式r instanceof Thread的值是（false）。&lt;/h5&gt;
+
+&lt;h5 id=&quot;7_2_ce&quot;&gt;7. 下面选项中有2个可以放在程序中间没有任何问题，请选出 来（CE）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. private synchronized Object o;&lt;/li&gt;
+
+&lt;li&gt;B. void go() {synchronized() {}}&lt;/li&gt;
+
+&lt;li&gt;C. public synchronized void go() {}&lt;/li&gt;
+
+&lt;li&gt;D. private synchronized(this) void go() {}&lt;/li&gt;
+
+&lt;li&gt;E. void go() {synchronized(Object.class){}}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;synchronized 不能用来修饰成员变量，A错。如果用来修饰代码块，并且要指出修饰的对象时，不能为空，B错。synchronized修饰函数时不需要(this)。C正确，用来修饰函数，并且同步的是this对象。E正确，class literals synchronize，同步类的所有实例。&lt;/p&gt;
+
+&lt;h3 id=&quot;_3&quot;&gt;三、简答题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_sleepwait&quot;&gt;1. sleep()和wait()的区别和联系？&lt;/h5&gt;
+
+&lt;p&gt;sleep()不会将线程控制权交出去，线程会暂停指定时间。wait()会交出去，然后处于就绪状态。&lt;/p&gt;
+
+&lt;h5 id=&quot;2_&quot;&gt;2. 你认为在表上建立索引可以提高数据库系统的效率吗？为什么？&lt;/h5&gt;
+
+&lt;p&gt;不一定。建立太多的索引将会影响更新和插入的速度，因为插入和更新之后还需要更新每个索引文件。对于一个经常需要更新和插入的表格，就没有必要为一个很少使用的where子句单独建立索引了，对于比较小的表，排序的开销不会很大，也没有必要建立另外的索引。&lt;/p&gt;
+
+&lt;h5 id=&quot;3_synchronizedjavautilconcurrentlockslock&quot;&gt;3. 简述synchronized和java.util.concurrent.locks.Lock的异同？&lt;/h5&gt;
+
+&lt;p&gt;Lock有比Synchronized更精确的线程域城予以和更好的性能。Synchronized会自动释放锁，但是Lock一定要求程序员手工释放，并且必须在finally从句中释放。&lt;/p&gt;
+
+&lt;h3 id=&quot;_4&quot;&gt;四、代码题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_java&quot;&gt;1. 有一对猫咪，一公一母，从出生后第三年起每年都生一对小猫（假设一公一母），孩子长到第三年后每个月又生一对猫，假如猫都不死，问每年的猫总对数为多少？请使用Java语言编写一个获取每年猫对数的程序方法。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;int func(int year) {
+    if (year &amp;gt; 0 &amp;amp;&amp;amp; year &amp;lt;= 2) {
+        return 2;
+    }
+    return func(year - 1) + func(year - 2);
+}&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>方正国际2014校园招聘笔试</title>
+   <link href="http://mnhkahn.github.io/collection/2013/10/30/founder"/>
+   <updated>2013-10-30T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/10/30/founder</id>
+   <content type="html">&lt;h3 id=&quot;&quot;&gt;一、选择题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_d&quot;&gt;1. 下列表达式正确时（D）？&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. &lt;code&gt;byte b = 128;&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;B. &lt;code&gt;boolean flag = null;&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;C. &lt;code&gt;double f = 0.92395917;&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;D. &lt;code&gt;long a = 9223372036854775808L;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;byte范围是-128~127，boolean只有true和false两个值，long范围是-9223372036854775808L~9223372036854775807L，占8个字节。&lt;/p&gt;
+
+&lt;h5 id=&quot;2_c&quot;&gt;2. 下列正确的说法有：（C）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 声明抽象方法，大括号必须有。&lt;/li&gt;
+
+&lt;li&gt;B. 抽象类不能有static方法。&lt;/li&gt;
+
+&lt;li&gt;C. 抽象类除了有抽象方法外，还可以有普通方法。&lt;/li&gt;
+
+&lt;li&gt;D. static方法可以访问类的所有属性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;抽象方法如果有大括号，则表明有实现部分，错误。含有抽象方法的类叫做抽象类，所以可以有普通方法和static方法。static方法可以访问类的静态属性，非静态属性是在创建类的对象时才会初始化，所以没有实例化的对象属性不能被访问。&lt;/p&gt;
+
+&lt;h5 id=&quot;3_javab&quot;&gt;3. 下列不属于Java标示符的事（B）：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. &lt;code&gt;_HelloWorld&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;B. &lt;code&gt;3HelloWorld&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;C. &lt;code&gt;$HelloWorld&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;D. &lt;code&gt;HelloWorld&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;不光是Java，还包括C语言，标示符都不能以数字开头。 &lt;br /&gt;http://www.zhihu.com/question/20150792&lt;/p&gt;
+
+&lt;h5 id=&quot;4_javabc&quot;&gt;4. 属于Java语言中基本数据类型的事（BC）：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. var&lt;/li&gt;
+
+&lt;li&gt;B. char&lt;/li&gt;
+
+&lt;li&gt;C. long&lt;/li&gt;
+
+&lt;li&gt;D. String&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;String属于java.lang包。&lt;/p&gt;
+
+&lt;h5 id=&quot;5_c&quot;&gt;5. 下列代码运行结果是（C）：&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;int x = 0;
+int i = 1;
+do {
+    if ((i % 5) == 0) {
+        i++;
+        continue;
+    }
+    x += ++i;
+} while (x &amp;lt; 100);
+System.out.println(&amp;quot;x=&amp;quot; + x)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. x=10&lt;/li&gt;
+
+&lt;li&gt;B. x=101&lt;/li&gt;
+
+&lt;li&gt;C. x=102&lt;/li&gt;
+
+&lt;li&gt;D. x=103&lt;/li&gt;
+
+&lt;li&gt;E. x=104&lt;/li&gt;
+
+&lt;li&gt;F. x=105&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;6_c&quot;&gt;6. 下列代码运行结果是（C）：&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Parent{
+    public int x;
+    public int y;
+    public Parent(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    public void increaseX(int x) {
+        this.x = getX() + x;
+    }
+    public int getX() {
+        return x;
+    }
+    public void increaseY(int y) {
+        this.y = getY() + y;
+    }
+    public int getY() {
+        return y;
+    }
+}
+public class Child extends Parent {
+    private int x;
+    private int y;
+    public Child(int x, int y) {
+        super(x, y);
+        this.y = y + 250;
+        this.x = x + 150;
+    }
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
+}
+Child child = new new Child(50, 50);
+child.increaseX(100);
+child.increaseY(100);
+System.out.println(&amp;quot;x=&amp;quot; + child.getX() + &amp;quot; and y=&amp;quot; + child.getY());&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. x=200 and y=200&lt;/li&gt;
+
+&lt;li&gt;B. x=250 and y=350&lt;/li&gt;
+
+&lt;li&gt;C. x=200 and y=300&lt;/li&gt;
+
+&lt;li&gt;D. 编译错误&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;重写具体又可以分为隐藏和覆盖，父类实例变量和静态变量能被子类同名变量隐藏，父类静态方法被子类同名静态方法隐藏，父类实例方法被子类同名实例方法覆盖。被隐藏的变量和方法是存在的，可以通过该类实例去访问。此题Child继承Parent，Child类中重写了变量x、y，方法getX()、getY()。所以，Parent的变量x和y会被隐藏，getX()和getY()会被覆盖，increaseX()和increaseY()会被子类继承。此题还要考虑子类和父类构造函数的调用顺序。&lt;/p&gt;
+
+&lt;p&gt;Child child = new new Child(50, 50);此行之行时，会先调用父类的super(x, y)，父类的x和y被修改，接着初始化Child的x和y为0。然后，执行this.y = y + 250;this.x = x + 150;修改子类的x和y，此时，child的x和y是200和300。后来的child.increaseX(100);child.increaseY(100);方法都是使用的父类的函数，修改的也是父类的x和y，对于child的不影响。所以结果是C。&lt;/p&gt;
+
+&lt;h5 id=&quot;7_aac&quot;&gt;7. 下列选项可以在A的子类中使用的是（AC）：&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;class A {
+    protected int method(int a, int b) {
+        return 0;
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. public int method(int a, int b) {return 0;}&lt;/li&gt;
+
+&lt;li&gt;B. private int method(int a, int b) {return 0;}&lt;/li&gt;
+
+&lt;li&gt;C. private int method(int a, short b) {return a + b;}&lt;/li&gt;
+
+&lt;li&gt;D. public short method(int a, short b) {return a + b;}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A为重写。B为重写，重写的方法不能比原方法有更低的访问权限。C参数表不同，为重载，对于访问修饰符没有要求。D的参数表不同，为重写，但是int a和short b相加，得到的是int，题目中没有进行类型转换，错误。&lt;/p&gt;
+
+&lt;h5 id=&quot;8_c&quot;&gt;8. 关于以下代码说明正确的是（C）：&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;class StaticTest {
+    public static int x = 1;
+    public void increaseX(int increasement) {
+        x += increasement;
+    }
+    public StaticTest(int original) {
+        increaseX(original);
+        if (x &amp;gt; 10) {
+            x = 1;
+        }
+    }
+}
+StaticTest obj1 = new StaticTest(5);
+obj1.increaseX(2);
+StaticTest obj2 = new StaticTest(3);
+obj2.x += 4;
+StaticTest obj3 = new StaticTest(1);
+StaticTest.x += 3;
+System.out.println(&amp;quot;x=&amp;quot; + obj1.x);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 第5行不能编译通过，因为引用了私有静态变量&lt;/li&gt;
+
+&lt;li&gt;B. 第17行不能编译通过，因为x是私有静态变量&lt;/li&gt;
+
+&lt;li&gt;C. 能编译通过，结果为9&lt;/li&gt;
+
+&lt;li&gt;D. 能编译通过，结果为8&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;x为static变量，被所有对象所共享。StaticTest obj1 = new StaticTest(5);x加5变为6。obj1.increaseX(2);x加2成为8。StaticTest obj2 = new StaticTest(3);x加3成为11，大于10，重新赋为1。obj2.x += 4;加4成为5。StaticTest obj3 = new StaticTest(1);加1成为6。StaticTest.x += 3;加3成为9。&lt;/p&gt;
+
+&lt;h5 id=&quot;9_jdbc&quot;&gt;9. 下列选项中不属于JDBC基本功能的是：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 与数据库建立连接&lt;/li&gt;
+
+&lt;li&gt;B. 提交sql语句&lt;/li&gt;
+
+&lt;li&gt;C. 处理查询结果&lt;/li&gt;
+
+&lt;li&gt;D. 执行Oracle存储过程&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;10_pagejsp&quot;&gt;10. Page指令用于定义JSP文件中的全局属性，下列关于该指令用法的描述不正确的是：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. &amp;lt;%@ page %&amp;gt;作用于整个JSP页面&lt;/li&gt;
+
+&lt;li&gt;B. 可以在一个页面中使用多个&amp;lt;%@ page %&amp;gt;指令&lt;/li&gt;
+
+&lt;li&gt;C. 为增强程序的可读性，建议将&amp;lt;%@ page %&amp;gt;指令放在JSP文件的开头，但不是必须的&lt;/li&gt;
+
+&lt;li&gt;D. &amp;lt;%@ page %&amp;gt;指令中的属性只能出现一次&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;11_jquerya&quot;&gt;11. 关于jQuery，是由哪些语言编写的（A）：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. JavaScript&lt;/li&gt;
+
+&lt;li&gt;B. HTML&lt;/li&gt;
+
+&lt;li&gt;C. Java&lt;/li&gt;
+
+&lt;li&gt;D. CSS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;12_cssabd&quot;&gt;12. 在CSS样式中以下哪些选项属于选择符的分类（ABD）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. HTML选择符&lt;/li&gt;
+
+&lt;li&gt;B. Class选择符&lt;/li&gt;
+
+&lt;li&gt;C. #选择符&lt;/li&gt;
+
+&lt;li&gt;D. ID选择符&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;此外，还包括通用元素选择符&lt;code&gt;*&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;_2&quot;&gt;二、填空题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_javalong8long&quot;&gt;1. Java的基本数据类型中，long类型占用（8）字节空间。对long类型的赋值（不是）线程安全的。&lt;/h5&gt;
+
+&lt;p&gt;32位或更少位数是原子性的，按32位为基本操作单位。所以Java中long和double不是原子性的。需要使用volatile保证原子性。&lt;/p&gt;
+
+&lt;h5 id=&quot;2_java&quot;&gt;2. 请写出Java语言的三个访问权限修饰符，并作简单说明：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;private：当前类访问权限，只能被当前类的实例自己内部调用。&lt;/li&gt;
+
+&lt;li&gt;protected：继承类修饰，能被子类访问。&lt;/li&gt;
+
+&lt;li&gt;friendly：包访问权限。&lt;/li&gt;
+
+&lt;li&gt;public：全局访问。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;3_hello_world&quot;&gt;3. 请写出一下代码段的输出结果：（Hello world）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;StringBuilder word = new StringBuilder(&amp;quot;Hello&amp;quot;);
+getWho(word);
+System.out.println(word.toString());
+public static void getWho(StringBuilder word) {
+    word = word.append(&amp;quot; word&amp;quot;);
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;StringBuilder的内容是可以更改的。&lt;/p&gt;
+
+&lt;h5 id=&quot;4_5struts2struts223result_typedispatcherredirectchainfreemarker&quot;&gt;4. 请填空列举5个您所知道的struts2（struts-2.2.3之前版本）的Result Type：（dispatcher、redirect、chain、freemarker）。&lt;/h5&gt;
+
+&lt;h5 id=&quot;5_jaxbjava_architecture_for_xml_bindingxml_schemajavajdkannotationxmlxmlrootelementannotationjavaxmlxmlelementannotationjavaxmlxmlattributeannotationjavaxmlxmlaccessorderannotationxml&quot;&gt;5. JAXB（Java Architecture for XML Binding）是一个业界的标准，是一项可以根据XML Schema产生Java类的技术。它通过JDK的Annotation在类元素与XML元素之间进行映射。其中，（@XmlRootElement）Annotation用来将Java类型或枚举类型映射到XML元素，（@XmlElement）Annotation用来将Java类的一个属性映射到与属性同名的一个XML元素，（@XmlAttribute）Annotation用来将Java类的一个属性映射到与属性同名的一个XML属性。它通过（@XmlAccessOrder）Annotation来定类属性对应元素在XML节点中的前后顺序关系。&lt;/h5&gt;
+
+&lt;h5 id=&quot;6_ecmascript5undefinedbooleannumberstringobject_javascripttypeof&quot;&gt;6. ECMAScript的5种原始类型是：（undefined、boolean、number、string、object）。 JavaScript的typeof运算符用来判断一个值是否在某种类型的范围内。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;var s1;
+var s2 = null;
+var type1 = (typeof s1);
+var type2 = (typeof s2);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;变量type1和type2分别指向（undefined）类型和（object）类型。&lt;/p&gt;
+
+&lt;h5 id=&quot;7_3hibernate&quot;&gt;7. 请写出3个Hibernate的数据查询方式以及它们的使用场景：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;query接口&lt;/li&gt;
+
+&lt;li&gt;Criteria接口&lt;/li&gt;
+
+&lt;li&gt;SQLQuery接口&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;_3&quot;&gt;三、简答题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_javastringstringbufferstringbuilder&quot;&gt;1. Java中String、StringBuffer、StringBuilder中之间的区别是什么？&lt;/h5&gt;
+
+&lt;p&gt;String是final类，不允许继承。内部使用final数组实现，一经初始化，不能够再修改。如果要修改一个String对象，只能重新创建一个新的String并使其引用这个对象。StringBuffer和StringBuilder是可变的String。通过封装String实现。其中StringBuilder是Java 5.0之后的较新版本，且不支持多线程。&lt;/p&gt;
+
+&lt;h5 id=&quot;2_java_2&quot;&gt;2. Java中为什么需要同步？列出你所知道的几种同步方法。&lt;/h5&gt;
+
+&lt;p&gt;在多线程环境下，多个线程会并发访问共享的一个内存地址空间。由于多线程切换的不确定性，运行不能保证每次都按相同的顺序执行，所以就要保证这样运行的情况下与单线程执行的结果是一致的。Java可以使用sychronized关键字同步代码块或者函数，volatile关键字保证long和double类型的原子性操作，wait()和notify()方法保证同步执行。&lt;/p&gt;
+
+&lt;h5 id=&quot;3_webwebmemcachdweb&quot;&gt;3. 无论系统规模有多大，Web缓存都有助于优化性能和节省带宽。Web缓存主要有哪两种方式？我们常见的MemcachD属于哪一种方式？它能提高系统性能的原因是什么？如果我们要自行设计一个Web缓存系统，需要关注哪些方面？&lt;/h5&gt;
+
+&lt;p&gt;Web缓存主要包括文件缓存和分布式缓存。MemcacheD是分布式缓存。MemcacheD使用物理内存作为缓存区，还使用了高校的基于key和value的hash算法来设计存储数据结构。淘汰机制基于LRU算法，所以提高了系统性能。&lt;/p&gt;
+
+&lt;h3 id=&quot;_4&quot;&gt;四、编程题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_javainsertremovefindbinarysearchtree&quot;&gt;1. 请使用Java语言定义一个具备insert、remove、find功能的二叉查找树BinarySearchTree摸板类，实现以下接口：&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;interface BinarySearchTree&amp;lt;T&amp;gt; {
+    void add(T value);
+    void remove();
+    T find(T value);
+    int size();
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;为了实现对象之间的比较，在BinarySearchTree类的构造方法中，会传入一个&lt;code&gt;Comparable&amp;lt;T&amp;gt;&lt;/code&gt;;的接口实例。&lt;code&gt;Comparable&amp;lt;T&amp;gt;&lt;/code&gt;的接口定义如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;interface Comparable&amp;lt;T&amp;gt; {
+    public int compareTo(T o1, T o2);
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当o1小于o2时，compareTo方法返回-1，如果o1等于o2，compareTo放回0。如果o1大于o2，compareTo方法返回-1。 在实现BinarySearchTree类时，不需要考虑实现Comparable方法。可以假定调用者会主动传参。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Value implements Comparable &amp;lt;Value&amp;gt;{
+    private int value;
+    
+    public Value(int value) {
+        this.value = value;
+    }
+    
+    public int compareTo(Value v) {
+        return this.value - v.value;  
+    }  
+}
+public class BinarySearchTree&amp;lt;T extends Comparable&amp;lt;? super T&amp;gt;&amp;gt; {
+    private static class BinaryNode&amp;lt;T&amp;gt; {
+        BinaryNode(T element) {
+            this(element, null, null);
+        }
+        BinaryNode(T element, BinaryNode&amp;lt;T&amp;gt; left, BinaryNode&amp;lt;T&amp;gt; right) {
+            this.element = element;
+            this.left = left;
+            this.right = right;
+        }
+        T element;
+        BinaryNode&amp;lt;T&amp;gt; left;
+        BinaryNode&amp;lt;T&amp;gt; right;
+    }
+    
+    private BinaryNode&amp;lt;T&amp;gt; root;
+    private int count;
+    
+    public BinarySearchTree() {
+        root = null;
+        count = 0;
+    }
+    public void add(T value) {
+        add(value, root);
+    }
+    public BinaryNode&amp;lt;T&amp;gt; add(T value, BinaryNode&amp;lt;T&amp;gt; t) {
+        if (t == null) {
+            count++;
+            return new BinaryNode&amp;lt;T&amp;gt;(value) ;
+        }
+        
+        int compareResult = value.compareTo(this.root.element);
+        if (compareResult &amp;gt; 0) {
+            t.right = add(value, t.right);
+        }
+        else if (compareResult &amp;lt; 0) {
+            t.left = add(value, t.left);
+        }
+        return t;
+    }
+    public void remove(T value) {
+        remove(value, root);
+        count--;
+    }
+    public BinaryNode&amp;lt;T&amp;gt; remove(T value, BinaryNode&amp;lt;T&amp;gt; t) {
+        if (t == null) {
+            return t;
+        }
+        
+        int compareResult = value.compareTo(this.root.element);
+        if (compareResult &amp;gt; 0) {
+            t.right = remove(value, t.right);
+        }
+        else if (compareResult &amp;lt; 0) {
+            t.left = remove(value, t.left);
+        }
+        else if (t.left != null &amp;amp;&amp;amp; t.right != null) {
+            t.element = findMin(t.right).element;
+            remove(t.element, t.right);
+        }
+        else {
+            t = (t.right != null) ? t.left : t.right;
+            count--;
+        }
+        return t;
+    }
+    public boolean find(T value) {
+        return find(value, root);
+    }
+    public boolean find(T value, BinaryNode&amp;lt;T&amp;gt; t) {
+        if (t == null)
+            return false;
+        
+        int compareResult = value.compareTo(this.root.element);
+        if (compareResult &amp;gt; 0) {
+            return find(value, this.root.right);
+        }
+        else if (compareResult &amp;lt; 0) {
+            return find(value, this.root.left);
+        }
+        else {
+            return true;
+        }
+    }
+    public BinaryNode&amp;lt;T&amp;gt; findMin(BinaryNode&amp;lt;T&amp;gt; t) {
+        if (t == null) {
+            return null;
+        }
+        if (t.left == null) {
+            return t;
+        }
+        return findMin(t.left);
+    }
+    public int size() {
+        return count;
+    }
+    
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;2_int_a_b1&quot;&gt;2. 有两个数组int a[], b[]。这两个数组都已经被进行了数据初始化，数据都不重复，且都没有排序。请设计一种算法，利用【问题1】实现的接口，将这两个数组合并，同时合并后的数据也要保证都是按照数值从小到大排列。同时请分析算法中元素之间比较的复杂度。&lt;/h5&gt;
+
+&lt;p&gt;用两个数组创建一颗二叉查找树即可。比较的复杂度是O(logn)。&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>神州航天软件2014校园招聘笔试</title>
+   <link href="http://mnhkahn.github.io/collection/2013/10/25/bsast"/>
+   <updated>2013-10-25T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/10/25/bsast</id>
+   <content type="html">&lt;h5 id=&quot;1_string_s__new_stringxyzstring_object&quot;&gt;1. String s = new String(“xyz”);创建了几个String Object？&lt;/h5&gt;
+
+&lt;p&gt;创建了一个String Object。涉及到两个String Object，一个是字符串字面量”xyz”所对应的、驻留（intern）在一个全局共享的字符串常量池中的实例，另一个是通过new String(String)创建并初始化的、内容与”xyz”相同的实例。&lt;/p&gt;
+
+&lt;h5 id=&quot;2_&quot;&gt;2. 有如下定义：&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;String str = new String(&amp;quot;hello world&amp;quot;);
+String[] arr = {&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;};&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;请写出如何获取str和arr的长度？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;str.length();
+arr.length;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;3_&quot;&gt;3. 你所知道的集合类有哪些？主要方法？&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/post/java_collection.png&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt; ArrayList、LinkedList、Vector、HashMap、HashSet。主要有size()、add()、insert()、remove()、get()、set()、put()。&lt;/p&gt;
+
+&lt;h5 id=&quot;4_&quot;&gt;4. 运行时异常与一般异常有何异同？&lt;/h5&gt;
+
+&lt;p&gt;Java提供了两类主要的异常:runtime exception和checked exception。checked 异常也就是我们经常遇到的IO异常，以及SQL异常都是这种异常。对于这种异常，JAVA编译器强制要求我们必需对出现的这些异常进行catch。所以，面对这种异常不管我们是否愿意，只能自己去写一大堆catch块去处理可能的异常。 但是另外一种异常：runtime exception，也称运行时异常，我们可以不处理。当出现这样的异常时，总是由虚拟机接管。比如：我们从来没有人去处理过NullPointerException异常，它就是运行时异常，并且这种异常还是最常见的异常之一。&lt;/p&gt;
+
+&lt;h5 id=&quot;5_errorexception&quot;&gt;5. error和exception有什么区别？&lt;/h5&gt;
+
+&lt;p&gt;都继承自Throwable。Error指出现了错误，且不能恢复，只能在系统级处理。Exception是指出现了异常，有可能能处理，可以在应用程序级处理。&lt;/p&gt;
+
+&lt;h5 id=&quot;6_&quot;&gt;6. 下列异常的含义，并举出合适会产生该异常（异常出现的场景）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;NullPointerException; 空指针异常，访问指向null的对象的操作或方法。&lt;/li&gt;
+
+&lt;li&gt;IndexOutOfBoundsException; 下标溢出异常，访问的下标超过了范围。&lt;/li&gt;
+
+&lt;li&gt;NoSuchElementException; 使用nextElement()访问枚举类型时。&lt;/li&gt;
+
+&lt;li&gt;ClassCastException; 类型转换异常，将父类强制转换为子类时会发生。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;7_jsp&quot;&gt;7. JSP中的静态包含和动态包含有什么区别？&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;静态包含：&lt;code&gt;&amp;lt;%@ include file=&amp;quot;被包含文件&amp;quot; %&amp;gt;&lt;/code&gt;；&lt;/li&gt;
+
+&lt;li&gt;动态包含：&lt;code&gt;&amp;lt;jsp:include page=&amp;quot;被包含文件&amp;quot; /&amp;gt;&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;8_jsprequestresponsesession&quot;&gt;8. 在JSP中，Request、Response、Session都有什么功能？什么情况下使用？&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Request代表客户端的请求信息，用于接受通过HTTP协议传送到服务器的数据。作用域为一次请求。&lt;/li&gt;
+
+&lt;li&gt;Response代表服务器对客户端的相应，只在JSP页面内有效。&lt;/li&gt;
+
+&lt;li&gt;Session是指用户打开浏览器连接到服务器，到关闭浏览器离开服务器这段时间，是一个会话。无论用户打开多少个网页，服务器都能知道这是同一个用户。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;9_&quot;&gt;9. 写出单件模式。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Singleton {
+    private static volatile Singleton INSTANCE = null;
+
+    public Singleton() {
+
+    }
+
+    public static Singleton getInstance() {
+        if (INSTANCE == null) {
+            synchronized (Singleton.class) {
+                if (INSTANCE == null) {
+                    return new Singleton();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+}&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>乐视2014校园招聘笔试</title>
+   <link href="http://mnhkahn.github.io/collection/2013/10/24/letv"/>
+   <updated>2013-10-24T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/10/24/letv</id>
+   <content type="html">&lt;h3 id=&quot;&quot;&gt;试题一&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_&quot;&gt;1. 程序，进程，线程的区别？进程的通信方式有哪些？&lt;/h5&gt;
+
+&lt;p&gt;程序是用你适当形式描述的算法，是存储在硬盘上的静态的文件。 进程是某种类型的一个活动，是动态的，它有程序、输入、输出以及状态，如果一个程序运行了两次，算过两个进程。 线程是轻量级进程，进程间可以共享地址空间，可以更容易创建和撤销，如果存在大量计算和大量I/O处理，多线程可以使这些过程重叠进行，加快应用程序执行速度。&lt;/p&gt;
+
+&lt;h5 id=&quot;2_&quot;&gt;2. 删除一个单项链表的最中间的元素，要求时间尽可能短（代码和思路）。&lt;/h5&gt;
+
+&lt;h5 id=&quot;3_on12310472531047218&quot;&gt;3. 输入一个整形数组，数组有正数也有负数数组中连续的一个或多个整数组组成一个子数组，每个子数组都有一个和。求所有子数组的和的最大值。要求时间复杂度为O(n)。例如输入的数组为1，-2，3，10，-4，7，2，-5，和最大的子数组为3，10，-4，7，2，因此输出为该子数组的和18。&lt;/h5&gt;
+&lt;hr /&gt;
+&lt;h3 id=&quot;_2&quot;&gt;试题二&lt;/h3&gt;
+
+&lt;h5 id=&quot;1__2&quot;&gt;1. 什么是死锁？产生的原因是什么？必要条件是什么？如何预防和解除？&lt;/h5&gt;
+
+&lt;p&gt;如果一个进程集合中的每个进程都在等待只能由该进程集合中的其他进程才能引发的事件，那么，该进程集合就是死锁的。&lt;/p&gt;
+
+&lt;h6 id=&quot;_3&quot;&gt;四个必要条件：&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;互斥条件。资源每次只能被一个进程访问。&lt;/li&gt;
+
+&lt;li&gt;占有和等待条件。已经得到某个资源的进程还可以再请求新资源。&lt;/li&gt;
+
+&lt;li&gt;不可抢占条件。已经分配给一个进程的资源不能被强制地抢占。&lt;/li&gt;
+
+&lt;li&gt;环路等待条件。每个进程都在等待着下一个进程所占有的资源。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&quot;_4&quot;&gt;死锁的预防：&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;互斥。一切都使用假脱机技术。&lt;/li&gt;
+
+&lt;li&gt;占有和等待。在开始就请求全部资源。&lt;/li&gt;
+
+&lt;li&gt;不可抢占。抢占资源。&lt;/li&gt;
+
+&lt;li&gt;环路等待。对资源按序编号。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;2_n&quot;&gt;2. 假设有一个单向链表，请输出该链表中倒数第n个节点。&lt;/h5&gt;
+
+&lt;h5 id=&quot;3_an1nono1&quot;&gt;3. 给定数组A，大小为n，数组元素为1到n的数字，不过有的数字出现了多次，有的数字没有出现。请给出算法和程序，统计哪些数字没有出现，哪些数字出现了多少次。能够在O(n)的时间复杂度，O(1)的空间复杂度要求下完成么？&lt;/h5&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>趣游2014校园招聘笔试</title>
+   <link href="http://mnhkahn.github.io/collection/2013/10/24/gamewave"/>
+   <updated>2013-10-24T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/10/24/gamewave</id>
+   <content type="html">&lt;h3 id=&quot;&quot;&gt;一、概念题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_&quot;&gt;1. 引用和指针的区别？&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;int a = 1;
+int&amp;amp; b = a;
+cout &amp;lt;&amp;lt; &amp;amp;a &amp;lt;&amp;lt; endl;
+cout &amp;lt;&amp;lt; &amp;amp;b &amp;lt;&amp;lt; endl; // same address&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;引用访问一个变量是直接访问，而指针是间接访问。&lt;/li&gt;
+
+&lt;li&gt;引用是一个变量的别名，本身不单独分配自己的内存空间，而指针有自己的内存空间。 + 不存在空引用，引用必须初始化。&lt;/li&gt;
+
+&lt;li&gt;引用在开始的时候就绑定到了一个内存空间(开始必须赋初值)，所以他只能是这个内存空间的名字，而不能改成其他的，当然可以改变这个内存空间的值。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;2_new_deletemalloc_free&quot;&gt;2. new delete与malloc free的联系与区别？&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;malloc/free是C/C++语言的标准库函数，new/delete是C++的运算符。&lt;/li&gt;
+
+&lt;li&gt;maloc/free 无法满足动态对象的要求。对象在创建的同时要自动执行构造函数， 对象消亡之前要自动执行析构函数。&lt;/li&gt;
+
+&lt;li&gt;new 内置了sizeof、类型转换和类型安全检查功能。&lt;/li&gt;
+
+&lt;li&gt;在用delete 释放对象数组时，留意不要丢了符号‘[]’。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;3_structclass&quot;&gt;3. struct和class的联系和区别？&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;struct Shape {
+    int id;
+
+    Shape() {
+        cout &amp;lt;&amp;lt; &amp;quot;Constructor of Shape&amp;quot; &amp;lt;&amp;lt; endl;
+    }
+
+    ~Shape() {
+        cout &amp;lt;&amp;lt; &amp;quot;Destructor of Shape&amp;quot; &amp;lt;&amp;lt; endl;
+    }
+};
+
+struct Circle : Shape {
+
+    Circle() {
+        cout &amp;lt;&amp;lt; &amp;quot;Constructor of Circle&amp;quot; &amp;lt;&amp;lt; endl;
+    }
+
+    ~Circle() {
+        cout &amp;lt;&amp;lt; &amp;quot;Destructor of Circle&amp;quot; &amp;lt;&amp;lt; endl;
+    }
+};&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;访问权限不同。struct 的默认访问权限是public，class 的默认访问权限是private。如果一个类中只有get/set函数，而没有其他处理数据的函数，使用struct就可以了。&lt;/li&gt;
+
+&lt;li&gt;struct默认是public继承，class默认是private继承。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;4_&quot;&gt;4. 什么是面向对象，描述它的基本特征。&lt;/h5&gt;
+
+&lt;p&gt;封装、继承、多态。&lt;/p&gt;
+
+&lt;h5 id=&quot;5_overloadoverride&quot;&gt;5. 重载（overload）和重写（override）的区别？&lt;/h5&gt;
+
+&lt;h5 id=&quot;6_&quot;&gt;6. “线程安全”的含义。&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;程序中的每一条语句都是原子操作，则是线程安全的。&lt;/li&gt;
+
+&lt;li&gt;实例变量是在堆中分配的,并不被属于该实例的所有线程共享，只有一个线程独享，是线程安全的。&lt;/li&gt;
+
+&lt;li&gt;局部变量在堆栈中分配,因为每个线程都有它自己的堆栈空间,所以是线程安全的.&lt;/li&gt;
+
+&lt;li&gt;静态类不用被实例化,就可直接使用,也不是线程安全的.&lt;/li&gt;
+
+&lt;li&gt;单线程方式是线程安全的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;7_c_socketcs&quot;&gt;7. 用c socket函数描述C/S架构的程序，两端网络连接建立过程。&lt;/h5&gt;
+
+&lt;h3 id=&quot;_2&quot;&gt;二、程序编写题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_nmstrlen&quot;&gt;1. 写一个在一个字符串（n）中寻找一个子串（m）第一个位置的函数（不能用strlen）。&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;请描述你解决这个问题的思路；&lt;/li&gt;
+
+&lt;li&gt;请给出函数代码，以及算法的复杂度。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;2_&quot;&gt;2. 链表题：一个链表的节点结构&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;struct Node
+{
+    int data;
+    Node* next;
+};&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a. 已知链表的头结点head，写一个函数把这个链表逆序。&lt;/li&gt;
+
+&lt;li&gt;b. 已知两个链表head1和head2各自有序，请把它们合并成一个链表依然有序（保留所有结点，即便大小相同）。&lt;/li&gt;
+
+&lt;li&gt;c. 已知两个链表head1和head2各自有序，请把它们合并成一个链表依然有序，这次要用递归的方法。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;3_&quot;&gt;3. 用数组来实现一个栈，并用面向对象的方法进行封装。&lt;/h5&gt;
+
+&lt;h3 id=&quot;_3&quot;&gt;三、附加题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1__2&quot;&gt;1. 两个数相乘，位数没有限制，请写一个程序接受键盘输入并输出结果。&lt;/h5&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>巨人网络2014校园招聘笔试</title>
+   <link href="http://mnhkahn.github.io/collection/2013/10/21/giant"/>
+   <updated>2013-10-21T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/10/21/giant</id>
+   <content type="html">&lt;h3 id=&quot;&quot;&gt;一、改错题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_&quot;&gt;1. 下列代码的错误之处&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Question1 {
+    public static boolean isOdd(int i) {
+        return i % 2 == 1;
+    }
+    public static void main(String[] args) {
+        for (int i = Integer.MIN_VALUE; i &amp;lt;= Integer.MAX_VALUE; ++i) {
+            boolean isOdd = isOdd(i);
+            System.out.println(String.format(&amp;quot;i=%d, isOdd = %b&amp;quot;, i, isOdd);
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;// 负数求模，取绝对值取模，然后加符号。此处负数的部分，奇数取模之后都是-1，所以返回都是false。检测负数奇偶性时应先判断正负。&lt;/p&gt;
+
+&lt;h5 id=&quot;2_&quot;&gt;2. 下列代码的错误之处&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Question2 {
+    public static void main(String[] args) {
+        final long MICROS_PER_DAY = 24 * 60 * 60 * 1000 * 1000;
+        final long MILLIS_PER_DAY = 24 * 60 * 60 * 1000;
+        System.out.println(MICROS_PER_DAY / MILLIS_PER_DAY);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;// long 64位 范围合适 // 右边做乘法时，是int类型数值，int是32位，乘法结束后，才转成long型付给MICROS_PER_DAY // 改成：final long MICROS_PER_DAY = 24l * 60l * 60l * 1000l * 1000l;&lt;/p&gt;
+
+&lt;h5 id=&quot;3_&quot;&gt;3. 下列代码的错误之处&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Question3 {
+    public static void main(String[] args) {
+        for (byte b = Byte.MIN_VALUE; b &amp;lt; Byte.MAX_VALUE; b++) {
+            if (b == 0x90)
+                System.out.print(&amp;quot;Joy!&amp;quot;);
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;// byte只有8位，0x90是16位，超出范围，永远不会执行到Joy处。&lt;/p&gt;
+
+&lt;h3 id=&quot;_2&quot;&gt;二、问答题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_jvm_gc&quot;&gt;1. 请解释一下JVM GC的原理&lt;/h5&gt;
+
+&lt;p&gt;GC garbage coolection，使用一个线程实现，监控内存，如果该块内存没有被对象引用，则会自动释放该内存块。常见的情况下，a = null;后，a原本引用的内存就会被自动释放。程序员也可以通过System.gc()建议JVM去释放内存。&lt;/p&gt;
+
+&lt;h5 id=&quot;2__2&quot;&gt;2. 实现一个高并发的聊天服务器需要克服哪些问题？&lt;/h5&gt;
+
+&lt;h3 id=&quot;_3&quot;&gt;三、编程题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_java&quot;&gt;1. 请用Java实现冒泡排序算法&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;class BubbleSort {
+    
+    public static void BubbleSort(int [] arr) {
+        boolean flag;
+        for (int i = 0; i &amp;lt; arr.length; i++) {
+            flag = false;
+            for (int j = i; j &amp;lt; arr.length; j++) {
+                if (arr[i] &amp;gt; arr[j]) {
+                    arr[i] ^= arr[j];
+                    arr[j] ^= arr[i];
+                    arr[i] ^= arr[j];
+                    
+                    flag = true;
+                }
+            }
+            
+            if (!flag) {
+                return ;
+            }
+        }
+    }
+    
+    public static void main(String argv[]) {
+        int arr[] = {5, 4, 6, 2, 3, 9};
+        BubbleSort(arr);
+        
+        for (int i = 0; i &amp;lt; arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;2_java&quot;&gt;2. 请用Java实现二叉树的（中序）遍历算法。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;public void inOrder(Node node) {
+    if (node == null) {
+        return ;
+    }
+    
+    if (node.left != null) {
+        inOrder(node.left);
+    }
+    
+    System.out.println(node.value);
+    
+    if (node.right != null) {
+        inOrder(node.right);
+    }
+}&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>去哪网2014校园招聘Java开发面经</title>
+   <link href="http://mnhkahn.github.io/collection/2013/10/19/qunarinterview"/>
+   <updated>2013-10-19T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/10/19/qunarinterview</id>
+   <content type="html">&lt;p&gt;去哪网待遇非常给力，一个FE都能给到14x16。而且刚刚上市，发展很不错。我的面试官是重庆人，看到我的简历上写着本科是重庆大学的，也很照顾我，可惜我很不给力。一直摊开了问，从基础到Java源码、C++源码都问了一圈，还有C语言小技巧。面试难度符合他们公司的工资水平。&lt;/p&gt;
+
+&lt;p&gt;下面是记忆版的面试题目。&lt;/p&gt;
+
+&lt;h5 id=&quot;1_arraylist_add&quot;&gt;1. ArrayList实现 add方法如何分配内存&lt;/h5&gt;
+
+&lt;p&gt;ArrayList基于数组实现，封装的数组，但是数组大小是固定了，而ArrayList是动态数组。动态数组是通过ensureCapacity(int minCapacity)实现。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;private void grow(int minCapacity) {
+    // overflow-conscious code
+    int oldCapacity = elementData.length;
+    int newCapacity = oldCapacity + (oldCapacity &amp;gt;&amp;gt; 1);
+    if (newCapacity - minCapacity &amp;lt; 0)
+        newCapacity = minCapacity;
+    if (newCapacity - MAX_ARRAY_SIZE &amp;gt; 0)
+        newCapacity = hugeCapacity(minCapacity);
+    // minCapacity is usually close to size, so this is a win:
+    elementData = Arrays.copyOf(elementData, newCapacity);
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;每次可以扩容1.5倍，将老数组拷贝一份到新数组。&lt;/p&gt;
+
+&lt;h5 id=&quot;2_hashmap&quot;&gt;2. HashMap如何实现？&lt;/h5&gt;
+
+&lt;p&gt;HashMap是基于哈希表的Map接口的非同步实现。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。从上图中可以看出，HashMap底层就是一个数组结构，数组中的每一项又是一个链表。当新建一个HashMap的时候，就会初始化一个数组。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Entry(int h, K k, V v, Entry&amp;lt;K,V&amp;gt; n) {
+    value = v;
+    next = n;
+    key = k;
+    hash = h;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/post/hashtable_link.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;3_c&quot;&gt;3. C++容器&lt;/h5&gt;
+
+&lt;h5 id=&quot;4_&quot;&gt;4. 数据库索引建立&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;CREATE INDEX idx_test4_name ON   test_tab (name );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;索引要建立在经常进行select操作的字段上。这是因为，如果这些列很少用到，那么有无索引并不能明显改变查询速度。相反，由于增加了索引，反而降低了系统的维护速度和增大了空间需求。&lt;/li&gt;
+
+&lt;li&gt;索引要建立在值比较唯一的字段上。这样做才是发挥索引的最大效果。，比如主键的id字段，唯一的名字name字段等等。如果索引建立在唯一值比较少的字段，比如性别gender字段，寥寥无几的类别字段等，刚索引几乎没有任何意义。&lt;/li&gt;
+
+&lt;li&gt;对于那些定义为text、image和bit数据类型的列不应该增加索引。因为这些列的数据量要么相当大，要么取值很少。&lt;/li&gt;
+
+&lt;li&gt;当修改性能远远大于检索性能时，不应该创建索引。修改性能和检索性能是互相矛盾的。当增加索引时，会提高检索性能，但是会降低修改性能。当减少索引时，会提高修改性能，降低检索性能。因此，当修改性能远远大于检索性能时，不应该创建索引。&lt;/li&gt;
+
+&lt;li&gt;在WHERE和JOIN中出现的列需要建立索引。&lt;/li&gt;
+
+&lt;li&gt;在以通配符% 和_ 开头作查询时，mysql索引是无效的。但是这样索引是有效的：select * from tbl1 where name like ‘xxx%’，所以mysql正确建立索引是很重要的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;5_&quot;&gt;5. 设计模式&lt;/h5&gt;
+
+&lt;h5 id=&quot;6_&quot;&gt;6. 如何检测一个数是大端还是小段存储&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;short x = 0x1234;
+char* arr;
+arr = reinterpret_cast&amp;lt;char*&amp;gt;(&amp;amp;x);
+cout &amp;lt;&amp;lt; hex &amp;lt;&amp;lt; static_cast&amp;lt;short&amp;gt;(arr[0]) &amp;lt;&amp;lt; static_cast&amp;lt;short&amp;gt;(arr[1]) &amp;lt;&amp;lt; endl;
+char y = x;
+cout &amp;lt;&amp;lt; &amp;quot;0x&amp;quot; &amp;lt;&amp;lt; hex &amp;lt;&amp;lt; (short)y &amp;lt;&amp;lt; endl;
+union endian {
+    int i;
+    float f;
+    char s;
+};
+endian e;
+e.i = 1;
+cout &amp;lt;&amp;lt; static_cast&amp;lt;int&amp;gt;(e.s) &amp;lt;&amp;lt; endl;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;7_json&quot;&gt;7. Json的解析&lt;/h5&gt;
+
+&lt;h5 id=&quot;8_ajax&quot;&gt;8. ajax原理&lt;/h5&gt;
+
+&lt;h5 id=&quot;9___&quot;&gt;9. 快速排序 堆排序 哪个快&lt;/h5&gt;
+
+&lt;p&gt;这里的关键问题就在于第2步，堆底的元素肯定很小，将它拿到堆顶和原本属于最大元素的两个子节点比较，它比它们大的可能性是微乎其微的。实际上它肯定小于其中的一个儿子。而大于另一个儿子的可能性非常小。于是，这一次比较的结果就是概率不均等的，根据前面的分析，概率不均等的比较是不明智的，因为它并不能保证在糟糕情况下也能将问题的可能性削减到原本的1/2。可以想像一种极端情况，如果a肯定小于b，那么比较a和b就会什么信息也得不到——原本剩下多少可能性还是剩下多少可能性。 在堆排序里面有大量这种近乎无效的比较，因为被拿到堆顶的那个元素几乎肯定是很小的，而靠近堆顶的元素又几乎肯定是很大的，将一个很小的数和一个很大的数比较，结果几乎肯定是“小于”的，这就意味着问题的可能性只被排除掉了很小一部分。 这就是为什么堆排序比较慢（堆排序虽然和快速排序一样复杂度都是O(NlogN)但堆排序复杂度的常系数更大）。 MacKay也提供了一个修改版的堆排序：每次不是将堆底的元素拿到上面去，而是直接比较堆顶（最大）元素的两个儿子，即选出次大的元素。由于这两个儿子之间的大小关系是很不确定的，两者都很大，说不好哪个更大哪个更小，所以这次比较的两个结果就是概率均等的了。&lt;/p&gt;
+
+&lt;h5 id=&quot;10_tcpsyn&quot;&gt;10. TCP建立过程，传输过程syn码是否变化&lt;/h5&gt;
+
+&lt;h5 id=&quot;11_protobuf&quot;&gt;11. Protobuf&lt;/h5&gt;
+
+&lt;h5 id=&quot;12__&quot;&gt;12. 单件模式关键点 除了线程安全&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;double check
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+//import javax.ejb.EntityContext;
+import org.apache.struts2.dispatcher.StaticContentLoader;
+public class ZSingleton&amp;lt;T&amp;gt; {
+    
+    private static Object instance;
+    
+    public ZSingleton() {
+        Class&amp;lt;T&amp;gt; entityClass = (Class&amp;lt;T&amp;gt;)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+    }
+    
+    public static &amp;lt;T&amp;gt; T getInstance() {
+//      entityClass.cast(instance);
+        
+        if (instance == null) {
+            // Delay load and synchronized load
+            synchronized (ZSingleton.class) {
+                if (instance == null) {
+//                  instance = entityClass.getConstructors();
+                }
+            }
+        }
+        return (T)instance;
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;13_http&quot;&gt;13. Http状态码&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2xx成功&lt;/li&gt;
+
+&lt;li&gt;3xx重定向
+&lt;ul&gt;
+&lt;li&gt;304 Not Modified。如果客户端发送了一个带条件的GET请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码。304响应禁止包含消息体，因此始终以消息头后的第一个空行结尾。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+&lt;li&gt;4xx请求错误&lt;/li&gt;
+
+&lt;li&gt;5xx服务器错误&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;14_vector_&quot;&gt;14. Vector 与普通数组实现区别&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;void reserve( int newCapacity )  
+{  
+    Object *oldArray = objects;  
+        //1.重设size,capacity  
+    int numToCopy = newCapacity &amp;lt; theSize ? newCapacity : theSize;  
+    //capacity是在size的基础上加一个常数  
+    newCapacity += SPARE_CAPACITY;  
+        //2.建立新的数组，并拷贝元素到新数组  
+    objects = new Object[ newCapacity ];  
+    for( int k = 0; k &amp;lt; numToCopy; k++ )  
+        objects[ k ] = oldArray[ k ];  
+  
+    theSize = numToCopy;  
+    theCapacity = newCapacity;  
+        //删除原来的数组  
+    delete [ ] oldArray;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;p&gt;一面后直接就被委婉的告知没戏了。下午还有完美世界的笔试，走在去清华的路上，拍到的这张北大的博雅塔。 &lt;img src=&quot;/assets/images/博雅塔.JPG&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>完美世界2014校园招聘笔试</title>
+   <link href="http://mnhkahn.github.io/collection/2013/10/19/perfectworld"/>
+   <updated>2013-10-19T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/10/19/perfectworld</id>
+   <content type="html">&lt;h3 id=&quot;&quot;&gt;一、单项选择题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_wwwwanmeicompingipc&quot;&gt;1. 某工作站无法访问www.wanmei.com的服务器，使用ping命令对该服务器的IP地址进行测试，响应正常；但是对服务器域名进行测试时出现超时错误，可能出现的问题是（C）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 线路故障&lt;/li&gt;
+
+&lt;li&gt;B. 路由故障&lt;/li&gt;
+
+&lt;li&gt;C. 域名解析故障&lt;/li&gt;
+
+&lt;li&gt;D. 服务器网卡故障&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;2_1236b&quot;&gt;2. 小明每次可以上1级、2级或者3级台阶、请问小明上6级台阶总共共有多少种方法（B）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 23&lt;/li&gt;
+
+&lt;li&gt;B. 24&lt;/li&gt;
+
+&lt;li&gt;C. 25&lt;/li&gt;
+
+&lt;li&gt;D. 26&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;3_125_10b&quot;&gt;3. 师徒四人西天取经，途中必需跨过一座桥、四个人从桥的同一端出发，你得帮助他们到达另一端，天色很暗，而他们只有一只手电筒。一次同时最多可以有两人一起过桥，而过桥的时候必须持有手电筒，所以就得有人把手电筒带来带去、来回桥两端。手电筒不能同丢的方式来传递。四个人的步行速度各不同，若两人同行则以较慢者的速度为准。大师兄需花1分钟过桥，二师兄需花2分钟过桥，三师兄需5分钟过桥， 师父需花10分钟过桥，请问他们最短在多少分钟内能过桥？（B）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 16&lt;/li&gt;
+
+&lt;li&gt;B. 17&lt;/li&gt;
+
+&lt;li&gt;C. 18&lt;/li&gt;
+
+&lt;li&gt;D. 19&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;4_a&quot;&gt;4. 以下说法不正确的是：（A）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 死锁的充分条件是互斥、占有且等待、非剥夺、循环等待，且缺一不可。&lt;/li&gt;
+
+&lt;li&gt;B. Raid5至少需要3块磁盘。&lt;/li&gt;
+
+&lt;li&gt;C. 地址空间和资源（例如打开文件句柄）在进程间相互独立，而同一进程的线程可以共享。&lt;/li&gt;
+
+&lt;li&gt;D. 局部性原理主要包括时间局部性和空间局部性。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;5_9527b&quot;&gt;5. 权值为9，5，2，7的四个叶子构成的哈夫曼树，其带权路径长度是：（B）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 23&lt;/li&gt;
+
+&lt;li&gt;B. 44&lt;/li&gt;
+
+&lt;li&gt;C. 46&lt;/li&gt;
+
+&lt;li&gt;D. 50&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;6_countb&quot;&gt;6. 程序执行后，count的值将会是：（B）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;public class CrazyCount {
+    private static volatile int count = 0;
+    public static void main(String[] args) {
+        for (int i = 0; i &amp;lt; 1000; i++) {
+            new Thread(new Runnable() {
+                public void run() {
+                    count++;
+                }
+            }).start();
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 无效值，因为对count的代码修改没有同步&lt;/li&gt;
+
+&lt;li&gt;B. 1到1000中的一个值&lt;/li&gt;
+
+&lt;li&gt;C. 正好1000&lt;/li&gt;
+
+&lt;li&gt;D. 至少1000&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;// 在JVM中，每个线程都可以有自己的栈空间，volatile的作用是保证栈空间中的值和内存中的一致，并不会保证变量的原子性。保证原子性需要使用synchronized关键字，为cout++保证线程安全。&lt;/p&gt;
+
+&lt;p&gt;// 另：虽然1000个线程并行执行，但是保证了count++的线程安全之后，最终结果肯定是1000&lt;/p&gt;
+
+&lt;h5 id=&quot;7_&quot;&gt;7. 各处如下代码：&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Test {
+    public static void main(String[] args) {
+        int x = 5;
+        boolean b1 = true;
+        boolean b2 = false;
+        if ((x == 4) &amp;amp;&amp;amp; !b2)
+            System.out.print(&amp;quot;1&amp;quot;);
+        System.out.print(&amp;quot;2&amp;quot;);
+        if ((b2 = true) &amp;amp;&amp;amp; b1)
+            System.out.print(&amp;quot;3&amp;quot;);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;输出结果是：（D）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 2&lt;/li&gt;
+
+&lt;li&gt;B. 3&lt;/li&gt;
+
+&lt;li&gt;C. 12&lt;/li&gt;
+
+&lt;li&gt;D. 23&lt;/li&gt;
+
+&lt;li&gt;E. 123&lt;/li&gt;
+
+&lt;li&gt;F. 编译出错&lt;/li&gt;
+
+&lt;li&gt;G. 运行时程序抛出异常&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;8_c&quot;&gt;8. 编译运行下面的代码会出现哪种情况？（C）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Test {
+    public void myMethod(Object o) {
+        System.out.println(&amp;quot;My Object&amp;quot;);
+    }
+    public void myMethod(String s) {
+        System.out.println(&amp;quot;My String&amp;quot;);
+    }
+    public static void main(String args[]) {
+        Test t = new Test();
+        t.myMethod(null);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 不能编译通过&lt;/li&gt;
+
+&lt;li&gt;B. 编译通过，输出”My Object”&lt;/li&gt;
+
+&lt;li&gt;C. 编译通过，输出”My String”&lt;/li&gt;
+
+&lt;li&gt;D. 编译通过，但运行时报错&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;9_b&quot;&gt;9. 以下代码运行时输出的结果是什么？（B）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;class C {
+    C() {
+        System.out.print(&amp;quot;C&amp;quot;);
+    }
+}
+class A {
+    C c = new C();
+    A() {
+        this(&amp;quot;A&amp;quot;);
+        System.out.print(&amp;quot;A&amp;quot;);
+    }
+    A(String s) {
+        System.out.print(s);
+    }
+}
+class B extends A {
+    B() {
+        super(&amp;quot;B&amp;quot;);
+        System.out.print(&amp;quot;B&amp;quot;);
+    }
+    public static void main(String[] args) {
+        new B();
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. BB&lt;/li&gt;
+
+&lt;li&gt;B. CBB&lt;/li&gt;
+
+&lt;li&gt;C. BAB&lt;/li&gt;
+
+&lt;li&gt;D. 以上都不是&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;10_a&quot;&gt;10. 栈是一种：（A）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 存取受限的线性结构&lt;/li&gt;
+
+&lt;li&gt;B. 存取不受限的线性结构&lt;/li&gt;
+
+&lt;li&gt;C. 存取受限的非线性结构&lt;/li&gt;
+
+&lt;li&gt;D. 存取不受限的非线性结构&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;11_javacharb&quot;&gt;11. java中一个char对象可以表示的数值范围是：（B）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 0到255&lt;/li&gt;
+
+&lt;li&gt;B. 0到65535&lt;/li&gt;
+
+&lt;li&gt;C. -256到255&lt;/li&gt;
+
+&lt;li&gt;D. -32768到32767&lt;/li&gt;
+
+&lt;li&gt;E. 平台相关&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;// Java中char为16位，4个字节，使用Unicode编码&lt;/p&gt;
+
+&lt;h5 id=&quot;12_b&quot;&gt;12. 以下描述正确的是：（B）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. Java支持多重继承，一个类可以实现多个接口；&lt;/li&gt;
+
+&lt;li&gt;B. Java只支持单重继承，一个类可以实现多个接口；&lt;/li&gt;
+
+&lt;li&gt;C. Java只支持单重继承，一个类只可以实现一个接口；&lt;/li&gt;
+
+&lt;li&gt;D. Java支持多重继承，但一个类只可以实现一个接口。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;13_c&quot;&gt;13. 下列关于集合类描述错误的包括：（C）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. ArrayList和LinkedList均实现了List接口&lt;/li&gt;
+
+&lt;li&gt;B. ArrayList的访问速度比LinkedList快&lt;/li&gt;
+
+&lt;li&gt;C. 添加和删除元素时，ArrayList的表现更佳&lt;/li&gt;
+
+&lt;li&gt;D. HashMap实现Map接口，它允许任何类型的键和值对象，并允许将null用作键或值&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;14_ca&quot;&gt;14. 执行如下程序代码后，c的值是：（A）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;a = 0; c = 1;
+do {
+    --c;
+    a = a - 1;
+} while (a &amp;gt; 0);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 0&lt;/li&gt;
+
+&lt;li&gt;B. 1&lt;/li&gt;
+
+&lt;li&gt;C. -1&lt;/li&gt;
+
+&lt;li&gt;D. 死循环&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;15_d&quot;&gt;15. 下列关于修饰符混用的说法，错误的包括：（D）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. abstract不能与final并列修饰同一个类&lt;/li&gt;
+
+&lt;li&gt;B. abstract类中可以有private的成员&lt;/li&gt;
+
+&lt;li&gt;C. abstract方法必须在abstract类中&lt;/li&gt;
+
+&lt;li&gt;D. static方法中能处理非static的成员变量&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;_2&quot;&gt;二、填空题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_&quot;&gt;1. 下面二叉树的中序遍历结果是：&lt;/h5&gt;
+
+&lt;h5 id=&quot;2_5&quot;&gt;2. 请至少列举出5个常用的设计模式：&lt;/h5&gt;
+
+&lt;h5 id=&quot;3_1300ip20mtu500ip_&quot;&gt;3. 一个1300字节的IP包，包长度为20字节，进入一个MTU为500的网络中，请问该IP包被拆成（）段， 其中每段的长度分别是（）。&lt;/h5&gt;
+
+&lt;h5 id=&quot;4_616&quot;&gt;4. 完美世界的个性账号注册时要求账号由6-16位小写英文字母及数字组成且首位为字母，请写出验证账号合法的正则表达式（）。&lt;/h5&gt;
+
+&lt;h5 id=&quot;5_&quot;&gt;5. 请给出以下程序的输出：&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;class Value {
+    public int i = 15;
+}
+public class Test {
+    public static void main(String argv[]) {
+        Test t = new Test();
+        t.first();
+    }
+    public void first() {
+        int i = 5;
+        Value v = new Value();
+        v.i = 25;
+        second(v, i);
+        System.out.println(v.i);
+    }
+    public void second(Value v, int i) {
+        i = 0;
+        v.i = 20;
+        Value val = new Value();
+        v = val;
+        System.out.println(v.i + &amp;quot; &amp;quot; + i);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;_3&quot;&gt;三、简答题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_http_11&quot;&gt;1. 列举HTTP 1.1所支持的方法。&lt;/h5&gt;
+
+&lt;p&gt;OPTIONS、HEAD、GET、POST、PUT、DELETE、TRACE、CONNECT&lt;/p&gt;
+
+&lt;h5 id=&quot;2_&quot;&gt;2. 什么是反射？反射的作用是什么？&lt;/h5&gt;
+
+&lt;p&gt;反射就是可以在程序运行时刻动态获得类的信息，动态调用类的方法。 反射的作用是，可以动态的获得对象的内部接口，可以动态对一个对象进行操作。&lt;/p&gt;
+
+&lt;h5 id=&quot;3_equalshashcode&quot;&gt;3. 方法equals()和方法hashCode()有什么联系？它们各自有什么作用？实现这两个方法的时候有些什么要求？&lt;/h5&gt;
+
+&lt;p&gt;equals()和hashCode()均继承自Object对象。equals()是通过比较两个对象的内存地址来判断时候相等，可以重写这个函数来进行内容判断。hashCode()用来实现Set等，可以简单的认为是使用物理内存地址来实现，这是一个native方法，会因为平台不同而不同。equals()需要自反性、对称性、传递性、一致性、对任何不适null的x，x.equals(null)一定返回false。&lt;/p&gt;
+
+&lt;h3 id=&quot;_4&quot;&gt;四、编程题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_javamymapvalue&quot;&gt;1. 用java实现一个方法，从指定的mymap中删除所有值为value的对象，并返回删除的对象个数&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;int removeValue(Map&amp;lt;Integer, Integer&amp;gt; mymap, int value);
+
+int removeValue(Map&amp;lt;Integer, Integer&amp;gt; mymap, int value) {
+    int count = 0;
+    List&amp;lt;Integer&amp;gt; list = new LinkedList&amp;lt;Integer&amp;gt;();
+    Iterator&amp;lt;Entry&amp;lt;Integer, Integer&amp;gt;&amp;gt; iter = mymap.entrySet().iterator();
+    Entry&amp;lt;Integer, Integer&amp;gt; entry;
+    while (iter.hasNext()) {
+        entry = iter.next();
+        if (entry.getValue() == value) {
+            list.add(entry.getKey());
+        }
+    }
+    
+    // 
+    count = list.size();
+    for (int i = 0; i &amp;lt; list.size(); i++) {
+        mymap.remove(list.get(i));
+    }
+    
+    return count;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;p&gt;清华的一家飞机，也不知道是何来历。 &lt;img src=&quot;/assets/images/tsinghua_plane.jpg&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>广联达2014校园招聘笔试</title>
+   <link href="http://mnhkahn.github.io/collection/2013/10/17/glodon"/>
+   <updated>2013-10-17T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/10/17/glodon</id>
+   <content type="html">&lt;h3 id=&quot;&quot;&gt;卷一&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_&quot;&gt;1. 实现一个函数，把一个字符串中的字符从小写转为大写。&lt;/h5&gt;
+
+&lt;h5 id=&quot;2_r&quot;&gt;2. 给定一个二叉树的根结点R，写一个函数返回该二叉树是否为平衡二叉树。&lt;/h5&gt;
+
+&lt;p&gt;二叉树的结点定义如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;struct node {
+    int data;
+    struct node* left;
+    struct node* right;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;3_keyvaluekey&quot;&gt;3. 写一个函数，将两个有序的Key-Value数组按Key累加得到一个新的有序数组。&lt;/h5&gt;
+
+&lt;p&gt;例： 数组 1 1, 400 4, 700 5, 100 数组 2 1, 300 2, 500 3, 400 4, 200 按Key累加之后得到新的数组 1, 700 2, 500 3, 400 4, 900 5, 100 Key-Value定义：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;typedef struct keyvalue {
+    int key;
+    double value;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;函数接口：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void sumKeyValueArray(const keyvalue aArray1[], int nLen1, const keyvalue aArray2[], int nLen2, keyvalue aResult[], int &amp;amp;nResultLen);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;4_&quot;&gt;4. 不开辟和用于交换数据的临时空间，如何完成字符串的逆序。&lt;/h5&gt;
+
+&lt;p&gt;C语言的函数头为：&lt;code&gt;void change(char* str);&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;5_ageage&quot;&gt;5. 一个学生的信息包括：姓名，学号，性别，年龄等信息，用一个链表保存所有学生的信息，给出一个age，在链表中删除学生年龄等于age的学生信息。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;typedef struct student {
+    char name[20];
+    char sex;
+    int no;
+    int age;
+    student* next;
+};&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;_2&quot;&gt;卷六&lt;/h3&gt;
+
+&lt;h5 id=&quot;4_abaccdeffb&quot;&gt;4. 在字符串中找出第一个只出现一次的字符，如输入”abaccdeff”，则输出’b’。&lt;/h5&gt;
+
+&lt;h5 id=&quot;5_nkono1&quot;&gt;5. 设计一个算法，把一个含有N个元素的数组循环右移K位，要求时间复杂度为O(N)，空间复杂度为O(1)。&lt;/h5&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>触控科技2014校园招聘笔试题</title>
+   <link href="http://mnhkahn.github.io/collection/2013/10/15/chukong"/>
+   <updated>2013-10-15T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/10/15/chukong</id>
+   <content type="html">&lt;h5 id=&quot;1_b&quot;&gt;1. 实现运行时多态的机制是（B）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 重载函数 // 编译时多态&lt;/li&gt;
+
+&lt;li&gt;B. 虚函数 // 运行时多态&lt;/li&gt;
+
+&lt;li&gt;C. 静态函数&lt;/li&gt;
+
+&lt;li&gt;D. 模板函数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;2_funa&quot;&gt;2. fun()函数是一个类的常成员函数，它无返回值，下列表示中，正确的是（A）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. void fun() const;&lt;/li&gt;
+
+&lt;li&gt;B. const void fun();&lt;/li&gt;
+
+&lt;li&gt;C. void const fun();&lt;/li&gt;
+
+&lt;li&gt;D. void fun(const);&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;3__const_char_ptrptra&quot;&gt;3. 下列说明中 const char* ptr，ptr应该是（A）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 指向字符常量的指针&lt;/li&gt;
+
+&lt;li&gt;B. 指向字符的常量指针&lt;/li&gt;
+
+&lt;li&gt;C. 指向字符串常量的指针 &lt;code&gt;char *p=&amp;quot;hello&amp;quot;;&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;D. 指向字符串的常量指针 &lt;code&gt;const char *p=&amp;quot;hello&amp;quot;;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bjarne在他的The C++ Programming Language里面给出过一个助记的方法： 把一个声明从右向左读。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;char  * const cp; ( * 读成 pointer to ) 
+cp is a const pointer to char ---&amp;gt;cp是一个指向字符char的固定指针
+const char * ptr; 
+ptr is a pointer to const char; ---&amp;gt;ptr是一个指向固定字符char的指针&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;4_a&quot;&gt;4. 这段代码执行后，哪项描述是正确的（A）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;int a = 5, b = 7, c; c = a+++b;   &lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. a = 6, b = 7, c = 12&lt;/li&gt;
+
+&lt;li&gt;B. a = 5, b = 8, c = 12&lt;/li&gt;
+
+&lt;li&gt;C. a = 5, b = 8, c = 13&lt;/li&gt;
+
+&lt;li&gt;D. 这段代码不合法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;5__b&quot;&gt;5. 字符串：&lt;code&gt;”\\0211\”xab”&lt;/code&gt; 的长度为（B）&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A. 7&lt;/li&gt;
+
+&lt;li&gt;B. 9&lt;/li&gt;
+
+&lt;li&gt;C. 10&lt;/li&gt;
+
+&lt;li&gt;D. 11&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;6_expr3&quot;&gt;6. expr的值为（3）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;int a = 8, b = 4;
+int expr = a++ % ++b;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;7_expr8&quot;&gt;7. expr的值为（8）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;int expr = (1 % 3) + (5 | 3);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;8_expr22&quot;&gt;8. expr的值为（22）&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;char a[6][8];
+int expr = a[2] - &amp;amp;a[4][6];&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;9_coverloadoverride&quot;&gt;9. 请简述C++中overload(重载)和override(覆盖)的区别？&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Overload(重载)：在C++程序中，可以将语义、功能相似的几个函数用同一个名字表示，但参数或返回值不同（包括类型、顺序不同），即函数重载。（1）相同的范围（在同一个类中）；（2）函数名字相同；（3）参数不同；（4）virtual 关键字可有可无。&lt;/li&gt;
+
+&lt;li&gt;Override(覆盖)：是指派生类函数覆盖基类函数，特征是：（1）不同的范围（分别位于派生类与基类）；（2）函数名字相同；（3）参数相同；（4）基类函数必须有virtual 关键字。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;10_c4&quot;&gt;10. 请简述C++中的4种类型转换方式？&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;static_cast 静态的_cast&lt;/li&gt;
+
+&lt;li&gt;dynamic_cast 动态的_cast&lt;/li&gt;
+
+&lt;li&gt;reinterpret_cast 重新解释的_cast&lt;/li&gt;
+
+&lt;li&gt;const_cast 常量的_cast&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;11_&quot;&gt;11. 写出几种在不用第三方参数的情况下，交换两个参数的值的方法。&lt;/h5&gt;
+
+&lt;p&gt;交换值是比较常用的步骤，也比较简单，这里总结了3个方法: 使用临时变量交换。方法很简单，使用临时变量来保存一个值，该值被保存后就可以对其进行赋值操作了;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 通过临时变量交换值
+void swap_temp(int *a, int *b) {    // a = 1, b = 3
+    int temp = *a;                  // temp = 1
+    *a = *b;                        // a = 3
+    *b = temp;                      // b = 1
+}
+使用异或操作(可参考《位运算符》)。具体原理是：对于任何数,都有A^0=A A^A=0;
+
+// 通过位运算交换值
+void swap_bit(int *a, int *b) {     // a = 1, b = 3
+    *a = *a ^ *b;                   // a = a ^ b
+    *b = *b ^ *a;                   // b = b ^ a = b ^ (a ^ b) = a = 1
+    *a = *a ^ *b;                   // a = a ^ b = (a ^ b) ^ a = b = 3
+}
+
+使用加法和减法也可以实现数字的交换，原理同第二条异或原理基本一致;
+
+void swap_add_substract(int *a, int *b) {   // a = 1, b = 3
+    *a = *a + *b;                           // a = a + b
+    *b = *a - *b;                           // b = a - b = (a + b) - b = a = 1
+    *a = *a - *b;                           // a = a - b = (a + b) - a = b = 3
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;虽然使用异或操作和加减法运算并没有去声明临时变量，但实际运行过程中，会在临时寄存器中保存临时变量用于计算，所以都是将一个数值保存在了一个临时的场所，只是位置不同而已。&lt;/p&gt;
+
+&lt;h5 id=&quot;12_16bitrgbrrrrrgggggbbbbbbaaaarrrrggggbbbb4bitalpha&quot;&gt;12. 假设我们用16位bit来存储RGB像素数据，存储格式定义为RRRRRGGGGGBBBBBB，接下来，我们为了加入透明色，重新定义格式为AAAARRRRGGGGBBBB，头4个bit用来存储alpha值，请写出实现函数。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;short convertRGB2ARGB(short RGB, char alpha) {
+	short ARGB = 0;
+	short A = alpha &amp;amp; 15;
+	short R = (RGB &amp;gt;&amp;gt; 11) &amp;amp; 31;
+	short G = (RGB &amp;gt;&amp;gt; 6) &amp;amp; 31;
+	short B = RGB &amp;amp; 63;
+	ARGB = (A &amp;lt;&amp;lt; 12) + (R &amp;lt;&amp;lt; 8) + (G &amp;lt;&amp;lt; 4) + B;
+	return ARGB;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;13_&quot;&gt;13. 翻译(略)。&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/chukong.jpg&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>百度2014校园招聘后台开发笔试</title>
+   <link href="http://mnhkahn.github.io/collection/2013/10/13/baidu"/>
+   <updated>2013-10-13T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/10/13/baidu</id>
+   <content type="html">&lt;h3 id=&quot;&quot;&gt;一、简答题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_osi&quot;&gt;1. 请描述下osi七层模型（开放式系统护栏参考模型）。&lt;/h5&gt;
+
+&lt;h5 id=&quot;2_&quot;&gt;2. 请列举下不同进程之间共享数据的方式（至少三种）？&lt;/h5&gt;
+
+&lt;h5 id=&quot;3_tcpudp&quot;&gt;3. 请描述下TCP和UDP的差别，并且各列举一个上层协议？&lt;/h5&gt;
+
+&lt;h5 id=&quot;4_3&quot;&gt;4. （大数据）列举出至少3中常用的衡量分类特征区分度的计算策略&lt;/h5&gt;
+
+&lt;h3 id=&quot;_2&quot;&gt;二、算法与程序设计题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_aa_0_a_1_a_2__a_n&quot;&gt;1. 给出一个数据A=&lt;a href=&quot;其中，n可变&quot;&gt;a_0, a_1, a_2, ……, a_n&lt;/a&gt;打印出该数值元素的所有组合。&lt;/h5&gt;
+
+&lt;h5 id=&quot;2_an1a45656789109atta&quot;&gt;2. 有这样一个数组A，大小为n，相邻元素差的绝对值都是1，如：A=[4,5,6,5,6,7,8,9,10,9]。现在，给定A和目标数t，请找到t在A中的位置。&lt;/h5&gt;
+
+&lt;h5 id=&quot;3_&quot;&gt;3. 有一颗二叉树，定义树的高度为从根到叶子节点的最长距离，树的宽度为每层结点的最大值，树的面积定义为高度与宽度的乘积。写一个函数计算一个二叉树的面积。&lt;/h5&gt;
+
+&lt;h3 id=&quot;_3&quot;&gt;三、系统设计题&lt;/h3&gt;
+
+&lt;h5 id=&quot;1_kuvu&quot;&gt;1. （大数据）假设在一个k维空间中，我们有两个向量u和v，其中u&lt;/h5&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>阿里巴巴2014校园招聘面经</title>
+   <link href="http://mnhkahn.github.io/collection/2013/09/16/alibabainterview"/>
+   <updated>2013-09-16T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/09/16/alibabainterview</id>
+   <content type="html">&lt;p&gt;上周六去中科院参加阿里的笔试，结果阿里那边出了意外，没有打印出题目来。他们应急是去筛选简历，通过的今天直接面试，剩下的下周日笔试。&lt;/p&gt;
+
+&lt;p&gt;昨天下午参加July的讲座的时候就接到了电话，跟我约今天来面试。很不巧，今天还是我新实习第一天入职的日子，果断不去入职了。更不巧的是，今天4号线信号故障，等了20分钟都没一辆车，还是坐公交去海淀黄庄倒的10号线。这样明显绕了。等到了大望路的阿里，时间也就刚刚好。&lt;/p&gt;
+
+&lt;p&gt;昨天预约面试方向时，我选了Java。一个是因为我最近一直在做Java，这个实习也是面的这个方向的，还有就是C++略难，我怕hold不住。今天去了阿里，发现投Java还是有点取巧的，大家都是投的C++。我因为去的比较晚，阿里是按签到次序叫人的，简历排在后面。但是还是很快的叫到了我，而且据我观察，HR那里Java分类的简历好像都快面完了。 &lt;br /&gt;比较好的 说一说面试的经过。面试是一对一的，一个阿里的人出来叫人，你跟着进去就可以了。面试我的人很nice，说话很亲切，还一直跟我握手，貌似搞技术的公司的员工都这样，不像那些国企那些，那么有距离感。不过面起来还是很认真的。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;先问我学得比较好的一门课，这也是比较常见的开头。我说是数据结构和操作系统。然后叫我讲一个比较印象深刻的自己写过的算法。这个问得我很意外，因为最近除了做了做项目，就是准备了一下面试题，之前些的算法好久不碰，都生疏了。我说我好久没做那些了，有点忘记了，然后就开始扯别的，我扯了一大段自我介绍，然后扯我简历上的项目，因为这个是我准备叫他问我的。&lt;/li&gt;
+
+&lt;li&gt;他貌似对我最近做那几个项目兴趣不大，转而开始问我本科毕设怎么做的，让我给他讲具体原理。我本科做的人脸检测，算法还是写过的，多少能扯点。不过没想到他问那么仔细，具体到特征值怎么算都开始问了，我说我也忘记了。&lt;/li&gt;
+
+&lt;li&gt;接着他让我说一下我自己的优势，特长。还让我说一个我周围我觉得比较欣赏的人，叫我说一下他那里值得欣赏。其实就是拐着弯让我自我评价一下自己。&lt;/li&gt;
+
+&lt;li&gt;他还问我看到Java源代码没有，对Java哪个包比较熟悉。我之前准备了一些Sprindg的面试题，我就想说我知道Spring的一些实现原理，比如利用反射啥的，我自己也用Servlet模拟过Spring的Ioc开发。因为这些我准备过，而且最近我也一直看这些，比较了解，想把他往这边引，结果他不听使唤。。。&lt;/li&gt;
+
+&lt;li&gt;后来我往Linux下扯，我说我熟悉Linux下开发，这次他终于为我所动，问我vi一些命令，问我vi下替换字符串的命令，用正则表达式替换的命令是什么，尼玛好久不用，忘记了，唉。&lt;/li&gt;
+
+&lt;li&gt;最后他问我你自己是未来想做Java还是C++方向，我当时扯了一大通，说两个都可以。结果出来我就后悔了，其实他是想变着法问你你举得自己Java和C++那个学得好，我自己答都不行。。。这招太狠了，我太嫩了，当时没反映过来。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本来准备先面一些小公司，积累点经验，再去面自己想去的公司的。结果才试了一家，阿里就来面试了。而且我觉得我的水平确实不够阿里的层次。虽然我开发经验比较多一些，但是他们更关注你对底层实现的理解，说来惭愧，一直在做东西，没有时间关注这些。这次面试，就我本人而言，没有任何亮点，没有说出来一个让人觉得还可以的东西，所以没戏。&lt;/p&gt;
+
+&lt;p&gt;回来的路上，看到1号线上的一个广告词：我想要怒放的生命。路一直都在，继续努力吧。&lt;/p&gt;
+
+&lt;p&gt;2013年9月16日于寝室 回来的路上，看到1号线上的一个广告词：我想要怒放的生命。路一直都在，继续努力吧。&lt;/p&gt;
+
+&lt;p&gt;2013年9月16日于寝室&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/cyeam.png&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>神州航天软件发展规划部实习笔试</title>
+   <link href="http://mnhkahn.github.io/collection/2013/09/09/bsastintern"/>
+   <updated>2013-09-09T00:00:00+08:00</updated>
+   <id>http://mnhkahn.github.io/collection/2013/09/09/bsastintern</id>
+   <content type="html">&lt;h5 id=&quot;1_bug&quot;&gt;1. 修改bug之后的测试&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;回归测试（验证修改是否破坏了现有的功能，测试验证修改工作本身）&lt;/li&gt;
+
+&lt;li&gt;Beta测试可称为确认测试，在一个真实的环境中以实际的数据来运行测试，以确认性能，系统运行有效率，系统撤消与备份作业正常，通过测试让信息系统日后可以更趋完善。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;2_jsp&quot;&gt;2. jsp用于输出的内置对象&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;out 输出流&lt;/li&gt;
+
+&lt;li&gt;request 由WEB浏览器或其它客户端生成地HTTP请求的细节&lt;/li&gt;
+
+&lt;li&gt;response 此对象封装了返回到HTTP客户端的输出&lt;/li&gt;
+
+&lt;li&gt;session 跟踪对话&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;3_&quot;&gt;3. 快速排序&lt;/h5&gt;
+
+&lt;h5 id=&quot;4_&quot;&gt;4. 广度优先排序&lt;/h5&gt;
+
+&lt;h5 id=&quot;5_&quot;&gt;5. 设有图书管理数据库：&lt;/h5&gt;
+
+&lt;p&gt;图书(总编号C(6),分类号C(8),书名C(16),作者C(6),出版单位C(20),单价N(6,2)) 读者(借书证号C(4),单位C(8),姓名C(6),性别C(2),职称C(6),地址C(20)) 借阅(借书证号C(4),总编号C(6),借书日期D(8))&lt;/p&gt;
+
+&lt;h6 id=&quot;a_&quot;&gt;a. 对于图书管理数据库，检索藏书中比高等教育出版社的所有图书的书价更高的书。&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT * FROM 图书 WHERE 单价&amp;gt;ALL(SELECT 单价 FROM 图书 WHERE 出版单位=&amp;quot;高等教育出版社&amp;quot;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&quot;b_&quot;&gt;b. 对于图书管理数据库，分别求出各个单位当前借阅图书的读者人次。&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT 单位,COUNT(借阅.借书证号) FROM 借阅,读者 WHERE 借阅.借书证号=读者.借书证号 GROUP BY 单位;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&quot;c_&quot;&gt;c. 对于图书管理数据库，检索所有借阅了图书的读者姓名和所在单位。&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;    SELECT DISTINCT 姓名,单位 FROM 读者,借阅 WHERE 读者.借书证号=借阅.借书证号;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&quot;d_&quot;&gt;d. 对于图书管理数据库，求电子工业出版社出版图书的最高单价、最低单价和平均单价。&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT MAX(单价),MIN(单价),AVG(单价)FROM 图书 WHERE 出版单位=&amp;quot;电子工业出版社&amp;quot;;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&quot;e_cie&quot;&gt;e. 对于图书管理数据库，求CIE单位借阅图书的读者的人数。&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT COUNT (DISTINCT 借书证号) FROM 借阅 WHERE 借书证号 IN (SELECT 借书证号 FROM 读者 WHERE 单位=&amp;quot;CIE&amp;quot;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&quot;f_&quot;&gt;f. 重名的人。&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;select 姓名, count(*) from 读者 group by 姓名having count(*) &amp;gt; 1;&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ 
+</feed>

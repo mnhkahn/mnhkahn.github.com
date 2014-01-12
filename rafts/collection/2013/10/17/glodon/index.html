@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>广联达2014校园招聘笔试</title>
+    <meta name="description" content="公司是做建筑方面的建模工具产品。没有面试机会。">
+    <meta name="author" content="Bryce">
+
+    <meta name="google-translate-customization" content="a4136e955b3e09f2-45a74b56dc13e741-gf616ffda6e6360e0-11"></meta>
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images -->
+    <link rel="shortcut icon" href="/assets/images/c32.ico">
+  <!--  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <!-- jQuery -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="/assets/js/jquery-1.7.2.min.js"><\/script>');</script>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <div class="wrapperLogo" id="wrapperLogo" style="float: left; width: 80px;">
+            <a href="/"><img src="/assets/images/logo.png"></a>
+          </div>
+          <ul class="nav">
+          	<li><a href="/"><span class="icon-home"></span> Home</a></li>
+            <li><a href="categories.html"><span class="icon-th-list"></span> Categories</a></li>
+            <li><a href="archive.html"><span class="icon-ok"></span> Archive</a></li>
+            <li><a href="tags.html"><span class="icon-tags"></span> Tags</a></li>
+            <li><a href="pages.html"><span class="icon-th"></span> Pages</a></li>
+            <!--
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+
+
+-->
+          </ul>
+        </div>
+      </div>
+    </div>
+	
+    <div id="google_translate_element" class="google_translate_element"></div>
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-46780180-1'}, 'google_translate_element');
+      }
+      </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+    <div class="container-narrow">     
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>广联达2014校园招聘笔试 </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>17 October 2013</span>
+    </div>
+    <div class="content">
+      <h3 id="">卷一</h3>
+
+<h5 id="1_">1. 实现一个函数，把一个字符串中的字符从小写转为大写。</h5>
+
+<h5 id="2_r">2. 给定一个二叉树的根结点R，写一个函数返回该二叉树是否为平衡二叉树。</h5>
+
+<p>二叉树的结点定义如下：</p>
+
+<pre><code>struct node {
+    int data;
+    struct node* left;
+    struct node* right;
+}</code></pre>
+
+<h5 id="3_keyvaluekey">3. 写一个函数，将两个有序的Key-Value数组按Key累加得到一个新的有序数组。</h5>
+
+<p>例： 数组 1 1, 400 4, 700 5, 100 数组 2 1, 300 2, 500 3, 400 4, 200 按Key累加之后得到新的数组 1, 700 2, 500 3, 400 4, 900 5, 100 Key-Value定义：</p>
+
+<pre><code>typedef struct keyvalue {
+    int key;
+    double value;
+}</code></pre>
+
+<p>函数接口：</p>
+
+<pre><code>void sumKeyValueArray(const keyvalue aArray1[], int nLen1, const keyvalue aArray2[], int nLen2, keyvalue aResult[], int &amp;nResultLen);</code></pre>
+
+<h5 id="4_">4. 不开辟和用于交换数据的临时空间，如何完成字符串的逆序。</h5>
+
+<p>C语言的函数头为：<code>void change(char* str);</code></p>
+
+<h5 id="5_ageage">5. 一个学生的信息包括：姓名，学号，性别，年龄等信息，用一个链表保存所有学生的信息，给出一个age，在链表中删除学生年龄等于age的学生信息。</h5>
+
+<pre><code>typedef struct student {
+    char name[20];
+    char sex;
+    int no;
+    int age;
+    student* next;
+};</code></pre>
+
+<h3 id="_2">卷六</h3>
+
+<h5 id="4_abaccdeffb">4. 在字符串中找出第一个只出现一次的字符，如输入”abaccdeff”，则输出’b’。</h5>
+
+<h5 id="5_nkono1">5. 设计一个算法，把一个含有N个元素的数组循环右移K位，要求时间复杂度为O(N)，空间复杂度为O(1)。</h5>
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#collection-ref">
+    		collection <span>14</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/collection/2013/10/15/chukong" title="触控科技2014校园招聘笔试题">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/collection/2013/10/19/perfectworld" title="完美世界2014校园招聘笔试">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'cyeam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <div id="aboutme" style="width: 700px">
+      	<h1 id="about_me">About Me</h1>
+      	<ul>
+			<li><img style="width: 100px; height: 100px" src="/assets/images/gmail100.jpg"/> lichao0407@gmail.com
+			</li>
+			<li>
+				<img style="width: 100px; height: 100px" src="/assets/images/twitter100.png"/>
+				<a href="https://twitter.com/mnhkahn" class="twitter-follow-button" data-show-count="false">Follow @mnhkahn</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			</li>
+			<li>
+				<img style="width: 100px; height: 100px" src="/assets/images/weibo100.png"/>
+				<a href="http://weibo.com/u/1041802162?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/1041802162/253c5023/1.png"/></a>
+			</li>
+			<li>
+				<img style="width: 100px; height: 100px" src="/assets/images/weixin100.png"/>
+				<img src="/assets/images/qrcode_for_gh_aa23c6563b3d_258.jpg" alt="Alt text">
+			</li>
+		</ul>
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2014 Bryce
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000077791'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000077791%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  <a href="http://pagerank.chromefans.org" target=_blank title="Online PageRank Checker, PageRank Checker for Chrome"><img src="http://pr.chromefans.org/?u=6222d5fe0f55ed0e060d0d560a773c04&amp;style=1" ALT="PageRank Checker" STYLE="border:0px"></A>
+  </body>
+</html>
+

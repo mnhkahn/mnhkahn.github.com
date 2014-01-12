@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>巨人网络2014校园招聘笔试</title>
+    <meta name="description" content="巨人网络2014校园招聘笔试。据说笔试通过的会去上海参加面试。我果断没去成。">
+    <meta name="author" content="Bryce">
+
+    <meta name="google-translate-customization" content="a4136e955b3e09f2-45a74b56dc13e741-gf616ffda6e6360e0-11"></meta>
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images -->
+    <link rel="shortcut icon" href="/assets/images/c32.ico">
+  <!--  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <!-- jQuery -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="/assets/js/jquery-1.7.2.min.js"><\/script>');</script>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <div class="wrapperLogo" id="wrapperLogo" style="float: left; width: 80px;">
+            <a href="/"><img src="/assets/images/logo.png"></a>
+          </div>
+          <ul class="nav">
+          	<li><a href="/"><span class="icon-home"></span> Home</a></li>
+            <li><a href="categories.html"><span class="icon-th-list"></span> Categories</a></li>
+            <li><a href="archive.html"><span class="icon-ok"></span> Archive</a></li>
+            <li><a href="tags.html"><span class="icon-tags"></span> Tags</a></li>
+            <li><a href="pages.html"><span class="icon-th"></span> Pages</a></li>
+            <!--
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+
+
+-->
+          </ul>
+        </div>
+      </div>
+    </div>
+	
+    <div id="google_translate_element" class="google_translate_element"></div>
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-46780180-1'}, 'google_translate_element');
+      }
+      </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+    <div class="container-narrow">     
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>巨人网络2014校园招聘笔试 </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>21 October 2013</span>
+    </div>
+    <div class="content">
+      <h3 id="">一、改错题</h3>
+
+<h5 id="1_">1. 下列代码的错误之处</h5>
+
+<pre><code>public class Question1 {
+    public static boolean isOdd(int i) {
+        return i % 2 == 1;
+    }
+    public static void main(String[] args) {
+        for (int i = Integer.MIN_VALUE; i &lt;= Integer.MAX_VALUE; ++i) {
+            boolean isOdd = isOdd(i);
+            System.out.println(String.format(&quot;i=%d, isOdd = %b&quot;, i, isOdd);
+        }
+    }
+}</code></pre>
+
+<p>// 负数求模，取绝对值取模，然后加符号。此处负数的部分，奇数取模之后都是-1，所以返回都是false。检测负数奇偶性时应先判断正负。</p>
+
+<h5 id="2_">2. 下列代码的错误之处</h5>
+
+<pre><code>public class Question2 {
+    public static void main(String[] args) {
+        final long MICROS_PER_DAY = 24 * 60 * 60 * 1000 * 1000;
+        final long MILLIS_PER_DAY = 24 * 60 * 60 * 1000;
+        System.out.println(MICROS_PER_DAY / MILLIS_PER_DAY);
+    }
+}</code></pre>
+
+<p>// long 64位 范围合适 // 右边做乘法时，是int类型数值，int是32位，乘法结束后，才转成long型付给MICROS_PER_DAY // 改成：final long MICROS_PER_DAY = 24l * 60l * 60l * 1000l * 1000l;</p>
+
+<h5 id="3_">3. 下列代码的错误之处</h5>
+
+<pre><code>public class Question3 {
+    public static void main(String[] args) {
+        for (byte b = Byte.MIN_VALUE; b &lt; Byte.MAX_VALUE; b++) {
+            if (b == 0x90)
+                System.out.print(&quot;Joy!&quot;);
+        }
+    }
+}</code></pre>
+
+<p>// byte只有8位，0x90是16位，超出范围，永远不会执行到Joy处。</p>
+
+<h3 id="_2">二、问答题</h3>
+
+<h5 id="1_jvm_gc">1. 请解释一下JVM GC的原理</h5>
+
+<p>GC garbage coolection，使用一个线程实现，监控内存，如果该块内存没有被对象引用，则会自动释放该内存块。常见的情况下，a = null;后，a原本引用的内存就会被自动释放。程序员也可以通过System.gc()建议JVM去释放内存。</p>
+
+<h5 id="2__2">2. 实现一个高并发的聊天服务器需要克服哪些问题？</h5>
+
+<h3 id="_3">三、编程题</h3>
+
+<h5 id="1_java">1. 请用Java实现冒泡排序算法</h5>
+
+<pre><code>class BubbleSort {
+    
+    public static void BubbleSort(int [] arr) {
+        boolean flag;
+        for (int i = 0; i &lt; arr.length; i++) {
+            flag = false;
+            for (int j = i; j &lt; arr.length; j++) {
+                if (arr[i] &gt; arr[j]) {
+                    arr[i] ^= arr[j];
+                    arr[j] ^= arr[i];
+                    arr[i] ^= arr[j];
+                    
+                    flag = true;
+                }
+            }
+            
+            if (!flag) {
+                return ;
+            }
+        }
+    }
+    
+    public static void main(String argv[]) {
+        int arr[] = {5, 4, 6, 2, 3, 9};
+        BubbleSort(arr);
+        
+        for (int i = 0; i &lt; arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+}</code></pre>
+
+<h5 id="2_java">2. 请用Java实现二叉树的（中序）遍历算法。</h5>
+
+<pre><code>public void inOrder(Node node) {
+    if (node == null) {
+        return ;
+    }
+    
+    if (node.left != null) {
+        inOrder(node.left);
+    }
+    
+    System.out.println(node.value);
+    
+    if (node.right != null) {
+        inOrder(node.right);
+    }
+}</code></pre>
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#collection-ref">
+    		collection <span>14</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/collection/2013/10/19/qunarinterview" title="去哪网2014校园招聘Java开发面经">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/collection/2013/10/24/gamewave" title="趣游2014校园招聘笔试">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'cyeam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <div id="aboutme" style="width: 700px">
+      	<h1 id="about_me">About Me</h1>
+      	<ul>
+			<li><img style="width: 100px; height: 100px" src="/assets/images/gmail100.jpg"/> lichao0407@gmail.com
+			</li>
+			<li>
+				<img style="width: 100px; height: 100px" src="/assets/images/twitter100.png"/>
+				<a href="https://twitter.com/mnhkahn" class="twitter-follow-button" data-show-count="false">Follow @mnhkahn</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			</li>
+			<li>
+				<img style="width: 100px; height: 100px" src="/assets/images/weibo100.png"/>
+				<a href="http://weibo.com/u/1041802162?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/1041802162/253c5023/1.png"/></a>
+			</li>
+			<li>
+				<img style="width: 100px; height: 100px" src="/assets/images/weixin100.png"/>
+				<img src="/assets/images/qrcode_for_gh_aa23c6563b3d_258.jpg" alt="Alt text">
+			</li>
+		</ul>
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2014 Bryce
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000077791'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000077791%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  <a href="http://pagerank.chromefans.org" target=_blank title="Online PageRank Checker, PageRank Checker for Chrome"><img src="http://pr.chromefans.org/?u=6222d5fe0f55ed0e060d0d560a773c04&amp;style=1" ALT="PageRank Checker" STYLE="border:0px"></A>
+  </body>
+</html>
+

@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>趣游2014校园招聘笔试</title>
+    <meta name="description" content="好像是做手游的公司。一个创业公司。">
+    <meta name="author" content="Bryce">
+
+    <meta name="google-translate-customization" content="a4136e955b3e09f2-45a74b56dc13e741-gf616ffda6e6360e0-11"></meta>
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images -->
+    <link rel="shortcut icon" href="/assets/images/c32.ico">
+  <!--  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <!-- jQuery -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="/assets/js/jquery-1.7.2.min.js"><\/script>');</script>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <div class="wrapperLogo" id="wrapperLogo" style="float: left; width: 80px;">
+            <a href="/"><img src="/assets/images/logo.png"></a>
+          </div>
+          <ul class="nav">
+          	<li><a href="/"><span class="icon-home"></span> Home</a></li>
+            <li><a href="categories.html"><span class="icon-th-list"></span> Categories</a></li>
+            <li><a href="archive.html"><span class="icon-ok"></span> Archive</a></li>
+            <li><a href="tags.html"><span class="icon-tags"></span> Tags</a></li>
+            <li><a href="pages.html"><span class="icon-th"></span> Pages</a></li>
+            <!--
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+
+
+-->
+          </ul>
+        </div>
+      </div>
+    </div>
+	
+    <div id="google_translate_element" class="google_translate_element"></div>
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-46780180-1'}, 'google_translate_element');
+      }
+      </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+    <div class="container-narrow">     
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>趣游2014校园招聘笔试 </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>24 October 2013</span>
+    </div>
+    <div class="content">
+      <h3 id="">一、概念题</h3>
+
+<h5 id="1_">1. 引用和指针的区别？</h5>
+
+<pre><code>int a = 1;
+int&amp; b = a;
+cout &lt;&lt; &amp;a &lt;&lt; endl;
+cout &lt;&lt; &amp;b &lt;&lt; endl; // same address</code></pre>
+
+<ul>
+<li>引用访问一个变量是直接访问，而指针是间接访问。</li>
+
+<li>引用是一个变量的别名，本身不单独分配自己的内存空间，而指针有自己的内存空间。 + 不存在空引用，引用必须初始化。</li>
+
+<li>引用在开始的时候就绑定到了一个内存空间(开始必须赋初值)，所以他只能是这个内存空间的名字，而不能改成其他的，当然可以改变这个内存空间的值。</li>
+</ul>
+
+<h5 id="2_new_deletemalloc_free">2. new delete与malloc free的联系与区别？</h5>
+
+<ul>
+<li>malloc/free是C/C++语言的标准库函数，new/delete是C++的运算符。</li>
+
+<li>maloc/free 无法满足动态对象的要求。对象在创建的同时要自动执行构造函数， 对象消亡之前要自动执行析构函数。</li>
+
+<li>new 内置了sizeof、类型转换和类型安全检查功能。</li>
+
+<li>在用delete 释放对象数组时，留意不要丢了符号‘[]’。</li>
+</ul>
+
+<h5 id="3_structclass">3. struct和class的联系和区别？</h5>
+
+<pre><code>struct Shape {
+    int id;
+
+    Shape() {
+        cout &lt;&lt; &quot;Constructor of Shape&quot; &lt;&lt; endl;
+    }
+
+    ~Shape() {
+        cout &lt;&lt; &quot;Destructor of Shape&quot; &lt;&lt; endl;
+    }
+};
+
+struct Circle : Shape {
+
+    Circle() {
+        cout &lt;&lt; &quot;Constructor of Circle&quot; &lt;&lt; endl;
+    }
+
+    ~Circle() {
+        cout &lt;&lt; &quot;Destructor of Circle&quot; &lt;&lt; endl;
+    }
+};</code></pre>
+
+<ul>
+<li>访问权限不同。struct 的默认访问权限是public，class 的默认访问权限是private。如果一个类中只有get/set函数，而没有其他处理数据的函数，使用struct就可以了。</li>
+
+<li>struct默认是public继承，class默认是private继承。</li>
+</ul>
+
+<h5 id="4_">4. 什么是面向对象，描述它的基本特征。</h5>
+
+<p>封装、继承、多态。</p>
+
+<h5 id="5_overloadoverride">5. 重载（overload）和重写（override）的区别？</h5>
+
+<h5 id="6_">6. “线程安全”的含义。</h5>
+
+<ul>
+<li>程序中的每一条语句都是原子操作，则是线程安全的。</li>
+
+<li>实例变量是在堆中分配的,并不被属于该实例的所有线程共享，只有一个线程独享，是线程安全的。</li>
+
+<li>局部变量在堆栈中分配,因为每个线程都有它自己的堆栈空间,所以是线程安全的.</li>
+
+<li>静态类不用被实例化,就可直接使用,也不是线程安全的.</li>
+
+<li>单线程方式是线程安全的。</li>
+</ul>
+
+<h5 id="7_c_socketcs">7. 用c socket函数描述C/S架构的程序，两端网络连接建立过程。</h5>
+
+<h3 id="_2">二、程序编写题</h3>
+
+<h5 id="1_nmstrlen">1. 写一个在一个字符串（n）中寻找一个子串（m）第一个位置的函数（不能用strlen）。</h5>
+
+<ul>
+<li>请描述你解决这个问题的思路；</li>
+
+<li>请给出函数代码，以及算法的复杂度。</li>
+</ul>
+
+<h5 id="2_">2. 链表题：一个链表的节点结构</h5>
+
+<pre><code>struct Node
+{
+    int data;
+    Node* next;
+};</code></pre>
+
+<ul>
+<li>a. 已知链表的头结点head，写一个函数把这个链表逆序。</li>
+
+<li>b. 已知两个链表head1和head2各自有序，请把它们合并成一个链表依然有序（保留所有结点，即便大小相同）。</li>
+
+<li>c. 已知两个链表head1和head2各自有序，请把它们合并成一个链表依然有序，这次要用递归的方法。</li>
+</ul>
+
+<h5 id="3_">3. 用数组来实现一个栈，并用面向对象的方法进行封装。</h5>
+
+<h3 id="_3">三、附加题</h3>
+
+<h5 id="1__2">1. 两个数相乘，位数没有限制，请写一个程序接受键盘输入并输出结果。</h5>
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#collection-ref">
+    		collection <span>14</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/collection/2013/10/21/giant" title="巨人网络2014校园招聘笔试">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/collection/2013/10/24/letv" title="乐视2014校园招聘笔试">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'cyeam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <div id="aboutme" style="width: 700px">
+      	<h1 id="about_me">About Me</h1>
+      	<ul>
+			<li><img style="width: 100px; height: 100px" src="/assets/images/gmail100.jpg"/> lichao0407@gmail.com
+			</li>
+			<li>
+				<img style="width: 100px; height: 100px" src="/assets/images/twitter100.png"/>
+				<a href="https://twitter.com/mnhkahn" class="twitter-follow-button" data-show-count="false">Follow @mnhkahn</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			</li>
+			<li>
+				<img style="width: 100px; height: 100px" src="/assets/images/weibo100.png"/>
+				<a href="http://weibo.com/u/1041802162?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/1041802162/253c5023/1.png"/></a>
+			</li>
+			<li>
+				<img style="width: 100px; height: 100px" src="/assets/images/weixin100.png"/>
+				<img src="/assets/images/qrcode_for_gh_aa23c6563b3d_258.jpg" alt="Alt text">
+			</li>
+		</ul>
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2014 Bryce
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000077791'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000077791%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  <a href="http://pagerank.chromefans.org" target=_blank title="Online PageRank Checker, PageRank Checker for Chrome"><img src="http://pr.chromefans.org/?u=6222d5fe0f55ed0e060d0d560a773c04&amp;style=1" ALT="PageRank Checker" STYLE="border:0px"></A>
+  </body>
+</html>
+

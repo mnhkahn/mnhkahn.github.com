@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>去哪网2014校园招聘Java开发面经</title>
+    <meta name="description" content="去哪网待遇非常给力，一个FE都能给到14x16。而且刚刚上市，发展很不错。我的面试官是重庆人，看到我的简历上写着本科是重庆大学的，也很照顾我，可惜我很不给力。一直摊开了问，从基础到Java源码、C++源码都问了一圈，还有C语言小技巧。面试难度符合他们公司的工资水平。">
+    <meta name="author" content="Bryce">
+
+    <meta name="google-translate-customization" content="a4136e955b3e09f2-45a74b56dc13e741-gf616ffda6e6360e0-11"></meta>
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images -->
+    <link rel="shortcut icon" href="/assets/images/c32.ico">
+  <!--  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <!-- jQuery -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="/assets/js/jquery-1.7.2.min.js"><\/script>');</script>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <div class="wrapperLogo" id="wrapperLogo" style="float: left; width: 80px;">
+            <a href="/"><img src="/assets/images/logo.png"></a>
+          </div>
+          <ul class="nav">
+          	<li><a href="/"><span class="icon-home"></span> Home</a></li>
+            <li><a href="categories.html"><span class="icon-th-list"></span> Categories</a></li>
+            <li><a href="archive.html"><span class="icon-ok"></span> Archive</a></li>
+            <li><a href="tags.html"><span class="icon-tags"></span> Tags</a></li>
+            <li><a href="pages.html"><span class="icon-th"></span> Pages</a></li>
+            <!--
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+
+
+-->
+          </ul>
+        </div>
+      </div>
+    </div>
+	
+    <div id="google_translate_element" class="google_translate_element"></div>
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-46780180-1'}, 'google_translate_element');
+      }
+      </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+    <div class="container-narrow">     
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>去哪网2014校园招聘Java开发面经 </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>19 October 2013</span>
+    </div>
+    <div class="content">
+      <p>去哪网待遇非常给力，一个FE都能给到14x16。而且刚刚上市，发展很不错。我的面试官是重庆人，看到我的简历上写着本科是重庆大学的，也很照顾我，可惜我很不给力。一直摊开了问，从基础到Java源码、C++源码都问了一圈，还有C语言小技巧。面试难度符合他们公司的工资水平。</p>
+
+<p>下面是记忆版的面试题目。</p>
+
+<h5 id="1_arraylist_add">1. ArrayList实现 add方法如何分配内存</h5>
+
+<p>ArrayList基于数组实现，封装的数组，但是数组大小是固定了，而ArrayList是动态数组。动态数组是通过ensureCapacity(int minCapacity)实现。</p>
+
+<pre><code>private void grow(int minCapacity) {
+    // overflow-conscious code
+    int oldCapacity = elementData.length;
+    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
+    if (newCapacity - minCapacity &lt; 0)
+        newCapacity = minCapacity;
+    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
+        newCapacity = hugeCapacity(minCapacity);
+    // minCapacity is usually close to size, so this is a win:
+    elementData = Arrays.copyOf(elementData, newCapacity);
+}</code></pre>
+
+<p>每次可以扩容1.5倍，将老数组拷贝一份到新数组。</p>
+
+<h5 id="2_hashmap">2. HashMap如何实现？</h5>
+
+<p>HashMap是基于哈希表的Map接口的非同步实现。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。从上图中可以看出，HashMap底层就是一个数组结构，数组中的每一项又是一个链表。当新建一个HashMap的时候，就会初始化一个数组。</p>
+
+<pre><code>Entry(int h, K k, V v, Entry&lt;K,V&gt; n) {
+    value = v;
+    next = n;
+    key = k;
+    hash = h;
+}</code></pre>
+
+<p><img src="/assets/images/post/hashtable_link.png" alt="Alt text" /></p>
+
+<h5 id="3_c">3. C++容器</h5>
+
+<h5 id="4_">4. 数据库索引建立</h5>
+
+<pre><code>CREATE INDEX idx_test4_name ON   test_tab (name );</code></pre>
+
+<ul>
+<li>索引要建立在经常进行select操作的字段上。这是因为，如果这些列很少用到，那么有无索引并不能明显改变查询速度。相反，由于增加了索引，反而降低了系统的维护速度和增大了空间需求。</li>
+
+<li>索引要建立在值比较唯一的字段上。这样做才是发挥索引的最大效果。，比如主键的id字段，唯一的名字name字段等等。如果索引建立在唯一值比较少的字段，比如性别gender字段，寥寥无几的类别字段等，刚索引几乎没有任何意义。</li>
+
+<li>对于那些定义为text、image和bit数据类型的列不应该增加索引。因为这些列的数据量要么相当大，要么取值很少。</li>
+
+<li>当修改性能远远大于检索性能时，不应该创建索引。修改性能和检索性能是互相矛盾的。当增加索引时，会提高检索性能，但是会降低修改性能。当减少索引时，会提高修改性能，降低检索性能。因此，当修改性能远远大于检索性能时，不应该创建索引。</li>
+
+<li>在WHERE和JOIN中出现的列需要建立索引。</li>
+
+<li>在以通配符% 和_ 开头作查询时，mysql索引是无效的。但是这样索引是有效的：select * from tbl1 where name like ‘xxx%’，所以mysql正确建立索引是很重要的。</li>
+</ul>
+
+<h5 id="5_">5. 设计模式</h5>
+
+<h5 id="6_">6. 如何检测一个数是大端还是小段存储</h5>
+
+<pre><code>short x = 0x1234;
+char* arr;
+arr = reinterpret_cast&lt;char*&gt;(&amp;x);
+cout &lt;&lt; hex &lt;&lt; static_cast&lt;short&gt;(arr[0]) &lt;&lt; static_cast&lt;short&gt;(arr[1]) &lt;&lt; endl;
+char y = x;
+cout &lt;&lt; &quot;0x&quot; &lt;&lt; hex &lt;&lt; (short)y &lt;&lt; endl;
+union endian {
+    int i;
+    float f;
+    char s;
+};
+endian e;
+e.i = 1;
+cout &lt;&lt; static_cast&lt;int&gt;(e.s) &lt;&lt; endl;</code></pre>
+
+<h5 id="7_json">7. Json的解析</h5>
+
+<h5 id="8_ajax">8. ajax原理</h5>
+
+<h5 id="9___">9. 快速排序 堆排序 哪个快</h5>
+
+<p>这里的关键问题就在于第2步，堆底的元素肯定很小，将它拿到堆顶和原本属于最大元素的两个子节点比较，它比它们大的可能性是微乎其微的。实际上它肯定小于其中的一个儿子。而大于另一个儿子的可能性非常小。于是，这一次比较的结果就是概率不均等的，根据前面的分析，概率不均等的比较是不明智的，因为它并不能保证在糟糕情况下也能将问题的可能性削减到原本的1/2。可以想像一种极端情况，如果a肯定小于b，那么比较a和b就会什么信息也得不到——原本剩下多少可能性还是剩下多少可能性。 在堆排序里面有大量这种近乎无效的比较，因为被拿到堆顶的那个元素几乎肯定是很小的，而靠近堆顶的元素又几乎肯定是很大的，将一个很小的数和一个很大的数比较，结果几乎肯定是“小于”的，这就意味着问题的可能性只被排除掉了很小一部分。 这就是为什么堆排序比较慢（堆排序虽然和快速排序一样复杂度都是O(NlogN)但堆排序复杂度的常系数更大）。 MacKay也提供了一个修改版的堆排序：每次不是将堆底的元素拿到上面去，而是直接比较堆顶（最大）元素的两个儿子，即选出次大的元素。由于这两个儿子之间的大小关系是很不确定的，两者都很大，说不好哪个更大哪个更小，所以这次比较的两个结果就是概率均等的了。</p>
+
+<h5 id="10_tcpsyn">10. TCP建立过程，传输过程syn码是否变化</h5>
+
+<h5 id="11_protobuf">11. Protobuf</h5>
+
+<h5 id="12__">12. 单件模式关键点 除了线程安全</h5>
+
+<pre><code>double check
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+//import javax.ejb.EntityContext;
+import org.apache.struts2.dispatcher.StaticContentLoader;
+public class ZSingleton&lt;T&gt; {
+    
+    private static Object instance;
+    
+    public ZSingleton() {
+        Class&lt;T&gt; entityClass = (Class&lt;T&gt;)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+    }
+    
+    public static &lt;T&gt; T getInstance() {
+//      entityClass.cast(instance);
+        
+        if (instance == null) {
+            // Delay load and synchronized load
+            synchronized (ZSingleton.class) {
+                if (instance == null) {
+//                  instance = entityClass.getConstructors();
+                }
+            }
+        }
+        return (T)instance;
+    }
+}</code></pre>
+
+<h5 id="13_http">13. Http状态码</h5>
+
+<ul>
+<li>2xx成功</li>
+
+<li>3xx重定向
+<ul>
+<li>304 Not Modified。如果客户端发送了一个带条件的GET请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码。304响应禁止包含消息体，因此始终以消息头后的第一个空行结尾。</li>
+</ul>
+</li>
+
+<li>4xx请求错误</li>
+
+<li>5xx服务器错误</li>
+</ul>
+
+<h5 id="14_vector_">14. Vector 与普通数组实现区别</h5>
+
+<pre><code>void reserve( int newCapacity )  
+{  
+    Object *oldArray = objects;  
+        //1.重设size,capacity  
+    int numToCopy = newCapacity &lt; theSize ? newCapacity : theSize;  
+    //capacity是在size的基础上加一个常数  
+    newCapacity += SPARE_CAPACITY;  
+        //2.建立新的数组，并拷贝元素到新数组  
+    objects = new Object[ newCapacity ];  
+    for( int k = 0; k &lt; numToCopy; k++ )  
+        objects[ k ] = oldArray[ k ];  
+  
+    theSize = numToCopy;  
+    theCapacity = newCapacity;  
+        //删除原来的数组  
+    delete [ ] oldArray;  
+}</code></pre>
+<hr />
+<p>一面后直接就被委婉的告知没戏了。下午还有完美世界的笔试，走在去清华的路上，拍到的这张北大的博雅塔。 <img src="/assets/images/博雅塔.JPG" alt="IMG-THUMBNAIL" /></p>
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#collection-ref">
+    		collection <span>14</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/collection/2013/10/19/perfectworld" title="完美世界2014校园招聘笔试">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/collection/2013/10/21/giant" title="巨人网络2014校园招聘笔试">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'cyeam'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <div id="aboutme" style="width: 700px">
+      	<h1 id="about_me">About Me</h1>
+      	<ul>
+			<li><img style="width: 100px; height: 100px" src="/assets/images/gmail100.jpg"/> lichao0407@gmail.com
+			</li>
+			<li>
+				<img style="width: 100px; height: 100px" src="/assets/images/twitter100.png"/>
+				<a href="https://twitter.com/mnhkahn" class="twitter-follow-button" data-show-count="false">Follow @mnhkahn</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			</li>
+			<li>
+				<img style="width: 100px; height: 100px" src="/assets/images/weibo100.png"/>
+				<a href="http://weibo.com/u/1041802162?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/1041802162/253c5023/1.png"/></a>
+			</li>
+			<li>
+				<img style="width: 100px; height: 100px" src="/assets/images/weixin100.png"/>
+				<img src="/assets/images/qrcode_for_gh_aa23c6563b3d_258.jpg" alt="Alt text">
+			</li>
+		</ul>
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2014 Bryce
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000077791'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000077791%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  <a href="http://pagerank.chromefans.org" target=_blank title="Online PageRank Checker, PageRank Checker for Chrome"><img src="http://pr.chromefans.org/?u=6222d5fe0f55ed0e060d0d560a773c04&amp;style=1" ALT="PageRank Checker" STYLE="border:0px"></A>
+  </body>
+</html>
+
