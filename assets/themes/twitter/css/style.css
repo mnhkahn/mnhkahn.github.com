@@ -147,7 +147,7 @@ ol { list-style-type: upper-alpha; }
 
 /* horse */
 body {
-	background-image: url(/assets/images/horse.jpg);
+	background-image: url(http://cyeam.qiniudn.com/horse.jpg);
     background-repeat: no-repeat;
 	
 }

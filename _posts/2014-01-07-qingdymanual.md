@@ -4,7 +4,7 @@ title: "青帝使用手册"
 figure: "http://cyeam.qiniudn.com/qingdy.png"
 description: "青帝网（keyingdy.com）使用说明书"
 category: "qingdy"
-tags: ["qingdy"]
+tags: ["QingDy"]
 ---
 
 ![Alt text](http://cyeam.qiniudn.com/qingdy_logo.png)
