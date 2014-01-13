@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "完美世界2014校园招聘笔试"
-figure: "/assets/images/perfectworld_logo.jpg"
+figure: "http://cyeam.qiniudn.com/perfectworld_logo.jpg"
 description: "只是简单了参加了一下笔试，地点是在清华。没有面试机会。这种游戏公司招人要求都有点高。"
 category: "Collection"
-tags: []
+tags: ["Job", "Exam"]
 ---
 ###一、单项选择题
 
@@ -256,5 +256,5 @@ equals()和hashCode()均继承自Object对象。equals()是通过比较两个对
 
 ---
 清华的一家飞机，也不知道是何来历。
-![IMG-THUMBNAIL](/assets/images/tsinghua_plane.jpg)
+![IMG-THUMBNAIL](http://cyeam.qiniudn.com/tsinghua_plane.jpg)
 {% include JB/setup %}

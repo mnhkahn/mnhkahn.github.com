@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "阿里巴巴2014校园招聘面经"
-figure: "/assets/images/alibaba.jpg"
+figure: "http://cyeam.qiniudn.com/alibaba.jpg"
 description: "本来准备先面一些小公司，积累点经验，再去面自己想去的公司的。结果才试了一家，阿里就来面试了。而且我觉得我的水平确实不够阿里的层次。虽然我开发经验比较多一些，但是他们更关注你对底层实现的理解，说来惭愧，一直在做东西，没有时间关注这些。这次面试，就我本人而言，没有任何亮点，没有说出来一个让人觉得还可以的东西，所以没戏。"
 category: "Collection"
-tags: []
+tags: ["Job", "Interview"]
 ---
 上周六去中科院参加阿里的笔试，结果阿里那边出了意外，没有打印出题目来。他们应急是去筛选简历，通过的今天直接面试，剩下的下周日笔试。   
 
@@ -29,6 +29,6 @@ tags: []
  
 2013年9月16日于寝室
 
-![IMG-THUMBNAIL](/assets/images/cyeam.png)
+![IMG-THUMBNAIL](http://cyeam.qiniudn.com/cyeam.png)
 
 {% include JB/setup %}

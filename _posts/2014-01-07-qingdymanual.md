@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "青帝使用手册"
-figure: "/assets/images/qingdy.png"
+figure: "http://cyeam.qiniudn.com/qingdy.png"
 description: "青帝网（keyingdy.com）使用说明书"
 category: "qingdy"
-tags: 
+tags: ["qingdy"]
 ---
 
-![Alt text](/assets/images/qingdy_logo.png)
+![Alt text](http://cyeam.qiniudn.com/qingdy_logo.png)
 
 阿蒙，当你看到这个文档的时候，项目核心已经基本完成了。我从2012年7月份开始给你做，做了整整一年半，到2013年年末，网站才算初具规模，实在惭愧。这里面有我的问题，也有沟通的问题。我跟你说声抱歉。
 项目一开始我定的起点很高，是完全按照易贷网的规模来进行开发的。所以项目实施起来难度很大，再加上只有我一个人在做，所以难免有不完善和疏漏的地方，尤其是展示和安全防护方面，依然存在漏洞，我会在接下来的时间里尽快完善。也希望我们能一起，将青帝网第一个版本做得很好。   

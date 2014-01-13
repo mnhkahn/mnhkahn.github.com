@@ -3,7 +3,7 @@ layout: post
 title: "神州航天软件发展规划部实习笔试"
 description: "9月初的实习笔试，后面还有面试，通过了。果断拒了。"
 category: "Collection"
-tags: 
+tags: ["Job", "Exam"]
 ---
 
 #####1. 修改bug之后的测试
