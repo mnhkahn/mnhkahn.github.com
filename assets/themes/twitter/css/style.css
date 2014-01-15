@@ -147,9 +147,14 @@ ol { list-style-type: upper-alpha; }
 
 /* horse */
 body {
-	background-image: url(http://cyeam.qiniudn.com/horse.jpg);
+	background-image: url(http://cyeam.qiniudn.com/2014-01-15-horse.png);
     background-repeat: no-repeat;
 	
+	/* Auto 100% */
+	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size:100% 100%;
+    background-size:100% 100%;
+
 }
 
 /* image */
@@ -177,5 +182,10 @@ img[alt=IMG-THUMBNAIL] {
 
 /* navbar */
 .navbar {
-	margin-bottom: 150px;
+/*	margin-bottom: 150px;*/
+}
+
+/* opacity: */
+.container-narrow {
+	background: rgba(255,255,255,0.9);
 }

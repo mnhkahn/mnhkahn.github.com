@@ -8,7 +8,10 @@ tagline: Done is Better Than Perfect
 {% for post in site.posts %}
 ##{{post.title}}
 {{post.date|date: "%Y-%m-%d"}}   
-{{post.description}}[阅读全文]({{post.url}})
+{{post.description}}
+
+[阅读全文]({{post.url}})
+
 {% if post.figure %}
 <a href="{{post.url}}">
     <img src="{{post.figure}}" alt="IMG-THUMBNAIL" />
