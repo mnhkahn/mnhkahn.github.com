@@ -58,7 +58,19 @@
       </div>
     </div>
 	
-    <div id="google_translate_element" class="google_translate_element"></div>
+    <div id="cyeam_float" class="cyeam_float opacity">
+      <div id="google_translate_element" class="google_translate_element">
+      </div>
+      {% if page.tags %}
+      {% for anchor in page.anchors %}
+      <li><a href="#{{anchor}}">{{anchor}}<a></li>
+      {% endfor %}
+      {% else %}
+      {% for post in site.posts %}
+      <li><a href="#{{post.title}}">{{post.title}}<a></li>
+      {% endfor %}
+      {% endif %}
+    </div>
       <script type="text/javascript">
         function googleTranslateElementInit() {
           new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-46780180-1'}, 'google_translate_element');
@@ -67,8 +79,7 @@
     <script type="text/javascript" src="//translate.google.com.hk/translate_a/element.js?cb=googleTranslateElementInit">
     </script>
 
-    <div class="container-narrow">     
-
+    <div class="container-narrow opacity">
       <div class="content">
         {{ content }}
       </div>
