@@ -32,25 +32,12 @@
     <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
 
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-
     <!-- jQuery -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script>!window.jQuery && document.write('<script src="/assets/js/jquery-1.7.2.min.js"><\/script>');</script>
   <script type="text/javascript">
     $().ready(function(){
-      $( "#check" ).button();
-      $("#check").on("click", function(){
-        if ($("#check").attr("checked") == "checked") {
-          $("#container-narrow").hide( "blind", null, 1000);
-          $("#anchor").hide( "blind", null, 1000);
-        }
-        else {
-          $("#container-narrow").css("display", "inherit").fadeIn();
-          $("#anchor").css("display", "inherit").fadeIn();
-        }
-      })
+     
     })
   </script>
   </head>
@@ -79,7 +66,6 @@
     <div id="cyeam_float" class="cyeam_float opacity">
       <div id="google_translate_element" class="google_translate_element">
       </div>
-      <input type="checkbox" id="check"><label for="check">隐藏内容</label>
       <div id="anchor">
         {% if page.tags %}
         {% for anchor in page.anchors %}
@@ -131,12 +117,14 @@
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>
 		<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">Cyeam</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="www.cyeam.com" property="cc:attributionName" rel="cc:attributionURL">Bryce</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+        {% include JB/analytics %}
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000077791'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000077791%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  <a href="http://pagerank.chromefans.org" target=_blank title="Online PageRank Checker, PageRank Checker for Chrome"><img src="http://pr.chromefans.org/?u=6222d5fe0f55ed0e060d0d560a773c04&amp;style=1" ALT="PageRank Checker" STYLE="border:0px"></A>
+
       </footer>
 
     </div>
-	
-    {% include JB/analytics %}
-	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000077791'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000077791%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
-  <a href="http://pagerank.chromefans.org" target=_blank title="Online PageRank Checker, PageRank Checker for Chrome"><img src="http://pr.chromefans.org/?u=6222d5fe0f55ed0e060d0d560a773c04&amp;style=1" ALT="PageRank Checker" STYLE="border:0px"></A>
+
   </body>
 </html>
