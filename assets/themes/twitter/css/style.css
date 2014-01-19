@@ -243,3 +243,15 @@ a:hover {
 	background-repeat: no-repeat;
 	margin-top: 1px;
 }
+
+.cyeam_float_right {
+	position: fixed;
+	margin: 0px auto;
+	z-index: 999;
+	top: 73px;
+	right: 40px;
+	padding-top: 5px;
+
+	border-radius: 3px;
+  	padding: 5px;
+}
