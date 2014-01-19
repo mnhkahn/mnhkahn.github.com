@@ -232,3 +232,14 @@ a:hover {
 	color:#000000;
 	text-decoration:none; /*CSS下划线效果：无下划线*/
 }
+
+.stackoverflow {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	line-height: 14px;
+	vertical-align: text-top;
+	background-image: url("/assets/images/stackoverflow.png");
+	background-repeat: no-repeat;
+	margin-top: 1px;
+}

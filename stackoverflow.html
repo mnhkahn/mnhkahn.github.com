@@ -2,8 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <title>StackOverflow</title>
     <meta name="author" content="{{ site.author.name }}">
 
     <meta name="google-translate-customization" content="a4136e955b3e09f2-45a74b56dc13e741-gf616ffda6e6360e0-11"></meta>
@@ -17,8 +16,8 @@
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images -->
@@ -35,9 +34,10 @@
     <!-- jQuery -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>!window.jQuery && document.write('<script src="/assets/js/jquery-1.7.2.min.js"><\/script>');</script>
+    <script type="text/javascript" src="http://app.stacktack.com/jquery.stacktack.min.js"></script>
   <script type="text/javascript">
     $().ready(function(){
-     
+    	$(document).stacktack();
     })
   </script>
   </head>
@@ -68,15 +68,6 @@
       <div id="google_translate_element" class="google_translate_element">
       </div>
       <div id="anchor">
-        {% if page.tags %}
-        {% for anchor in page.anchors %}
-        <li><a href="#{{anchor}}">{{anchor}}<a></li>
-        {% endfor %}
-        {% else %}
-        {% for post in site.posts %}
-        <li><a href="#{{post.title}}">{{post.title}}<a></li>
-        {% endfor %}
-        {% endif %}
       </div>
     </div>
       <script type="text/javascript">
@@ -89,7 +80,7 @@
 
     <div id="container-narrow" class="container-narrow opacity">
       <div class="content">
-        {{ content }}
+        <div id="stacktack-21217144"></div>
       </div>
       <div id="aboutme" style="width: 700px">
       	<h1 id="about_me">About Me</h1>
