@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:wb="http://open.weibo.com/wb">
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
@@ -10,6 +10,8 @@
 
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="wb:webmaster" content="bd7a38bdb520b5ce" />
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -35,9 +37,11 @@
     <!-- jQuery -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>!window.jQuery && document.write('<script src="/assets/js/jquery-1.7.2.min.js"><\/script>');</script>
+
+  <script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1166443256" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript">
     $().ready(function(){
-     
+
     })
   </script>
   </head>
@@ -92,28 +96,19 @@
     </div>
 
     <div id="container-narrow" class="container-narrow opacity">
-      <div class="content">
+      
+      <div class="content" id="content">
         {{ content }}
       </div>
+
       <div id="aboutme" style="width: 700px">
       	<h1 id="about_me">About Me</h1>
-      	<ul>
-			<li><img style="width: 100px; height: 100px" src="http://cyeam.qiniudn.com/gmail100.jpg"/> lichao0407@gmail.com
-			</li>
-			<li>
-				<img style="width: 100px; height: 100px" src="http://cyeam.qiniudn.com/twitter100.png"/>
+        <img src="/assets/images/gmail.ico"/> lichao0407@gmail.com
+      </br>
 				<a href="https://twitter.com/mnhkahn" class="twitter-follow-button" data-show-count="false">Follow @mnhkahn</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-			</li>
-			<li>
-				<img style="width: 100px; height: 100px" src="http://cyeam.qiniudn.com/weibo100.png"/>
-				<a href="http://weibo.com/u/1041802162?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/1041802162/253c5023/1.png"/></a>
-			</li>
-			<li>
-				<img style="width: 100px; height: 100px" src="http://cyeam.qiniudn.com/weixin100.png"/>
+				<wb:follow-button uid="1041802162" type="red_3" width="245" height="24" ></wb:follow-button>
 				<img src="http://cyeam.qiniudn.com/qrcode_for_gh_aa23c6563b3d_258.jpg" alt="Alt text">
-			</li>
-		</ul>
       </div>
       <hr>
       <footer>
