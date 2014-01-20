@@ -31,6 +31,10 @@
     <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
 
+
+  <link type="text/css" rel="stylesheet" href="http://js.wcdn.cn/t3/style/css/common/card.css" />
+  <script type="text/javascript" src="http://js.wcdn.cn/t3/platform/js/api/wb.js" charset="utf-8"></script>
+
     <!-- jQuery -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>!window.jQuery && document.write('<script src="/assets/js/jquery-1.7.2.min.js"><\/script>');</script>
@@ -78,8 +82,26 @@
     <script type="text/javascript" src="//translate.google.com.hk/translate_a/element.js?cb=googleTranslateElementInit">
     </script>
 
+
     <div id="container-narrow" class="container-narrow opacity">
       <div class="content">
+        <p id=weibo>
+          @姚晨 //@微博新鲜人：@互联网的那点事 开微博啦。
+        </p>
+
+        <script type="text/javascript">
+        WB.core.load(['connect', 'client', 'widget.base', 'widget.atWhere'], function() {
+          var cfg = {
+            key: '3499764127',
+            xdpath: 'http://mnhkahn.github.io:4000/xd.html'
+          };
+          WB.connect.init(cfg);
+          WB.client.init(cfg);
+      
+          //user card widget
+          WB.widget.atWhere.searchAndAt(document.getElementById("weibo"));
+        });
+        </script>
         <div id="stacktack-21217144"></div>
       </div>
       <div id="aboutme" style="width: 700px">
