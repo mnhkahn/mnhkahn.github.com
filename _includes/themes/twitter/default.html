@@ -38,7 +38,8 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>!window.jQuery && document.write('<script src="/assets/js/jquery-1.7.2.min.js"><\/script>');</script>
 
-  <script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1166443256" type="text/javascript" charset="utf-8"></script>
+  <link type="text/css" rel="stylesheet" href="http://js.wcdn.cn/t3/style/css/common/card.css" />
+  <script type="text/javascript" src="http://js.wcdn.cn/t3/platform/js/api/wb.js" charset="utf-8"></script>
   <script type="text/javascript">
     $().ready(function(){
 
@@ -98,8 +99,22 @@
     <div id="container-narrow" class="container-narrow opacity">
       
       <div class="content" id="content">
+        @姚晨
         {{ content }}
       </div>
+      <script type="text/javascript">
+      WB.core.load(['connect', 'client', 'widget.base', 'widget.atWhere'], function() {
+        var cfg = {
+          key: '3499764127',
+          xdpath: 'http://mnhkahn.github.io/xd.html'
+        };
+        WB.connect.init(cfg);
+        WB.client.init(cfg);
+    
+        //user card widget
+        WB.widget.atWhere.searchAndAt(document.getElementById("content"));
+      });
+      </script>
 
       <div id="aboutme" style="width: 700px">
       	<h1 id="about_me">About Me</h1>
