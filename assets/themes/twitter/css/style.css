@@ -233,17 +233,6 @@ a:hover {
 	text-decoration:none; /*CSS下划线效果：无下划线*/
 }
 
-.stackoverflow {
-	display: inline-block;
-	width: 14px;
-	height: 14px;
-	line-height: 14px;
-	vertical-align: text-top;
-	background-image: url("/assets/images/stackoverflow.png");
-	background-repeat: no-repeat;
-	margin-top: 1px;
-}
-
 .cyeam_float_right {
 	position: fixed;
 	margin: 0px auto;
@@ -254,4 +243,8 @@ a:hover {
 
 	border-radius: 3px;
   	padding: 5px;
+}
+
+.icon {
+	margin-right: 10px;
 }
