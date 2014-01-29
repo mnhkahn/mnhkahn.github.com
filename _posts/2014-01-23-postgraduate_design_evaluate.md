@@ -32,6 +32,12 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 
 ---
 
+######*开发环境*
++ Nexus 7
+    + Android version **4.4.2**
+    + Kernel version **3.4.0-gac9222c**
+    
+![Nexus 7](http://cyeam.qiniudn.com/nexus_7.JPG)
 
 
 ######*参考文献*

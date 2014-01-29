@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Cyeam
-tagline: Done is Better Than Perfect
+tagline: 码到功城
 ---
 {% include JB/setup %}
 
