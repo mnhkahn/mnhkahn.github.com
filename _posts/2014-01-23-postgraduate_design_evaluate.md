@@ -27,8 +27,10 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 #####3. SIP(Session Initiation Protocol)
 这块因为我想部署到GAE上面，所以不能使用C++，考虑使用Java的开源库。此外，还要调研GAE上面执行C++动态链接库的可行性。
 
++ [jitsi.org](https://jitsi.org/)
 + [jitsi / jitsi](https://github.com/jitsi/jitsi)
 + [jitsi / jitsi-android](https://github.com/jitsi/jitsi-android)
++ [Jitsi（SIP communicator）的环境部署和打包发布](http://blog.csdn.net/nomousewch/article/details/7012392)
 
 ---
 
@@ -36,8 +38,8 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 + Nexus 7
     + Android version **4.4.2**
     + Kernel version **3.4.0-gac9222c**
-    
-![Nexus 7](http://cyeam.qiniudn.com/nexus_7.JPG)
+
+![Nexus 7](http://cyeam.qiniudn.com/portable-product-1200.jpg)
 
 
 ######*参考文献*
