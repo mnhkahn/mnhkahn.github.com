@@ -178,11 +178,14 @@ img[alt=IMG-THUMBNAIL] {
 	margin: 0px auto;
 	z-index: 999;
 	top: 73px;
-	left: 60px;
+	left: 50px;
 	padding-top: 5px;
 
 	border-radius: 3px;
   	padding: 5px;
+
+  	max-height: 400px;
+	overflow-y: hidden;
 }
 
 /* navbar */
