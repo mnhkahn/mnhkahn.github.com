@@ -20,6 +20,7 @@ tags: ["Nexus 7", "Root Android", "Mint"]
 + 文件`51-android.rules`命名的缘由——[《为什么是“51-android.rules”？》](http://www.cnblogs.com/frydsh/archive/2013/03/07/2949089.html)
 
 + `51-android.rules`的配置。[《Adding udev rules for USB debugging Android devices》](http://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/)
+
     + 使用命令`lsusb`找到Android设备的Bus和Device
 
             Bus 003 Device 006: ID 18d1:4ee2 Google Inc. Nexus 4 (debug)
