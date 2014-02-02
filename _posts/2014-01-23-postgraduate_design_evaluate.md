@@ -31,6 +31,8 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 + [jitsi / jitsi](https://github.com/jitsi/jitsi)
 + [jitsi / jitsi-android](https://github.com/jitsi/jitsi-android)
 + [Jitsi（SIP communicator）的环境部署和打包发布](http://blog.csdn.net/nomousewch/article/details/7012392)
++ [jitsi Documentation](https://jitsi.org/Documentation/HomePage)
++ [Jitsi 架构分析](http://www.cuitu.net/book/jitsi-jia-gou-fen-xi)
 
 ---
 
