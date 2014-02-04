@@ -50,7 +50,7 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 ![IMG-THUMBNAIL](http://cyeam.qiniudn.com/nexus%207.jpg)
 
 + Google App Engine(Java)
-发现一神器，使用*.appsp0t.com可以访问自己的域名。这个通过反向代理实现。这样就能实现跨墙访问。Fuck GFW!目前计划在[http://brycelinux.appsp0t.com](brycelinux.appsp0t.com)测试和发布。
+发现一神器，使用`*.appsp0t.com`可以访问自己的域名。这个通过反向代理实现。这样就能实现跨墙访问。Fuck GFW!目前计划在[http://brycelinux.appsp0t.com](brycelinux.appsp0t.com)测试和发布。
 
 ![IMG-THUMBNAIL](http://cyeam.qiniudn.com/cncgfw_b.png)
 
