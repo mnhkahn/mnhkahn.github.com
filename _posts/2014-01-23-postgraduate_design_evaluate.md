@@ -8,7 +8,7 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 
 毕业设计准备在Android平台上开发一个音视频通话软件，基于流媒体实现。项目的目的就是做一个山寨版的Faceime。目前了解到的实现技术是FFmpeg实现流媒体编码，RTP实现传输控制，SIP实现通话建立。我自己还想把SIP服务器部署到GAE上面，使其成为一个可用的项目。
 
-#####1. 音视频采集，压缩，发送，解码，显示的流程
+#####音视频采集，压缩，发送，解码，显示的流程
 
 ![系统流程图](http://cyeam.qiniudn.com/%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
 
@@ -34,6 +34,12 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 + [jitsi Documentation](https://jitsi.org/Documentation/HomePage)
 + [Jitsi 架构分析](http://www.cuitu.net/book/jitsi-jia-gou-fen-xi)
 
+#####开发流程
++ Android 视频编码
++ Android 视频解码
++ Android RTP 传输
++ Android & GAE SIP
+
 ---
 
 ######*开发环境*
@@ -41,12 +47,20 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
     + Android version **4.4.2**
     + Kernel version **3.4.0-gac9222c**
 
-![Nexus 7](http://cyeam.qiniudn.com/portable-product-1200.jpg)
+![IMG-THUMBNAIL](http://cyeam.qiniudn.com/nexus%207.jpg)
+
++ Google App Engine(Java)
+发现一神器，使用*.appsp0t.com可以访问自己的域名。这个通过反向代理实现。这样就能实现跨墙访问。Fuck GFW!目前计划在[http://brycelinux.appsp0t.com](brycelinux.appsp0t.com)测试和发布。
+
+![IMG-THUMBNAIL](http://cyeam.qiniudn.com/cncgfw_b.png)
+
+
 
 
 ######*参考文献*
 + 《基于Android的移动VoIP高清视频通话系统的设计与实现》曹建龙
 + [Android 中如何使用SIP服务](http://www.3g-edu.org/news/art014.htm)
 + [jitsi打包](http://blog.csdn.net/nomousewch/article/details/7012392)
++ [App Engine Java 概述](https://developers.google.com/appengine/docs/java/overview?hl=zh-CN)
 
 {% include JB/setup %}
