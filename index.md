@@ -7,7 +7,9 @@ tagline: 码年，码农的本命年
 
 {% for post in site.posts %}
 <h2>
-    <a id="{{post.title}}">{{post.title}}</a>
+    <a id="{{post.title}}" href="{{post.url}}" target="_blank">
+        {{post.title}}
+    </a>
 </h2>
 <p class="date">
     <span class="icon-calendar">

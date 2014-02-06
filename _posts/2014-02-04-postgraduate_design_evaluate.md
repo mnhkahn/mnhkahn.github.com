@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "安卓对讲机开发评估"
-description: "毕设题目《基于流媒体的语音视频通话系统》，使用Android实现。先在这里做一下技术评估。"
+description: "毕设题目《基于流媒体的语音视频通话系统》，基于Android实现。先在这里做一下技术评估。"
 category: "Postgraduate design"
 tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 ---
@@ -35,7 +35,11 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 + [Jitsi 架构分析](http://www.cuitu.net/book/jitsi-jia-gou-fen-xi)
 
 #####开发流程
++ [Android Quick Start](http://mnhkahn.github.io/postgraduate%20design/2014/02/05/android_quickstart/)
++ SIP(JSIP)
++ RTSP(JRtsplib)
 + Android 视频编码
++ Android 音频编码(Speex)
 + Android 视频解码
 + Android RTP 传输
 + Android & GAE SIP
@@ -47,10 +51,34 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
     + Android version **4.4.2**
     + Kernel version **3.4.0-gac9222c**
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/nexus%207.jpg)
+    ![IMG-THUMBNAIL](http://cyeam.qiniudn.com/nexus%207.jpg)
+
++ Java
+
+> java version "1.7.0_45"    
+> Java(TM) SE Runtime Environment (build 1.7.0_45-b18)    
+> Java HotSpot(TM) 64-Bit Server VM (build 24.45-b08, mixed mode)
+
++ ADT
+
+> adt-bundle-linux-x86_64-20131030.zip
+> [API](http://developer.android.com/training/index.html)
+
++ NDK
+
+> android-ndk-r9c-linux-x86_64.tar.bz2
 
 + Google App Engine(Java)
 发现一神器，使用`*.appsp0t.com`可以访问自己的域名。这个通过反向代理实现。这样就能实现跨墙访问。Fuck GFW!目前计划在[http://brycelinux.appsp0t.com](brycelinux.appsp0t.com)测试和发布。
+    + Google App Engine SDK
+> Version 1.8.9   
+> [Download](http://googleappengine.googlecode.com/files/appengine-java-sdk-1.8.9.zip)
+    + eclipse
+
+> Eclipse Java EE IDE for Web Developers.   
+> Version: Kepler Service Release 1   
+> Build id: 20130919-0819
+
 
 ![IMG-THUMBNAIL](http://cyeam.qiniudn.com/cncgfw_b.png)
 
