@@ -78,6 +78,17 @@ http://www.webupd8.org/2012/11/primus-better-performance-and-less.html
 
 http://www.douban.com/group/topic/41787706/
 
+#####8. 连接完美世界服务器游戏
+配置好所有的之后，可以打AI了，但是还是有问题，就是不能和人打。匹配区域只能显示欧洲、东南亚这些，匹配很久也匹配不到。
+
+解决方案，还是修改启动参数
+
+    -perfectworld steam
+
+完整的变量如下：
+
+    primusrun %command% +dota_full_ui 1 perfectworld -language schinese -perfectworld steamt
+
 ---
 最后奉上游戏截图，我最爱的Pom
 ![IMG-THUMBNAIL](http://cyeam.qiniudn.com/dota2_pom.png)

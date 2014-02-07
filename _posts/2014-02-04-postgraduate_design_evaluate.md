@@ -73,7 +73,7 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
     + Google App Engine SDK
 > Version 1.8.9   
 > [Download](http://googleappengine.googlecode.com/files/appengine-java-sdk-1.8.9.zip)
-    + eclipse
++ eclipse
 
 > Eclipse Java EE IDE for Web Developers.   
 > Version: Kepler Service Release 1   
