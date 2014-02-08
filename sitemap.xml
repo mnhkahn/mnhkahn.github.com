@@ -10,7 +10,7 @@ sitemap:
 
   {% for post in site.posts %}
   <url>
-    <loc>{{ site.url }}{{ post.url }}</loc>
+    <loc>http://mnhkahn.github.io{{ post.url }}</loc>
     {% if post.lastmod == null %}
     <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
     {% else %}
