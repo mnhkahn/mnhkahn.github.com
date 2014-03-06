@@ -145,6 +145,14 @@
 /* alpha list */
 ol { list-style-type: upper-alpha; }
 
+
+@font-face {
+	font-family: founder;
+	font-style:  normal;
+    font-weight: 400;
+	src: url("founder.TTF");
+}
+
 /* horse */
 body {
 	background-image: url(http://cyeam.qiniudn.com/2014-01-15-horse.png);
@@ -156,6 +164,10 @@ body {
     background-size:100% 100%;
 
 	background-attachment: fixed;
+	
+	font-family: founder;
+	line-height: 20px;
+	color: #333333;
 }
 
 /* image */
