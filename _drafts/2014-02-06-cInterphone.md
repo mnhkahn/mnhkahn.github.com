@@ -31,5 +31,6 @@ tags: ["Postgraduate design", "Android", "cInterphone", "Evaluate"]
 + <a name="3"></a>[Android Service完全解析，关于服务你所需知道的一切(上)](http://blog.csdn.net/guolin_blog/article/details/11952435)
 + <a name="4"></a>[MediaRecorder](http://developer.android.com/reference/android/media/MediaRecorder.html)
 + <a name="5"></a>[Android--MediaRecorder录音录像](http://www.cnblogs.com/plokmju/p/android_MediaRecorder.html)
++ <a name="6"></a>[android-chm-documentation](https://code.google.com/p/android-chm-documentation/downloads/detail?name=Android.4.2.documentation-1.6.zip&can=2&q=)
 
 {% include JB/setup %}
