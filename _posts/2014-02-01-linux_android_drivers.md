@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Linux Mint下root Nexus 7"
+title: "Linux Mint下安装Nexus 7 驱动"
 figure: "http://cyeam.qiniudn.com/writing_udev_rules.jpg"
 description: "为了能够让我的Nexus 7翻墙，我决定root。是在Linux Mint下root Android。看着也不难，结果搞了好几天。越到一半机子驱动问题，没办法继续了，看着一块砖头放在那，真叫个急啊。root成功后，twitter还是上不去，还得再写一篇文章来总结一下Android翻墙。"
 category: "Kaleidoscope"
@@ -23,7 +23,7 @@ tags: ["Nexus 7", "Root Android", "Mint"]
 
     + 使用命令`lsusb`找到Android设备的Bus和Device
 
-            Bus 003 Device 006: ID 18d1:4ee2 Google Inc. Nexus 4 (debug)
+            Bus 003 Device 006: ID 18d1:d001 Google Inc. Nexus 7 (debug)
 
     + 看到上面的Google的Bus是`003`，Device是`006`，Linux是通过文件来管理设备的，所以该Android设备对应的文件就是`/dev/bus/usb/003/006`，查看其文件权限。`ls -l /dev/bus/usb/003/006`查看其文件权限。
 
