@@ -1,4 +1,4 @@
-/* Custom container */
+﻿/* Custom container */
 .container-narrow {
   margin: 0 auto;
   max-width: 750px;
@@ -392,4 +392,20 @@ a:hover {
 	position: absolute;
 	left: 6px;
 	top: 65px;
+}
+
+.phone-bg {
+    margin-top: 10px;
+    padding-top: 60px;
+    background: url(http://siteapp.baidu.com/static/webappservice/pic/new-bg-mobile_dafd5fd.png) no-repeat 0 -10px;
+    height: 614px;
+    width: 332px;
+    margin-right: -10px;
+    position: relative;
+}
+.phone-bg .phone_display {
+    margin-left: 34px;
+    width: 272px;
+    height: 465px;
+    background-color: #fff;
 }
