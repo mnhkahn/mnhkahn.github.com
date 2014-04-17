@@ -15,9 +15,11 @@ tags: ["Postgraduate design", Paper"]
 
 此外，还有了很多弯路。由于没有指导，只能看论文摸索着做，有时候分不清重点。有一段时间尝试着去跨平台编译ffmpeg，千辛万苦编译出来了，准备着编译RTP流的时候使用。但是后来发现Android新版本开始支持读RTSP流和H264和H263的编解码了，好像是从3.0开始支持H264编码的。哎，浪费了时间。。。
 
+开发阶段也遇到过一些蛋疼的事情。最后借过一台MTK的平板，准备测试通话，可万万没想到，MTK平台下H264的编码器没有。。。代码执行不了，想想整个Android平台下碎片化的系统，多样化的硬件平台，难道叫我没把所有编码器都编译一下么。。。
+
 期间，发现一篇很好的论文——《基于Android的移动VoIP高清视频通话系统的设计与实现》曹建龙，这是他的[个人博客](http://blog.csdn.net/cazicaquw/article/details/8650543)。主要参考了他的解决方案，但是用的开发工具我又找了适合我开发的类似的工具进行的实现。
 
-项目代码托管在[GitHub cInterphone](https://github.com/mnhkahn/cInterphone)。欢迎指导。
+项目代码托管在[GitHub cInterphone](https://github.com/mnhkahn/cInterphone)。欢迎拍砖。
 
 好了，就啰嗦到这里吧，开始写论文。
 
