@@ -4,7 +4,7 @@ title: "基于Android的移动VoIP视频通话系统的设计与实现——List
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: ""
 category: "Postgraduate design"
-tags: ["Postgraduate design", "SIP", "opensips", "Evaluate"]
+tags: ["Postgraduate design", Evaluate"]
 ---
 
 Android Support Library(支持库)提供了包含一个API库的JAR文件，当你的应用运行在Android早期版本时，Support Library(支持库)允许你的应用使用一些最近版本的Android API。例如：Support Library提供了一个让你能在Android1.6(API level 4)或者更高的版本上使用Fragment API的版本。

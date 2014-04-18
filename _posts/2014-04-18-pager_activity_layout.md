@@ -4,7 +4,7 @@ title: "基于Android的移动VoIP视频通话系统的设计与实现——Acti
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: "Android Activity 布局"
 category: "Postgraduate design"
-tags: ["Postgraduate design", "SIP", "opensips", "Evaluate"]
+tags: ["Postgraduate design", Evaluate"]
 ---
 
 Android的布局有点像HTML的标签，也可以为其添加类似于CSS的样式。

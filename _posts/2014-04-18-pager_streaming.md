@@ -4,7 +4,7 @@ title: "基于Android的移动VoIP视频通话系统的设计与实现——流�
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: "Andoird流媒体传输的调研"
 category: "Postgraduate design"
-tags: ["Postgraduate design", "SIP", "opensips", "Evaluate"]
+tags: ["Postgraduate design", Evaluate"]
 ---
 ###MediaPlayer
 MediaPlayer是Android提供的可以用来控制播放视频和音频的控件，同时支持播放文件和流媒体。MedialPayer还可以将读到的媒体信息通过setDisplay、setSurface方法播放在指定展示控件上。
