@@ -153,17 +153,16 @@ ol { list-style-type: upper-alpha; }
 	src: url("founder.TTF");
 }
 
-/* horse */
 body {
-	background-image: url(http://cyeam.qiniudn.com/2014-01-15-horse.png);
-    background-repeat: no-repeat;
+	/*background: url(http://lh4.ggpht.com/bd7y0XYFjqg44W4idK30rW_XeuMLMKUcx5yWF-ro9ctTtpeiRU8FVMLsa-8NrWPIo5GQ7AdR5k_V63ay_GJ3PMnjWpElml-WFuBTNmlO) center;*/
+    /*background-repeat: no-repeat;*/
 	
 	/* Auto 100% */
-	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+/*	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
     -moz-background-size:100% 100%;
     background-size:100% 100%;
-
-	background-attachment: fixed;
+*/
+	/*background-attachment: fixed;*/
 	
 /*	font-family: founder;
 	line-height: 20px;
