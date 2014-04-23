@@ -66,12 +66,6 @@ Android编程主要是围绕程序的状态改变做出响应。
 
 灵活性不够，无法自动适应。
 
-+ View
-
-
-+ Thread & Process
-
-
 + Intent
 
 > Intent是指在主要构建之间传递的消息。它们能够触发并启动一个Activity，告诉一个服务启动还是停止，或者只是简单的广播。Intent是异步的。
@@ -86,6 +80,17 @@ Android编程主要是围绕程序的状态改变做出响应。
 
 ![IMG-THUMBNAIL](http://cyeam.qiniudn.com/service_lifecycle.png)
 
+onStartCommand有三种返回值：
+
++ START_STICKY：sticky的意思是“粘性的”。使用这个返回值时，我们启动的服务跟应用程序"粘"在一起，如果在执行完onStartCommand后，服务被异常kill掉，系统会自动重启该服务。当再次启动服务时，传入的第一个参数将为null;
++ START_NOT_STICKY：“非粘性的”。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统不会自动重启该服务。
++ START_REDELIVER_INTENT：重传Intent。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统会自动重启该服务，并将Intent的值传入。
+
+特别说明一下，Android中的Service是指在后台运行的程序，与Acitivity的区别是没有界面而已。它依然是在主线程中，并不是新创建的子线程，虽然看上去很像。一般的策略是在Service启动之后，为其单独创建一个子线程。
+
+在Android 3.0之后，考虑到网络访问影响用户交互，Android禁止在主线程中进行网络访问。如果要实现此功能，就要像前面说的创建子线程在子线程中实现。
+
+###Thread
 
 ###Broadcast Receiver
 Broadcast Receiver是Android在系统级别对Observer模式(Pub-Sub)的实现。接收器一直等待，直到其订阅的事件发生时，才被激活。
