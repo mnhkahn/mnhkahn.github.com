@@ -39,7 +39,7 @@
   <script type="text/javascript" src="/assets/js/cyeam.js"></script>
   <script type="text/javascript">
     $().ready(function(){
-      doodle();
+      bing();
       $(document).stacktack();
     })
   </script>
@@ -66,42 +66,6 @@
         </div>
       </div>
     </div>
-	
-    <div id="cyeam_float" class="cyeam_float opacity">
-      <script>
-        (function() {
-          var cx = '013802567327634170555:2vk-hs5nzcc';
-          var gcse = document.createElement('script');
-          gcse.type = 'text/javascript';
-          gcse.async = true;
-          gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-              '//www.google.com/cse/cse.js?cx=' + cx;
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(gcse, s);
-        })();
-      </script>
-      <gcse:search></gcse:search>
-      <div id="google_translate_element" class="google_translate_element">
-      </div>
-      <div id="anchor">
-        {% if page.tags %}
-        {% for anchor in page.anchors %}
-        <li><a href="#{{anchor}}">{{anchor}}<a></li>
-        {% endfor %}
-        {% else %}
-        {% for post in site.posts %}
-        <li><a href="#{{post.title}}">{{post.title}}<a></li>
-        {% endfor %}
-        {% endif %}
-      </div>
-    </div>
-      <script type="text/javascript">
-        function googleTranslateElementInit() {
-          new google.translate.TranslateElement({pageLanguage: 'zh-CN', includedLanguages: 'en,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-46780180-1'}, 'google_translate_element');
-      }
-      </script>
-    <script type="text/javascript" src="//translate.google.com.hk/translate_a/element.js?cb=googleTranslateElementInit">
-    </script>
 
     <div id="container-narrow" class="container-narrow opacity">
       
