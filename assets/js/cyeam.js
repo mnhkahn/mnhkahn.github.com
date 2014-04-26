@@ -1,4 +1,5 @@
 function doodle() {
+	alert("mobile")
 	$.getJSON("http://doodle.cyeam.com/js?jsoncallback=?", function(json) {
 		$("body").css("background", "url(" + json[0].doodle + ") center no-repeat fixed");
 	});
@@ -13,6 +14,7 @@ function getDoodle(doodle_container, title_container) {
 }
 
 function bing(container) {
+	alert("pc")
 	if (container != null) {
 		$.getJSON("http://bing.cyeam.com/js?jsoncallback=?", function(json) {
 			$("#" + container).css("background", "url(" + json[0].bing + ") no-repeat center center");
