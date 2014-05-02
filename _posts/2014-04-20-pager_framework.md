@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于Android的移动VoIP视频通话系统——论文结构安排"
+title: "基于流媒体的对讲机系统——论文结构安排"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: ""
 category: "Postgraduate design"

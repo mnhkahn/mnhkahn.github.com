@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于Android的移动VoIP视频通话系统的设计与实现——音视频编解码"
+title: "基于流媒体的对讲机系统——音视频编解码"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: "Andoird音视频编码的调研"
 category: "Postgraduate design"

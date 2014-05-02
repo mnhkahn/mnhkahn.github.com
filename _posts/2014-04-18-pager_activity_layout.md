@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于Android的移动VoIP视频通话系统的设计与实现——Activity Layout"
+title: "基于流媒体的对讲机系统——Activity Layout"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: "Android Activity 布局"
 category: "Postgraduate design"

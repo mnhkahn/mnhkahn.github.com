@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于Android的移动VoIP视频通话系统——libstreaming"
+title: "基于流媒体的对讲机系统——libstreaming"
 figure: "https://code.google.com/p/spydroid-ipcamera/logo?cct=1355471564"
 description: "你不要用战术的勤奋掩盖战略的懒惰。"
 category: "Postgraduate design"

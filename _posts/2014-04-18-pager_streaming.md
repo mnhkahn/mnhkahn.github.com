@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于Android的移动VoIP视频通话系统的设计与实现——流媒体传输解决方案"
+title: "基于流媒体的对讲机系统——流媒体传输解决方案"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: "Andoird流媒体传输的调研"
 category: "Postgraduate design"

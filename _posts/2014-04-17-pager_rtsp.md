@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于Android的移动VoIP视频通话系统——实时流媒体协议RTSP"
+title: "基于流媒体的对讲机系统——实时流媒体协议RTSP"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: ""
 category: "Postgraduate design"

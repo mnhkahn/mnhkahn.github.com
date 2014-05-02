@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于Android的移动VoIP视频通话系统——NAT会话传输应用程序STUN"
+title: "基于流媒体的对讲机系统——NAT会话传输应用程序STUN"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: ""
 category: "Postgraduate design"

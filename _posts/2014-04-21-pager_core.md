@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于Android的移动VoIP视频通话系统——核心引擎"
+title: "基于流媒体的对讲机系统——核心引擎"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: ""
 category: "Postgraduate design"

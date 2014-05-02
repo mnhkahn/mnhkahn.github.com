@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于Android的移动VoIP视频通话系统——系统开发准备"
+title: "基于流媒体的对讲机系统——系统开发准备"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: "系统开发需要的预备知识——工欲善其事，必先利其器"
 category: "Postgraduate design"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于Android的移动VoIP视频通话系统——国内外研究发展现状及发展趋势"
+title: "基于流媒体的对讲机系统——国内外研究发展现状及发展趋势"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: ""
 category: "Postgraduate design"
