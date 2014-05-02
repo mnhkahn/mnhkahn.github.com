@@ -9,6 +9,8 @@ tags: ["Postgraduate design", Paper"]
 
 ![IMG-THUMBNAIL](http://cyeam.qiniudn.com/framework.png)
 
++ 过多的设备会影响通信逻辑和效率，本课题支持10个在线设备，包括一个指挥角色和9个协调角色。
++ 系统需要三个角色类型：指挥、协调、默认。
 + 系统从cInterphone这个Activity启动。该Activity包含3个Fragment，分别是Favourite Fragment、History Fragment、Contact Fragment。
 + 其中，Favourite Fragment和History Fragment关联到两个SQLite数据库表Favourite和History。使用适配器ContactAdapter进行数据关联显示。
 + cInterphone的ActionBar上面，还增加了设置模块按钮，可以启动Settings这个Activity，用于进行手动配置用户名和SIP服务器。
