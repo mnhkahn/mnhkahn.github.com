@@ -2,7 +2,7 @@
 layout: post
 title: "基于流媒体的对讲机系统——libstreaming"
 figure: "https://code.google.com/p/spydroid-ipcamera/logo?cct=1355471564"
-description: "你不要用战术的勤奋掩盖战略的懒惰。"
+description: "libstreaming源码分析"
 category: "Postgraduate design"
 tags: ["Postgraduate design", Paper"]
 ---
