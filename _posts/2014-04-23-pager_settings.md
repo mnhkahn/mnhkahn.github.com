@@ -7,6 +7,7 @@ category: "Postgraduate design"
 tags: ["Postgraduate design", Paper"]
 ---
 
+系统会用到一些配置信息，这些配置信息是作为系统的全局变量。一般在PC端开发的时候，可以将配置信息保存在单独的文件中，在用的时候进行读取即可。但是这样做对于系统的安全性和完整性是个挑战。有时候只要手动修改配置文件，就能破解整个系统。而Android提供了专门的配置方案PreferenceManager。PreferenceManager可以方便的在Activity里引用配置信息进行展示和修改配置，也可以方便地读取配置信息。
 根据前面的需求，这里详细介绍一下配置模块的具体功能：
 
 + 配置模块需要能对用户的角色进行选择。
@@ -25,4 +26,9 @@ tags: ["Postgraduate design", Paper"]
 
 		mSharedPreferences.registerOnSharedPreferenceChangeListener(mOnSharedPreferenceChangeListener);
 
++ 选择用户类型，有三个可选类型，必须选择一个，默认选择默认角色。用ListPreference实现。
+
+---
+######*参考文献*
++ [How to create RadioButton group in preference.xml window? | Stackoverflow](http://stackoverflow.com/questions/4966816/how-to-create-radiobutton-group-in-preference-xml-window)
 {% include JB/setup %}
