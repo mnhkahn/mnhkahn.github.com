@@ -79,11 +79,12 @@ E. None of above
     A、60918 B、91086 C、18609 D、10968 E、86901   
 
 8. Which of the following statements are true?
-A、We can create a binary tree from given inorder and preorder traversal sequences.
-B、We can create a binary tree from given preorder and postorder traversal sequences.
-C、For an almost sorted array,Insertion sort can be more effective than Quciksort.
-D、Suppose T(n) is the runtime of resolving a problem with n elements, T(n)=O(1) if n=1; T(n)=2*T(n/2)+O(n) if n>1; so T(n) is O(nlgn)
-E、None of above   
+
+    A、We can create a binary tree from given inorder and preorder traversal sequences.
+    B、We can create a binary tree from given preorder and postorder traversal sequences.
+    C、For an almost sorted array,Insertion sort can be more effective than Quciksort.
+    D、Suppose `T(n)` is the runtime of resolving a problem with n elements, `T(n)=O(1)` if `n=1` `T(n)=2*T(n/2)+O(n)` if `n>1`; so T(n) is O(nlgn)
+    E、None of above
 
 9. Which of the following statements are true?
 
@@ -95,10 +96,10 @@ E、None of above
 
 10. Assume both x and y are integers, which one of the following returns the minimun of the two integers?
 
-    A、 y^((x^y) & -(x<y))
-    B、 y^(x^y)
-    C、 x^(x^y)
-    D、 (x^y)^(y^x)
+    A、 `y^((x^y) & -(x<y))`
+    B、 `y^(x^y)`
+    C、 `x^(x^y)`
+    D、 `(x^y)^(y^x)`
     E、 None of the above   
 
 11. The Orchid Pavilion(兰亭集序) is well known as the top of “行书”in history of Chinese literature. The most fascinating sentence is "Well I know it is a lie to say that life and death is the same thing, and that longevity and early death make no difference Alas!"(固知一死生为虚诞，齐彭殇为妄作).By counting the characters of the whole content (in Chinese version),the result should be 391(including punctuation). For these characters written to a text file,please select the possible file size without any data corrupt.
