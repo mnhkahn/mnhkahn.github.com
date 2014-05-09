@@ -7,6 +7,18 @@ category: "Postgraduate design"
 tags: ["Postgraduate design", Paper"]
 ---
 
+功能测试是对系统设计和实现进行的验证测试，查看系统是否满足需求和设计。这里主要是针对SIP注册、SIP呼叫、音视频通话、系统抢占式通话、系统协作模块进行测试。
+
++ SIP注册
++ SIP呼叫
++ 音视频通话
+
+    高清视频需要提供多种分辨率、帧率、采样率,用于适应网络环境,通过H.264编解码器,向用户提供清晰且流畅的视频画面。系统进行了PC-Phone的测试，PC端使用VLC分别作为RTSP服务器和播放器进行测试；Phone-Phone测试，采用小米1S和Nexus 7进行测试；下图为Phone-Phone自身录制和播放进行测试截图。
+    
 ![IMG-THUMBNAIL](http://cyeam.qiniudn.com/device-2014-04-23-110907.png)
+
++ 系统抢占式通话
++ 系统协作模块
+
 
 {% include JB/setup %}
