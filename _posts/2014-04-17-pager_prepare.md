@@ -7,7 +7,7 @@ category: "Postgraduate design"
 tags: ["Postgraduate design", Paper"]
 ---
 
-工欲善其事，必先利其器。写代码也一样，有牛逼的工具辅助开发，可以帮助了解开发流程。所以面试的时候也喜欢问这些问题，就是这个道理。
+工欲善其事，必先利其器。写代码也一样，借鉴优秀的工具辅助开发，可以帮助学习和了解相关知识和技术。
 
 ###1. tcpdump
 开发网络通信程序需要能监测到网络通信流程以及通信内容，以便了解整个通信流程以及问题。在Linux下，一般是通过tcpdump和WireShark来实现该功能。tcpdump负责监控制定设备，从该设备抓包，而WireShark可以用来查看和解析包内容。甚至可以帮助我们分析整个通信流程。在此项目中，就可以用WireShark监测SIP注册和呼叫流程和RTSP和RTP流的传输过程。
@@ -36,7 +36,7 @@ SIP呼叫部分的开发，如果呼叫和被叫方同时进行开发和测试�
         vlc -vvv sample1.avi --sout "#transcode{vcodec=h264,vb=0,scale=0,acodec=mpga,ab=128,channels=2,samplerate=44100}:http{mux=ffmpeg{mux=flv},dst=:8080/test}" 
 
 ###4. adb
-最后将`adb`加入到环境变量中，调试起来比较方便。
+Android官方提供的开发工具，用于控制Android手机，adb服务器等。最好将`adb`加入到环境变量中，调试起来比较方便。
 
 + 安装Android程序。在此之前都是先将安装包放入手机再安装。。。
 
@@ -51,14 +51,8 @@ SIP呼叫部分的开发，如果呼叫和被叫方同时进行开发和测试�
 
 		adb nodaemon server
 
-	
-
-
-
 ---
 ######*参考文献*
 + [用vlc搭建简单流媒体服务器（UDP和TCP方式）](http://www.cnblogs.com/MikeZhang/archive/2012/09/09/vlcStreamingServer20120909.html)
-
-
 
 {% include JB/setup %}
