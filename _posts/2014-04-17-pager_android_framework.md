@@ -17,10 +17,10 @@ tags: ["Postgraduate design", Paper"]
 
     在Android 3.0之后，考虑到网络访问影响用户交互，Android禁止在主线程中进行网络访问。如果要实现此功能，就要像前面说的创建子线程在子线程中实现。
 
-本课题中还需要一个控制模块来订阅观察系统状态以及及时的对其作出响应。例如，对于SIP注册状态要及时响应，如果注册失败，要及时通知用户，增加系统的友好性和不必要的时间浪费。
++ 为了将系统设计成高内聚，低耦合，将各个模块进行了封装。用户交互界面和后台通信逻辑等模块进行了分离。这几个模块消息的传输，就要通过一个控制模块来订阅观察系统状态以及及时的对其作出响应。例如，对于SIP注册状态要及时响应，如果注册失败，要及时通知用户，增加系统的友好性和不必要的时间浪费。
 
-Android平台提供了Broadcast Receiver。Broadcast Receiver是Android在系统级别对Observer模式(Pub-Sub)的实现。接收器一直等待，直到其订阅的事件发生时，才被激活。
+    Android平台提供了Broadcast Receiver。Broadcast Receiver是Android在系统级别对Observer模式(Pub-Sub)的实现。接收器一直等待，直到其订阅的事件发生时，才被激活。系统的核心引擎使用了该设计模式。
 
-Android平台还提供了更加友好的Notification来增加和用户的交互。这个部分将在后面进行详细介绍。
++ Android平台还提供了更加友好的Notification来增加和用户的交互。这个部分将在[5.3.2节](http://blog.cyeam.com/postgraduate%20design/2014/04/18/pager_notification/)进行详细介绍。
 
 {% include JB/setup %}
