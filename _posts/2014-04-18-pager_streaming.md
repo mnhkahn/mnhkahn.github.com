@@ -18,7 +18,7 @@ MediaPlayer是Android提供的可以用来控制播放视频和音频的控件�
 
 MediaRecorder是Android官方提供的录制视频的解决方案，提供将拍摄到的音视频信息保存为文件的方法。而本课题需要采集到的是流媒体信息，所以原生的方法不能彻底解决录制问题。上面提到的libstreaming方法就是基于此方法，将录制好的视频文件再解析成RTSP流。
 
-RTSP Server实现难度并不大，只要按照RTSP协议的通信流程实现即可。RTSP的流程前面已经介绍过。RTSP Server的设计将在后面进行详细设计。
+Android平台只是使用MediaPlayer实现了RTSP客户端，本系统也是使用其作为RTSP播放器。而RTSP采集服务器并没有提供。需要使用MediaRecorder自行进行封装。RTSP Server实现难度并不大，只要按照RTSP协议的通信流程实现即可。RTSP的流程在[2.2.4节](http://blog.cyeam.com/postgraduate%20design/2014/04/17/pager_rtsp/)已经介绍过。RTSP Server的设计将在后面进行详细设计。
 
 ---
 ######*参考文献*
