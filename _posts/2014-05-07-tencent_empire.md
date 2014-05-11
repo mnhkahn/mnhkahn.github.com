@@ -9,7 +9,7 @@ tags: ["cTalk", "Tencent"]
 
 昨天，腾讯成立了微信事业群。原文查看[这里](http://tech.qq.com/a/20140506/069700.htm)。
 
-![IMG-THUMBNAIL](http://img1.gtimg.com/tech/pics/hv1/233/157/1585/103104893.jpg)
+![IMG-THUMBNAIL](http://cyeam.qiniudn.com/47c4717dcf3871c68e6c483b3985f713_r.jpg)
 
 引用一下微信事业群总裁张小龙的鸡汤：
 >

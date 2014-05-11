@@ -25,7 +25,7 @@ function bing(container) {
 }
 
 function wallpaper() {
-	$.getJSON("http://lab.cyeam.com/api/ip?jsoncallback=?", function (json) {
+	$.getJSON("http://lab.cyeam.com/ip?jsoncallback=?", function (json) {
     if (json[0].useragent.IsMobile == false) {
         bing()
     }

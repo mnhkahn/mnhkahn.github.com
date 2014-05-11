@@ -13,6 +13,12 @@
       {{ content }}
     </div>
 
+    {% if page.figure %}
+    <p class="figure center">
+        <img src="{{page.figure}}" alt="IMG-THUMBNAIL"/>
+    </p>
+    {% endif %}
+
   {% unless page.categories == empty %}
     <ul class="tag_box inline">
       <li><i class="icon-folder-open"></i></li>
