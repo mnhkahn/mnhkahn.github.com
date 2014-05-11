@@ -20,6 +20,8 @@ Android 4.0 内置H264硬件编码方案，采用Unix域协议，获取OpenCore�
 为了更好地在不同操作系统提供可移植性。OSCL包含了基本数据类型、配置、字符串工具、输入/输出、错误处理、线程等内容，类似一个基础的C++库。
 相对其他模块而言，OpenCORE的代码量非常庞大，OpenCORE基于C++实现，定义了全功能的操作系统移植层，各种基本功能均被封装成类的形式，各层次之间的接口多使用继承等方式。
 
+实际开发的时候并不需要直接调用OpenCORE，Android提供了MediaRecorder对其进行了封装。直接调用MediaRecorder就能开始录制，将视频录制到文件当中。此外，还需要为应用增加`android.permission.WRITE_EXTERNAL_STORAGE`权限。
+
 ---
 ######*参考文献*
 + [Supported Media Formats | Android Developers](http://developer.android.com/guide/appendix/media-formats.html)
