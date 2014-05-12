@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "基于流媒体的对讲机系统——呼叫通话布局"
+title: "基于流媒体的对讲机系统——系统用户界面的设计和实现"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: "Android Activity 布局"
 category: "Postgraduate design"
 tags: ["Postgraduate design", Evaluate"]
 ---
 
-Android的布局有点像HTML的标签，也可以为其添加类似于CSS的样式。
+本系统主要的用户界面包括带有ActionBar的启动界面，系统通话界面和系统配置界面。。Android的布局有点像HTML的标签，也可以为其添加类似于CSS的样式。
 
 + LinearLayout
 LinearLayout是最简单的布局了。可以通过属性layout_orientation横向(horizontal)或者纵向(vertical)排列布局，元素的绘制是按照加入顺序进行的。
@@ -41,7 +41,7 @@ Android中的drawable不仅只能是图片，还可以是自定义的图形(Shap
 
 ---
 ######*参考文献*
-+《Learning Android》 马尔科·加尔根塔 电子工业出版社 ISBN: 9787121172632
++ 《Learning Android》 马尔科·加尔根塔 电子工业出版社 ISBN: 9787121172632
 + [Drawable Resources | Android Developers](http://developer.android.com/guide/topics/resources/drawable-resource.html)
 
 {% include JB/setup %}

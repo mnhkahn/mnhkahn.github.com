@@ -15,13 +15,24 @@ tags: ["Postgraduate design", Paper"]
 + 在按下音量+键之后，指挥角色可以进行抢占式发言。其它所有设备的话筒采用静音操作，音频和视频停止发送。
 + 协作模块可以直接使用Android提供的Dialog对话框来实现。由指挥角色发起，协作的内容要在配置项中进行预先的设置。
 + 考虑到网络的不稳定性，为了保证实时性，需要增加配置音频和视频采样率的模块。
++ 本课题是比较新颖和前沿的对讲机产品，不同于传统对讲机的使用。所以，还要在系统启动后为用户详细介绍使用方式和流程。
 
+通过上面的分析和总结，得到下面详细介绍系统使用流程：
+
++ 系统启动后，展示主界面，界面头部使用ActionBar，用来启动配置界面等按钮。该界面主要用来展示系统的使用帮助信息。
++ 第一次使用需要进行必要的设置，通过点击ActionBar上面的配置按钮进行，包括：配置对讲机用户类型、用户名、服务器地址及其端口、音频和视频通信端口、音频采集码率和视频采集分辨率等。
++ 对于额外增加的协作功能，主对讲机和其余对讲机要分别进行协作配置。其余选项可以使用默认选项，例如SIP占用端口等，当该端口被其他应用占用是时需要手动为其重新分配。
++ 对讲会话要由指挥角色发起，其余设备要进行接听操作。
++ 接听之后，会为这些设备默认连接音频通信。
++ 指挥角色可以通过按下音量+键进行抢占式发言，按下音量-进行视频发言通信。
++ 会话界面包括三个主要按钮：结束会话、切换摄像头、静音。
++ 按下结束键，退出会话。
+
+系统架构主要采用观察者模式实现：
 
 ![IMG-THUMBNAIL](http://cyeam.qiniudn.com/framework.png)
-
-+ 系统从cInterphone这个Activity启动。该Activity包含3个Fragment，分别是Favourite Fragment、History Fragment、Contact Fragment。
-+ 其中，Favourite Fragment和History Fragment关联到两个SQLite数据库表Favourite和History。使用适配器ContactAdapter进行数据关联显示。
-+ cInterphone的ActionBar上面，还增加了设置模块按钮，可以启动Settings这个Activity，用于进行手动配置用户名和SIP服务器。
++ 系统从cInterphone这个Activity启动。
++ 从cInterphone可以启动设置界面进行相关配置。
 + Recevier继承自BroadcastReceiver，使用单件模式和观察者模式，用于获取cInterphoneEngine的单件实例和响应状态，例如：进入视频界面，通知栏更改状态等等。
 + cInterphoneEngine模块负责SIP协议栈的封装，用于注册SIP服务器、发起会话、结束会话等会话控制操作。
 + 在准备建立会话时，Receiver会启动InCallScreen，用于显示呼叫或者被呼叫界面。会话建立成功后，启动VideoCamera Activity进行视频通话。
