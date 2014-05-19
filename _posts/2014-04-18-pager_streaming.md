@@ -20,7 +20,9 @@ MediaRecorder是Android官方提供的录制视频的解决方案，提供将拍
 
 Android平台只是使用MediaPlayer实现了RTSP客户端，本系统也是使用其作为RTSP播放器。而RTSP采集服务器并没有提供。需要使用MediaRecorder自行进行封装。RTSP Server实现难度并不大，只要按照RTSP协议的通信流程实现即可。RTSP的流程在[2.2.4节](http://blog.cyeam.com/postgraduate%20design/2014/04/17/pager_rtsp/)已经介绍过。RTSP Server的设计将在后面进行详细设计。
 
+
 ---
+
 ######*参考文献*
 + [MediaPlayer | Android Developers](http://developer.android.com/reference/android/media/MediaPlayer.html)
 + [fyhertz/libstreaming | GitHub](https://github.com/fyhertz/libstreaming)
