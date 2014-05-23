@@ -16,6 +16,9 @@ tags: ["Postgraduate design", Paper"]
 
     + [实时流媒体协议RTSP](http://blog.cyeam.com/postgraduate%20design/2014/04/17/pager_rtsp/)
     + [实时传输协议RTP](http://blog.cyeam.com/postgraduate%20design/2014/04/17/pager_rtp/)
+    + 三者的关系如下：
+
+        ![IMG-THUMBNAIL](http://images.cnblogs.com/cnblogs_com/whyandinside/RTPRTSP.jpg)
 
 + [H264/AVC](http://blog.cyeam.com/postgraduate%20design/2014/04/17/pager_video/)
 + 流媒体服务器的实现
@@ -30,7 +33,6 @@ tags: ["Postgraduate design", Paper"]
 ---
 
 ######*参考文献*
-+ 【1】[RTMP/RTP/RTSP/RTCP的区别 - FrankieWang008的专栏](http://blog.csdn.net/frankiewang008/article/details/7665547)
 + 【2】[Supported Media Formats - Android Developers](http://developer.android.com/guide/appendix/media-formats.html)
 + 【3】[RFC 3984 RTP Payload Format for H.264 Video](https://github.com/mnhkahn/cInterphone/blob/master/docs/rfc3984_chn.txt)
 + 【4】[RTP Payload Format for Transport of MPEG-4 Elementary Streams](http://tools.ietf.org/html/rfc3640)
