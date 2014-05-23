@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于流媒体的对讲机系统——实时流媒体协议RTSP"
+title: "实时流媒体协议RTSP"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: ""
 category: "Postgraduate design"
@@ -16,8 +16,8 @@ RTSP主要信令如下：
 + OPTIONS：获得服务器支持的RTSP消息类型。
 + DESCRIBE：获取服务器返回的SDP消息，其中包含媒体流ID、支持编解码、序列参数集SPS与图像参数集PPS等。
 + SETUP：交互双方的RTP端口号，客户端获取服务器分配的会话ID。
-+　PLAY：通知服务器传输流媒体，请求必须包含在SETUP响应中的会话ID。
-+　PAUSE：暂停当前会话，即停止媒体流传输，但是并不释放端口与资源。
++ PLAY：通知服务器传输流媒体，请求必须包含在SETUP响应中的会话ID。
++ PAUSE：暂停当前会话，即停止媒体流传输，但是并不释放端口与资源。
 + TEARDOWN：结束当前会话，并释放端口、连接与资源。
 
 RTSP流程
@@ -55,7 +55,7 @@ RTSP流程
 			"" 
 	然后再发送生成的sdp信息，sdp信息也可以和上面的字符串组合一起发送。
 
-+ 建立RTSP会话
++ 建立RTSP会话。SETUP成功之后，服务器就会开始录制，等待客户端播放。
 	+ 客户端请求(SETUP request):-----通过Transport头字段列出可接受的传输选项，建立会话
 
 			"SETUP rtsp://192.168.1.122/TestSession/trackID=1 RTSP/1.0"

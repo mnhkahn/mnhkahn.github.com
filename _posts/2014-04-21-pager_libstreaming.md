@@ -1,45 +1,25 @@
 ---
 layout: post
-title: "基于流媒体的对讲机系统——libstreaming"
+title: "如何开发一个流媒体服务器？"
 figure: "https://code.google.com/p/spydroid-ipcamera/logo?cct=1355471564"
-description: "libstreaming源码分析"
+description: "通过学习libstreaming源码，介绍如何在Android手机上开发一套简单的流媒体服务器。"
 category: "Postgraduate design"
 tags: ["Postgraduate design", Paper"]
 ---
 
->你不要用战术的勤奋掩盖战略的懒惰。
->
->——雷军
+> 用一句简单的话总结：RTSP发起/终结流媒体、RTP传输流媒体数据 、RTCP对RTP进行控制，同步。
 
-我确实就是雷布斯说的这种人，这个最重要的模块迟迟不想写。我自己也知道不难，可是心里却一直告诉自己，毕设这个部分可以不做。。。是时候做了！
+关于涉及到的RTP/RTSP/RTCP协议的描述分别可以参考：
 
-在说明RSTP服务器之前，先说一下简单的通信模型。
-
-+ 创建一个套接字Socket，为其分配通信接口。
-+ 然后调用Android摄像头，获取一张图片，然后通过已创建好的套接字发送出去。由于人类眼睛的特殊生理结构，如果所看画面之帧率高于每秒约10-12帧的时候，就会认为是连贯的，此现象称之为视觉暂留。
-+ 所以只要定时调用摄像头拍摄图片，调用频率高于12帧，这样就能实现最简单的视频传输的功能。
-
-这样的设计模型比较简单，但是无法应用于实际中。主要的问题就是占用带宽太大。以采样尺寸320x180、帧率为12帧每秒为例。如果用256种状态标识屏幕上某种颜色的灰度，而屏幕采用三基色红绿蓝（RGB），不压缩的情况下一个像素需要占用24bit（3字节），这个就是常说的24位真彩色。这样，一张图片需要320x180x3=172800字节=168.75千字节。以此推算，以12帧每秒的采集发送速度，1秒钟的视频就需要2025千字节。一分钟的视频就需要121500千字节，也就是约119兆字节。占用带宽约2兆每秒。
-
-如此设计占用带宽太高，不能作为我们系统的视频传输模型。但是此模型比较简单，容易理解。通过优化和增强，可以得到最终的RTSP服务器。
-
-前面提到的模型主要问题就在于:
-
-+ 由于没有对视频进行压缩，通过发送图片的方式会导致占用带宽过高。一般视频的场景都是连续的，连续两帧的区别比较小，绝大部分的背景都是相同的。所以通过视频压缩可以明显减小占用的带宽。在刚才提高的模型上，将定时发送图片的方式改为将视频压缩获取流媒体进行发送的方式。在Android端压缩视频可以使用MediaRecorder。
-+ 视频流是通过套接字进行发送的，所以在播放视频的客户端，也得使用套接字进行接收，再进行视频解码，并在Android界面上进行展示。此过程在客户端和服务器端的逻辑都比较复杂，开发和测试难度都很大。使用Android提供的MediaPlayer可以很简单的实现播放流媒体的功能，而客户端只要对发送的套接字进行封装，就可以实现一个RTSP服务器。RTSP服务器要用到的RTP包就类似于前面提到定时发送的图片包。
-
-这两点改进就是在Android端实现RTSP服务器的核心。下面介绍RSTP服务器的设计思路和架构。
-
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/libstreaming.png)
-
-+ 要实现RTSP服务器，结合Android自身的特性，可以使用Android自带的Service辅助实现。Service可以认为是没有界面的Activity，一般用于执行后台的任务，而RTSP服务器只负责传输，正好借用此特性。Android中的Service还是主线程，需要为其启动一个新的线程WorkerThread。
-+ 通过对RTP包的封装，就能实现RTSP格式的传输。RTSP的建立需要Session会话的支持。Session用来保存音频和视频在客户端和服务器端的各自的端口，音频和视频传输质量等。Session可能会被并发调用，所以在配置和启动的时候需要进行同步处理。
-+ 流媒体可以是音频或者视频，所以为其抽象出Stream接口。
-+ 视频流媒体VideoStream实现Steam接口，增加了视频流媒体的新特性，例如预览控件、摄像头控件、视频质量等。
++ [实时流媒体协议RTSP](http://blog.cyeam.com/postgraduate%20design/2014/04/17/pager_rtsp/)
++ [实时传输协议RTP](http://blog.cyeam.com/postgraduate%20design/2014/04/17/pager_rtp/)
 
 ---
+
 ######*参考文献*
-+ [帧率 | Wikipedia](http://zh.wikipedia.org/wiki/%E5%B8%A7%E7%8E%87)
-+ [一个彩色像素占几个字节 | bohemiazhang](http://blog.sina.com.cn/s/blog_58c3f79601015buj.html)
++ [RTMP/RTP/RTSP/RTCP的区别 | FrankieWang008的专栏](http://blog.csdn.net/frankiewang008/article/details/7665547)
++ [Supported Media Formats | Android Developers](http://developer.android.com/guide/appendix/media-formats.html)
++ [RFC 3984 RTP Payload Format for H.264 Video](https://github.com/mnhkahn/cInterphone/blob/master/docs/rfc3984_chn.txt)
++ [RTP Payload Format for Transport of MPEG-4 Elementary Streams](http://tools.ietf.org/html/rfc3640)
 
 {% include JB/setup %}

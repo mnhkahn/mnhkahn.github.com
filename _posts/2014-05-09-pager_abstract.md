@@ -22,7 +22,9 @@ tags: ["Postgraduate design", Paper"]
 关键词：对讲机，Android，SIP，H264，AAC
 
 
-With coverage in recent years, the popularity of smart phones and networks expand , smart devices for traditional equipment innovations have been in progress. In a traditional intercom applications, intercom emphasize real-time, on -site command has been an irreplaceable role. However , intercom also has its drawbacks. Since the frequency range used by walkie-talkie than fixed , as long as the detected frequency of use , will be able to join the session , and therefore can not guarantee the security of communication ; Moreover, walkie-talkies also influenced by the frequency and wavelength attenuation , can not provide long-distance communication ; walkie-talkies also subject to technical limitations, can only provide audio calls, have not been able to achieve real-time video intercom .
+In a traditional intercom applications, intercom emphasize real-time, on -site command has been an irreplaceable role. However , intercom also has its drawbacks. Since the frequency range used by walkie-talkie than fixed , as long as the detected frequency of use , will be able to join the session , and therefore can not guarantee the security of communication, once the listener can only change the frequency of use, not prevent fundamentally ; Moreover, also by walkie-talkie affect the frequency and wavelength attenuation , can not provide long-distance communication ; walkie-talkie is also limited by technology, can provide audio calls, have not been able to achieve real-time video intercom .
+
+After nearly a hundred years of development intercom , call via radio frequency carrier signal technology has developed to its peak. If you want to have a walkie-talkie and then leap on the need for innovative technologies . In recent years , with the popularization of network technology, making use of the Internet as a communication medium becomes possible. The popularity of smart phones , makes mobile smart radios possible. .
 
 In this paper, the design and implementation of a smart phone based on Android phone systems in a shared network , uses its own custom communication protocol port achieved undetectable monitoring, steal information ; communication , independent of geographic location of an Internet-based , can be easily achieve long distance transmission, and also based on the transmission of streaming media to ensure real-time ; creative adds video call feature.
 
@@ -30,7 +32,7 @@ In addition, the actual use of the common transceiver scene achieved. The tradit
 
 In the process of using the walkie-talkie , and sometimes need to confirm the work . Traditional walkie-talkie use, artificial voice confirmed certain order , which is a cumbersome and error-prone operation. Here you can combine the advantages of Android devices simplify : you need to confirm , a confirmation request to the user needs identified in the user's device interface display a dialog box that allows users to select OK.
 
-Finally, the functionality and performance of the system was tested , including voice quality , video frame rate, the system showed excellent , you can achieve smooth HD video calls in a wireless network , and take up less bandwidth. The system is designed for the Android system under the audio and video calls , UI interface design, application development and SIP call a certain reference.
+Finally, the functionality and performance of the system was tested , including voice quality , video frame rate, the system showed excellent , you can achieve smooth HD video calls in a wireless network , and take up less bandwidth. The system is designed for the Android system under the audio and video calls , UI interface design, application development and SIP call has a certain reference.
 
 Keywords : walkie-talkie , Android, SIP, H264, AAC
 

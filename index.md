@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Cyeam
-tagline: 码年，码农的本命年 
+tagline: 你不要用战术的勤奋掩盖战略的懒惰。 
 ---
 {% include JB/setup %}
 
