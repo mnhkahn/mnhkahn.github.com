@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Android 端已有库的分析调研"
+title: "Android 端流媒体库的分析调研"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: ""
 category: "Postgraduate design"
