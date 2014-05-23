@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于流媒体的对讲机系统——国内外研究发展现状及发展趋势"
+title: "Android 端已有库的分析调研"
 figure: "http://mnhkahn.github.io/assets/images/c168.png"
 description: ""
 category: "Postgraduate design"
@@ -21,8 +21,8 @@ sipdroid 只是针对Android开发的流媒体产品，其内部流媒体传输�
 
 ######*参考文献*
 
-+ 【1】[Session Initiation Protocol developer guide | Android Developers](http://developer.android.com/guide/topics/connectivity/sip.html)
++ 【1】[Session Initiation Protocol developer guide - Android Developers](http://developer.android.com/guide/topics/connectivity/sip.html)
 + 【2】[Android NDK开发简介 - zhiweiofli - 开源中国社区](http://my.oschina.net/zhiweiofli/blog/112287)
-+ 【3】[Android历史版本 | 维基百科](http://zh.wikipedia.org/wiki/Android%E6%AD%B7%E5%8F%B2%E7%89%88%E6%9C%AC)
++ 【3】[Android历史版本 - 维基百科](http://zh.wikipedia.org/wiki/Android%E6%AD%B7%E5%8F%B2%E7%89%88%E6%9C%AC)
 
 {% include JB/setup %}
