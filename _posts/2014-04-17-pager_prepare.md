@@ -51,7 +51,9 @@ Android官方提供的开发工具，用于控制Android手机，adb服务器等
 
 		adb nodaemon server
 
+
 ---
+
 ######*参考文献*
 + [用vlc搭建简单流媒体服务器（UDP和TCP方式）](http://www.cnblogs.com/MikeZhang/archive/2012/09/09/vlcStreamingServer20120909.html)
 
