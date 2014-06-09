@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "基于流媒体的对讲机系统——系统开发准备"
-figure: "http://mnhkahn.github.io/assets/images/c168.png"
+figure: "http://cyeam.qiniudn.com/c168.png"
 description: "系统开发需要的预备知识——工欲善其事，必先利其器"
 category: "Postgraduate design"
 tags: ["Postgraduate design", Paper"]
@@ -51,6 +51,8 @@ Android官方提供的开发工具，用于控制Android手机，adb服务器等
 
 		adb nodaemon server
 
+###5. ffmpeg
++ ffprobe 查看视频文件编码格式等详细信息。
 
 ---
 

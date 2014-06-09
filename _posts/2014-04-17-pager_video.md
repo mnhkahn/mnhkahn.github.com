@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "视频编解码技术H264"
-figure: "http://mnhkahn.github.io/assets/images/c168.png"
+figure: "http://cyeam.qiniudn.com/c168.png"
 description: "关于H264视频编码格式的介绍和分析。"
 category: "Postgraduate design"
 tags: ["Postgraduate design", Paper"]

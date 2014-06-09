@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "实时流媒体协议RTSP"
-figure: "http://mnhkahn.github.io/assets/images/c168.png"
+figure: "http://cyeam.qiniudn.com/c168.png"
 description: ""
 category: "Postgraduate design"
 tags: ["Postgraduate design", Paper"]

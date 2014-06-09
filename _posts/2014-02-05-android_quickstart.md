@@ -7,6 +7,15 @@ category: "Postgraduate design"
 tags: ["Postgraduate design", "Android", "Quick Start", "Evaluate"]
 ---
 
+MediaCodec
+MediaPlayer
+MediaRecorder
+Handler
+Notification
+Thread Thread.interrupted()
+MulticastSocket
+FileWriter http://endual.iteye.com/blog/1128541
+
 ###Activity
 + Activity 定义
 

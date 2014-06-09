@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "基于流媒体的对讲机系统——语音编解码技术"
-figure: "http://mnhkahn.github.io/assets/images/c168.png"
+figure: "http://cyeam.qiniudn.com/c168.png"
 description: ""
 category: "Postgraduate design"
 tags: ["Postgraduate design", Paper"]
 ---
-
+http://blog.csdn.net/tjy1985/article/details/7963531
 AAC（Advanced Audio Coding），中文称为“高级音频编码”，出现于1997年，基于 MPEG-2的音频编码技术。由诺基亚，苹果等公司共同开发，目的是取代MP3格式。2000年，MPEG-4标准出现后，AAC 重新集成了其特性，加入了SBR技术和PS技术。
 
 AAC可以支持多达48个音轨，15个低频（LFE）音轨，5.1多声道支持，更高的采样率（最高可达96kHz，音频CD为44.1kHz）和更高的采样精度（支持8bit、16bit、24bit、32bit，音频CD为16bit）以及有多种语言的兼容能力，更高的解码效率，一般来说，AAC可以在对比MP3文件缩小30%的前提下提供更好的音质。

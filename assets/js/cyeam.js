@@ -14,13 +14,15 @@ function getDoodle(doodle_container, title_container) {
 
 function bing(container) {
 	if (container != null) {
-		$.getJSON("http://bing.cyeam.com/js?jsoncallback=?", function(json) {
-			$("#" + container).css("background", "url(" + json[0].bing + ") no-repeat center center");
-		});
+		$("#" + container).css("background", "url(http://chatianqi.net/bingImg/)  no-repeat center center fixed");
+		// $.getJSON("http://bing.cyeam.com/js?jsoncallback=?", function(json) {
+		// 	$("#" + container).css("background", "url(" + json[0].bing + ") no-repeat center center");
+		// });
 	} else {
-		$.getJSON("http://bing.cyeam.com/js?jsoncallback=?", function(json) {
-			$("body").css("background", "url(" + json[0].bing + ") no-repeat center center fixed");
-		});
+		// $.getJSON("http://bing.cyeam.com/js?jsoncallback=?", function(json) {
+		// 	$("body").css("background", "url(" + json[0].bing + ") no-repeat center center fixed");
+		// });
+		$("body").css("background", "url(http://chatianqi.net/bingImg/) no-repeat center center fixed");
 	}
 }
 

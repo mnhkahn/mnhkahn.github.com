@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "基于流媒体的对讲机系统——系统用户界面的设计和实现"
-figure: "http://mnhkahn.github.io/assets/images/c168.png"
+figure: "http://cyeam.qiniudn.com/c168.png"
 description: "Android Activity 布局"
 category: "Postgraduate design"
 tags: ["Postgraduate design", Evaluate"]
