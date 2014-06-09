@@ -7,6 +7,7 @@ category: "Postgraduate design"
 tags: ["Postgraduate design", Paper"]
 ---
 
+http://blog.csdn.net/tjy1985/article/details/7963531
 MPEG正式审核程序是Moving Picture Experts Group的简称。这个名字本来的含义是指一个研究视频和音频编码标准的“动态图像专家组”组织，成立于1988年，致力开发视频、音频的压缩编码技术。现在我们所说的MPEG泛指由该小组制定的一系列视频编码标准正式审核程序。该小组于1988年组成，至今已经制定了MPEG-1、MPEG-2、MPEG-3、MPEG-4、MPEG-7等多个标准，MPEG-21正在制定中。MPEG是ISO和IEC的工作组，它的官方头衔为：第一技术委员会第二十九子委员会第十一号工作组正式审核程序，英文头衔为ISO/IEC JTC1/SC29 WG11。MPEG大约每2-3个月举行一次会议，每次会议大约持续5天，在会议期间，新的建议和技术细节先在小组中讨论，成熟后进入标准化的正式审核程序。与MPEG工作组相关的其他几个视频标准化工作组包括ITU-T VCEG以及JVT。
 
 + MPEG-1：第一个官方的视訊音訊压缩标准，随后在Video CD中被采用，其中的音訊压缩的第三级（MPEG-1 Layer 3）简称MP3，成为比较流行的音频压缩格式。
