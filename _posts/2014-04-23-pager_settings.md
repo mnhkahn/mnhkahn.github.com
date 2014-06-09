@@ -7,6 +7,14 @@ category: "Postgraduate design"
 tags: ["Postgraduate design", Paper"]
 ---
 
+##1. 读取配置信息
+
+##2. 修改配置信息
+
+##3. PreferenceActivity
+
+##4. 监听配置信息的修改
+
 针对不同的用户，可以通过不同的配置文件为用户私人定制不同的功能，提供个性化的服务。本课题中就在协作模块中用到了此特性。这些配置信息对于整个系统各个模块共享，可以认为是是系统的全局变量。一般在PC端开发的情况下，可以将配置信息保存在单独的文件中，在用的时候进行读取即可。但是这样做对于系统的安全性和完整性是个挑战。PC端有一种破解软件系统的方法，就是通过修改配置文件进行。而Android提供了专门的配置方案PreferenceManager。PreferenceManager创新性的技能作为配置文件为该系统中全局配置文件，也可以通过`PreferenceActivity`通过`addPreferencesFromResource`以界面的形式展示，并且可以在此界面中对配置的值进行修改。
 
 根据前面的需求，这里详细介绍一下配置模块的具体功能：
