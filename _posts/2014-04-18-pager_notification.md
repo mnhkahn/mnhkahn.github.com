@@ -7,7 +7,26 @@ category: "Postgraduate design"
 tags: ["Postgraduate design", "Evaluate"]
 ---
 
-系统与用户的交互在设计中同样重要，尤其是在涉及到一些流程操作的时候。本课题中，要设计到的流程主要就是SIP注册、SIP呼叫和流媒体传输。因为相关流程较多，如果其中的步骤出错，要及时通知用户。SIP呼叫失败原因有很多种：SIP注册失败、对方拒绝通话、流媒体传输失败等等，如果不方便及时的通知用户，则会造成很差的用户体验。
+Android在通知栏方面相对于苹果来说比较开放。允许服务常驻后台，所以能够方便实现消息推送。而苹果的进程等待几分钟没有操作之后，就会自动退出，远程发送消息只能经过苹果的远程推送实现。鄙人曾经在公司尝试开发百万级的消息推送接口，说来惭愧，没能成功。
+
+##1. 显示通知
+
+发送通知需要用到`android.app.NotificationManager`和`android.app.Notification`。调用流程如下：
+
+    NotificationManager mNotificationMgr = (NotificationManager) mContext
+                .getSystemService(Context.NOTIFICATION_SERVICE);
+    Notification notification = new Notification();
+    // 初始化notifacation
+    mNotificationMgr.notify(type, notification);
+
+Notifaction提供flags、icon、sound等设置通知的类型，图标和声音。
+
+|| *Year* || *Temperature (low)* || *Temperature (high)* ||
+|| 1900 || -10 || 25 ||
+|| 1910 || -15 || 30 ||
+|| 1920 || -10 || 32 ||
+
+##2. 远程推送通知
 
 Android提供了通知(Notification)模块，出现在通知栏中，用户从屏幕上方滑下就可以看到。通知栏还可以常驻，在界面最上一层，可以使用图标说明当前状态：红色按钮代表SIP注册失败，绿色按钮代表SIP注册成功，还可以增加未接来电图标、呼叫失败图标，既直观又方便。
 
@@ -23,8 +42,10 @@ Android提供了通知(Notification)模块，出现在通知栏中，用户从�
 本课题中，会用到这两种通知类型。系统常驻的通知，用来通知SIP注册情况，使用户方便判断使用流程。而未接来电、呼叫失败等，使用通知事件展示，此通知只要被用户看到一次即可，不需要常驻。这两种模式的设置也很简单，常驻类型使用`FLAG_ONGOING_EVENT`，通知事件使用`FLAG_AUTO_CANCEL`。
 
 ---
+
 ######*参考文献*
-+ [Android中通知的使用-----Notification详解](http://blog.csdn.net/qinjuning/article/details/6915482)
-+ [Notification | Android Developers](http://developer.android.com/reference/android/app/Notification.html)
++ 【1】[Android中通知的使用-----Notification详解](http://blog.csdn.net/qinjuning/article/details/6915482)
++ 【2】[Notification | Android Developers](http://developer.android.com/reference/android/app/Notification.html)
++ 【3】[NotificationManager | Android Developers](http://developer.android.com/reference/android/app/NotificationManager.html)
 
 {% include JB/setup %}
