@@ -27,9 +27,8 @@ function bing(container) {
 }
 
 function wallpaper() {
-	$.getJSON("http://lab.cyeam.com/ip?jsoncallback=?", function (json) {
-    if (json[0].useragent.IsMobile == false) {
+//	$.getJSON("http://lab.cyeam.com/ip?jsoncallback=?", function (json) {
+ //   if (json[0].useragent.IsMobile == false) {
         bing()
-    }
-});
+//});
 }
