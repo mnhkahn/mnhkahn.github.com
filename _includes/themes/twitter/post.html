@@ -15,9 +15,13 @@
 
     {% if page.figure %}
     <p class="figure center">
-        <img src="{{page.figure}}" alt="IMG-THUMBNAIL"/>
+        {{page.figure}}
     </p>
     {% endif %}
+
+    <p class="description center">
+        <img src="{{page.description}}" alt="IMG-THUMBNAIL"/>
+    </p>
 
   {% unless page.categories == empty %}
     <ul class="tag_box inline">
