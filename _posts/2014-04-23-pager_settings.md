@@ -45,12 +45,25 @@ SharedPreferences 提供如下方法直接获取配置的信息。
 
 ##4. 首选项内容
 
-+ 配置模块需要能对用户的角色进行选择。该选项通过`ListPreference`实现，用户需要三选一。默认值为普通选项。
-+ 用户可以配置其对讲机用户名，还可以手动配置SIP服务器地址。实际使用过程中，如果服务器出现故障，需要及时切换到备用服务器上，这里用来便捷的切换使用`EditTextPreference`实现，按下之后直接修改即可。
-+ 配置SIP端口，默认SIP使用5060，如果被其它类SIP应用程序占用端口，直接在这里更改端口即可。
-+ 传输载体选择，可以选择wifi、3G、4G和CACT等通信方式。
-+ 音频和视频的压缩率的选择，一般为了保持实时性，系统默认会采用较低的采样率进行采集。如果需要观察某个具体场景的细节时，可以手动调节成高清采样模式。
-+ 在协作通信模块，指挥角色需要自定义协作的问题，例如：“是否都已准备好？”。而执行角色在应答的时候，也可以直接确认或者也可以使用在配置预先配置好的应答方式，例如：“A已就绪，但是存在B问题，但是不重要。”诸如此类，可以提高协作的灵活性和高效性。通过`EditTextPreference`实现。
+单选提供了`android.preference.ListPreference`，它类似于HTML的下拉列表，可以为其提供选项值和选项标签。
+
+    <string-array name="role">
+        <item>指挥</item>
+        <item>协调</item>
+        <item>默认</item>
+    </string-array>
+    <string-array name="role_values">
+        <item>commander</item>
+        <item>coordinator</item>
+        <item>default</item>
+    </string-array>
+
+    <ListPreference
+        android:defaultValue="默认"
+        android:entries="@array/role"
+        android:entryValues="@array/role"
+        android:key="role"
+        android:title="@string/settings_current_role" />
 
 ##5. 监听配置信息的修改
 
