@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "基于流媒体的对讲机系统——通知模块"
-figure: "http://cyeam.qiniudn.com/c168.png"
+title: "Android 通知"
+figure: "http://cyeam.qiniudn.com/android.jpg"
 description: ""
 category: "Postgraduate design"
-tags: ["Postgraduate design", "Evaluate"]
+tags: ["Postgraduate design", "Evaluate", "Android"]
 ---
 
 Android在通知栏方面相对于苹果来说比较开放。允许服务常驻后台，所以能够方便实现消息推送。而苹果的进程等待几分钟没有操作之后，就会自动退出，远程发送消息只能经过苹果的远程推送实现。鄙人曾经在公司尝试开发百万级的消息推送接口，说来惭愧，没能成功。
