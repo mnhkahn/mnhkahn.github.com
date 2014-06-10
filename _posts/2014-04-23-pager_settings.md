@@ -31,9 +31,17 @@ SharedPreferences 提供如下方法直接获取配置的信息。
 || 4 || putLong ||
 || 5 || putFloat ||
 
+    Editor edit = settings.edit();
+    edit.putBoolean(PREF_MESSAGE, true);
+    edit.commit();
+
 ##3. PreferenceActivity
 
 使用`PreferenceActivity`，通过`addPreferencesFromResource`以界面的形式展示，并且可以在此界面中对配置的值进行修改。展示的布局将会按照首选项的配置文件自动生成。每一项都是由指定的`android:title`和该项的值组成。
+
+用户更新了设置之后，还要将最新用户设置的内容展现出来，能够让用户判断是否选择正确。
+
+    getPreferenceScreen().findPreference(PREF_ROLE).setSummary(role);
 
 ##4. 首选项内容
 
@@ -45,6 +53,8 @@ SharedPreferences 提供如下方法直接获取配置的信息。
 + 在协作通信模块，指挥角色需要自定义协作的问题，例如：“是否都已准备好？”。而执行角色在应答的时候，也可以直接确认或者也可以使用在配置预先配置好的应答方式，例如：“A已就绪，但是存在B问题，但是不重要。”诸如此类，可以提高协作的灵活性和高效性。通过`EditTextPreference`实现。
 
 ##5. 监听配置信息的修改
+
+设置监听需要实现`android.content.OnSharedPreferenceChangeListener`接口，通过`settings.registerOnSharedPreferenceChangeListener(this);`进行注册监听。事件处理在`onSharedPreferenceChanged`。
 
 + `registerOnSharedPreferenceChangeListener`
 + `unregisterOnSharedPreferenceChangeListener`

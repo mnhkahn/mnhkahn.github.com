@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "浪潮之巅——腾讯帝国？"
-figure: "http://cyeam.qiniudn.com/weixin_is_not_just_im.png"
+figure: "http://weixin.qq.com/zh_CN/htmledition/images/weixin/qr_url_download0ec594.png"
 description: "向吴军博士的《浪潮之巅》致敬。"
 category: "cTalk"
 tags: ["cTalk", "Tencent"]
