@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "AndroidHTTP库——Asynchronous Http Client for Android"
-figure: ""
 description: ""
 category: "Android"
 tags: ["Android", "HTTP"]
