@@ -1,0 +1,7 @@
+---
+layout: nil
+title : Categories
+---
+
+{% assign categories_list = site.categories %}
+{% include JB/categories_json %}

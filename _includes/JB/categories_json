@@ -1,0 +1,20 @@
+{% if site.JB.categories_list.provider == "custom" %}
+  {% include custom/categories_list %}
+{% else %}
+  {% if categories_list.first[0] == null %}
+    {% for category in categories_list %} 
+      {
+          "category":"{{ category | join: "/" }}"" ,
+          "size":{{ site.categories[category].size }}
+      },
+    {% endfor %}
+  {% else %}
+    {% for category in categories_list %} 
+    {
+          "category":"{{ category[0] | join: "/" }}",
+          "size":{{ category[1].size }}
+      },
+    {% endfor %}
+  {% endif %}
+{% endif %}
+{% assign categories_list = nil %}
