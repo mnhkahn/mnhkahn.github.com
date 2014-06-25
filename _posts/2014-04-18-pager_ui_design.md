@@ -23,7 +23,8 @@ Android中的drawable不仅只能是图片，还可以是自定义的图形(Shap
 我们的控件只要设置`android:background="@drawable/round"`，就能限定成圆形的。但这还不够，我们还需要在圆形的控件内绘制图片，需要使用`ImageView`控件，为其增加`android:src`属性。
 
 ---
+
 ######*参考文献*
-+ [Drawable Resources | Android Developers](http://developer.android.com/guide/topics/resources/drawable-resource.html)
++ [Drawable Resources - Android Developers](http://developer.android.com/guide/topics/resources/drawable-resource.html)
 
 {% include JB/setup %}

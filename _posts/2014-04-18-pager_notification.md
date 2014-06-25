@@ -29,8 +29,8 @@ Notifaction提供flags、icon、sound等设置通知的类型，图标和声音�
 
 ######*参考文献*
 + 【1】[Android中通知的使用-----Notification详解](http://blog.csdn.net/qinjuning/article/details/6915482)
-+ 【2】[Notification | Android Developers](http://developer.android.com/reference/android/app/Notification.html)
-+ 【3】[NotificationManager | Android Developers](http://developer.android.com/reference/android/app/NotificationManager.html)
++ 【2】[Notification - Android Developers](http://developer.android.com/reference/android/app/Notification.html)
++ 【3】[NotificationManager - Android Developers](http://developer.android.com/reference/android/app/NotificationManager.html)
 + 【4】[Push Notification （2）HTTP长连接](http://www.360doc.com/content/12/1121/14/7635_249300653.shtml)
 
 {% include JB/setup %}
