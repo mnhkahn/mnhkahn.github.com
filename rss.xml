@@ -18,6 +18,7 @@ title : RSS Feed
         <item>
                 <title>{{ post.title }}</title>
                 <figure>{{post.figure}}</figure>
+                <info>{{post.description}}</info>
                 <description>{{ post.content | xml_escape }}</description>
                 <link>{{ site.production_url }}{{ post.url }}</link>
                 <guid>{{ site.production_url }}{{ post.id }}</guid>
