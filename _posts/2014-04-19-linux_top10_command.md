@@ -11,7 +11,7 @@ tags: ["linux", "shell"]
 	print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" \
 	| column -c3 -s " " -t | sort -nr | nl | head -n10
 
-> [来晒晒你使用过的 Linux 命令的 top 10 吧! | V2EX](http://www.v2ex.com/t/109153#reply26)
+> [来晒晒你使用过的 Linux 命令的 top 10 吧! - V2EX](http://www.v2ex.com/t/109153#reply26)
 
 我的结果是：
 
@@ -32,6 +32,6 @@ tags: ["linux", "shell"]
 
 `awk`是一个强大的文本分析工具。`awk`其名称得自于它的创始人 Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母。`awk`工作流程是这样的：读入有`'\n'`换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域。默认域分隔符是`"空白键"` 或 `"[tab]`键",所以$1表示登录用户，$3表示登录用户ip,以此类推。
 
-> [linux awk命令详解 | 简单，可复制](http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
+> [linux awk命令详解 - 简单，可复制](http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
 
 `head`可以用来查看文件头部指定行数，所以最后的`head -n10`就是要显示前10行，就是前10个，去掉就是显示全部了。
