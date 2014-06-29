@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Nutch和Solr的安装和简单测试"
-figure: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxBtxxnoEf_xee4qABtdXg3ZysXwzrGBc59jLelvRsilivgRHW"
+figure: "http://cyeam.qiniudn.com/nutch.jpg"
 description: "之前看过《Lucene in Action》一部分，里面介绍了Nutch这个Java实 现的网络爬虫，把测试的结果放在这里"
 category: "nutch"
 tags: ["Nutch", "Solr"]
