@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "如何离线完成go get——安装Apache Thrift有感"
-figure: "http://cyeam.qiniudn.com/google-gfw.jpg"
+figure: "http://cyeam.qiniudn.com/gfw-google.png"
 description: "由于一些原因（你懂的），如果golang代码存放在Google Code上面，想通过go get下载编译就是在骗自己。今天就通过一些方法解决了。做天朝的程序员不易，且行且珍惜吧。"
 category: "Kaleidoscope"
 tags: ["GFW", "Golang"]
