@@ -18,9 +18,10 @@ tags: ["golang", "android", "notification"]
 
 #快速开始
 
+###下载安装
+
     go get github.com/mnhkahn/BaiduYunPush
 
-###下载安装
 ###创建文件pushtest.go
 
     package main
