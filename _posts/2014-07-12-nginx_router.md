@@ -2,7 +2,7 @@
 layout: post
 title: "Nginx根据域名转发"
 description: "虽然一直没有直接配置过公司的Nginx服务器，但是还是耳濡目染了解到了一些相关内容，知道Nginx能够根据域名进行转发请求。这样，一台服务器就能够配置多个域名和多个应用程序。"
-figure:"http://cyeam.qiniudn.com/nginx.jpg"
+figure: "http://cyeam.qiniudn.com/nginx.jpg"
 category: "Nginx"
 tags: ["Nginx"]
 ---
