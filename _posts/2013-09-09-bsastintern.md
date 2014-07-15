@@ -24,16 +24,22 @@ tags: ["Job", "Exam"]
 图书(总编号C(6),分类号C(8),书名C(16),作者C(6),出版单位C(20),单价N(6,2))
 读者(借书证号C(4),单位C(8),姓名C(6),性别C(2),职称C(6),地址C(20))
 借阅(借书证号C(4),总编号C(6),借书日期D(8))
+
 ######a. 对于图书管理数据库，检索藏书中比高等教育出版社的所有图书的书价更高的书。    
     SELECT * FROM 图书 WHERE 单价>ALL(SELECT 单价 FROM 图书 WHERE 出版单位="高等教育出版社");
+
 ######b. 对于图书管理数据库，分别求出各个单位当前借阅图书的读者人次。
     SELECT 单位,COUNT(借阅.借书证号) FROM 借阅,读者 WHERE 借阅.借书证号=读者.借书证号 GROUP BY 单位;
+
 ######c. 对于图书管理数据库，检索所有借阅了图书的读者姓名和所在单位。
         SELECT DISTINCT 姓名,单位 FROM 读者,借阅 WHERE 读者.借书证号=借阅.借书证号;
+
 ######d. 对于图书管理数据库，求电子工业出版社出版图书的最高单价、最低单价和平均单价。
     SELECT MAX(单价),MIN(单价),AVG(单价)FROM 图书 WHERE 出版单位="电子工业出版社";
+
 ######e. 对于图书管理数据库，求CIE单位借阅图书的读者的人数。
     SELECT COUNT (DISTINCT 借书证号) FROM 借阅 WHERE 借书证号 IN (SELECT 借书证号 FROM 读者 WHERE 单位="CIE");
+
 ######f. 重名的人。
     select 姓名, count(*) from 读者 group by 姓名having count(*) > 1;
 

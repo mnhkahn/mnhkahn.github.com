@@ -43,7 +43,7 @@ tags: ["Postgraduate design", Evaluate"]
 
 ######*参考文献*
 + 《Learning Android》 马尔科·加尔根塔 电子工业出版社 ISBN: 9787121172632
-+ [Drawable Resources | Android Developers](http://developer.android.com/guide/topics/resources/drawable-resource.html)
++ [Drawable Resources - Android Developers](http://developer.android.com/guide/topics/resources/drawable-resource.html)
 + [Android 实现顶层窗口、浮动窗口（附Demo）](http://www.cnblogs.com/mythou/p/3244208.html)
 
 {% include JB/setup %}
