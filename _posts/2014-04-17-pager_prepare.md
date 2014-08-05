@@ -29,29 +29,29 @@ SIP呼叫部分的开发，如果呼叫和被叫方同时进行开发和测试�
 
 + RTSP方式搭建服务器
 
-        vlc -vvv sample1.avi --sout "#transcode{vcodec=h264,vb=0,scale=0,acodec=mpga,ab=128,channels=2,samplerate=44100}:rtp{sdp=rtsp://:8554/test}" 
+    vlc -vvv sample1.avi --sout "#transcode{vcodec=h264,vb=0,scale=0,acodec=mpga,ab=128,channels=2,samplerate=44100}:rtp{sdp=rtsp://:8554/test}" 
 
 + RTSP方式搭建客户端
 
-        vlc rtsp://127.0.0.1:1234/
+    vlc rtsp://127.0.0.1:1234/
 
 限于条件有限，只有一台平板，而且由于大Android硬件千变万化，光个摄像头分辨率就像天上的星星数也数不清，找了几台设备，都是因为摄像头分辨率以及支持的帧率不一样没有办法实现视频对讲。只是用Google自家的Nexus 5和我的Nexus 7能够兼容。使用Android设备测试测想法也就此作罢。
 
 后来写了一个shell脚本，这样测试的时候方便一点。shell是一点不会，大概说一下。定义变量和Python一样，直接用等号就行，只不过不能有空格；启动lc是阻塞式的，所以需要并发启动，在第一个命令后面加上`&`就可以了；`sleep`能够暂停5秒钟；使用`$`引用到变量的值。
 
-        port=1234
-        client=192.168.1.102
+    port=1234
+    client=192.168.1.102
 
-        {  
-            echo "Start vlc server at rtsp://:$port/---------------------------------------------"
-            vlc -vvv ~/Downloads/Justice.League.War.2014.720p.BluRay.x264.DTS-HDWinG.mkv --sout "#transcode{vcodec=h264,vb=0,scale=0,acodec=mpga,ab=128,channels=2,samplerate=44100}:rtp{sdp=rtsp://:1234/}"
-        }&
+    {  
+        echo "Start vlc server at rtsp://:$port/---------------------------------------------"
+        vlc -vvv ~/Downloads/Justice.League.War.2014.720p.BluRay.x264.DTS-HDWinG.mkv --sout "#transcode{vcodec=h264,vb=0,scale=0,acodec=mpga,ab=128,channels=2,samplerate=44100}:rtp{sdp=rtsp://:1234/}"
+    }&
 
-        sleep 5
+    sleep 5
 
-        echo "Start vlc client at rtsp://$client:$port/--------------------------------"
+    echo "Start vlc client at rtsp://$client:$port/--------------------------------"
 
-        vlc rtsp://192.168.1.102:1234/
+    vlc rtsp://192.168.1.102:1234/
 
 ###4. adb
 Android官方提供的开发工具，用于控制Android手机，adb服务器等。最好将`adb`加入到环境变量中，调试起来比较方便。
