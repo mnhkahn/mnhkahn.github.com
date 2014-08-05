@@ -58,16 +58,16 @@ Android官方提供的开发工具，用于控制Android手机，adb服务器等
 
 + 安装Android程序。在此之前都是先将安装包放入手机再安装。。。
 
-		adb install *.apk
+    adb install *.apk
 
 + 启动和关闭adb服务
 
-		adb start-server
-		adb kill-server
+    adb start-server
+    adb kill-server
 
 + 神器，用于排查问题。一般adb启动不了都是因为端口被占用。我在Windows下都是被QQ占用。。。
 
-		adb nodaemon server
+    adb nodaemon server
 
 ###5. ffmpeg
 + ffprobe 查看视频文件编码格式等详细信息。
