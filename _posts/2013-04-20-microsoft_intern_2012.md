@@ -102,13 +102,28 @@ C、 `x^(x^y)`
 D、 `(x^y)^(y^x)`
 E、 None of the above   
 
-11.The Orchid Pavilion(兰亭集序) is well known as the top of “行书”in history of Chinese literature. The most fascinating sentence is "Well I know it is a lie to say that life and death is the same thing, and that longevity and early death make no difference Alas!"(固知一死生为虚诞，齐彭殇为妄作).By counting the characters of the whole content (in Chinese version),the result should be 391(including punctuation). For these characters written to a text file,please select the possible file size without any data corrupt.
+11.The Orchid Pavilion(兰亭集序) is well known as the top of “行书”in history of Chinese literature. The most fascinating sentence is "Well I know it is a lie to say that life and death is the same thing, and that longevity and early death make no difference Alas!"(固知一死生为虚诞，齐彭殇为妄作).By counting the characters of the whole content (in Chinese version),the result should be 391(including punctuation). For these characters written to a text file,please select the possible file size without any data corrupt.（**ABCD**）
 
 A、782 bytes in UTF-16 encoding
 B、784 bytes in UTF-16 encoding
 C、1173 bytes in UTF-8 encoding
 D、1176 bytes in UTF-8 encoding
 E、None of above   
+
+*关于编码，最早是ACSII，里面之后256个字符。这只能满足英文编码。我国发展出了GBK、Big5等中文编码，但是问题是，每个国家都定义了自己国家语言的编码，用不同的方式可以解出不同的文字。后来为了统一，出现了Unicode。Unicode的实现有几种方式。常见的就是UTF8、UTF16。UTF8以8位为单位，可以有1字节、2字节、3字节、4字节四种长度。而中文在UTF8编码当中是占3个字节。UTF16是以16位作为单位长度，有2字节和4字节两种。中文在UTF16当中占两个字节。Unicode也可以指是UTF16编码。*
+
+*Unicode有多种实现方式，所以需要在开头定义出所用的编码形式：*
+
+|| UTF编码　|| Byte Order Mark ||　
+|| UTF-8 ||　EF BB BF ||　
+|| UTF-16LE || FF FE ||　
+|| UTF-16BE ||　FE FF ||
+|| UTF-32LE ||　FF FE 00 00 ||
+|| UTF-32BE ||　00 00 FE FF ||
+
+*UTF8的Bom头占3个字节，UTF16的Bom头占2个字节。而Bom头并未规定是必须加的，也可以不加。*
+
+*下面看这道题，391个字，UTF8将会占1173个字节，加上Bom头占1176个字节。UTF16是782个字节，加上Bom头是784个字节。*
 
 12.Fill the blanks inside class definition
 
