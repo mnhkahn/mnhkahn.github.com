@@ -72,6 +72,11 @@ Android官方提供的开发工具，用于控制Android手机，adb服务器等
 ###5. ffmpeg
 + ffprobe 查看视频文件编码格式等详细信息。
 
+###6. 视频录制
+Android 4.4 支持了自带录制屏幕视频的功能，使用`adb`工具就能够实现视频的录制。
+
+    adb shell screenrecord /sdcard/test.mp4
+
 ---
 
 ######*参考文献*
