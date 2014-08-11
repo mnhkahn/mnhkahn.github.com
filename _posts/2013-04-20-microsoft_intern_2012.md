@@ -7,9 +7,11 @@ category: "Collection"
 tags: ["Job", "Exam"]
 ---
 
-1.Suppose that a selection sort of 80 items has completed 32 iterations of the main loop. How many items are now guaranteed to be in their final spot (never to be moved again)? 
+1.Suppose that a selection sort of 80 items has completed 32 iterations of the main loop. How many items are now guaranteed to be in their final spot (never to be moved again)? （**C**）
 
 A、16 B、31 C、32 D、39 E、40
+
+***80个元素进行选择排序，进行了32次循环，问有哪些元素已经在最终位置上了。考察选择排序基本原理。每一趟遍历都会从剩余待排元素中选择一个最大(小)的元素放在最终位置上，所以进行32次循环就是有32个元素在最终位置上了，选C。***
 
 2.Which synchronization mechanism(s) is/are used to avoid race conditions among processes/threads in operating system?
 
@@ -110,9 +112,9 @@ C、1173 bytes in UTF-8 encoding
 D、1176 bytes in UTF-8 encoding
 E、None of above   
 
-*关于编码，最早是ACSII，里面之后256个字符。这只能满足英文编码。我国发展出了GBK、Big5等中文编码，但是问题是，每个国家都定义了自己国家语言的编码，用不同的方式可以解出不同的文字。后来为了统一，出现了Unicode。Unicode的实现有几种方式。常见的就是UTF8、UTF16。UTF8以8位为单位，可以有1字节、2字节、3字节、4字节四种长度。而中文在UTF8编码当中是占3个字节。UTF16是以16位作为单位长度，有2字节和4字节两种。中文在UTF16当中占两个字节。Unicode也可以指是UTF16编码。*
+***关于编码，最早是ACSII，里面之后256个字符。这只能满足英文编码。我国发展出了GBK、Big5等中文编码，但是问题是，每个国家都定义了自己国家语言的编码，用不同的方式可以解出不同的文字。后来为了统一，出现了Unicode。Unicode的实现有几种方式。常见的就是UTF8、UTF16。UTF8以8位为单位，可以有1字节、2字节、3字节、4字节四种长度。而中文在UTF8编码当中是占3个字节。UTF16是以16位作为单位长度，有2字节和4字节两种。中文在UTF16当中占两个字节。Unicode也可以指是UTF16编码。***
 
-*Unicode有多种实现方式，所以需要在开头定义出所用的编码形式：*
+***Unicode有多种实现方式，所以需要在开头定义出所用的编码形式：***
 
 || UTF编码　|| Byte Order Mark ||　
 || UTF-8 ||　EF BB BF ||　
@@ -121,9 +123,9 @@ E、None of above
 || UTF-32LE ||　FF FE 00 00 ||
 || UTF-32BE ||　00 00 FE FF ||
 
-*UTF8的Bom头占3个字节，UTF16的Bom头占2个字节。而Bom头并未规定是必须加的，也可以不加。*
+***UTF8的Bom头占3个字节，UTF16的Bom头占2个字节。而Bom头并未规定是必须加的，也可以不加。***
 
-*下面看这道题，391个字，UTF8将会占1173个字节，加上Bom头占1176个字节。UTF16是782个字节，加上Bom头是784个字节。*
+***下面看这道题，391个字，UTF8将会占1173个字节，加上Bom头占1176个字节。UTF16是782个字节，加上Bom头是784个字节。***
 
 12.Fill the blanks inside class definition
 
@@ -156,9 +158,17 @@ A、static/const B、const/static C、--/static D、conststatic/static E、None 
 
 A、11 B、12 C、13 D、14   
 
-14.In C++,which of the following keyword(s) can be used on both a variable and a function?
+14.In C++,which of the following keyword(s) can be used on both a variable and a function?(***ACE***)
 
-A、static B、virtual C、extern D、inline E、const   
+A、static B、virtual C、extern D、inline E、const
+
+***
++ static关键字，可以用来声明静态变量或者静态函数。static声明后在全局中唯一存在；
++ virtual关键字，C++语法，用来声明虚函数。虚函数声明之后，可以在派生类中实现。这与Java中的接口定义类似，可以帮助实现多态；
++ extern关键字。对于一个全局变量，它既可以在本源文件中被访问到，也可以在同一个工程的其它源文件中被访问，只需用extern进行声明即可。在C语言中，修饰符extern用在变量或者函数的声明前，用来说明此变量/函数是在别处定义的，要在此处引用。在C++中extern还有另外一种作用，用于指示C或者C＋＋函数的调用规范。比如在C++中调用C库函数，就需要在C++程序中用extern “C”声明要引用的函数。这是给链接器用的，告诉链接器在链接的时候用C函数规范来链接。主要原因是C＋＋和C程序编译完成后在目标代码中命名规则不同，用此来解决名字匹配的问题；
++ inline关键字，用来指示内联函数。每一次调用函数，都会使用到内存中的栈，用来保存此函数的地址、参数表、返回值等信息。如果此函数频繁被使用并且函数逻辑简单，就可以使用inline关键字。在C语言中，#define的作用类似于inline关键字。
++ const关键字，可以用来声明常量，常函数void Func(int a) const。
+***
 
 15.What is the result of the following program?
 
