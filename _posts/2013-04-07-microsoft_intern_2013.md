@@ -197,6 +197,8 @@ D. 999
 
 E. None of the above
 
+***为每瓶水编号，从1～1000，然后转成二进制，从0000000001~1111100111，找十只老鼠，按照二进制位对应得给老鼠喝水。最后查看死掉的老鼠编号，就能对应找到水的二进制编码。
+
 #####10.Which of following statement(s) eaual(s) value 1 in C programming language? (5 Points)
 
 A. the return value of main function if program ends normally
@@ -221,7 +223,7 @@ D. F - G = 1
 
 E. G - F = 1
 
-#####12.How many rectangles you can find from 3 * 4 grid? (5 Points)
+#####12.How many rectangles you can find from 3 * 4 grid?***D*** (5 Points)
 
 A. 18
 
@@ -290,7 +292,7 @@ C. Inorder traversal and postorder traversal
 
 D. Postorder traversal
 
-#####17.Given a string with n characters, suppose all the characters are different from each other, how many substrings do we have? (5 Points)
+#####17.Given a string with n characters, suppose all the characters are different from each other, how many substrings do we have? (5 Points)***C***
 
 A. n + 1
 
@@ -301,6 +303,10 @@ C. n(n+1)/2
 D. 2^n-1
 
 E. n!
+
+***首先想到的是，定位一个开头，一个结束位置。开头位置好定义，是n，结束位置要受开头位置影响，因为必须要在它后面。如果定义在最前面，那么结束位置有n-1个选择；如果是第二个，那么是n-2。依次类推，如果开头定位在最后一位，那么结束也只能是最后一位，为1。是一个等差数列相加。***
+
+***还有一种解法，按照长度计算。如果长为1，有n中情况，长为2，有n-1中情况……长为n，只有一种情况。结果就是1+2+...n=n(n+1)/2***
 
 #####18.Given the following database table, how many rows will the following SQL statement update? (5 Points)
 
