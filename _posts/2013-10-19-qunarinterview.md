@@ -39,6 +39,7 @@ HashMap是基于哈希表的Map接口的非同步实现。此类不保证映射�
         key = k;
         hash = h;
     }
+
 ![Alt text](http://cyeam.qiniudn.com/hashtable_link.png)
 
 #####3. C++容器

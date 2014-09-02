@@ -79,6 +79,7 @@ tags: ["Job", "Exam"]
                 System.out.print("3");
         }
     }
+
 输出结果是：（D）
 * A. 2
 * B. 3
@@ -102,6 +103,7 @@ tags: ["Job", "Exam"]
             t.myMethod(null);
         }
     }
+
 * A. 不能编译通过
 * B. 编译通过，输出”My Object”
 * C. 编译通过，输出”My String”
@@ -132,6 +134,7 @@ tags: ["Job", "Exam"]
             new B();
         }
     }
+
 * A. BB
 * B. CBB
 * C. BAB
@@ -171,6 +174,7 @@ tags: ["Job", "Exam"]
         --c;
         a = a - 1;
     } while (a > 0);
+
 * A. 0
 * B. 1
 * C. -1
