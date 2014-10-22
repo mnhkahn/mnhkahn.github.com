@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "用Golang写了一个更新壁纸的小程序"
-description: "把程序放到启动目录里面，这样就能每次开机更新啦。"
+title: "MySQL的field_in_set函数"
+description: ""
 category: "Database"
 tags: ["Database", "MySQL"]
 ---
