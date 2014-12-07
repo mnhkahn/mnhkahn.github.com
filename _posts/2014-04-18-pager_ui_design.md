@@ -4,7 +4,7 @@ title: "Android 自定义形状"
 figure: "http://cyeam.qiniudn.com/c168.png"
 description: ""
 category: "Postgraduate design"
-tags: ["Postgraduate design", Evaluate"]
+tags: ["Postgraduate design", "Evaluate"]
 ---
 
 Android中的drawable不仅只能是图片，还可以是自定义的图形(Shape)，用XML文件来描述。Shape可以被其他控件，例如按钮(Button)使用，显示出指定形状的按钮来。这里我们要进行扁平化处理，所以需要一个圆形的Shape。

@@ -4,7 +4,7 @@ title: "Android 配置"
 figure: "http://cyeam.qiniudn.com/android.jpg"
 description: ""
 category: "Postgraduate design"
-tags: ["Postgraduate design", Paper", "Android"]
+tags: ["Postgraduate design", "Paper", "Android"]
 ---
 
 `android.content.SharedPreferences`配置内容可以在Activity、Service、Broadcast和Content Provider中使用。在程序运行时动态获取配置信息，可以通过`android.preference.PreferenceManager.getDefaultSharedPreferences()`获取实例。

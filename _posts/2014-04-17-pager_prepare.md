@@ -4,7 +4,7 @@ title: "基于流媒体的对讲机系统——系统开发准备"
 figure: "http://cyeam.qiniudn.com/c168.png"
 description: "系统开发需要的预备知识——工欲善其事，必先利其器"
 category: "Postgraduate design"
-tags: ["Postgraduate design", Paper"]
+tags: ["Postgraduate design", "Paper"]
 ---
 
 工欲善其事，必先利其器。写代码也一样，借鉴优秀的工具辅助开发，可以帮助学习和了解相关知识和技术。

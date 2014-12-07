@@ -3,7 +3,7 @@ layout: post
 title: "Android端RTSP解决方案——libstreaming"
 figure: "http://cyeam.qiniudn.com/libstreaming_icon.png"
 description: "Postgraduate design"
-tags: ["Postgraduate design", Paper", "Android", "libstreaming"]
+tags: ["Postgraduate design", "Paper", "Android", "libstreaming"]
 
 ---
 

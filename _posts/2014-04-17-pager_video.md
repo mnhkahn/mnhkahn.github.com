@@ -4,7 +4,7 @@ title: "视频编解码技术H264"
 figure: "http://cyeam.qiniudn.com/c168.png"
 description: "关于H264视频编码格式的介绍和分析。"
 category: "Postgraduate design"
-tags: ["Postgraduate design", Paper"]
+tags: ["Postgraduate design", "Paper"]
 ---
 
 http://blog.csdn.net/tjy1985/article/details/7963531

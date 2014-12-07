@@ -3,7 +3,7 @@ layout: post
 title: "数据库访问的缓存与最大连接数"
 description: "之前有人提点，现在自己写，就忘记加了。弱爆了。。。"
 category: "golang"
-tags: ["golang", "hole", "MySQL Cache", "MySQL Max Conn", "xorm"]
+tags: ["Golang", "hole", "MySQL Cache", "MySQL Max Conn", "xorm"]
 ---
 
 今天查看我写的错误日志，里面报出了`Too many connections`这个错误。没见过啊，果断去问我大哥，他说是连接数的问题。我又去看之前已经上线的我的代码，才想起来数据库连接需要设置最大连接数的。当连接数超过范围之后，就是报这个错误。

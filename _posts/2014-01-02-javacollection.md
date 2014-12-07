@@ -3,7 +3,7 @@ layout: post
 title: "Java面试宝典"
 figure: "http://cyeam.qiniudn.com/java_logo.jpg"
 description: "从2013年9月开始找工作，在几个月的Java程序员求职过程中，总结了一些被问到的笔试题和面试题。Java语言博大精深，是整个程序界的上乘语言，应该得到重视。"
-category: "Java 源码剖析"
+category: "Java"
 tags: []
 ---
 

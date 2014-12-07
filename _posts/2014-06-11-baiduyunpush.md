@@ -4,7 +4,7 @@ title: "百度云推送"
 figure: "http://cyeam.qiniudn.com/baiduyunpush.png"
 description: "百度云推送的Go语言实现。Github 地址： https://github.com/mnhkahn/BaiduYunPush。"
 category: "golang"
-tags: ["golang", "android", "notification"]
+tags: ["Golang", "android", "notification"]
 ---
 
 <iframe src="http://ghbtns.com/github-btn.html?user=mnhkahn&repo=BaiduYunPush&type=watch&count=true&size=large"

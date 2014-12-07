@@ -4,7 +4,7 @@ title: "基于流媒体的对讲机系统——Android的开发准备"
 figure: "http://cyeam.qiniudn.com/c168.png"
 description: ""
 category: "Postgraduate design"
-tags: ["Postgraduate design", Paper"]
+tags: ["Postgraduate design", "Paper"]
 ---
 
 根据系统的大体设计并结合Android自身特性，将会主要用到下列几个Android自身控件。下面做简单介绍：

@@ -4,7 +4,7 @@ title: "实时流媒体协议RTSP"
 figure: "http://cyeam.qiniudn.com/c168.png"
 description: ""
 category: "Postgraduate design"
-tags: ["Postgraduate design", Paper"]
+tags: ["Postgraduate design", "Paper"]
 ---
 
 即时串流协定（Real Time Streaming Protocol，RTSP）是用来控制声音或影像的多媒体串流协议，并允许同时多个串流需求控制，传输时所用的网络通讯协定并不在其定义的范围内，服务器端可以自行选择使用TCP或UDP来传送串流内容，它的语法和运作跟HTTP 1.1类似。RTSP协议提供RTP流媒体发送会话的控制方法。。

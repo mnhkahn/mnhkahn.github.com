@@ -3,7 +3,7 @@ layout: post
 title: "Go语言接口开发——不确定JSON数据结构的解析"
 description: "今天开发的小总结"
 category: "golang"
-tags: ["golang", "json"]
+tags: ["Golang", "json"]
 ---
 
 在公司主要做接口的开发，会经常遇到接口对接的情况。有的时候，同一个请求返回的JSON数据格式并不一样。如果是正常，则可能只返回一个`status`字段，说明正常；如果中间出错，除了在`status`字段里面说明错误类型，还会通过`error_message`附带错误详细信息。比如要给用户加积分，如果加分失败，还会附带用户id等信息。那么，请求一个接口可能的返回值就是不确定的。

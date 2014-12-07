@@ -3,7 +3,7 @@ layout: post
 title: "数据库访问时区问题"
 description: "今天第二篇，都一次一天发多篇干货"
 category: "golang"
-tags: ["golang", "hole", "MySQL", "Time Zone"]
+tags: ["Golang", "hole", "MySQL", "Time Zone"]
 ---
 
 今天是第二次跳进这个坑里面。
