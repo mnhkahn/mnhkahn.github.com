@@ -3,7 +3,7 @@ layout: post
 title: "Android 配置"
 figure: "http://cyeam.qiniudn.com/android.jpg"
 description: ""
-category: "Postgraduate design"
+category: "Postgraduate"
 tags: ["Postgraduate design", "Paper", "Android"]
 ---
 

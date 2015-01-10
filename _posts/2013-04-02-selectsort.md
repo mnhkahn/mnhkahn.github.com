@@ -2,7 +2,7 @@
 layout: post
 title: "简单选择排序(SELECT SORT)"
 description: ""
-category: "computer science"
+category: "Computer"
 tags: ["Computer Science"]
 ---
 

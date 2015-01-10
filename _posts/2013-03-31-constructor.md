@@ -2,7 +2,7 @@
 layout: post
 title: "构造函数成员初始化列表"
 description: ""
-category: "Computer Science"
+category: "Computer"
 tags: ["Computer Science"]
 ---
 

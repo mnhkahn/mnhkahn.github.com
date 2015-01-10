@@ -3,7 +3,7 @@ layout: post
 title: "安卓对讲机开发评估"
 figure: "http://cyeam.qiniudn.com/c168.png"
 description: "毕设题目《基于流媒体的语音视频通话系统》，基于Android实现。先在这里做一下技术评估。"
-category: "Postgraduate design"
+category: "Postgraduate"
 tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 ---
 

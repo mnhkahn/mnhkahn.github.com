@@ -3,7 +3,7 @@ layout: post
 title: "Android 通知"
 figure: "http://cyeam.qiniudn.com/android.jpg"
 description: ""
-category: "Postgraduate design"
+category: "Postgraduate"
 tags: ["Postgraduate design", "Evaluate", "Android"]
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "Android 自定义形状"
 figure: "http://cyeam.qiniudn.com/c168.png"
 description: ""
-category: "Postgraduate design"
+category: "Postgraduate"
 tags: ["Postgraduate design", "Evaluate"]
 ---
 

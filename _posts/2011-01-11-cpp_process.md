@@ -2,7 +2,7 @@
 layout: post
 title: "用CreateProcess创建线程，指定运行QQ.EXE"
 description: "操作系统作业。"
-category: "computer science"
+category: "Computer"
 tags: ["Computer Science", "Operating System", "Windows"]
 ---
 

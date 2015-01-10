@@ -3,7 +3,7 @@ layout: post
 title: "实时流媒体协议RTSP"
 figure: "http://cyeam.qiniudn.com/c168.png"
 description: ""
-category: "Postgraduate design"
+category: "Postgraduate"
 tags: ["Postgraduate design", "Paper"]
 ---
 

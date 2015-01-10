@@ -2,7 +2,7 @@
 layout: post
 title: "在main函数中创建2个线程，一个运行冒泡排序算法，另一个运行选择排序算法，分别对两个一样的数组进行"
 description: "操作系统作业。"
-category: "computer science"
+category: "Computer"
 tags: ["Computer Science", "Operating System", "Windows"]
 ---
 

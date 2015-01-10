@@ -2,7 +2,7 @@
 layout: post
 title: "冒泡排序(BUBBLE SORT)"
 description: ""
-category: "computer science"
+category: "Computer"
 tags: ["Computer Science"]
 ---
 

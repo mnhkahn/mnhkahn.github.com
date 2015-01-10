@@ -2,7 +2,7 @@
 layout: post
 title: "位运算符(Bitwise Operators)"
 description: "位运算符的一些介绍。"
-category: "Computer Science"
+category: "Computer"
 tags: ["Bitwise", "Computer Science"]
 ---
 

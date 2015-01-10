@@ -2,7 +2,7 @@
 layout: post
 title: "快速排序(QUICK SORT)"
 description: ""
-category: "computer science"
+category: "Computer"
 tags: ["Computer Science"]
 ---
 

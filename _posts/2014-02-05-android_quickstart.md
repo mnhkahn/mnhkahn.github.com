@@ -3,7 +3,7 @@ layout: post
 title: "Android Quick Start"
 figure: "http://cyeam.qiniudn.com/android.jpg"
 description: "毕设题目《基于流媒体的语音视频通话系统》，基于Android实现。Android基础。"
-category: "Postgraduate design"
+category: "Postgraduate"
 tags: ["Postgraduate design", "Android", "Quick Start", "Evaluate"]
 ---
 

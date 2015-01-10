@@ -3,7 +3,7 @@ layout: post
 title: "基于流媒体的对讲机系统——数据库模块"
 figure: "http://cyeam.qiniudn.com/c168.png"
 description: ""
-category: "Postgraduate design"
+category: "Postgraduate"
 tags: ["Postgraduate design", "Evaluate"]
 ---
 
