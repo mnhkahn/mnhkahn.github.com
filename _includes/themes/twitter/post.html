@@ -9,17 +9,15 @@
       </span>
       <span>{{ page.date | date_to_long_string }}</span>
     </div>
-    <div class="content">
-      {{ content }}
-    </div>
-
-    {% if page.figure %}
+	{% if page.figure %}
     <p class="figure center">
         <img src="{{page.figure}}" alt="IMG-THUMBNAIL"/>
     </p>
     {% endif %}
-
-     <blockquote>{{page.description}}</blockquote>
+	<blockquote>{{page.description}}</blockquote>
+    <div class="content">
+      {{ content }}
+    </div>
 	 
 	<p>–<abbr title="End of file">EOF</abbr>–</p>
 
