@@ -188,7 +188,7 @@ Go语言里面任何函数或者方法可以创建一个协程。我们可以认
 ---
 
 ######*参考文献*
-1. [Concurrency, 协程s and GOMAXPROCS](http://www.goinggo.net/2014/01/concurrency-协程s-and-gomaxprocs.html)
+1. [Concurrency, Goroutines and GOMAXPROCS](http://www.goinggo.net/2014/01/concurrency-协程s-and-gomaxprocs.html)
 2. [并发和并行的区别：吃馒头的比喻](http://developer.51cto.com/art/200908/141553.htm)
 
 {% include JB/setup %}
