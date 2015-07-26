@@ -32,103 +32,97 @@ Go语言里面任何函数或者方法可以创建一个协程。我们可以认
 
 我们来创建一个小程序来展示Go并发执行协程s。这个例子我们是在默认设置下面执行，默认设置是要使用一个逻辑处理器。
 
-```
-package main
+	package main
 
-import (
-    "fmt"
-    "sync"
-)
+	import (
+	    "fmt"
+	    "sync"
+	)
 
-func main() {
-    var wg sync.WaitGroup
-    wg.Add(2)
+	func main() {
+	    var wg sync.WaitGroup
+	    wg.Add(2)
 
-    fmt.Println("Starting Go Routines")
-    go func() {
-        defer wg.Done()
+	    fmt.Println("Starting Go Routines")
+	    go func() {
+		defer wg.Done()
 
-        for char := 'a'; char < 'a'+26; char++ {
-            fmt.Printf("%c ", char)
-        }
-    }()
+		for char := 'a'; char < 'a'+26; char++ {
+		    fmt.Printf("%c ", char)
+		}
+	    }()
 
-    go func() {
-        defer wg.Done()
+	    go func() {
+		defer wg.Done()
 
-        for number := 1; number < 27; number++ {
-            fmt.Printf("%d ", number)
-        }
-    }()
+		for number := 1; number < 27; number++ {
+		    fmt.Printf("%d ", number)
+		}
+	    }()
 
-    fmt.Println("Waiting To Finish")
-    wg.Wait()
+	    fmt.Println("Waiting To Finish")
+	    wg.Wait()
 
-    fmt.Println("\nTerminating Program")
-}
-```
+	    fmt.Println("\nTerminating Program")
+	}
 
 这个程序通过关键字`go`启动了两个协程，声明了两个匿名函数。第一个协程打印了小写英语字母表，第二个打印了1到26这些数字。当我们运行这个程序，将会得到以下的结果：
 
-```
-Starting Go Routines
-Waiting To Finish
-a b c d e f g h i j k l m n o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 10 11
-12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
-Terminating Program
-```
+
+	Starting Go Routines
+	Waiting To Finish
+	a b c d e f g h i j k l m n o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 10 11
+	12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
+	Terminating Program
+
 
 我们来看一下输出的结果，代码被并发的执行。一旦这两个协程被启动，主的协程将会等待这两个协程执行结束。我们需要用这个方法否则一旦主协程运行结束，整个程序就结束了。`WaitGroup`是一个不错的方来用来在不同的协程之间通信是否完成。
 
 我们可以发现第一个协程完整地展示了26个字母之后，第二个协程才开始展示26个数字。因为这两个协程执行速度太快，毫秒时间内就能执行结束，我们并没有能够看到是否调度器在第一个协程执行完之前中断了它。我们可以在第一个协程里面增加一个等待时间来判断调度器的策略。
 
-```
-package main
+	package main
 
-import (
-    "fmt"
-    "sync"
-    "time"
-)
+	import (
+	    "fmt"
+	    "sync"
+	    "time"
+	)
 
-func main() {
-    var wg sync.WaitGroup
-    wg.Add(2)
+	func main() {
+	    var wg sync.WaitGroup
+	    wg.Add(2)
 
-    fmt.Println("Starting Go Routines")
-    go func() {
-        defer wg.Done()
+	    fmt.Println("Starting Go Routines")
+	    go func() {
+		defer wg.Done()
 
-        time.Sleep(1 * time.Microsecond)
-        for char := 'a'; char < 'a'+26; char++ {
-            fmt.Printf("%c ", char)
-        }
-    }()
+		time.Sleep(1 * time.Microsecond)
+		for char := 'a'; char < 'a'+26; char++ {
+		    fmt.Printf("%c ", char)
+		}
+	    }()
 
-    go func() {
-        defer wg.Done()
+	    go func() {
+		defer wg.Done()
 
-        for number := 1; number < 27; number++ {
-            fmt.Printf("%d ", number)
-        }
-    }()
+		for number := 1; number < 27; number++ {
+		    fmt.Printf("%d ", number)
+		}
+	    }()
 
-    fmt.Println("Waiting To Finish")
-    wg.Wait()
+	    fmt.Println("Waiting To Finish")
+	    wg.Wait()
 
-    fmt.Println("\nTerminating Program")
-}
-```
+	    fmt.Println("\nTerminating Program")
+	}
 
 这次我们在第一个协程里面增加了1秒钟的等待时间，调用`sleep`导致了调度器交换了两个协程的执行顺序：
 
-```
-Starting Go Routines
-Waiting To Finish
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 a
-b c d e f g h i j k l m n o p q r s t u v w x y z
-Terminating Program
-```
+	Starting Go Routines
+	Waiting To Finish
+	1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 a
+	b c d e f g h i j k l m n o p q r s t u v w x y z
+	Terminating Program
 
 这次数字在字母前面。`sleep`会影响调度器停止第一个协程，先执行第二个协程。
 
@@ -136,53 +130,50 @@ Terminating Program
 
 我们上面的两个例子协程都是在并发执行，并不是并行的。我们改变一下代码来允许代码并行执行。我们需要做的就是为调度器增加一个逻辑处理器让他能够使用两个线程：
 
-```
-package main
+	package main
 
-import (
-    "fmt"
-    "runtime"
-    "sync"
-)
+	import (
+	    "fmt"
+	    "runtime"
+	    "sync"
+	)
 
-func main() {
-    runtime.GOMAXPROCS(2)
+	func main() {
+	    runtime.GOMAXPROCS(2)
 
-    var wg sync.WaitGroup
-    wg.Add(2)
+	    var wg sync.WaitGroup
+	    wg.Add(2)
 
-    fmt.Println("Starting Go Routines")
-    go func() {
-        defer wg.Done()
+	    fmt.Println("Starting Go Routines")
+	    go func() {
+		defer wg.Done()
 
-        for char := 'a'; char < 'a'+26; char++ {
-            fmt.Printf("%c ", char)
-        }
-    }()
+		for char := 'a'; char < 'a'+26; char++ {
+		    fmt.Printf("%c ", char)
+		}
+	    }()
 
-    go func() {
-        defer wg.Done()
+	    go func() {
+		defer wg.Done()
 
-        for number := 1; number < 27; number++ {
-            fmt.Printf("%d ", number)
-        }
-    }()
+		for number := 1; number < 27; number++ {
+		    fmt.Printf("%d ", number)
+		}
+	    }()
 
-    fmt.Println("Waiting To Finish")
-    wg.Wait()
+	    fmt.Println("Waiting To Finish")
+	    wg.Wait()
 
-    fmt.Println("\nTerminating Program")
-}
-```
+	    fmt.Println("\nTerminating Program")
+	}
 
 这是程序的输出：
 
-```Starting Go Routines
-Waiting To Finish
-a b 1 2 3 4 c d e f 5 g h 6 i 7 j 8 k 9 10 11 12 l m n o p q 13 r s 14
-t 15 u v 16 w 17 x y 18 z 19 20 21 22 23 24 25 26
-Terminating Program
-```
+	Starting Go Routines
+	Waiting To Finish
+	a b 1 2 3 4 c d e f 5 g h 6 i 7 j 8 k 9 10 11 12 l m n o p q 13 r s 14
+	t 15 u v 16 w 17 x y 18 z 19 20 21 22 23 24 25 26
+	Terminating Program
 
 每一次我们运行这个程序将会得到不同的结果。调度器并不会每一次都执行得到相同的结果。我们可以看到协程这次真的是并行执行了。两个协程立刻开始运行，并且你可以看到两个都在竞争输出各自的结果。
 
