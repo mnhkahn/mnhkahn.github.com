@@ -34,6 +34,5 @@ tagline: 你不要用战术的勤奋掩盖战略的懒惰。
     </p>
     {% endif %}
     <br>
-    ---
 </div>
 {% endfor %}
