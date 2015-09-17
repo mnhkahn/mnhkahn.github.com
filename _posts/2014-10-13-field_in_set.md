@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MySQL的field_in_set函数"
+title: "MySQL的find_in_set函数"
 description: ""
 category: "Database"
 tags: ["Database", "MySQL"]
