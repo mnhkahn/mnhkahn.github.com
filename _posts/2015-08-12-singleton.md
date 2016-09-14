@@ -10,7 +10,7 @@ tags: ["Design Pattern", "Golang"]
 
 单件模式能简单分成支持并发和不支持并发两种。不过并发这个很简单，满大街Golang实现的单件模式都是这样的。
 
-####普通的单件模式
+#### 普通的单件模式
 
 	package singleton
 
@@ -78,7 +78,7 @@ tags: ["Design Pattern", "Golang"]
 	Create instance bryce
 	bryce
 	
-####支持并发的单件模式
+#### 支持并发的单件模式
 
 为了保证在并行调用的情况下只创建一个实例，就需要加锁来保证串行创建。简单粗暴的方法就是`Instance()`方法直接全部上锁。
 
@@ -198,7 +198,7 @@ tags: ["Design Pattern", "Golang"]
 
 ---
 
-######*参考文献*
+###### *参考文献*
 1. [设计模式(2) - Singleton单件模式 - shltsh](http://blog.csdn.net/shltsh/article/details/17429363)
 
 {% include JB/setup %}
