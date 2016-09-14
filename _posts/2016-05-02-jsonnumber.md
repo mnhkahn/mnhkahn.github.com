@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "介绍一下Json的Number"
-description: "目前英国做接口都是用Json格式，Json格式也是比较容易理解的一种格式，上手很容易。但是还是有一些需要记录的东西。"
+description: "目前应用做接口都是用Json格式，Json格式也是比较容易理解的一种格式，上手很容易。但是还是有一些需要记录的东西。"
 category: "golang"
 tags: ["Golang","Json"]
 ---
