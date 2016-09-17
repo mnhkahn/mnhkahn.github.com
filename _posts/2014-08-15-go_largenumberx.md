@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "大数乘法"
+title: "Golang实现大数乘法"
 description: "用大数乘法实现长度不限的数字乘法。"
 category: "Golang"
 tags: ["Golang"]
