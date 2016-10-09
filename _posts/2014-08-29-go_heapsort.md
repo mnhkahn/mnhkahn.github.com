@@ -76,7 +76,7 @@ tags: ["Golang", "Sort"]
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】[堆排序(HEAP SORT) - Cyeam](http://blog.cyeam.com/computer%20science/2013/04/06/heapsort/)
 
 {% include JB/setup %}
