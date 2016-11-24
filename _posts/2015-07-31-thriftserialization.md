@@ -21,7 +21,7 @@ Thrift的序列化是比Json更好用的结构（具体哪里好了我还没研�
 
 > Versioning in Thrift is implemented via ﬁeld identiﬁers. The ﬁeld header for every member of a struct in Thrift is encoded with a unique ﬁeld identiﬁer. The combination of this ﬁeld identiﬁer and its type speciﬁer is used to uniquely identify the ﬁeld. The Thrift deﬁnition language supports automatic assignment of ﬁeld identiﬁers, but it is good programming practice to always explicitly specify ﬁeld identiﬁers.
 
-之前写过一篇[《Golang开发Thrift接口》](http://blog.cyeam.com/golang/2014/07/22/go_thrift/)，这次接着以这个为基础修改进行实验。新增一个测试函数，返回我们要实验的这个结构体。
+之前写过一篇[《Golang开发Thrift接口》](http://blog.cyeam.com/golang/2014/07/22/go_thrift)，这次接着以这个为基础修改进行实验。新增一个测试函数，返回我们要实验的这个结构体。
 
 	Pair helloPair()
 
@@ -74,7 +74,7 @@ Thrift的序列化是比Json更好用的结构（具体哪里好了我还没研�
 
 ---
 
-######*参考文献*
+###### *参考文献*
 1. [Thrift 个人实战--Thrift 的序列化机制 - mumuxinfei](http://www.cnblogs.com/mumuxinfei/p/3876075.html)
 
 {% include JB/setup %}
