@@ -3,7 +3,7 @@ layout: post
 title: "【译】优化Go的模式"
 figure: "http://cyeam.qiniudn.com/gopherswrench.jpg"
 description: "最近在优化Go项目，学习了一下Golang的调优相关内容。发现了一篇很不错的文章，翻译出来分享给大家。"
-category: "golang"
+category: "Golang"
 tags: ["Golang","Optimize"]
 ---
 

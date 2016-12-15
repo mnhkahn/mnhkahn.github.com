@@ -3,7 +3,7 @@ layout: post
 title: "百度云推送"
 figure: "http://cyeam.qiniudn.com/baiduyunpush.png"
 description: "百度云推送的Go语言实现。Github 地址： https://github.com/mnhkahn/BaiduYunPush。"
-category: "golang"
+category: "Golang"
 tags: ["Golang", "android", "notification"]
 ---
 

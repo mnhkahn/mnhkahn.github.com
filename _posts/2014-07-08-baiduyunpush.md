@@ -3,7 +3,7 @@ layout: post
 title: "百度云推送——Go语言实现类库"
 figure: "http://blog.cyeam.com/assets/images/logo.jpg"
 description: "把之前写好的百度云推送封装成了Go包。只是实现了最简单的消息推送。。"
-category: "golang"
+category: "Golang"
 tags: ["Golang", "android", "notification"]
 ---
 
@@ -53,7 +53,7 @@ tags: ["Golang", "android", "notification"]
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】[百度开放云文档](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/api/list)
 
 {% include JB/setup %}

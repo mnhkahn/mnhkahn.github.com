@@ -2,7 +2,7 @@
 layout: post
 title: "狗日的slice"
 description: "虽然知道slice的实现，虽然也帮别人看过这个问题，但还是要被坑。"
-category: "golang"
+category: "Golang"
 tags: ["Golang"]
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "【译】Go工具要点"
 description: "Go的语法虽然一直很稳定，但是工具等模块还是会随着版本更新的。发现一篇不错的文章，果断翻译之。"
-category: "golang"
+category: "Golang"
 tags: ["Golang","Optimize"]
 ---
 

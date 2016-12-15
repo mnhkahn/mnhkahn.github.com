@@ -2,7 +2,7 @@
 layout: post
 title: "Golang字符串切割函数Split"
 description: "升级beego 1.4.2之后，根据发现的不兼容的地方顺藤摸瓜。"
-category: "golang"
+category: "Golang"
 tags: ["字符串"]
 ---
 

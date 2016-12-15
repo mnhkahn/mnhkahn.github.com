@@ -2,7 +2,7 @@
 layout: post
 title: "数据库访问的缓存与最大连接数"
 description: "之前有人提点，现在自己写，就忘记加了。弱爆了。。。"
-category: "golang"
+category: "Golang"
 tags: ["Golang", "hole", "MySQL Cache", "MySQL Max Conn", "xorm"]
 ---
 

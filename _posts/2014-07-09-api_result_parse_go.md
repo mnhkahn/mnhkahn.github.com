@@ -2,7 +2,7 @@
 layout: post
 title: "Go语言接口开发——不确定JSON数据结构的解析"
 description: "今天开发的小总结"
-category: "golang"
+category: "Golang"
 tags: ["Golang", "json"]
 ---
 
@@ -47,7 +47,7 @@ tags: ["Golang", "json"]
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】Go语言编程
 
 {% include JB/setup %}

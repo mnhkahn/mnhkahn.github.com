@@ -2,7 +2,7 @@
 layout: post
 title: "【译】Golang中使用『弃用(Deprecate)』"
 description: "rakyll是一位Golang语言开发工程师。这哥们长得很秀气（有可能人家是姑娘），博客更是犀利。"
-category: "golang"
+category: "Golang"
 tags: ["Golang","tool"]
 ---
 
