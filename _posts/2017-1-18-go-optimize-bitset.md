@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Golang 工具推荐之bitset"
-description: "不管开发什么，工具都是很关键的。作为手艺人的我们，如果有趁手的工具，那就是事倍功半。接下来我会写一系列文章，介绍我用过的Golang相关的开发包，不一定每个都是牛逼闪闪的，但都是我用过的趁手的工具。"
+title: "Golang 优化之路——bitset"
+description: "开发过程中会经常处理集合这种数据结构，简单点的处理方法都是使用内置的map实现。今天讲一种优化方式——bitset。"
 category: "golang"
-tags: ["Golang","tool"]
+tags: ["Golang","optimize","tool"]
 ---
 
 ### 写在前面
 
-一般找Golang相关的包都是先去[awesome-go](http://awesome-go.com/)找，里面按分类都归类好了。今天要推荐的是[bitset](https://github.com/willf/bitset)。之前在工作中对于已有项目的优化探索了很久，发现了这个包之后，让我眼前一亮，找到了未来优化的方向。
+开发过程中会经常处理集合这种数据结构，简单点的处理方法都是使用内置的map实现。但是如果要应对大量数据，使用map占用内存大的问题就会凸显出来。内存占用高又会带来一些列的问题，这里就不展开说了。还有就是，大量数据存放于map，查找的哈希算法消耗也会很高。这时就该考虑对数据结构进行优化。之前浏览[awesome-go](http://awesome-go.com/)时发现了一种叫bitset的数据结构，今天就介绍一下它。
 
 ### bitset 简介
 
