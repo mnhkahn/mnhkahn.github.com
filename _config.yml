@@ -133,3 +133,6 @@ JB :
   
 
 markdown: kramdown
+
+gems:
+  - jekyll-toc
