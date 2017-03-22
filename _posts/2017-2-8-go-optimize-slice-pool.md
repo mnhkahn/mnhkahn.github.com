@@ -6,6 +6,11 @@ category: "golang"
 tags: ["Golang","optimize","tool"]
 ---
 
+* 目录
+{:toc}
+
+---
+
 ### 写在前面
 
 在高并发的情况下，如果每次请求都需要申请一块用于计算的内存，比如：
