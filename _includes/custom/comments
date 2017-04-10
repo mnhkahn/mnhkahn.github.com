@@ -9,25 +9,6 @@
 </script>
 <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
 
-<!--
-<noscript>Please enable JavaScript to view the comment form powered by <a href="https://commentit.io/">Comm(ent|it)</a></noscript>
-<div id="commentit"></div>
-<script type="text/javascript">
-  /** CONFIGURATION VARIABLES **/
-  var commentitUsername = 'mnhkahn';
-  var commentitRepo = 'mnhkahn/mnhkahn.github.com';
-  var commentitPath = '{{ page.path }}';
-
-  /** DON'T EDIT FOLLOWING LINES **/
-  (function() {
-      var commentit = document.createElement('script');
-      commentit.type = 'text/javascript';
-      commentit.async = true;
-      commentit.src = 'https://commentit.io/static/embed/dist/commentit.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
-  })();
-</script>
--->
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 <p style="background-color: #EEE;color: #AAA;padding: 5px 0px 5px 0px;font-size: 12px !important;text-align: center;">
