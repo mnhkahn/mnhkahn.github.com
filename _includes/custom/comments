@@ -17,7 +17,7 @@
   /** CONFIGURATION VARIABLES **/
   var commentitUsername = 'mnhkahn';
   var commentitRepo = 'mnhkahn/mnhkahn.github.io';
-  var commentitPath = '{{ page.path }}';
+  var commentitPath = '{{ page.url }}';
 
   /** DON'T EDIT FOLLOWING LINES **/
   (function() {
