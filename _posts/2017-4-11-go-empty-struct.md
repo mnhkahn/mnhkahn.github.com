@@ -30,20 +30,20 @@ tags: ["Golang","optimize","tool"]
 
 + 可以和普通结构一样操作
 
-	var a = []struct{}{struct{}{}}
-	fmt.Println(len(a)) // prints 1
+		var a = []struct{}{struct{}{}}
+		fmt.Println(len(a)) // prints 1
 
 + 不占用空间
 
-	var s struct{}
-	fmt.Println(unsafe.Sizeof(s)) // prints 0
+		var s struct{}
+		fmt.Println(unsafe.Sizeof(s)) // prints 0
 
 + 声明两个空对象，它们指向同一个地址
 
-	type A struct{}
-	a := A{}
-	b := A{}
-	fmt.Println(&a == &b) // prints true
+		type A struct{}
+		a := A{}
+		b := A{}
+		fmt.Println(&a == &b) // prints true
 	
 造成这个结果的原因是 Golang 的编译器会把这种空对象都当成`runtime.zerobase`处理。
 
@@ -81,7 +81,7 @@ tags: ["Golang","optimize","tool"]
 	
 一个简易的 hashset 实现就完成了。
 
-### 性能比较o
+### 性能比较
 
 	func BenchmarkIntSet(b *testing.B) {
 		var B = NewIntSet(3)
@@ -127,9 +127,8 @@ tags: ["Golang","optimize","tool"]
 ---
 
 ######*参考文献*
-
-1. [The empty struct - Dave Cheney](https://dave.cheney.net/2014/03/25/the-empty-struct)
-2. [gods - emirpasic](https://github.com/emirpasic/gods/blob/master/sets/hashset/hashset.go)
-2. 《Go 语言学习笔记》 - 雨痕。5.5 结构。
++ 【1】[The empty struct - Dave Cheney](https://dave.cheney.net/2014/03/25/the-empty-struct)
++ 【2】[gods - emirpasic](https://github.com/emirpasic/gods/blob/master/sets/hashset/hashset.go)
++ 【3】 《Go 语言学习笔记》 - 雨痕。5.5 结构。
 
 {% include JB/setup %}
