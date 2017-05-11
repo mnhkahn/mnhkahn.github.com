@@ -1,16 +1,17 @@
-<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: document.location.href, 
-    sourceId: "{{site.production_url}}{{page.url}}",
-    productKey: "a9411025780e4793a4160b5cc13fde1d",
-    target: "cloud-tie-wrapper"
-  };
+<script type="text/javascript">
+(function(){
+var url = "http://widget.weibo.com/distribution/comments.php?width=0&url=auto&border=1&brandline=y&fontsize=14&appkey=3925283339&dpc=1";
+url = url.replace("url=auto", "url=" + encodeURIComponent(document.URL)); 
+document.write('<iframe id="WBCommentFrame" src="' + url + '" scrolling="no" frameborder="0" style="width:100%"></iframe>');
+})();
 </script>
-<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script src="http://tjs.sjs.sinajs.cn/open/widget/js/widget/comment.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+window.WBComment.init({
+    "id": "WBCommentFrame"
+});
+</script>
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
 <p style="background-color: #EEE;color: #AAA;padding: 5px 0px 5px 0px;font-size: 12px !important;text-align: center;">
 本站总访问量<span id="busuanzi_value_site_pv"></span>次；
 本站访客数<span id="busuanzi_value_site_uv"></span>人次；
