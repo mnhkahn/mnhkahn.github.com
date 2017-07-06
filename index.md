@@ -40,3 +40,5 @@ tagline: 你不要用战术的勤奋掩盖战略的懒惰。
 <br>
 ---
 {% endfor %}
+
+<a class="btn btn-large btn-primary" type="button" href="/all.html" target="_blank">更多文章</a>
