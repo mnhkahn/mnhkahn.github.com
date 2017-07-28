@@ -2,9 +2,9 @@
 layout: post
 title: "开发了一个rarbg插件"
 description: "可以支持在电影列表展示中文标题和豆瓣评分"
-category: "golang"
+category: "kaleidoscope"
 figure: "https://img3.doubanio.com/f/sns/19886d443852bee48de2ed91f4a3bdfdaf8c809c/pics/nav/logo_db.png"
-tags: ["http","golang","goroutine"]
+tags: ["rarbg","douban"]
 ---
 
 * 目录
@@ -28,8 +28,5 @@ tags: ["http","golang","goroutine"]
 
 
 ---
-
-### *参考文献*
-
 
 {% include JB/setup %}
