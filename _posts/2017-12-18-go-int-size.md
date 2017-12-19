@@ -58,6 +58,17 @@ tags: ["int"]
 
 写了这么多年 Golang，`int`天天用，一直被我当32位处理，说来惭愧。。。
 
+### Size of int on 64-bit platforms
+
+经热心网友提醒，从 [1.1](https://golang.org/doc/go1.1#int) 开始，Go 的`int`和`uint`长度发生了变化。
+
+> The language allows the implementation to choose whether the int type and uint types are 32 or 64 bits. Previous Go implementations made int and uint 32 bits on all systems. Both the gc and gccgo implementations now make int and uint 64 bits on 64-bit platforms such as AMD64/x86-64. Among other things, this enables the allocation of slices with more than 2 billion elements on 64-bit platforms.
+
+	x := ^uint32(0) // x is 0xffffffff
+	i := int(x)     // i is -1 on 32-bit systems, 0xffffffff on 64-bit
+	fmt.Println(i)
+	
+	
 ---
 
 题图：孜然牛肉。
