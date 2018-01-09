@@ -124,13 +124,20 @@ tags: ["Golang","optimize","tool"]
 + 性能，有些提升，但不是特别明显。尤其是线上压力不大的情况性能应该不会有明显变化；
 + 内存占用。我们的服务缓存较多、占用内存较大，通过这个优化实测可以减少 1.6 GB 的空间。不过这个优化的空间取决于数据量。
 
-### Bug
-经网友提醒，上面有个例子有问题：
+### 后续
+
+前面有个例子：
 
 	var a, b struct{}
 	fmt.Println(&a == &b) // true
-	
-理论是应该打印`true`，但是却打印了`false`。跟 Dave Cheney 大神确认了下，应该是一个Bug。我在1.3.3 版本上测试，打印的是`true`。1.4之后有问题。
+
+从 Go1.6 开始输出的结果有了变化，之前是`true`，现在是`false`。
+
+[官方](https://golang.org/ref/spec#Comparison_operators)的解释：
+
+> Pointer values are comparable. Two pointer values are equal if they point to the same variable or if both have value nil. **Pointers to distinct zero-size variables may or may not be equal**.
+
+不过这个处理并不影响对于空结构体的使用。官方对于空指针相等的判断进行了修改，至于原因并没有给出详细的解释。
 
 
 ---
