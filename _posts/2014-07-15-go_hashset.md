@@ -46,7 +46,7 @@ Set，是指数学里的集合。集合当中不能有重复的元素。判断�
 
 ---
 
-######*参考文献*
+###### *参考文献*
 
 + 【1】[判断int数组中的元素是否重复 - 百度知道](http://zhidao.baidu.com/question/172011519.html)
 + 【2】[Sets Data Structure in Golang - StackExchange](http://programmers.stackexchange.com/questions/177428/sets-data-structure-in-golang)
