@@ -232,20 +232,20 @@ memhash并不是可导出函数，我在runtime包里增加了一个memhash_test
     }
 
 结果：
-> BenchmarkMemHash-8   	 3000000	       475 ns/op	       0 B/op	       0 allocs/op
+
+	BenchmarkMemHash-8   	 3000000	       475 ns/op	       0 B/op	       0 allocs/op
 
 [dgohash](https://github.com/dgryski/dgohash)用Go实现了一些哈希算法，对比压测一下。
 
-> BenchmarkJava32-8          	  500000	      2548 ns/op	    1456 B/op	      30 allocs/op
-> BenchmarkDJB-8             	  500000	      2516 ns/op	    1456 B/op	      30 allocs/op
-> BenchmarkElf32-8           	  500000	      3204 ns/op	    1456 B/op	      30 allocs/op
-> BenchmarkJenkins32-8       	  500000	      3154 ns/op	    1456 B/op	      30 allocs/op
-> BenchmarkMarvin32-8        	  500000	      3375 ns/op	    1456 B/op	      30 allocs/op
-> BenchmarkMurmur-8          	 1000000	      2184 ns/op	    1456 B/op	      30 allocs/op
-> BenchmarkSDBM32-8          	  500000	      2789 ns/op	    1456 B/op	      30 allocs/op
-> BenchmarkSQLite32-8        	 1000000	      2419 ns/op	    1456 B/op	      30 allocs/op
-> BenchmarkSuperFastHash-8   	 1000000	      2003 ns/op	    1456 B/op	      30 allocs/op
-
+	BenchmarkJava32-8          	  500000	      2548 ns/op	    1456 B/op	      30 allocs/op
+	BenchmarkDJB-8             	  500000	      2516 ns/op	    1456 B/op	      30 allocs/op
+	BenchmarkElf32-8           	  500000	      3204 ns/op	    1456 B/op	      30 allocs/op
+	BenchmarkJenkins32-8       	  500000	      3154 ns/op	    1456 B/op	      30 allocs/op
+	BenchmarkMarvin32-8        	  500000	      3375 ns/op	    1456 B/op	      30 allocs/op
+	BenchmarkMurmur-8          	 1000000	      2184 ns/op	    1456 B/op	      30 allocs/op
+	BenchmarkSDBM32-8          	  500000	      2789 ns/op	    1456 B/op	      30 allocs/op
+	BenchmarkSQLite32-8        	 1000000	      2419 ns/op	    1456 B/op	      30 allocs/op
+	BenchmarkSuperFastHash-8   	 1000000	      2003 ns/op	    1456 B/op	      30 allocs/op
 硬件加速的和这些比确实可以碾压。
 
 ---
