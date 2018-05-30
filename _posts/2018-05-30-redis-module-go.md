@@ -254,6 +254,10 @@ Redis 的热门组件都放在[这里](https://redis.io/modules)。有人用他�
 
 Redis 这个组件功能真的是很厉害，用Redis的分布式、主从同步、自动备份到磁盘这些特性，分分钟搭起一个高可用分布式应用。
 
+
+
+关于数据备份和恢复的部分我还没有研究，等下次搞明白了再说吧。完整的代码放在[GitHub](https://github.com/mnhkahn/RedisJsonGo)上面，有需要可以去看。
+
 ---
 
 
