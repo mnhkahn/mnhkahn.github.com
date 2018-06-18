@@ -2,7 +2,7 @@
 layout: post
 title: "Slice 小技巧"
 description: "翻译自官方wiki说明。难度都不大但是还是写一下吧。官方的写法比较优雅。包括 slice 的插入、删除、剪切等操作。"
-figure:"https://blog.golang.org/go-slices-usage-and-internals_slice-3.png"
+figure: "https://blog.golang.org/go-slices-usage-and-internals_slice-3.png"
 category: "Golang"
 tags: ["Golang","Slice","Trick"]
 ---
@@ -186,7 +186,6 @@ for i := len(a) - 1; i > 0; i-- {
 }
 ```
 *每个数据随机一个新位置出来。*
-
 
 ---
 
