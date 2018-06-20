@@ -9,7 +9,6 @@ tags: ["int"]
 
 * 目录
 {:toc}
-
 ---
 
 ### 写在前面
@@ -17,18 +16,18 @@ tags: ["int"]
 今天调试一个问题，发现一个我无法理解的情况：
 
 	package main
-
+	
 	import (
 		"fmt"
 		"math"
 		"runtime"
 	)
-
+	
 	func main() {
 		var a uint = math.MaxUint64
 		fmt.Println("Hello, playground", a, runtime.Version())
 	}
-	
+
 把64位的数字赋值给`uint`，我理解`uint`是32位的，为啥可以编译通过？但是我接着又在 playground 上试了一把，结果是编译不过了：
 
 > constant 18446744073709551615 overflows uint
@@ -67,8 +66,19 @@ tags: ["int"]
 	x := ^uint32(0) // x is 0xffffffff
 	i := int(x)     // i is -1 on 32-bit systems, 0xffffffff on 64-bit
 	fmt.Println(i)
-	
-	
+
+
+
+### PS
+
+今天看`strconv.Itoa`的源码，发现一个有意思的地方：
+
+	const host32bit = ^uint(0)>>32 == 0
+
+它用到了`int`长度的特性来判断是不是32位的。
+
+[https://play.golang.org/p/Or99SPVNbm](https://play.golang.org/p/Or99SPVNbm)
+
 ---
 
 题图：孜然牛肉。
