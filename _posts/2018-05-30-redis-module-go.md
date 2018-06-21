@@ -2,6 +2,7 @@
 layout: post
 title: "用 Go 给 Redis 写组件"
 description: "Redis 从4.0开始支持组件开发，用户编译生成一个动态链接库，启动时加载就可以启用。"
+figure: "http://cyeam.qiniudn.com/redis-modules-features.png"
 category: "Redis"
 tags: ["Golang","Redis","Module"]
 ---
