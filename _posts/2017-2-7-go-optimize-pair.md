@@ -2,6 +2,7 @@
 layout: post
 title: "Golang 优化之路——Cantor pair"
 description: "某一种对象是通过两个ID唯一确定的，如何处理这种数据结构以便快速查找以及节约内存？今天讲一种优化算法——Cantor pairing function。"
+figure: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Pairing_natural.svg/220px-Pairing_natural.svg.png"
 category: "golang"
 tags: ["Golang","optimize","tool"]
 ---
