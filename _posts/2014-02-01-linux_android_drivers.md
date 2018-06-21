@@ -42,7 +42,7 @@ tags: ["Nexus 7", "Root Android", "Mint"]
 
 <div id="stacktack-21499972"></div>
 
-######*参考文献*
+###### *参考文献*
 + [ubuntu下galaxy nexus的fastboot连接不上的问题](http://blog.csdn.net/gexueyuan/article/details/8720570)
 + [Setting up a Device for Development](http://developer.android.com/tools/device.html)
 + [51-android.rules](https://github.com/M0Rf30/android-udev-rules/blob/master/51-android.rules)
