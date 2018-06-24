@@ -29,7 +29,7 @@ Thrift会自动检查当前机子的环境变量里面存在的开发语言进�
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】[脆弱的Go远程包 - qinhui99](http://my.oschina.net/qinhui99/blog/66560)
 + 【2】[ubuntu 12.04中安装thrift-0.9.1 - iAm333的专栏](http://blog.csdn.net/iam333/article/details/18771945)
 + 【3】[Debian or Ubuntu setup](http://thrift.apache.org/docs/install/debian)
