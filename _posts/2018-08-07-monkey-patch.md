@@ -11,8 +11,6 @@ tags: ["Golang","Monkey Patch"]
 {:toc}
 ---
 
-:monkey_face: :monkey:
-
 很多人认为**猴子补丁**（A [monkey patch](https://en.wikipedia.org/wiki/Monkey_patch) is a way for a program to extend or modify supporting system software locally (affecting only the running instance of the program). 指可以在运行时动态修改或扩展程序的一种方法）是那些东西语言，比如 Ruby 和 Python 才有的东西。这并不对，计算机知识愚蠢的机器而我们总能让他们按照我们的想法工作！让我们来看看 Go 的函数如何工作，再看看我们如何在运行时修改它们。这篇文章将会使用 Intel 的汇编语法，所以我假设你了解过它或者在阅读的过程中参考[官方文档](https://software.intel.com/en-us/articles/introduction-to-x64-assembly)。
 
 **如果你对猴子补丁的原理没有兴趣，只想使用猴子补丁，可以直接移步到[代码仓库](https://github.com/bouk/monkey)。**
@@ -263,9 +261,10 @@ func main() {
 
 [Reddit](https://www.reddit.com/r/golang/comments/30try1/monkey_patching_in_go/)
 
+[原文地址](http://bouk.co/blog/monkey-patching-in-go/)。
+
 ---
 
-###### *参考文献*
 
 
 
