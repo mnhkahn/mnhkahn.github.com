@@ -16,13 +16,13 @@ tags: ["Golang", "android", "notification"]
 <iframe src="http://ghbtns.com/github-btn.html?user=mnhkahn&type=follow&count=true&size=large"
   allowtransparency="true" frameborder="0" scrolling="0" width="185" height="30"></iframe>
 
-#快速开始
+# 快速开始
 
-###下载安装
+### 下载安装
 
     go get github.com/mnhkahn/BaiduYunPush
 
-###创建文件pushtest.go
+### 创建文件pushtest.go
 
     package main
 
@@ -43,7 +43,7 @@ tags: ["Golang", "android", "notification"]
     }
 
 
-###编译运行
+### 编译运行
 
     go run pushtest.go
 
