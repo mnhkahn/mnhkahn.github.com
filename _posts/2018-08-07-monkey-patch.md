@@ -85,7 +85,7 @@ func main() {
 }
 ```
 
-和我们期望的一样，将会打印 0x2000。在[这里](https://github.com/golang/go/blob/e9d9d0befc634f6e9f906b5ef7476fbd7ebd25e3/src/runtime/runtime2.go#L75-L78)我们也能找到一些线索。Go 语言的函数值包含了额外的信息，这是闭包和丙丁实例实现的方式。
+和我们期望的一样，将会打印 0x2000。在[这里](https://github.com/golang/go/blob/e9d9d0befc634f6e9f906b5ef7476fbd7ebd25e3/src/runtime/runtime2.go#L75-L78)我们也能找到一些线索。Go 语言的函数值包含了额外的信息，这是闭包和绑定实例实现的方式。
 
 ```
 type funcval struct {
