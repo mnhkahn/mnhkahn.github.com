@@ -99,7 +99,7 @@
             </ul>
         </div>
         <script type="text/javascript">
-            var name = $("#content > div.row-fluid.post-full > div > ul:nth-child(6) > li").clone().find('span').remove().end().text();
+            var name = $(".category_name").clone().find('span').remove().end().text();
             var url = 'http://www.cyeam.com/s?ps=6&t=' + name;
             $.ajax({
                 url: url,
