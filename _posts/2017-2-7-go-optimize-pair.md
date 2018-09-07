@@ -193,7 +193,20 @@ tags: ["Golang","optimize","tool"]
 + Cantor pair和bit方法的性能相当，反解的时候性能还查一些；
 + 既然性能相当，虽然本文着重介绍的是Cantor pair算法，但我还是建议，如果bit方法能满足你的需求，尤其是数字范围较小的时候，还是用这个比较好。简单的方法在维护方面会让你更加得心应手，即使你懂那些复杂的公式是如何推导出来的^ ^。
 
-本文所涉及到的完整源码请[参考](https://github.com/mnhkahn/pairing)。
+### GitHub
+
+我把代码整理了一下，放到了 GitHub 上面，欢迎 Star。
+
+
+<iframe src="http://ghbtns.com/github-btn.html?user=mnhkahn&repo=pairing&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+
+<iframe src="http://ghbtns.com/github-btn.html?user=mnhkahn&repo=pairing&type=fork&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+
+<iframe src="http://ghbtns.com/github-btn.html?user=mnhkahn&type=follow&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="185" height="30"></iframe>
+
 
 
 ---
