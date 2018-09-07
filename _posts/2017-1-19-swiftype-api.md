@@ -12,6 +12,16 @@ tags: ["Golang","swiftype","tool"]
 
 源码地址：[https://github.com/mnhkahn/swiftype](https://github.com/mnhkahn/swiftype)
 
+<iframe src="http://ghbtns.com/github-btn.html?user=mnhkahn&repo=swiftype&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+
+<iframe src="http://ghbtns.com/github-btn.html?user=mnhkahn&repo=swiftype&type=fork&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+
+<iframe src="http://ghbtns.com/github-btn.html?user=mnhkahn&type=follow&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="185" height="30"></iframe>
+
+
 ### 安装
 
 	go get -v gopkg.in/mnhkahn/swiftype.v1
