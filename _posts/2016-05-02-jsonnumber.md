@@ -25,7 +25,7 @@ Json数据其实就是一个字符串，里面按照一定的格式保存我们�
 	map[string]interface{}, for JSON objects
 	nil for JSON null
 
-我们可以注意到，Json格式的数字和Golang语言里面的`float64`是相关联的。也就是说，默认情况下数字类型将会转换成`float64`类型。如果我们显示的指出了数字类型，比如`int64`，他会将数字再转成`int64`。
+我们可以注意到，Json格式的数字和Golang语言里面的`float64`是相关联的。也就是说，***默认情况下数字类型将会转换成`float64`类型***。如果我们显示的指出了数字类型，比如`int64`，他会将数字再转成`int64`。
 
 我们看一下源码，`encoding/json/decode.go func (d *decodeState) literalStore(item []byte, v reflect.Value, fromQuoted bool)`
 
@@ -110,7 +110,7 @@ Json数据其实就是一个字符串，里面按照一定的格式保存我们�
 	
 可以看出来，Json解析实现的时候通过反射来判断要生成的具体的类型。如果是`interface{}`类型，通过`converNumber`方法转成`float64`（里面是通过`strconv.ParseFloat`实现），如果类型是整形相关，通过`strconv.ParseInt`方法转换。无符号整形是通过`strconv.ParseUint`实现。
 
-
+Golang 也提供了`Number`类型来解决这种情况，详细说明请看下一篇文章[《介绍一下Json的Number（二）》](http://blog.cyeam.com/golang/2018/08/22/json-number)。
 
 ---
 

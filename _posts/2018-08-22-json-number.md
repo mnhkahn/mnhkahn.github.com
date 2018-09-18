@@ -69,6 +69,17 @@ func (n Number) Int64() (int64, error) {
 
 本文涉及的代码可以从[这里](https://github.com/mnhkahn/go_code/blob/master/jsonnumber/main.go)下载。
 
+### UseNumber
+
+有时候我们想偷懒，并不想自己定义结构体，还是想使用`map[string]interface{}`来解析 JSON，可以使用`UseNumber`方法：
+
+```
+decoder := json.NewDecoder(bytes.NewBufferString(`{"10000000000":10000000000,"111":1}`))
+decoder.UseNumber()
+var obj map[string]interface{}
+decoder1.Decode(&obj)
+```
+
 ---
 
 
