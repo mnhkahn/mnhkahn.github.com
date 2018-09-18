@@ -48,7 +48,7 @@ tags: ["Life"]
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】[ShadowSocks公益组织](https://www.shadowsocks.net/)
 + 【2】[Shadowsocks (简体中文)](https://wiki.archlinux.org/index.php/Shadowsocks_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.A2.E6.88.B7.E7.AB.AF)
 + 【3】[Chrome谷歌浏览器代理插件Proxy SwitchySharp简要教程](https://bbs.shadowsocks.net/discussion/6/)
