@@ -2,7 +2,7 @@
 layout: post
 title: "【译】在 Go 语言中使用猴子补丁"
 description: "最近写单元测试多亏了这个 monkey 包，昨天看到了官方的原理介绍，很受启发，翻译出来大伙一起看看。"
-figure: "http://cyeam.qiniudn.com/MSM010-2.jpg"
+figure: "http://cyeam.qiniudn.com/MSM010-2.jpg?imageView2/0/q/75|watermark/1/image/aHR0cDovL2N5ZWFtLnFpbml1ZG4uY29tL2JyeWNlLmpwZw==/dissolve/60/gravity/SouthEast/dx/10/dy/10|imageslim"
 category: "Golang"
 tags: ["Golang","Monkey Patch"]
 ---
