@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "你永远都不知道自己有多傻逼"
-figure: "http://cyeam.qiniudn.com/north_drift.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/north_drift.jpg"
 description: ""
 category: "Notebook"
 tags: ["Notebook"]

@@ -335,7 +335,7 @@ E. 5
 
 #####19.What is the sortest path between S and node T, given the graph below? Note: the numbers represent the lengths of the connected nodes (13 Points)
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/msintern2013.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/msintern2013.png)
 
 #####20.Given a set of N balls and one of which is defective (weighs less than others), you are allowed to weigh with a balance 3 times to find the defective. Which of the following are possible N? (13 Points)
 

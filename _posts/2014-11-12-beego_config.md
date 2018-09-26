@@ -24,7 +24,7 @@ config包里的其它文件是这两个接口的实现。xml文件夹实现了�
 
 `data`是用map实现的，用来保存配置文件的键值对。IniConfigContainer还有一个匿名对象`sync.RWMutex`，这是golang继承的语法，说明IniConfigContainer继承了同步锁，在这里用于互斥修改配置文件的值。config包和INI格式的实现可以参考下图。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/beego_config.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/beego_config.png)
 
 ---
 

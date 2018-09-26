@@ -31,11 +31,11 @@ tags: ["Computer Science", "Operating System", "Windows"]
 	cout << "CreateProcesssuccess" << endl;
 	return 0;
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/fec64b549c09021b574e002b.jpg)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/fec64b549c09021b574e002b.jpg)
 
 用SPY++查看
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/f3891238056f24bdb311c735.jpg)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/f3891238056f24bdb311c735.jpg)
 
 
 {% include JB/setup %}

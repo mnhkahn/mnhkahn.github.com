@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "很多事情感觉都来不及计划"
-figure: "http://cyeam.qiniudn.com/postgraduate_exam.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/postgraduate_exam.jpg"
 description: ""
 category: "Notebook"
 tags: ["Notebook"]

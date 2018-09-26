@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "阿里巴巴2014校园招聘面经"
-figure: "http://cyeam.qiniudn.com/alibaba.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/alibaba.jpg"
 description: "本来准备先面一些小公司，积累点经验，再去面自己想去的公司的。结果才试了一家，阿里就来面试了。而且我觉得我的水平确实不够阿里的层次。虽然我开发经验比较多一些，但是他们更关注你对底层实现的理解，说来惭愧，一直在做东西，没有时间关注这些。这次面试，就我本人而言，没有任何亮点，没有说出来一个让人觉得还可以的东西，所以没戏。"
 category: "Collection"
 tags: ["Job", "Interview"]
@@ -29,6 +29,6 @@ tags: ["Job", "Interview"]
  
 2013年9月16日于寝室
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/cyeam.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/cyeam.png)
 
 {% include JB/setup %}

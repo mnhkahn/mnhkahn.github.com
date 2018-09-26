@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "沉淀心情"
-figure: "http://cyeam.qiniudn.com/bit_logo.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/bit_logo.jpg"
 description: ""
 category: "Notebook"
 tags: ["Notebook"]

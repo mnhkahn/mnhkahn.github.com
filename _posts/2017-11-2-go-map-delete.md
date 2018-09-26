@@ -3,7 +3,7 @@ layout: post
 title: "Golang map 如何进行删除操作？"
 description: "map 删除某个key，内存是否会跟着删除？"
 category: "Json"
-figure: "http://cyeam.qiniudn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171102091325.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171102091325.jpg"
 tags: ["hashmap"]
 ---
 

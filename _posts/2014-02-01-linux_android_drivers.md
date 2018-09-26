@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux Mint下安装Nexus 7 驱动"
-figure: "http://cyeam.qiniudn.com/writing_udev_rules.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/writing_udev_rules.jpg"
 description: "为了能够让我的Nexus 7翻墙，我决定root。是在Linux Mint下root Android。看着也不难，结果搞了好几天。越到一半机子驱动问题，没办法继续了，看着一块砖头放在那，真叫个急啊。root成功后，twitter还是上不去，还得再写一篇文章来总结一下Android翻墙。"
 category: "Kaleidoscope"
 tags: ["Nexus 7", "Root Android", "Mint"]

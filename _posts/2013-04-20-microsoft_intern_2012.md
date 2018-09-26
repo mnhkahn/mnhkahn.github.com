@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "微软2012年实习生笔试题"
-figure: "http://cyeam.qiniudn.com/microsoft_bldg.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/microsoft_bldg.jpg"
 description: ""
 category: "Collection"
 tags: ["Job", "Exam"]

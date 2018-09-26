@@ -2,7 +2,7 @@
 layout: post
 title: "Golang 优化之路——HTTP长连接"
 description: "压测发现有长连接问题，深入学习了一下。"
-figure: "http://cyeam.qiniudn.com/268981-20151123221518233-1312440646.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/268981-20151123221518233-1312440646.jpg"
 category: "golang"
 tags: ["http","golang","keepalive"]
 ---
@@ -21,7 +21,7 @@ tags: ["http","golang","keepalive"]
 	
 `TIME_WAIT`状态多，简单的说就是服务端主动关闭了TCP连接。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/268981-20151123221518233-1312440646.jpg)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/268981-20151123221518233-1312440646.jpg)
 
 TCP频繁的建立连接，会有一些问题：
 

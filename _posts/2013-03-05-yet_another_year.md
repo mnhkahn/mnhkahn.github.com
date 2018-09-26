@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "又一年"
-figure: "http://cyeam.qiniudn.com/north_drift.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/north_drift.jpg"
 description: ""
 category: "Notebook"
 tags: ["Notebook"]
@@ -15,7 +15,7 @@ tags: ["Notebook"]
 
 从上个学期开始找实习，面了两次，挺伤心的，面得特别差，第一次面没办法，真是艰辛。这个学期提前几天过来，玩了几天，就开始准备。面的第三个，就录了。之前压力是多么的大，生怕找不到，准备还那么认真，结果就是第三个就录了嘛，哈哈，得瑟一下。IBM是我一直比较喜欢的公司，能去这里实习结果算很好的了，而且是研发岗位。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/ibm.jpg)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/ibm.jpg)
 
 最近还在和大牛搞网站的事情，应该就要上线了。一直觉得当时的想法太草率，现在就硬着头皮上吧，做技术博客，写个半年，我应该也会有点竞争力了。
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Connect the dots"
-figure: "http://cyeam.qiniudn.com/north_drift.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/north_drift.jpg"
 description: ""
 category: "Notebook"
 tags: ["Notebook"]

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "百度云推送"
-figure: "http://cyeam.qiniudn.com/baiduyunpush.png"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/baiduyunpush.png"
 description: "百度云推送的Go语言实现。Github 地址： https://github.com/mnhkahn/BaiduYunPush。"
 category: "Golang"
 tags: ["Golang", "android", "notification"]
@@ -36,7 +36,7 @@ Android客户端的开发可以直接参考百度提供的Demo和[Android开发�
 
 当时下载了百度提供的PushDemo，看到libs文件夹里的这三个文件夹，瞬间槽点满满。怪不得人们都说：“Android只是玩具，要开发应用，还得靠iOS”。Google管理下乱七八糟的硬件生态圈（包括软件也是。。。），通过NDK开发就要针对三个平台分别编译，如果是大型游戏，那么应用占用空间将会是iOS的三倍。除非你只想支持一种。而且其平台的混乱，还使得基于芯片的代码优化困难重重。这也就是为什么Android至今都没有大型应用的原因。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/android_tucao.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/android_tucao.png)
 
 再加上最新得知Google香港也对中国进行了关键字屏蔽，曾经的好感又少了不少。。。每一个Android程序员开发过一阵程序之后，都会说要转iOS开发，我想说我也是这么想的。。。
 

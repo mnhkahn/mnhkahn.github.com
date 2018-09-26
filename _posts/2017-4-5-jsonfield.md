@@ -2,7 +2,7 @@
 layout: post
 title: "jsonfield——动态输出 Json 内容"
 description: "算是一个工具类包，不追求性能调试的时候会比较爽，推荐给大家。"
-figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeamlogo-json.png"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/logo-json.png"
 category: "golang"
 tags: ["tool"]
 ---

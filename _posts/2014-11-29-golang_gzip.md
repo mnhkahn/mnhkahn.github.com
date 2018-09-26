@@ -2,7 +2,7 @@
 layout: post
 title: "Golang实现HTTP发送gzip请求"
 description: "beego的httplib不支持发送gzip请求，自己研究了一下。"
-figure: "http://cyeam.qiniudn.com/gzip1-1.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/gzip1-1.jpg"
 category: "Golang"
 tags: ["HTTP"]
 ---

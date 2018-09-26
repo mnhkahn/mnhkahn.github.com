@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "查看自己的top10 Linux命令"
-figure: "http://cyeam.qiniudn.com/shell.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/shell.jpg"
 description: "在V2EX发现的有趣的查看自己输入历史的top10 命令。"
 category: "Linux"
 tags: ["linux", "shell"]

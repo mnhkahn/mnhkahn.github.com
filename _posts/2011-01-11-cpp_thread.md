@@ -169,7 +169,7 @@ tags: ["Computer Science", "Operating System", "Windows"]
 
 计算结果：
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/64dadbf99418bf16242df233.jpg)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/64dadbf99418bf16242df233.jpg)
 
 在main函数中加入
 
@@ -178,7 +178,7 @@ tags: ["Computer Science", "Operating System", "Windows"]
 
 修改两个线程的优先级，得到的结果：
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/a208a344cc0786cdb3b7dc3c.jpg)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/a208a344cc0786cdb3b7dc3c.jpg)
 
 
 {% include JB/setup %}

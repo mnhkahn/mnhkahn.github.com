@@ -49,7 +49,7 @@ tags: ["Golang", "android", "notification"]
 
 当控制台显示`true`之后，推送成功。这时，通过SDK绑定的设备就会展示推送消息。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/baiduyunpush.jpg)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/baiduyunpush.jpg)
 
 ---
 

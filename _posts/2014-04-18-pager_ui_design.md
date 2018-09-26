@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Android 自定义形状"
-figure: "http://cyeam.qiniudn.com/c168.png"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/c168.png"
 description: ""
 category: "Postgraduate"
 tags: ["Postgraduate design", "Evaluate"]

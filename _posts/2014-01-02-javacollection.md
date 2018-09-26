@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Java面试宝典"
-figure: "http://cyeam.qiniudn.com/java_logo.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/java_logo.jpg"
 description: "从2013年9月开始找工作，在几个月的Java程序员求职过程中，总结了一些被问到的笔试题和面试题。Java语言博大精深，是整个程序界的上乘语言，应该得到重视。"
 category: "Java"
 tags: []
@@ -274,7 +274,7 @@ Java中this()也可以用在构造函数的第一行，用来调用本类的其�
 Java提供了一个方法，System.gc()，建议Java虚拟机去释放内存，当JVM决定去释放内存是，会调用该对象的finalize()方法。Java中申请内存由程序员实现，内存会申请到堆中，释放内存由GC实现。
 
 ###31. Java是否会出现内存泄漏？
-![GC](http://cyeam.qiniudn.com/javacollection_gc.gif)
+![GC](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/javacollection_gc.gif)
 
 GC会自动回收垃圾，GC采用有向图的方法，一般情况下，如果一个对象没有被引用，则该对象所占的内存将会被释放。例如，o2=o1后，o2原本引用的内存将会被释放；
 
@@ -358,7 +358,7 @@ StringBuilder是可变长字符串，是Java 5.0新增的，之前的是StringBu
 
 java.util包包含Date，容器类Collection，日历Calendar，随机数Random。其中，容器类是常见的面试内容。
 集合类主要分类两大类，Collection和Map。Collection允许有重复对象。继承Collection的有List、Set、Vector、Stack接口。List要求有序，可以有重复元素。Set表示集合，无序，但不能有重复元素。
-![Collection](http://cyeam.qiniudn.com/javacollection_collection.png)
+![Collection](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/javacollection_collection.png)
 
 ###42. java.util.Collection
 Collection接口中常见操作
@@ -398,7 +398,7 @@ HashMap哈希的方法，是将key的hashCode与key的总数求余，得到哈�
     int hash = key.hashCode();
     int index = hash % Entity[].length;
     Entity[index] = value;
-![Hash](http://cyeam.qiniudn.com/javacollection_hash.png)
+![Hash](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/javacollection_hash.png)
 
     public V put(K key, V value) {
         if (table == EMPTY_TABLE) {
@@ -427,12 +427,12 @@ HashMap哈希的方法，是将key的hashCode与key的总数求余，得到哈�
 ###47. java.io
 Java IO采用Decorator模式，可以动态装配不同功能的Stream。IO体系分Input/Output和Reader/Writer两类，区别在于Reader/Writer读写文本时自动转换内码。
 System.out是PrintStream的一个子类，PrintStream继承了FilterOutputStream类，FilterOutputStream类继承了OutputStream类。
-![InputStream](http://cyeam.qiniudn.com/javacollection_inputstream.png)
+![InputStream](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/javacollection_inputstream.png)
 
-![Reader](http://cyeam.qiniudn.com/javacollection_reader.png)
+![Reader](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/javacollection_reader.png)
 
 ###48. Servlet生命周期
-![Servlet](http://cyeam.qiniudn.com/javacollection_servlet.png)
+![Servlet](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/javacollection_servlet.png)
 
 + 装载Servlet。
 + 创建Servlet实例。

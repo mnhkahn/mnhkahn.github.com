@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Nutch和Solr的安装和简单测试"
-figure: "http://cyeam.qiniudn.com/nutch.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/nutch.jpg"
 description: "之前看过《Lucene in Action》一部分，里面介绍了Nutch这个Java实现的网络爬虫，把测试的结果放在这里"
 category: "nutch"
 tags: ["Nutch", "Solr"]

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "安卓对讲机开发评估"
-figure: "http://cyeam.qiniudn.com/c168.png"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/c168.png"
 description: "毕设题目《基于流媒体的语音视频通话系统》，基于Android实现。先在这里做一下技术评估。"
 category: "Postgraduate"
 tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
@@ -11,7 +11,7 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 
 #####音视频采集，压缩，发送，解码，显示的流程
 
-![系统流程图](http://cyeam.qiniudn.com/%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
+![系统流程图](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
 
 #####1. 流媒体编码
 视频采集可以直接使用硬件编码，而解码需要使用到软件解码。使用开源的C库FFmpeg进行解码。
@@ -73,7 +73,7 @@ jitsi感觉太过成熟，先放弃使用。如果能移植到GAE，以后可以
     + Android version **4.4.2**
     + Kernel version **3.4.0-gac9222c**
 
-    ![IMG-THUMBNAIL](http://cyeam.qiniudn.com/nexus%207.jpg)
+    ![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/nexus%207.jpg)
 
 + Java
 

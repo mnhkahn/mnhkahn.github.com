@@ -2,7 +2,7 @@
 layout: post
 title: "Android L 预览版试用"
 description: "在微博上面，各种所谓关注科技的官微都在发各种Android L的更新截图，各种吵。我也就没忍住，去刷了一把。然后今天又刷了回来。"
-figure: "http://cyeam.qiniudn.com/7d3f0ccdjw1eic56ksdlnj20fp07fmxp.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/7d3f0ccdjw1eic56ksdlnj20fp07fmxp.jpg"
 category: "Android"
 tags: ["Android"]
 ---
@@ -18,8 +18,8 @@ tags: ["Android"]
 
 安装挺简单的，第一次这么安东西，挺爽。自打安上之后，我就开始找微博上面提到的东西。最喜欢的那个就是开机画面，然后再我真机上面看，还有竖屏变横屏时的问题。。。截了两张图：
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/Screenshot_2014-07-14-21-22-04.png)
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/Screenshot_2014-07-14-21-22-04.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/Screenshot_2014-07-14-21-22-04.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/Screenshot_2014-07-14-21-22-04.png)
 
 接着就是更都的问题。微博启动不了，QQ各种显示问题。虽说是预览版，但是跟我想像还是差了好多。。。今天晚上把系统刷回了4.4。不过电池确实好了许多。
 

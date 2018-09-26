@@ -8,7 +8,7 @@ tags: ["Android", "AVD", "Camera"]
 
 一开始默认会提醒叫你插入SD卡，按照网上教程给模拟器加了一个。那个Front Camera也都试了一下，也不太行。后来发现有个CPU/ABI，果断选了Intel。可能跟这个有关。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/avd_camera.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/avd_camera.png)
 
 
 ---

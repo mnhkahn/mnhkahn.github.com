@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "电影《色|戒》最后王佳芝为什么没有吃下那颗为特工准备的自杀胶囊？"
-figure: "http://cyeam.qiniudn.com/lust_caution.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/lust_caution.jpg"
 description: "明知道说了那句“快走”，自己无论如何都是死了，为什么最后摸了摸胶囊，还是没吃呢。"
 category: "cTalk"
 tags: ["Movie", "cTalk"]
@@ -13,7 +13,7 @@ tags: ["Movie", "cTalk"]
 + 还有她的父亲，带他弟弟去英国，却不带她，最后还自己成家了，明显怕她过去影响自己今后的家庭。她的姑妈，卖了她最后唯一的房子，仅仅供她去读个大学。
 + 也许就是命运吧，最后差一点就走了，被拦了下来。回想起自己的经历，她就像和这个世界结仇了似的，绝不会轻易的认输。她还想看看她既恨又愧疚的相识多年的同学，所以她没有吃药。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/lust_caution1.jpg)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/lust_caution1.jpg)
 ---
 > [知乎](http://www.zhihu.com/question/21958104/answer/20311977)
 

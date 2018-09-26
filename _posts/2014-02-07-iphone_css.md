@@ -8,13 +8,13 @@ tags: ["CSS", "iPhone"]
 
 ###1. 通过给图片加CSS实现
 <div class="iphone">
-    <img src="http://cyeam.qiniudn.com/nexus7_screenshot.png" />
+    <img src="https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/nexus7_screenshot.png" />
 </div>
 
 做这个是为了做cInterphone贴图片用的。代码很简单，只要给想加iPhone显示的CSS就行。调用代码如下：
 
 	<div class="iphone">
-	    <img src="http://cyeam.qiniudn.com/nexus7_screenshot.png" />
+	    <img src="https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/nexus7_screenshot.png" />
 	</div>
 
 一位大神提供的前端代码，我也懒得去读了，直接拿来用。以后有兴趣再去研究。CSS代码直接贴这里了：

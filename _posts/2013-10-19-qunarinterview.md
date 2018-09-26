@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "去哪网2014校园招聘Java开发面经"
-figure: "http://cyeam.qiniudn.com/qunar_logo.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/qunar_logo.jpg"
 description: "去哪网待遇非常给力，一个FE都能给到14x16。而且刚刚上市，发展很不错。我的面试官是重庆人，看到我的简历上写着本科是重庆大学的，也很照顾我，可惜我很不给力。一直摊开了问，从基础到Java源码、C++源码都问了一圈，还有C语言小技巧。面试难度符合他们公司的工资水平。"
 category: "Collection"
 tags: ["Job", "Interview"]
@@ -40,7 +40,7 @@ HashMap是基于哈希表的Map接口的非同步实现。此类不保证映射�
         hash = h;
     }
 
-![Alt text](http://cyeam.qiniudn.com/hashtable_link.png)
+![Alt text](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/hashtable_link.png)
 
 #####3. C++容器
 
@@ -155,5 +155,5 @@ MacKay也提供了一个修改版的堆排序：每次不是将堆底的元素�
 
 ---
 一面后直接就被委婉的告知没戏了。下午还有完美世界的笔试，走在去清华的路上，拍到的这张北大的博雅塔。
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/%E5%8D%9A%E9%9B%85%E5%A1%94.JPG)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/%E5%8D%9A%E9%9B%85%E5%A1%94.JPG)
 {% include JB/setup %}

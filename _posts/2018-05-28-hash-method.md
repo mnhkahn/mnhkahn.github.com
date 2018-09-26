@@ -2,7 +2,7 @@
 layout: post
 title: "常见的哈希算法和用途"
 description: "说一下我知道的哈希算法和在常见组件中的应用。本文不涉及具体实现。"
-figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeamhash_functions.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/hash_functions.jpg"
 category: "Hash"
 tags: ["Golang","Redis","Hash"]
 ---

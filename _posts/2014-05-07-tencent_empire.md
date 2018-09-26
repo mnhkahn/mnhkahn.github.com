@@ -39,7 +39,7 @@ tags: ["cTalk", "Tencent"]
 
 最近Robin在内部邮件里说，要求员工10点以前上班。还有狼性。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/47c4717dcf3871c68e6c483b3985f713_r.jpg)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/47c4717dcf3871c68e6c483b3985f713_r.jpg)
 
 以我这个没有去过百度上班的外人来看，它们的问题主要是出在高层，高层领导利用职权谋私，部门之间利益内斗消耗，是百度在移动互联网上失败的主要原因。改变这个很难，而老板给了压力，Robin只能惹的起码农，邮件就来了。
 

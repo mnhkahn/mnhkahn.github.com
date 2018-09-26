@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "流程图打脸"
-figure: "http://cyeam.qiniudn.com/1788_m.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/1788_m.jpg"
 description: "记我的答辩趣闻"
 category: "Kaleidoscope"
 tags: ["Flow chart"]
@@ -15,11 +15,11 @@ tags: ["Flow chart"]
 
 接着，是我的流程图问题。我不想买正版Visio来用，我也不想去下载盗版的会破解，虽然很容易。我用了一个Chrome App——Gliffy Diagrams。它画出来的UML图和Visio差不了多少，而且这样画出来的是正版图，我就用它来画了。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/mygreatestflowchart.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/mygreatestflowchart.png)
 
 我要绘制一个并行流程图，讲的是录制视频的时候，使用MediaRecorder进行录制，创建一个线程进行发送。这两个不同的线程并行执行，它们之间通信，要用到套接字。正常的并行是下面这么画的，两条平行的线。而我用的工具没这个功能，我就用一个矩形代替了。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/normal_flow_chart.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/normal_flow_chart.png)
 
 它又开始喷：“你懂什么是流程图么，流程图有哪几个部分组成，你这个（指我的矩形）是啥东西？”当时我觉得这个再认怂就不对了，因为我确实没画错，你要喷就喷我格式不标准就好了，居然喷我不懂流程图，它的意思是流程图没这个东西。我说：“这两个是并行操作，就得这么画”。然后，它说：“流程图只有开始、结束、选择条件，执行四大组件，那么你的是哪一个？”这较老夫如何回答，我只能继续解释，这是并行执行的画法。天使怒了，开始吓唬我：“你这个态度，二次答辩吧！”。它还摔了我的论文。我知道我不用解释了，继续认怂好了。旁边几个老师开始说：“回去好好改”。呵呵，我好像懂了什么。
 

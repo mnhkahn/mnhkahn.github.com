@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Android Quick Start"
-figure: "http://cyeam.qiniudn.com/android.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/android.jpg"
 description: "毕设题目《基于流媒体的语音视频通话系统》，基于Android实现。Android基础。"
 category: "Postgraduate"
 tags: ["Postgraduate design", "Android", "Quick Start", "Evaluate"]
@@ -28,7 +28,7 @@ FileWriter http://endual.iteye.com/blog/1128541
 + Activity 生命周期
 Android编程主要是围绕程序的状态改变做出响应。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/android_activity.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/android_activity.png)
 
 **启动状态**
 
@@ -87,7 +87,7 @@ Intent分为显式的和隐式的两种。*explicit*需要指明接收Intent的�
 + Service 生命周期
 Android编程主要是围绕程序的状态改变做出响应。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/service_lifecycle.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/service_lifecycle.png)
 
 onStartCommand有三种返回值：
 

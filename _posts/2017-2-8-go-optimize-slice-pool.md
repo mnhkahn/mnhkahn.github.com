@@ -2,7 +2,7 @@
 layout: post
 title: "Golang 优化之路——临时对象池"
 description: "带垃圾回收的语言，虽然对于刚刚上手的程序员是友好的，但是后期随着项目变得越来越巨大，维护的内存问题也会逐渐暴露出来。今天讲一种优化内存申请的方法——临时对象池。"
-figure: "http://cyeam.qiniudn.com/1_hn6AV4_gECSneVKo29sJWw.png"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/1_hn6AV4_gECSneVKo29sJWw.png"
 category: "golang"
 tags: ["Golang","optimize","tool"]
 ---

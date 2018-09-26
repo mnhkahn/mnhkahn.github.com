@@ -14,7 +14,7 @@ tags: ["Kaleidoscope", "Life"]
 
 他的代码直接下载下来是有问题的，如果没有记错的话，是最后的`madWindow`函数对齐错了，加个缩进就可以了。后来，我还改了一下壁纸文件目录，我放到了`home`下，现在觉得放在`/tmp/`更好一点。最后应该是一个Linux修改壁纸命令`gsettings set org.gnome.desktop.background picture-uri "file:///home/%s/%s.jpg"`，并没有去研究这个，大家有兴趣可以看一下。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/bing.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/bing.png)
 
 本文所涉及到的完整源码请[参考](https://github.com/mnhkahn/python_code/blob/master/bing.py)。
 

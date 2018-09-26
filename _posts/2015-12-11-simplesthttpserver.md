@@ -33,9 +33,9 @@ tags: ["HTTP","Golang"]
 
 下图就是详细的请求格式。其中`SP`是空格。
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/General%20format%20of%20an%20HTTP%20request%20message.JPG	)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/General%20format%20of%20an%20HTTP%20request%20message.JPG	)
 
-![IMG-THUMBNAIL](http://cyeam.qiniudn.com/General%20format%20of%20an%20HTTP%20response%20message.JPG	)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/General%20format%20of%20an%20HTTP%20response%20message.JPG	)
 
 一些必要的头（因为我发现如果没有，请求会失败），就是`Content-Type`和`Content-length`。Content-length就是Body的长度。
 

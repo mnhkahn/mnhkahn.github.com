@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Android 配置"
-figure: "http://cyeam.qiniudn.com/android.jpg"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/android.jpg"
 description: ""
 category: "Postgraduate"
 tags: ["Postgraduate design", "Paper", "Android"]
