@@ -3,7 +3,7 @@ layout: post
 title: "Golang int 和 uint 天天用，那么问题来了，它多大？"
 description: "这么基础的问题可能很多人都不知道"
 category: "Json"
-figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/blog/171218/E9lK3HAC6g.jpg?imageslim"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537938548/cyeam/E9lK3HAC6g.jpg"
 tags: ["int"]
 ---
 

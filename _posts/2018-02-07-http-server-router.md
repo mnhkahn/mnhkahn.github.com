@@ -3,7 +3,7 @@ layout: post
 title: "Golang HTTP 服务路由查询"
 description: "通过黑科技扩展原生包的功能。"
 category: "HTTP"
-figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/blog/180207/khi6gCIb7k.jpg?imageslim"
+figure: https://res.cloudinary.com/cyeam/image/upload/v1537938542/cyeam/khi6gCIb7k.jpg
 tags: ["Golang","HTTP","Router"]
 ---
 
