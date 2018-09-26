@@ -2,7 +2,7 @@
 layout: post
 title: "介绍一下Json的Number(二)"
 description: "单独介绍一下 json 包的 Number 类型。"
-figure: "http://cyeam.qiniudn.com/json160.gif"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeamjson160.gif"
 category: "Golang"
 tags: ["Golang","json"]
 ---

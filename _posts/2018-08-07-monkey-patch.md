@@ -2,7 +2,7 @@
 layout: post
 title: "【译】在 Go 语言中使用猴子补丁"
 description: "最近写单元测试多亏了这个 monkey 包，昨天看到了官方的原理介绍，很受启发，翻译出来大伙一起看看。"
-figure: "http://cyeam.qiniudn.com/MSM010-2.jpg?imageView2/0/q/75|watermark/1/image/aHR0cDovL2N5ZWFtLnFpbml1ZG4uY29tL2JyeWNlLmpwZw==/dissolve/60/gravity/SouthEast/dx/10/dy/10|imageslim"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeamMSM010-2.jpg?imageView2/0/q/75|watermark/1/image/aHR0cDovL2N5ZWFtLnFpbml1ZG4uY29tL2JyeWNlLmpwZw==/dissolve/60/gravity/SouthEast/dx/10/dy/10|imageslim"
 category: "Golang"
 tags: ["Golang","Monkey Patch"]
 ---
@@ -29,7 +29,7 @@ func main() {
 
 编译完成后通过[Hopper](http://hopperapp.com/)查看，上面的代码将会展示下面的汇编代码：
 
-![](http://cyeam.qiniudn.com/y2yaYfm.png)
+![](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeamy2yaYfm.png)
 
 我将参考屏幕左侧显示的各种指令的地址。
 
@@ -61,11 +61,11 @@ func main() {
 
 在第11行把`a`赋值给了`f`，这就意味着调用`f()`将会调用`a`。接下来用`unsafe`包读取出存在`f`里面的值。如果你是有 C 语言背景的程序员你可能会认为简单得把指向函数`a`的指针打印出来将会得到 0x2000（就是上面汇编里面看到的地址）。当我运行上面的代码得到了 0x102c38，这个地址相差了十万八千里！反编译后，这是第11行的代码：
 
-![](http://cyeam.qiniudn.com/nAF7zmI.png)
+![](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeamnAF7zmI.png)
 
 这里引用了`main.a.f`，我们看看那个位置，可以发现：
 
-![](http://cyeam.qiniudn.com/e26F32n.png)
+![](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeame26F32n.png)
 
 啊哈！`main.a.f`在 0x102c38 并且包含值 0x2000，它正好是`main.a`的地址。看起来`f`并不是指向函数的指针，而是指向函数的指针的指针。让我们修改代码证实：
 
@@ -109,7 +109,7 @@ func main() {
 
 反编译后可以得到下面的结果：
 
-![](http://cyeam.qiniudn.com/bQr6Nbr.png)
+![](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeambQr6Nbr.png)
 
 `main.a.f`加载到寄存器`rdx`里，然后把`rdx`寄存器指向的地址存入`rbx`里，最后调用。函数的地址值总是会加载到`rdx`寄存器里面，当代码调用的时候可以用来加载一些可能会用到的额外信息。这里的额外信息是指向绑定的实例和匿名函数闭包的指针。如果你想了解更多我建议你深入研究一下反编译代码！
 

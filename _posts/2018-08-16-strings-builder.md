@@ -2,7 +2,7 @@
 layout: post
 title: "strings.Builder 源码分析"
 description: "Go 1.10开始，引入了期盼已久的strings.Builder，Go 的作者是不是看到雨痕大大的优化文章搞的这个呢？"
-figure: "http://cyeam.qiniudn.com/WX20180824-163756@2x.png?imageView2/0/q/75|watermark/1/image/aHR0cDovL2N5ZWFtLnFpbml1ZG4uY29tL2JyeWNlLmpwZw==/dissolve/60/gravity/SouthEast/dx/10/dy/10|imageslim"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeamWX20180824-163756@2x.png?imageView2/0/q/75|watermark/1/image/aHR0cDovL2N5ZWFtLnFpbml1ZG4uY29tL2JyeWNlLmpwZw==/dissolve/60/gravity/SouthEast/dx/10/dy/10|imageslim"
 category: "Golang"
 tags: ["Golang","string"]
 ---
