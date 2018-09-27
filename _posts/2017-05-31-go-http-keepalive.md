@@ -4,7 +4,7 @@ title: "Golang 优化之路——HTTP长连接"
 description: "压测发现有长连接问题，深入学习了一下。"
 figure: "https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/268981-20151123221518233-1312440646.jpg"
 category: "golang"
-tags: ["http","golang","keepalive"]
+tags: ["http","golang","keepalive","optimize"]
 ---
 
 * 目录
