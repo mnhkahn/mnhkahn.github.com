@@ -184,6 +184,7 @@ body {
 img[alt=IMG-THUMBNAIL] {
     display: inline-block;
     height: auto;
+    max-height: 200px;
     max-width: 100%;
     padding: 4px;
     line-height: 1.428571429;
