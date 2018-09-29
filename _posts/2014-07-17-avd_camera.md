@@ -13,7 +13,7 @@ tags: ["Android", "AVD", "Camera"]
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】[在 Android 模拟器中启用摄像头支持 - oschina](http://www.oschina.net/translate/enable-camera-in-android-emulator?cmp)
 
 {% include JB/setup %}

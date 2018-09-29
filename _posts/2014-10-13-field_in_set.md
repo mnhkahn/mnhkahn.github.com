@@ -20,7 +20,7 @@ tags: ["Database", "MySQL"]
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】[12.5 String Functions - FIND_IN_SET()](http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_find-in-set)
 
 {% include JB/setup %}

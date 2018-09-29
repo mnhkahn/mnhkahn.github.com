@@ -119,7 +119,7 @@ Android四大组建Activity, Service, Content Provider, Broadcast Receiver构成
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 《Learning Android》 马尔科·加尔根塔 电子工业出版社 ISBN: 9787121172632
 
 {% include JB/setup %}

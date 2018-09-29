@@ -79,7 +79,7 @@ Android 4.4 支持了自带录制屏幕视频的功能，使用`adb`工具就能
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + [用vlc搭建简单流媒体服务器（UDP和TCP方式）](http://www.cnblogs.com/MikeZhang/archive/2012/09/09/vlcStreamingServer20120909.html)
 
 {% include JB/setup %}

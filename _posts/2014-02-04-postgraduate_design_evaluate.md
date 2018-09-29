@@ -110,7 +110,7 @@ jitsi感觉太过成熟，先放弃使用。如果能移植到GAE，以后可以
 > sermyadmin-install-2.0.1a
 
 
-######*参考文献*
+###### *参考文献*
 + **《基于Android的移动VoIP高清视频通话系统的设计与实现》曹建龙**
 + [Android 中如何使用SIP服务](http://www.3g-edu.org/news/art014.htm)
 + [jitsi打包](http://blog.csdn.net/nomousewch/article/details/7012392)

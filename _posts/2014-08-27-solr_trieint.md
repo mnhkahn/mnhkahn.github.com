@@ -24,7 +24,7 @@ tags: ["Solr", "int"]
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】[Class TrieIntField](https://lucene.apache.org/solr/4_3_0/solr-core/org/apache/solr/schema/TrieIntField.html)
 
 

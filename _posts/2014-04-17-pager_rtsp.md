@@ -109,7 +109,7 @@ RTSP流程
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】[RTSP 协议分析 （一） 博水](http://www.cnblogs.com/qingquan/archive/2011/07/14/2106834.html)
 + 【2】[rtsp 交互流程](http://blog.csdn.net/wl_fln/article/details/6444261)
 

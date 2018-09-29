@@ -30,7 +30,7 @@ H.264 的基本流由一系列NALU （Network Abstraction Layer Unit ）组成�
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】[H264码流打包分析 - szu030606的专栏](http://blog.csdn.net/china_video_expert/article/details/7211302)
 
 

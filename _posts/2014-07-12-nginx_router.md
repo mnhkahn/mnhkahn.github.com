@@ -48,7 +48,7 @@ Nginx的安装这里就不提了。安装成功之后，能显示默认的页面
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】[nginx启动，重启，关闭命令 - 晓风残梦](http://www.cnblogs.com/derekchen/archive/2011/02/17/1957209.html)
 + 【2】[nginx conditional proxy pass - Stackoverflow](http://stackoverflow.com/questions/7878334/nginx-conditional-proxy-pass)
 

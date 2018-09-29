@@ -75,7 +75,7 @@ SharedPreferences 提供如下方法直接获取配置的信息。
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】[How to create RadioButton group in preference.xml window? - Stackoverflow](http://stackoverflow.com/questions/4966816/how-to-create-radiobutton-group-in-preference-xml-window)
 + 【2】[SharedPreferences - Android Developers](http://developer.android.com/reference/android/content/SharedPreferences.html)
 + 【3】Marko Gargenta, Learning Android[M]. 电子工业出版社, 2012.7.

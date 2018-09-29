@@ -22,7 +22,7 @@ Android中的drawable不仅只能是图片，还可以是自定义的图形(Shap
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + [Drawable Resources - Android Developers](http://developer.android.com/guide/topics/resources/drawable-resource.html)
 
 {% include JB/setup %}

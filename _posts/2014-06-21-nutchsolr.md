@@ -112,7 +112,7 @@ Nutch的安装是按照官网的教程。
 
 ---
 
-######*参考文献*
+###### *参考文献*
 + 【1】[ CentOS 6.4环境下的Apache Nutch 1.7 + Solr 4.4.0安装笔记](http://blog.csdn.net/panjunbiao/article/details/12171147)
 
 {% include JB/setup %}
