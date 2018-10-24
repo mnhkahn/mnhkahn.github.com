@@ -15,9 +15,9 @@ tags: ["HTTP"]
 
 Golang提供了"compress/gzip"包进行压缩和解压缩处理。这个包里的`gunzip.go`文件实现了解压方法。结构体`Reader`实现了"io"包里的接口`Reader`：
 
-type Reader interface {
-	Read(p []byte) (n int, err error)
-}
+	type Reader interface {
+		Read(p []byte) (n int, err error)
+	}
 
 通过包`io/ioutil`包里的`ReadAll`函数，可以自动调用实现类里的`Read`函数。下面是基于Golang原生包`net/http`发送Gzip请求的完整代码。打印出来了解压前和解压后的数据量。
 	
