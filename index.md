@@ -5,6 +5,19 @@ tagline: 你不要用战术的勤奋掩盖战略的懒惰。
 ---
 {% include JB/setup %}
 
+<script>
+  (function() {
+    var cx = 'partner-pub-1651120361108148:7762571300';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+
 {% for post in site.posts %}
 	{% if forloop.index == 10 %}
 		{% break %}
