@@ -24,6 +24,16 @@ Golang 还内置了`delete`函数，如果作用于哈希表，就是把 map 里
 
 可以直接看[源码](https://github.com/golang/go/blob/master/src/runtime/hashmap.go#L607)。
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 我简单摘几行：
 
 	func mapdelete(t *maptype, h *hmap, key unsafe.Pointer) {

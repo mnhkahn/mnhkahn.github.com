@@ -31,6 +31,16 @@ TCP频繁的建立连接，会有一些问题：
 
 ### TCP 相关
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 长连接的概念包括TCP长连接和HTTP长连接。首先得保证TCP是长连接。我们就从它说起。
 
 	func (c *TCPConn) SetKeepAlive(keepalive bool) error

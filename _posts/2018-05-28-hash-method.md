@@ -34,6 +34,16 @@ tags: ["Golang","Redis","Hash"]
 
 还有一个事情很有意思，乘以33是用左移和加法实现的。底层库对性能要求高啊。
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 #### DJB 在 Redis中的应用
 
 在Redis中，它被用来计算大小写不敏感的字符串哈希。

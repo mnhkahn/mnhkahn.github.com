@@ -27,6 +27,16 @@ func main() {
 }
 ```
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 编译完成后通过[Hopper](http://hopperapp.com/)查看，上面的代码将会展示下面的汇编代码：
 
 ![](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/y2yaYfm.png)

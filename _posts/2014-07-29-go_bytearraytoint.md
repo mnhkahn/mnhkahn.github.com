@@ -22,6 +22,16 @@ tags: ["Golang", "FNV", "MD5"]
 		fmt.Println(binary.LittleEndian.Uint32(a))
 	}
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 执行结果：
 
 	[0 1 2 3]

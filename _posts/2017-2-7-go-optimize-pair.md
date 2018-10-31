@@ -24,6 +24,16 @@ tags: ["Golang","optimize","tool"]
 
 [康托尔配对 - Cantor pairing function](https://en.wikipedia.org/wiki/Pairing_function)，是一种将两个自然数转成唯一一个自然数的方法。具体原理我就不说了，我也看不懂。。。简单地说：
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 + 只支持自然数。自然数是整数（自然数包括正整数和零）；
 + 支持反解；
 + `f(k1, k2)`和`f(k2, k1)`得到的结果是不同的。当然，如果你想得到相同的也是可以的，计算支持把两个数字排个序；

@@ -25,7 +25,15 @@ tags: ["Golang"]
 	}
 
 
-
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 `slice`底层是通过`struct`实现的，所以传递的时候是值拷贝传递，但是，`slice`的内容是通过数组指针实现的。就会发生这种现象：***通过值传递，`len`和`cap`都不会变，所以使用的时候不会感觉到内容有变化，但是实际上`byte`数组是发生变化的。
 

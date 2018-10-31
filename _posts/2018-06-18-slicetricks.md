@@ -29,6 +29,16 @@ copy(b, a)
 b = append([]T(nil), a...)
 ```
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 *`copy`函数把数据 a 复制到 b 中。它有个坑，复制数据的长度取决于 b 的当前长度，如果 b 没有初始化，那么并不会发生复制操作。所以复制的第一行需要初始化长度。*
 
 *复制还有一种替代方案，利用`append`的多值情况来追加。但是这样会有一个问题，追加的时候是追加到`[]T(nil)`里面，默认初始长度是0，每追加一个元素需要检测当前长度是否满足，如果不满足就要扩容，每次扩容扩当前容量的一倍（详细原理可以查看 slice 的内部实现）。这么操作的话如果 a 长度是3，第一种方法复制出来长度和容量都是3，而第二种方法长度是3，容量却是4。如果只是单纯复制我推荐第一种。*

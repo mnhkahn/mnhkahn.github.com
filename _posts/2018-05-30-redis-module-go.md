@@ -27,6 +27,16 @@ Redis 从4.0开始支持组件开发，用户编译生成一个动态链接库�
     cd example/
     make all
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 我们需要用到最新版的 Redis，并且编译。
 
 	wget http://download.redis.io/releases/redis-4.0.9.tar.gz

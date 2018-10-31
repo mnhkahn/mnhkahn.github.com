@@ -12,6 +12,16 @@ Go初学者第一次安装完Go之后，他们往往会因为忘记设置GOPATH�
 
 Go 1.8将会设置[默认的GOPATH](https://github.com/golang/go/issues/17262)。如果你自己没有设置GOPATH，Go将会使用默认值。默认GOPATH是：
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 + 在Unix-like系统上是在`$HOME/go`目录下
 + 在Windows系统下是`%USERPROFILE%\go`
 

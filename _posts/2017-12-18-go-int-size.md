@@ -36,6 +36,16 @@ tags: ["int"]
 
 其实我一直理解是32位的。因为别的语言是这样，惯性思维了。
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 直接看一下官方文档：
 
 > int is a signed integer type that is at least 32 bits in size. It is a distinct type, however, and not an alias for, say, int32.

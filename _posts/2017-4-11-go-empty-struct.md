@@ -25,6 +25,16 @@ tags: ["Golang","optimize","tool"]
 空对象是个神奇的东西。它指的是没有字段的结构类型。
 
 	type Q struct{}
+
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 	
 它牛逼的地方在于：
 

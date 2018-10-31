@@ -19,6 +19,16 @@ Golang提供了"compress/gzip"包进行压缩和解压缩处理。这个包里�
 		Read(p []byte) (n int, err error)
 	}
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 通过包`io/ioutil`包里的`ReadAll`函数，可以自动调用实现类里的`Read`函数。下面是基于Golang原生包`net/http`发送Gzip请求的完整代码。打印出来了解压前和解压后的数据量。
 	
 	client := http.Client{}

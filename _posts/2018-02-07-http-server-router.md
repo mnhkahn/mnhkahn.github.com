@@ -28,6 +28,16 @@ Golang 的框架用过不少，越来越发现还是原生的好。我们一般�
 
 每次请求进来都要在`m`里查询路由。但是这个路由有个问题，它是局部变量，而且没有对应的`getter`函数，我们没法知道路由的内容。
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ### 黑科技获取变量内部变量
 
 获取内部变量`m`的方法也不难，通过反射的方式。路由变量`ServeMux`可以拿到，通过反射是可以拿到它的局部变量的。反射也提供了操作哈希表的对于方法。直接上代码：

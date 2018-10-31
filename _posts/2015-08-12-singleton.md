@@ -42,6 +42,16 @@ tags: ["Design Pattern", "Golang"]
 	
 支持并发的单件模式也不算难，在这个基础上增加一个叫做`Double Check`的处理。当年在去哪儿网面试被虐的时候被问到过这个，所以这个东西一直也都记着。
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 单件模式在并发情况下，上面的代码就有问题了，有可能会被创建多次，上面的例子加个日志：
 
 	var _self *Singleton
