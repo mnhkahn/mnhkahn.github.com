@@ -18,7 +18,15 @@ tags: ["字符串"]
 
 这个也很好理解。切割一个空字符串，肯定是没办法切的，那么结果就是没切开，把原字符串直接加入结果数组里面而已。只不过一开始有点难理解，因为我们都会认为如果是空字符串去切，结果数组里应该是空的。
 
----
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 最近升级了beego1.4.2，谢大把beego控制器获取请求参数函数`Controller.GetInt`函数的返回值，由之前的`int64`改成了`int`，本来最早用的时候就别扭，如果想取到`int64`，那直接再加个函数`Controller.GetInt64`就可以了，结果这么一搞，还得自己惦记着。结果这次谢大果断把`Controller.GetInt`返回值改了，项目直接编译不过了。
 
