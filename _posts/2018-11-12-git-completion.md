@@ -30,6 +30,16 @@ fi
 
 这个文件不能随便安装，网上的教程都是用git参数的master分支，这是不对的，这个版本需要和当前系统安装的git版本对应。
 
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-1651120361108148"
+     data-ad-slot="4918476613"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ```
 git version
 ```
