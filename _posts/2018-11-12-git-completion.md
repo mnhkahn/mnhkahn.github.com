@@ -50,5 +50,9 @@ checkout      cherry        cherry-pick
 
 ---
 
+更多阅读：[.git-completion.bash producing error on macOS Sierra 10.12.6](https://apple.stackexchange.com/questions/327817/git-completion-bash-producing-error-on-macos-sierra-10-12-6)。
+
+---
+
 
 {% include JB/setup %}
