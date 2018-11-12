@@ -20,7 +20,10 @@ brew install bash-completion
 将下面代码添加到~/.bash_profile（如果没有该文件，新建一个）。
 
 ```
-vi ~/.bash_profile
+# git auto completition
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
 ```
 
 ### 安装 git-completion.bash
