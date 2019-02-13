@@ -5,13 +5,13 @@
 	var sc_invisible = 0;
 	var sc_security = "e8ed289e";
 	var scJsHost = (("https:" == document.location.protocol) ?
-		"https://secure." : "//www.");
+		"https://secure." : "http://www.");
 	document.write("<sc" + "ript type='text/javascript' src='" +
 		scJsHost +
 		"statcounter.com/counter/counter.js'></" + "script>");
 </script>
 <noscript><div class="statcounter"><a title="hit counter"
-href="//statcounter.com/" target="_blank"><img
+href="http://statcounter.com/" target="_blank"><img
 class="statcounter"
 src="//c.statcounter.com/11400439/0/e8ed289e/0/" alt="hit
 counter"></a></div></noscript>
