@@ -47,6 +47,10 @@ tags: ["go","mod","version"]
 
 对于没有打 tag 的仓库，go.mod 就会很丑陋，它的格式是[pseudo-version](https://golang.org/cmd/go/#hdr-Pseudo_versions)。它的含义是`v0.0.0-yyyymmddhhmmss-abcdefabcdef`。
 
+### tag 删除了重建为什么没效果？
+
+困扰了我很久的一个问题。有一个 tag v2.0.0 的代码有问题，我删除了这个 tag，新建了一个好的版本，但是`go get`依然报错，困扰了很久，一直以为是 v2 的版本号写错了。后来才发现是 go 有本地缓存，缓存在 $GOPATH/pkg/mod/cache 下面，把里面的内容清掉，重新获取即可。
+
 ---
 
 更多阅读：[Go 1.11 Modules](https://github.com/golang/go/wiki/Modules)。
