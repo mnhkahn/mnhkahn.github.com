@@ -2,7 +2,7 @@
 layout: post
 title: "使用 Golang 生成 PDF"
 description: "Go 作为年轻的语言对于 PDF 这种特殊的需求支持还是弱一些，调研了一番，记录在这里"
-figure: "hhttps://github.com/jung-kurt/gofpdf/raw/master/image/logo_gofpdf.jpg?raw=true"
+figure: "https://raw.githubusercontent.com/jung-kurt/gofpdf/master/image/logo_gofpdf.jpg"
 category: "Go"
 tags: ["go","pdf"]
 ---
