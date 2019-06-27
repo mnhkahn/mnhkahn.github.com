@@ -103,13 +103,7 @@ pdf.CellFormat(60, 2, "center", "", 0,
 
 缺陷：
 
-1. svg 支持的比较简单。只支持最外层是path，path内只支持d，其他的比如坐标转换都不支持。其实大部分svg都是包含坐标转换的，这个不太友好。可以通过[Method-Draw](https://github.com/methodofaction/Method-Draw)将svg简化压缩一下。一个svg的例子如下：
-```
-<?xml version="1.0" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="425" height="480" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 425 467">
-  <path fill="none" stroke-linecap="square" stroke-width="0.5" stroke="#000000" d="m54.239986,144.114631l0,83.519979" id="21"/>
-</svg>
-```
+1. svg 支持的比较简单。只支持最外层是path，path内只支持d，其他的比如坐标转换都不支持。其实大部分svg都是包含坐标转换的，这个不太友好。可以通过[Method-Draw](https://github.com/methodofaction/Method-Draw)将svg简化压缩一下。
 2. html 支持的比较简单。上面的例子写得比较明白了，支持居中、加粗、超链接这种。
 
 
