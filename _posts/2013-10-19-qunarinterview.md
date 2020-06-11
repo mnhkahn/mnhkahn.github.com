@@ -10,7 +10,7 @@ tags: ["Job", "Interview"]
 
 下面是记忆版的面试题目。
 
-#####1 . ArrayList实现 add方法如何分配内存
+##### 1 . ArrayList实现 add方法如何分配内存
 
 ArrayList基于数组实现，封装的数组，但是数组大小是固定了，而ArrayList是动态数组。动态数组是通过ensureCapacity(int minCapacity)实现。
 
