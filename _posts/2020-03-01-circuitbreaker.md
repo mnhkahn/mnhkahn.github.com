@@ -33,23 +33,23 @@ tags: ["go","circuitbreaker"]
 
 [https://github.com/rubyist/circuitbreaker](https://github.com/rubyist/circuitbreaker)
 
-1. IsAllowed 是否允许请求，根据当前状态判断
-	- CLOSE 允许
-	- OPEN
-		- 在 CoolingTimeout 冷却时间内，不允许
-		- 过了冷却时间，状态变为 HALFOPEN，允许访问
-	- HALFOPEN
-		- 在 DetectTimeout 检测时间内，允许访问
-		- 否则不允许
+#### IsAllowed 是否允许请求，根据当前状态判断
+
+##### CLOSE 允许
+	
+##### OPEN
+	- 在 CoolingTimeout 冷却时间内，不允许
+	- 过了冷却时间，状态变为 HALFOPEN，允许访问
+	
+##### HALFOPEN
+	- 在 DetectTimeout 检测时间内，允许访问
+	- 否则不允许
 
 ```
 atomic.StoreInt32((*int32)(&b.state), int32(HALFOPEN))
 ```
 
-
-
-
-2. trip 判断是否达到熔断限额（可以自定义）
+#### trip 判断是否达到熔断限额（可以自定义）
 
 ```
 type TripFunc func(Metricser) bool
