@@ -39,9 +39,8 @@ tags: ["go","circuitbreaker"]
 		- 在 CoolingTimeout 冷却时间内，不允许
 		- 过了冷却时间，状态变为 HALFOPEN，允许访问
 
-```
-atomic.StoreInt32((*int32)(&b.state), int32(HALFOPEN))
-```
+
+`atomic.StoreInt32((*int32)(&b.state), int32(HALFOPEN))`
 
 
 	- HALFOPEN
