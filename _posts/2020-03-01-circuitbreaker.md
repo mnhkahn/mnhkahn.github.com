@@ -38,12 +38,14 @@ tags: ["go","circuitbreaker"]
 ##### CLOSE 允许
 	
 ##### OPEN
-	- 在 CoolingTimeout 冷却时间内，不允许
-	- 过了冷却时间，状态变为 HALFOPEN，允许访问
 	
+- 在 CoolingTimeout 冷却时间内，不允许
+- 过了冷却时间，状态变为 HALFOPEN，允许访问
+
 ##### HALFOPEN
-	- 在 DetectTimeout 检测时间内，允许访问
-	- 否则不允许
+
+- 在 DetectTimeout 检测时间内，允许访问
+- 否则不允许
 
 ```
 atomic.StoreInt32((*int32)(&b.state), int32(HALFOPEN))
@@ -56,11 +58,11 @@ type TripFunc func(Metricser) bool
 ```
 
 
-	- ThresholdTripFunc 错误阈值
-	- ConsecutiveTripFunc 连续错误超过阈值
-	- RateTripFunc 根据最少访问数和错误率判断
+- ThresholdTripFunc 错误阈值
+- ConsecutiveTripFunc 连续错误超过阈值
+- RateTripFunc 根据最少访问数和错误率判断
 
-3. Metricser 访问统计，包括成功数、失败数、超时数、错误率、采样数、连续错误数
+#### Metricser 访问统计，包括成功数、失败数、超时数、错误率、采样数、连续错误数
 
 ```
 type Metricser interface {
@@ -81,7 +83,7 @@ type Metricser interface {
 ```
 
 
-	- window 实现类
+##### window 实现类
 
 ```
 type window struct {
@@ -135,8 +137,9 @@ if w.latest >= w.bucketNums {
 (&w.buckets[w.latest]).Reset()
 ```
 
-4. Panel Metricser 的容器
-5. PanelStateChangeHandler 熔断事件
+#### Panel Metricser 的容器
+
+#### PanelStateChangeHandler 熔断事件
 
 ```
 type PanelStateChangeHandler func(key string, oldState, newState State, m Metricser)
