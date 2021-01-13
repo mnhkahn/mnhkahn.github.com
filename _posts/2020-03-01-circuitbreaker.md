@@ -38,14 +38,16 @@ tags: ["go","circuitbreaker"]
 	- OPEN
 		- 在 CoolingTimeout 冷却时间内，不允许
 		- 过了冷却时间，状态变为 HALFOPEN，允许访问
-
-
-`atomic.StoreInt32((*int32)(&b.state), int32(HALFOPEN))`
-
-
 	- HALFOPEN
 		- 在 DetectTimeout 检测时间内，允许访问
 		- 否则不允许
+
+```
+atomic.StoreInt32((*int32)(&b.state), int32(HALFOPEN))
+```
+
+
+
 
 2. trip 判断是否达到熔断限额（可以自定义）
 
