@@ -15,7 +15,7 @@ tags: ["go","circuitbreaker"]
 
 熔断是指在下游发生错误时上游主动关闭或限制对下游的请求。
 
-![](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/WX20180903-180159.png)
+![](https://res.cloudinary.com/cyeam/image/upload/v1610534796/image.png)
 
 ### 原理
 
@@ -43,6 +43,7 @@ tags: ["go","circuitbreaker"]
 atomic.StoreInt32((*int32)(&b.state), int32(HALFOPEN))
 ```
 
+
 	- HALFOPEN
 		- 在 DetectTimeout 检测时间内，允许访问
 		- 否则不允许
@@ -52,6 +53,7 @@ atomic.StoreInt32((*int32)(&b.state), int32(HALFOPEN))
 ```
 type TripFunc func(Metricser) bool
 ```
+
 
 	- ThresholdTripFunc 错误阈值
 	- ConsecutiveTripFunc 连续错误超过阈值
@@ -76,6 +78,7 @@ type Metricser interface {
    Reset()
 }
 ```
+
 
 	- window 实现类
 
@@ -103,6 +106,7 @@ type bucket struct {
    timeout int64
 }
 ```
+
 
 用环形队列实现动态统计。把一个连续的时间切成多个小份，每一个 bucket 保存 BucketTime 的统计数据，BucketTime * BucketNums 是统计的时间区间。
 
@@ -136,6 +140,7 @@ if w.latest >= w.bucketNums {
 ```
 type PanelStateChangeHandler func(key string, oldState, newState State, m Metricser)
 ```
+
 
 #### 缺陷
 
