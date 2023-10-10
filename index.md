@@ -18,6 +18,10 @@ tagline: 你不要用战术的勤奋掩盖战略的懒惰。
 </script>
 <gcse:searchbox-only></gcse:searchbox-only>
 
+<center>
+    <script type="text/javascript" src="https://www.douban.com/service/badge/ZidaneLi/?selection=latest&amp;picsize=small&amp;show=collection&amp;n=16&amp;cat=book&amp;columns=8"></script>
+</center>
+
 {% for post in site.posts %}
 	{% if forloop.index == 10 %}
 		{% break %}
