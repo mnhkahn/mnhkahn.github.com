@@ -2,7 +2,7 @@
 layout: post
 title: "如何做平台？"
 description: ""
-figure: "https://asset.cloudinary.com/cyeam/158a6511a32d24ce8a4976188c785205"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1710744120/20240318-144150.jpg"
 category: "Idea"
 tags: ["framework","idea"]
 ---
