@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "如何做平台？"
-description: ""
+description: "技术平台建设的思路"
 figure: "https://res.cloudinary.com/cyeam/image/upload/v1710744120/20240318-144150.jpg"
 category: "Idea"
 tags: ["framework","idea"]
