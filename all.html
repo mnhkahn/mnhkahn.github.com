@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Cyeam
-tagline: 你不要用战术的勤奋掩盖战略的懒惰。 
+tagline: 谁人没试过犹豫，达到理想不太易。
 ---
 {% include JB/setup %}
 
