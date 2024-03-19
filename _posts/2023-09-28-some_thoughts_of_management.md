@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "如何做平台？"
+title: "一些管理方面的思考"
 description: "我现在每天早上早点来看会书，感觉收益比较多，之前做事情还是比较野路子的，看看正规军的书能更体系化一些。现整理出来分享给大家。"
 figure: "https://res.cloudinary.com/cyeam/image/upload/v1710832241/output.jpg"
 category: "Idea"
