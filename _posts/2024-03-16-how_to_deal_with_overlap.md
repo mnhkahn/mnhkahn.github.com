@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "团队间互卷怎么解决？"
-description: ""
+description: "这些年没少经历踩脚的事情，要么人家来卷我，要么我领了任务去卷别人。"
 figure: "https://res.cloudinary.com/cyeam/image/upload/v1710820500/20240319-115321.jpg"
 category: "Idea"
 tags: ["overlap","idea"]
