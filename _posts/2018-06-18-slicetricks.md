@@ -2,7 +2,7 @@
 layout: post
 title: "Slice 小技巧"
 description: "翻译自官方wiki说明。难度都不大但是还是写一下吧。官方的写法比较优雅。包括 slice 的插入、删除、剪切等操作。"
-figure: "https://blog.golang.org/go-slices-usage-and-internals_slice-3.png"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1711015636/20240321-180655.jpg"
 category: "Golang"
 tags: ["Golang","Slice","Trick"]
 ---
