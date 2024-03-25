@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
 var gitalk = new Gitalk({
   clientID: '01110fdb1964e6610577',
   clientSecret: '60e01a4218692c77c143b43977a247fef158e9be',
@@ -11,4 +12,4 @@ var gitalk = new Gitalk({
 })
 
 gitalk.render('gitalk-container')
-
+</script>
