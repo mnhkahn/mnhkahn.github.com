@@ -65,6 +65,8 @@
 
         {% include JB/sharing %}
 
+        <hr> {% include JB/comments %}
+
         <hr>
         <div class="pagination">
             <ul>
@@ -87,28 +89,5 @@
 
 
         <hr>
-        <!-- 相关推荐 -->
-        <!-- <h5>相关推荐</h5>
-        <div id="recommandArticles" class="bs-example" data-example-id="simple-ul">
-            <ul>
-            </ul>
-        </div>
-        <script type="text/javascript">
-            var name = $(".category_name").clone().find('span').remove().end().text();
-            var url = 'http://www.cyeam.com/s?ps=6&t=' + name;
-            $.ajax({
-                url: url,
-                dataType: 'jsonp',
-            }).done(function(dd) {
-                for (var i = 0; i < dd.docs.length; i++) {
-                    var titleThis = $("#content > div.page-header.c6 > h1").text().trim();
-                    if (titleThis != dd.docs[i].title) {
-                        $("#recommandArticles > ul").append('<li><a href="' + dd.docs[i].link + '" target="_blank">' + dd.docs[i].title + '</a></li>');
-                    }
-                }
-            });
-        </script> -->
-
-        <hr> {% include JB/comments %}
     </div>
 </div>
