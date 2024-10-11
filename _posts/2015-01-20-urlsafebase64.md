@@ -5,6 +5,8 @@ description: "今天又见识了一种新的Base64编码方式。"
 category: "web"
 tags: ["Golang", "Base64"]
 ---
+
+这是一个例子，可以先感受下：[Base64编解码](https://www.cyeam.com/tool/base64decode?utm_source=blog)。
  
 之前在[《网址压缩的调研分析（续）》](http://blog.cyeam.com/web/2014/07/25/short_url2/)介绍过Base62算法，他是一种类似于Base64的哈希算法。今天发现了另一种优化的Base64算法，又参考了下Golang的源码，在`encoding/base64/base64.go`里面。
 
