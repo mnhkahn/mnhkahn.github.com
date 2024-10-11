@@ -11,6 +11,8 @@ tags: ["go","pdf"]
 {:toc}
 ---
 
+<mark>这是一个例子，可以先感受下：https://www.cyeam.com/tool/arithmetic?utm_source=blog</mark>
+
 ### gofpdf
 
 仓库：[https://github.com/jung-kurt/gofpdf](https://github.com/jung-kurt/gofpdf)
