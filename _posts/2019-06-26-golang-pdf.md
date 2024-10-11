@@ -11,7 +11,7 @@ tags: ["go","pdf"]
 {:toc}
 ---
 
-<mark>这是一个例子，可以先感受下：[口算大通关](https://www.cyeam.com/tool/arithmetic?utm_source=blog)。</mark>
+这是一个例子，可以先感受下：[口算大通关](https://www.cyeam.com/tool/arithmetic?utm_source=blog)。
 
 ### gofpdf
 
