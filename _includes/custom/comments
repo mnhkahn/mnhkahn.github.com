@@ -4,8 +4,8 @@
   <script type="text/javascript">
       const gitalk = new Gitalk({
         proxy: 'https://cors-server-ecru.vercel.app/github_access_token',
-        clientID: 'Ov23li5QrCqeRQPP0LmK',
-        clientSecret: '8177231928ba6a84731eaeee2f5eeba03eb8a027',
+        clientID: 'Ov23liygT5tXVqLb9sEj',
+        clientSecret: 'db65d3664d229e15bfcc270725e429e916d2a256',
         repo: 'mnhkahn.github.com',      // The repository of store comments,
         owner: 'mnhkahn',
         admin: ['mnhkahn'],
