@@ -1,7 +1,7 @@
 name: Watch Workflow Status
 on:
   workflow_run:
-    workflows: [ "Fly Deploy" ]
+    workflows: [ "pages-build-deployment" ]
     types: [ completed ]
 env:
   WECHAT_WORK_BOT_WEBHOOK: ${{secrets.WECHAT_WORK_BOT_WEBHOOK}}
