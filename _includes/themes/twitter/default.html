@@ -56,15 +56,27 @@
           <div class="wrapperLogo" id="wrapperLogo" style="float: left; width: 80px;">
             <a href="//www.cyeam.com"><img src="/assets/images/logo.jpg" style="width:50px"></a>
           </div>
+          <div id="docsearch"></div>
+          <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+          <script type="text/javascript">
+              docsearch({
+                  appId: "R0OU0JZTBA",
+                  apiKey: "745219c0c5e3e85de57e401368c82466",
+                  indexName: "man_cyeam_pages",
+                  container: "#docsearch",
+                  placeholder: "Golang优化之路",
+                  debug: true
+              });
+          </script>
           <ul class="nav">
           	<li><a href="{{ HOME_PATH }}"><span class="icon-home"></span> Home</a></li>
             <li><a href="/categories.html"><span class="icon-th-list"></span> Categories</a></li>
             <li><a href="/archive.html"><span class="icon-ok"></span> Archive</a></li>
             <li><a href="/tags.html"><span class="icon-tags"></span> Tags</a></li>
-            <li><a href="/pages.html"><span class="icon-th"></span> Pages</a></li>
-            <li><a href="https://job.bytedance.com/2018/spring_referral/?token=QOXO%2BFcho1y6lW7s7iRCXg%3D%3D&key=MTkzMzksMjE0NjYsMTk5NTIsMjE2MjAsMjE3NDYsMTg2Nzk%3D"><span class="icon-comment"></span> 内推</a></li>
+            <!-- <li><a href="/pages.html"><span class="icon-th"></span> Pages</a></li> -->
+            <!-- <li><a href="https://job.bytedance.com/2018/spring_referral/?token=QOXO%2BFcho1y6lW7s7iRCXg%3D%3D&key=MTkzMzksMjE0NjYsMTk5NTIsMjE2MjAsMjE3NDYsMTg2Nzk%3D"><span class="icon-comment"></span> 内推</a></li> -->
             <li><a href="/link.html">友链</a></li>
-            <!--<li><a href="/cyeam.html"><span class="icon-bookmark"></span> Cyeam</a></li>-->
             <!--{% assign pages_list = site.pages %}
             {% assign group = 'navigation' %}
             {% include JB/pages_list %}-->
