@@ -11,6 +11,7 @@ highlighter: rouge
 #
 title : Cyeam
 tagline: Site Tagline
+description: 大家好我是Bryce，从事后端工作10年了。关注Go语言开发，这里有后端开发常见工具、开发常见问题和解决思路，希望能帮助到大家。
 author :
   name : Bryce
   email : lichao@cyeam.com
