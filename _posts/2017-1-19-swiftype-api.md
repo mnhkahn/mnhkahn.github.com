@@ -8,7 +8,7 @@ tags: ["Golang","swiftype","tool"]
 
 ### 写在前面
 
-我是一个Golang程序员，基本上我所有的东西都是用Go开发的。前不久想给我的[个人网站](http://cyeam.com)接入搜索功能，使用了Swiftype这个工具。然而我发现它并没有Golang的API工具包。在GitHub上面找了一个包，却发现有bug不能用，遂自己fork了代码搞一套。
+我是一个Golang程序员，基本上我所有的东西都是用Go开发的。前不久想给我的[个人网站](https://www.cyeam.com)接入搜索功能，使用了Swiftype这个工具。然而我发现它并没有Golang的API工具包。在GitHub上面找了一个包，却发现有bug不能用，遂自己fork了代码搞一套。
 
 源码地址：[https://github.com/mnhkahn/swiftype](https://github.com/mnhkahn/swiftype)
 
