@@ -41,16 +41,16 @@ Set，是指数学里的集合。集合当中不能有重复的元素。判断�
 
 ---
 
-还可以看我之后的文章[Golang 优化之路——空结构](http://blog.cyeam.com/golang/2017/04/11/go-empty-struct)，这个方案更好一些。
+还可以看我之后的文章[Golang 优化之路——空结构](https://blog.cyeam.com/golang/2017/04/11/go-empty-struct)，这个方案更好一些。
 
 
 ---
 
 ###### *参考文献*
 
-+ 【1】[判断int数组中的元素是否重复 - 百度知道](http://zhidao.baidu.com/question/172011519.html)
-+ 【2】[Sets Data Structure in Golang - StackExchange](http://programmers.stackexchange.com/questions/177428/sets-data-structure-in-golang)
-+ 【3】[java里有没有专门判断List里有重复的数据？最好能知道是第几行重复. - CSDN论坛](http://bbs.csdn.net/topics/120025156)
++ 【1】[判断int数组中的元素是否重复 - 百度知道](https://zhidao.baidu.com/question/172011519.html)
++ 【2】[Sets Data Structure in Golang - StackExchange](https://programmers.stackexchange.com/questions/177428/sets-data-structure-in-golang)
++ 【3】[java里有没有专门判断List里有重复的数据？最好能知道是第几行重复. - CSDN论坛](https://bbs.csdn.net/topics/120025156)
 
 
 {% include JB/setup %}

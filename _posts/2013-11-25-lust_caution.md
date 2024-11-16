@@ -15,7 +15,7 @@ tags: ["Movie", "cTalk"]
 
 ![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/lust_caution1.jpg)
 ---
-> [知乎](http://www.zhihu.com/question/21958104/answer/20311977)
+> [知乎](https://www.zhihu.com/question/21958104/answer/20311977)
 
 
 {% include JB/setup %}

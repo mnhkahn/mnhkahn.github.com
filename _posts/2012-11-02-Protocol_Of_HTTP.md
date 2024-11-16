@@ -28,15 +28,15 @@ tags: ["Network"]
 4. 服务器成功响应，发送过来index.htm文件。其中，Server: Apache/2.2.6 (Unix) mod_jk/1.2.27\r\n可以知道北京理工大学使用的服务器是Unix版本的Apache服务器2.2.6版。部分HTML代码如下。
 ![Alt Text](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/Protocol3.png)
 
-        <html xmlns="http://www.w3.org/1999/xhtml">
+        <html xmlns="https://www.w3.org/1999/xhtml">
             <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <title></title>
             <SCRIPT type=text/javascript src="js/common.js" ></SCRIPT>
-            <link href="http://www.bit.edu.cn/css/newcss1.css" rel="stylesheet" type="text/css" />
-            <link href="http://www.bit.edu.cn/css/style.css" rel="stylesheet" type="text/css" />
-            <link href="http://www.bit.edu.cn/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-            <link href="http://www.bit.edu.cn/favicon.ico" rel="icon" type="image/x-icon" />
+            <link href="https://www.bit.edu.cn/css/newcss1.css" rel="stylesheet" type="text/css" />
+            <link href="https://www.bit.edu.cn/css/style.css" rel="stylesheet" type="text/css" />
+            <link href="https://www.bit.edu.cn/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+            <link href="https://www.bit.edu.cn/favicon.ico" rel="icon" type="image/x-icon" />
         </head>
         </html>
 

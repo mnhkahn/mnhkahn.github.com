@@ -37,7 +37,7 @@ func main() {
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-编译完成后通过[Hopper](http://hopperapp.com/)查看，上面的代码将会展示下面的汇编代码：
+编译完成后通过[Hopper](https://hopperapp.com/)查看，上面的代码将会展示下面的汇编代码：
 
 ![](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/y2yaYfm.png)
 
@@ -271,7 +271,7 @@ func main() {
 
 [Reddit](https://www.reddit.com/r/golang/comments/30try1/monkey_patching_in_go/)
 
-[原文地址](http://bouk.co/blog/monkey-patching-in-go/)。
+[原文地址](https://bouk.co/blog/monkey-patching-in-go/)。
 
 ---
 
