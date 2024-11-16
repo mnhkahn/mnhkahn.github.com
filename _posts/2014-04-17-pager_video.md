@@ -25,13 +25,13 @@ H264的功能分为两层，视频编码层（VCL）和网络提取层（NAL）�
        
 H.264 的基本流由一系列NALU （Network Abstraction Layer Unit ）组成，不同的NALU数据量各不相同。H.264 草案指出[2]，当数据流是储存在介质上时，在每个NALU 前添加起始码：0x000001，用来指示一个 NALU的起始和终止位置。在这样的机制下，在码流中检测起始码，作为一个NALU得起始标识，当检测到下一个起始码时，当前NALU结束。每个NALU单元由一个字节的 NALU头（NALU Header）和若干个字节的载荷数据（RBSP）组成。
 
-![IMG-THUMBNAIL](http://hi.csdn.net/attachment/201108/6/0_1312647261x7Lc.gif)
+![IMG-THUMBNAIL](https://hi.csdn.net/attachment/201108/6/0_1312647261x7Lc.gif)
 
 
 ---
 
 ###### *参考文献*
-+ 【1】[H264码流打包分析 - szu030606的专栏](http://blog.csdn.net/china_video_expert/article/details/7211302)
++ 【1】[H264码流打包分析 - szu030606的专栏](https://blog.csdn.net/china_video_expert/article/details/7211302)
 
 
 {% include JB/setup %}

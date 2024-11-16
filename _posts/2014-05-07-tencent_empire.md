@@ -1,15 +1,15 @@
 ---
 layout: post
 title: "浪潮之巅——腾讯帝国？"
-figure: "http://weixin.qq.com/zh_CN/htmledition/images/weixin/qr_url_download0ec594.png"
+figure: "https://weixin.qq.com/zh_CN/htmledition/images/weixin/qr_url_download0ec594.png"
 description: "向吴军博士的《浪潮之巅》致敬。"
 category: "cTalk"
 tags: ["cTalk", "Tencent"]
 ---
 
-昨天，腾讯成立了微信事业群。原文查看[这里](http://tech.qq.com/a/20140506/069700.htm)。
+昨天，腾讯成立了微信事业群。原文查看[这里](https://tech.qq.com/a/20140506/069700.htm)。
 
-![IMG-THUMBNAIL](http://img1.gtimg.com/tech/pics/hv1/233/157/1585/103104893.jpg)
+![IMG-THUMBNAIL](https://img1.gtimg.com/tech/pics/hv1/233/157/1585/103104893.jpg)
 
 引用一下微信事业群总裁张小龙的鸡汤：
 

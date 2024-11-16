@@ -6,7 +6,7 @@ category: "Golang"
 tags: ["Golang", "Sort"]
 ---
 
-关于堆排序的算法，可以参考我去年的文章[《堆排序(HEAP SORT)》](https://blog.cyeam.com/computer%20science/2013/04/06/heapsort)。那篇文章讲的是建立小顶堆进行的排序，这里说的是建立大顶堆建立的排序，差不多。
+关于堆排序的算法，可以参考我去年的文章[《堆排序(HEAP SORT)》](https://blog.cyeam.com/computer/2013/04/06/heapsort)。那篇文章讲的是建立小顶堆进行的排序，这里说的是建立大顶堆建立的排序，差不多。
 
 在Golang源码的sort包里，自带了排序函数。该函数可以对各种类型进行排序，只不过该类型需要实现三个函数，使得该类能够实现`Interface`接口。
 
@@ -77,6 +77,6 @@ tags: ["Golang", "Sort"]
 ---
 
 ###### *参考文献*
-+ 【1】[堆排序(HEAP SORT) - Cyeam](https://blog.cyeam.com/computer%20science/2013/04/06/heapsort)
++ 【1】[堆排序(HEAP SORT) - Cyeam](https://blog.cyeam.com/computer/2013/04/06/heapsort)
 
 {% include JB/setup %}

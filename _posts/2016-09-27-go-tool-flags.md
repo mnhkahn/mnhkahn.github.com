@@ -85,7 +85,7 @@ tags: ["Golang","Optimize"]
 
 上面的命令将会创建一个测试覆盖率文件在浏览器打开结果。可视化的结果看起来是下面的结果：
 
-![IMG-THUMBNAIL](http://golang.rakyll.org/img/context-coverage.png)
+![IMG-THUMBNAIL](https://golang.rakyll.org/img/context-coverage.png)
 
 *注：测试fmt包*
 

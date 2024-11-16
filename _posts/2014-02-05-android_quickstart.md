@@ -107,7 +107,7 @@ Broadcast Receiver是Android在系统级别对Observer模式(Pub-Sub)的实现�
 ###Content Provider
 > Content Provider是应用程序之间共享数据的接口，提供了一套很好的符合CRUD(insert(), update(), delete(), query())原则的接口。数据存储与用户界面程序的分离，为系统各部分之间的组合提供了更大的灵活性。
 
-![IMG-THUMBNAIL](http://developer.android.com/images/providers/ContactsDataFlow.png)
+![IMG-THUMBNAIL](https://developer.android.com/images/providers/ContactsDataFlow.png)
 
 ###Application Context
 Android四大组建Activity, Service, Content Provider, Broadcast Receiver构成了整个应用程序，共同处于同一个Application Context中。允许在不同的组建中共享数据和资源。

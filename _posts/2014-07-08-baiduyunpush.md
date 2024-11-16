@@ -1,19 +1,19 @@
 ---
 layout: post
 title: "百度云推送——Go语言实现类库"
-figure: "http://blog.cyeam.com/assets/images/logo.jpg"
+figure: "https://blog.cyeam.com/assets/images/logo.jpg"
 description: "把之前写好的百度云推送封装成了Go包。只是实现了最简单的消息推送。。"
 category: "Golang"
 tags: ["Golang", "android", "notification"]
 ---
 
-<iframe src="http://ghbtns.com/github-btn.html?user=mnhkahn&repo=BaiduYunPush&type=watch&count=true&size=large"
+<iframe src="https://ghbtns.com/github-btn.html?user=mnhkahn&repo=BaiduYunPush&type=watch&count=true&size=large"
   allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 
-<iframe src="http://ghbtns.com/github-btn.html?user=mnhkahn&repo=BaiduYunPush&type=fork&count=true&size=large"
+<iframe src="https://ghbtns.com/github-btn.html?user=mnhkahn&repo=BaiduYunPush&type=fork&count=true&size=large"
   allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 
-<iframe src="http://ghbtns.com/github-btn.html?user=mnhkahn&type=follow&count=true&size=large"
+<iframe src="https://ghbtns.com/github-btn.html?user=mnhkahn&type=follow&count=true&size=large"
   allowtransparency="true" frameborder="0" scrolling="0" width="185" height="30"></iframe>
 
 # 快速开始
