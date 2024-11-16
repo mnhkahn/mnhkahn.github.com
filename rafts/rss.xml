@@ -3,8 +3,8 @@
 <channel>
         <title>Cyeam</title>
         <description>Cyeam - Bryce</description>
-        <link>http://mnhkahn.github.io</link>
-        <link>http://mnhkahn.github.io</link>
+        <link>http://blog.cyeam.com</link>
+        <link>http://blog.cyeam.com</link>
         <lastBuildDate>2014-01-12T17:04:40+08:00</lastBuildDate>
         <pubDate>2014-01-12T17:04:40+08:00</pubDate>
         <ttl>1800</ttl>
@@ -94,8 +94,8 @@ sudo apt-get -f install&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;http://www.douban.com/group/topic/41787706/&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;最后奉上游戏截图，我最爱的Pom &lt;img src=&quot;/assets/images/post/dota2_pom.png&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;</description>
-                <link>http://mnhkahn.github.io/toss/2014/01/11/dota2</link>
-                <guid>http://mnhkahn.github.io/toss/2014/01/11/dota2</guid>
+                <link>http://blog.cyeam.com/toss/2014/01/11/dota2</link>
+                <guid>http://blog.cyeam.com/toss/2014/01/11/dota2</guid>
                 <pubDate>2014-01-11T00:00:00+08:00</pubDate>
         </item>
 
@@ -112,8 +112,8 @@ sudo apt-get -f install&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;测试帐号如下： &lt;br /&gt;&lt;code&gt;借贷者 用户名: lender 密码: lender&lt;/code&gt; &lt;br /&gt;&lt;code&gt;放贷者 用户名: loaner 密码: loaner&lt;/code&gt; &lt;br /&gt;&lt;code&gt;管理员 用户名: admin 密码: admin&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;网站设计时已经做到了让用户0成本学习使用，所以使用应该问题不大，这里就先不写具体使用方法了，如果具体问题，可以给我留言，我来帮你补充。&lt;/p&gt;</description>
-                <link>http://mnhkahn.github.io/qingdy/2014/01/07/qingdymanual</link>
-                <guid>http://mnhkahn.github.io/qingdy/2014/01/07/qingdymanual</guid>
+                <link>http://blog.cyeam.com/qingdy/2014/01/07/qingdymanual</link>
+                <guid>http://blog.cyeam.com/qingdy/2014/01/07/qingdymanual</guid>
                 <pubDate>2014-01-07T00:00:00+08:00</pubDate>
         </item>
 
@@ -314,8 +314,8 @@ System.out.println((s == s1) + “,” + s.equals(s1));&lt;/code&gt;&lt;/pre&gt;
 &lt;h5 id=&quot;google&quot;&gt;旁边的Google中国&lt;/h5&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/1700014a5c8e11e389ad0edc7ffa5063_8.jpg&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/11/23/sogou</link>
-                <guid>http://mnhkahn.github.io/collection/2013/11/23/sogou</guid>
+                <link>http://blog.cyeam.com/collection/2013/11/23/sogou</link>
+                <guid>http://blog.cyeam.com/collection/2013/11/23/sogou</guid>
                 <pubDate>2013-11-23T00:00:00+08:00</pubDate>
         </item>
 
@@ -558,8 +558,8 @@ foo += “ball”;&lt;/code&gt;&lt;/pre&gt;
     }
     return func(year - 1) + func(year - 2);
 }&lt;/code&gt;&lt;/pre&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/11/05/sugon</link>
-                <guid>http://mnhkahn.github.io/collection/2013/11/05/sugon</guid>
+                <link>http://blog.cyeam.com/collection/2013/11/05/sugon</link>
+                <guid>http://blog.cyeam.com/collection/2013/11/05/sugon</guid>
                 <pubDate>2013-11-05T00:00:00+08:00</pubDate>
         </item>
 
@@ -1008,8 +1008,8 @@ public class BinarySearchTree&amp;lt;T extends Comparable&amp;lt;? super T&amp;g
 &lt;h5 id=&quot;2_int_a_b1&quot;&gt;2. 有两个数组int a[], b[]。这两个数组都已经被进行了数据初始化，数据都不重复，且都没有排序。请设计一种算法，利用【问题1】实现的接口，将这两个数组合并，同时合并后的数据也要保证都是按照数值从小到大排列。同时请分析算法中元素之间比较的复杂度。&lt;/h5&gt;
 
 &lt;p&gt;用两个数组创建一颗二叉查找树即可。比较的复杂度是O(logn)。&lt;/p&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/10/30/founder</link>
-                <guid>http://mnhkahn.github.io/collection/2013/10/30/founder</guid>
+                <link>http://blog.cyeam.com/collection/2013/10/30/founder</link>
+                <guid>http://blog.cyeam.com/collection/2013/10/30/founder</guid>
                 <pubDate>2013-10-30T00:00:00+08:00</pubDate>
         </item>
 
@@ -1091,8 +1091,8 @@ arr.length;&lt;/code&gt;&lt;/pre&gt;
         return INSTANCE;
     }
 }&lt;/code&gt;&lt;/pre&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/10/25/bsast</link>
-                <guid>http://mnhkahn.github.io/collection/2013/10/25/bsast</guid>
+                <link>http://blog.cyeam.com/collection/2013/10/25/bsast</link>
+                <guid>http://blog.cyeam.com/collection/2013/10/25/bsast</guid>
                 <pubDate>2013-10-25T00:00:00+08:00</pubDate>
         </item>
 
@@ -1141,8 +1141,8 @@ arr.length;&lt;/code&gt;&lt;/pre&gt;
 &lt;h5 id=&quot;2_n&quot;&gt;2. 假设有一个单向链表，请输出该链表中倒数第n个节点。&lt;/h5&gt;
 
 &lt;h5 id=&quot;3_an1nono1&quot;&gt;3. 给定数组A，大小为n，数组元素为1到n的数字，不过有的数字出现了多次，有的数字没有出现。请给出算法和程序，统计哪些数字没有出现，哪些数字出现了多少次。能够在O(n)的时间复杂度，O(1)的空间复杂度要求下完成么？&lt;/h5&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/10/24/letv</link>
-                <guid>http://mnhkahn.github.io/collection/2013/10/24/letv</guid>
+                <link>http://blog.cyeam.com/collection/2013/10/24/letv</link>
+                <guid>http://blog.cyeam.com/collection/2013/10/24/letv</guid>
                 <pubDate>2013-10-24T00:00:00+08:00</pubDate>
         </item>
 
@@ -1261,8 +1261,8 @@ struct Circle : Shape {
 &lt;h3 id=&quot;_3&quot;&gt;三、附加题&lt;/h3&gt;
 
 &lt;h5 id=&quot;1__2&quot;&gt;1. 两个数相乘，位数没有限制，请写一个程序接受键盘输入并输出结果。&lt;/h5&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/10/24/gamewave</link>
-                <guid>http://mnhkahn.github.io/collection/2013/10/24/gamewave</guid>
+                <link>http://blog.cyeam.com/collection/2013/10/24/gamewave</link>
+                <guid>http://blog.cyeam.com/collection/2013/10/24/gamewave</guid>
                 <pubDate>2013-10-24T00:00:00+08:00</pubDate>
         </item>
 
@@ -1372,8 +1372,8 @@ struct Circle : Shape {
         inOrder(node.right);
     }
 }&lt;/code&gt;&lt;/pre&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/10/21/giant</link>
-                <guid>http://mnhkahn.github.io/collection/2013/10/21/giant</guid>
+                <link>http://blog.cyeam.com/collection/2013/10/21/giant</link>
+                <guid>http://blog.cyeam.com/collection/2013/10/21/giant</guid>
                 <pubDate>2013-10-21T00:00:00+08:00</pubDate>
         </item>
 
@@ -1532,8 +1532,8 @@ public class ZSingleton&amp;lt;T&amp;gt; {
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;hr /&gt;
 &lt;p&gt;一面后直接就被委婉的告知没戏了。下午还有完美世界的笔试，走在去清华的路上，拍到的这张北大的博雅塔。 &lt;img src=&quot;/assets/images/博雅塔.JPG&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/10/19/qunarinterview</link>
-                <guid>http://mnhkahn.github.io/collection/2013/10/19/qunarinterview</guid>
+                <link>http://blog.cyeam.com/collection/2013/10/19/qunarinterview</link>
+                <guid>http://blog.cyeam.com/collection/2013/10/19/qunarinterview</guid>
                 <pubDate>2013-10-19T00:00:00+08:00</pubDate>
         </item>
 
@@ -1885,8 +1885,8 @@ int removeValue(Map&amp;lt;Integer, Integer&amp;gt; mymap, int value) {
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;hr /&gt;
 &lt;p&gt;清华的一家飞机，也不知道是何来历。 &lt;img src=&quot;/assets/images/tsinghua_plane.jpg&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/10/19/perfectworld</link>
-                <guid>http://mnhkahn.github.io/collection/2013/10/19/perfectworld</guid>
+                <link>http://blog.cyeam.com/collection/2013/10/19/perfectworld</link>
+                <guid>http://blog.cyeam.com/collection/2013/10/19/perfectworld</guid>
                 <pubDate>2013-10-19T00:00:00+08:00</pubDate>
         </item>
 
@@ -1938,8 +1938,8 @@ int removeValue(Map&amp;lt;Integer, Integer&amp;gt; mymap, int value) {
 &lt;h5 id=&quot;4_abaccdeffb&quot;&gt;4. 在字符串中找出第一个只出现一次的字符，如输入”abaccdeff”，则输出’b’。&lt;/h5&gt;
 
 &lt;h5 id=&quot;5_nkono1&quot;&gt;5. 设计一个算法，把一个含有N个元素的数组循环右移K位，要求时间复杂度为O(N)，空间复杂度为O(1)。&lt;/h5&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/10/17/glodon</link>
-                <guid>http://mnhkahn.github.io/collection/2013/10/17/glodon</guid>
+                <link>http://blog.cyeam.com/collection/2013/10/17/glodon</link>
+                <guid>http://blog.cyeam.com/collection/2013/10/17/glodon</guid>
                 <pubDate>2013-10-17T00:00:00+08:00</pubDate>
         </item>
 
@@ -2092,8 +2092,8 @@ void swap_add_substract(int *a, int *b) {   // a = 1, b = 3
 &lt;h5 id=&quot;13_&quot;&gt;13. 翻译(略)。&lt;/h5&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/chukong.jpg&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/10/15/chukong</link>
-                <guid>http://mnhkahn.github.io/collection/2013/10/15/chukong</guid>
+                <link>http://blog.cyeam.com/collection/2013/10/15/chukong</link>
+                <guid>http://blog.cyeam.com/collection/2013/10/15/chukong</guid>
                 <pubDate>2013-10-15T00:00:00+08:00</pubDate>
         </item>
 
@@ -2120,8 +2120,8 @@ void swap_add_substract(int *a, int *b) {   // a = 1, b = 3
 &lt;h3 id=&quot;_3&quot;&gt;三、系统设计题&lt;/h3&gt;
 
 &lt;h5 id=&quot;1_kuvu&quot;&gt;1. （大数据）假设在一个k维空间中，我们有两个向量u和v，其中u&lt;/h5&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/10/13/baidu</link>
-                <guid>http://mnhkahn.github.io/collection/2013/10/13/baidu</guid>
+                <link>http://blog.cyeam.com/collection/2013/10/13/baidu</link>
+                <guid>http://blog.cyeam.com/collection/2013/10/13/baidu</guid>
                 <pubDate>2013-10-13T00:00:00+08:00</pubDate>
         </item>
 
@@ -2156,8 +2156,8 @@ void swap_add_substract(int *a, int *b) {   // a = 1, b = 3
 &lt;p&gt;2013年9月16日于寝室&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/cyeam.png&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/09/16/alibabainterview</link>
-                <guid>http://mnhkahn.github.io/collection/2013/09/16/alibabainterview</guid>
+                <link>http://blog.cyeam.com/collection/2013/09/16/alibabainterview</link>
+                <guid>http://blog.cyeam.com/collection/2013/09/16/alibabainterview</guid>
                 <pubDate>2013-09-16T00:00:00+08:00</pubDate>
         </item>
 
@@ -2214,8 +2214,8 @@ void swap_add_substract(int *a, int *b) {   // a = 1, b = 3
 &lt;h6 id=&quot;f_&quot;&gt;f. 重名的人。&lt;/h6&gt;
 
 &lt;pre&gt;&lt;code&gt;select 姓名, count(*) from 读者 group by 姓名having count(*) &amp;gt; 1;&lt;/code&gt;&lt;/pre&gt;</description>
-                <link>http://mnhkahn.github.io/collection/2013/09/09/bsastintern</link>
-                <guid>http://mnhkahn.github.io/collection/2013/09/09/bsastintern</guid>
+                <link>http://blog.cyeam.com/collection/2013/09/09/bsastintern</link>
+                <guid>http://blog.cyeam.com/collection/2013/09/09/bsastintern</guid>
                 <pubDate>2013-09-09T00:00:00+08:00</pubDate>
         </item>
 

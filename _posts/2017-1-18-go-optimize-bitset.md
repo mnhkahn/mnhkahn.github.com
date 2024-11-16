@@ -77,7 +77,7 @@ bitset的内部数据结构，很亲切有木有：
 
 ### 与其它数据结构的对比
 
-表示正整数的集合，Golang有很多种方式，自带的`map`就可以，当然这是最差的一种选择，首先就是内存的浪费，其次是每次查找还涉及到hash计算，虽然理论上hashmap的复杂度是O(1)，实际上跟bitset比完全就是渣渣。此外，bitset都得升级版[roaring](github.com/RoaringBitmap/roaring)也是不错的选择。如果你要保存的数据是10000000000这种级别的，那么用bitset就会存在低位浪费内存的情况，roaring可以用来压缩空间。
+表示正整数的集合，Golang有很多种方式，自带的`map`就可以，当然这是最差的一种选择，首先就是内存的浪费，其次是每次查找还涉及到hash计算，虽然理论上hashmap的复杂度是O(1)，实际上跟bitset比完全就是渣渣。此外，bitset都得升级版[roaring](//github.com/RoaringBitmap/roaring)也是不错的选择。如果你要保存的数据是10000000000这种级别的，那么用bitset就会存在低位浪费内存的情况，roaring可以用来压缩空间。
 
 	import (
 		"testing"

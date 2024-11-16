@@ -6,7 +6,7 @@ category: "Golang"
 tags: ["Golang","Json"]
 ---
 
-Json的使用基本没有什么难度，就拿Golang来说，直接来个`encoding/json`包里的`func Marshal(v interface{}) ([]byte, error)`和`func Unmarshal(data []byte, v interface{}) error`就能对Json进行编解码了。具体的文件就是采用反射的方法，可以参考我之前的文章[『Golang通过反射实现结构体转成JSON数据』](http://blog.cyeam.com/golang/2014/08/11/go_json/)。
+Json的使用基本没有什么难度，就拿Golang来说，直接来个`encoding/json`包里的`func Marshal(v interface{}) ([]byte, error)`和`func Unmarshal(data []byte, v interface{}) error`就能对Json进行编解码了。具体的文件就是采用反射的方法，可以参考我之前的文章[『Golang通过反射实现结构体转成JSON数据』](https://blog.cyeam.com/golang/2014/08/11/go_json)。
 
 现在问题来了，如下的map需要大家是如何解析的？
 

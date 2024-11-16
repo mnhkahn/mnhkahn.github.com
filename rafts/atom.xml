@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Cyeam</title>
- <link href="http://mnhkahn.github.io/" rel="self"/>
- <link href="http://mnhkahn.github.io"/>
+ <link href="http://blog.cyeam.com/" rel="self"/>
+ <link href="http://blog.cyeam.com"/>
  <updated>2014-01-12T17:04:40+08:00</updated>
- <id>http://mnhkahn.github.io</id>
+ <id>http://blog.cyeam.com</id>
  <author>
    <name>Bryce</name>
    <email>lichao0407@gmail.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Linux Mint 64bit下安装Dota 2</title>
-   <link href="http://mnhkahn.github.io/toss/2014/01/11/dota2"/>
+   <link href="http://blog.cyeam.com/toss/2014/01/11/dota2"/>
    <updated>2014-01-11T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/toss/2014/01/11/dota2</id>
+   <id>http://blog.cyeam.com/toss/2014/01/11/dota2</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/images/dota-2-logo.jpg&quot; alt=&quot;IMG-THUMBNAIL&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;为了能在Linux下玩Dota 2，前前后后折腾了好几个礼拜，先写一下Linux下安装环境的难度，这也是这个解决问题的思路。&lt;/p&gt;
@@ -103,9 +103,9 @@ sudo apt-get -f install&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>青帝使用手册</title>
-   <link href="http://mnhkahn.github.io/qingdy/2014/01/07/qingdymanual"/>
+   <link href="http://blog.cyeam.com/qingdy/2014/01/07/qingdymanual"/>
    <updated>2014-01-07T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/qingdy/2014/01/07/qingdymanual</id>
+   <id>http://blog.cyeam.com/qingdy/2014/01/07/qingdymanual</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/images/qingdy_logo.png&quot; alt=&quot;Alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;阿蒙，当你看到这个文档的时候，项目核心已经基本完成了。我从2012年7月份开始给你做，做了整整一年半，到2013年年末，网站才算初具规模，实在惭愧。这里面有我的问题，也有沟通的问题。我跟你说声抱歉。 项目一开始我定的起点很高，是完全按照易贷网的规模来进行开发的。所以项目实施起来难度很大，再加上只有我一个人在做，所以难免有不完善和疏漏的地方，尤其是展示和安全防护方面，依然存在漏洞，我会在接下来的时间里尽快完善。也希望我们能一起，将青帝网第一个版本做得很好。&lt;/p&gt;
@@ -121,9 +121,9 @@ sudo apt-get -f install&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>搜狗2014校园招聘笔试题</title>
-   <link href="http://mnhkahn.github.io/collection/2013/11/23/sogou"/>
+   <link href="http://blog.cyeam.com/collection/2013/11/23/sogou"/>
    <updated>2013-11-23T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/11/23/sogou</id>
+   <id>http://blog.cyeam.com/collection/2013/11/23/sogou</id>
    <content type="html">&lt;h5 id=&quot;1_jstlelcd&quot;&gt;1. 以下关于JSTL和EL表述正确的有：（CD）&lt;/h5&gt;
 
 &lt;ul&gt;
@@ -323,9 +323,9 @@ System.out.println((s == s1) + “,” + s.equals(s1));&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>中科曙光2014校园招聘笔试</title>
-   <link href="http://mnhkahn.github.io/collection/2013/11/05/sugon"/>
+   <link href="http://blog.cyeam.com/collection/2013/11/05/sugon"/>
    <updated>2013-11-05T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/11/05/sugon</id>
+   <id>http://blog.cyeam.com/collection/2013/11/05/sugon</id>
    <content type="html">&lt;h3 id=&quot;&quot;&gt;一、单项选择题&lt;/h3&gt;
 
 &lt;h5 id=&quot;1_a&quot;&gt;1. 为了区分重载多态中同名不同方法，要求（A）&lt;/h5&gt;
@@ -567,9 +567,9 @@ foo += “ball”;&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>方正国际2014校园招聘笔试</title>
-   <link href="http://mnhkahn.github.io/collection/2013/10/30/founder"/>
+   <link href="http://blog.cyeam.com/collection/2013/10/30/founder"/>
    <updated>2013-10-30T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/10/30/founder</id>
+   <id>http://blog.cyeam.com/collection/2013/10/30/founder</id>
    <content type="html">&lt;h3 id=&quot;&quot;&gt;一、选择题&lt;/h3&gt;
 
 &lt;h5 id=&quot;1_d&quot;&gt;1. 下列表达式正确时（D）？&lt;/h5&gt;
@@ -1017,9 +1017,9 @@ public class BinarySearchTree&amp;lt;T extends Comparable&amp;lt;? super T&amp;g
  
  <entry>
    <title>神州航天软件2014校园招聘笔试</title>
-   <link href="http://mnhkahn.github.io/collection/2013/10/25/bsast"/>
+   <link href="http://blog.cyeam.com/collection/2013/10/25/bsast"/>
    <updated>2013-10-25T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/10/25/bsast</id>
+   <id>http://blog.cyeam.com/collection/2013/10/25/bsast</id>
    <content type="html">&lt;h5 id=&quot;1_string_s__new_stringxyzstring_object&quot;&gt;1. String s = new String(“xyz”);创建了几个String Object？&lt;/h5&gt;
 
 &lt;p&gt;创建了一个String Object。涉及到两个String Object，一个是字符串字面量”xyz”所对应的、驻留（intern）在一个全局共享的字符串常量池中的实例，另一个是通过new String(String)创建并初始化的、内容与”xyz”相同的实例。&lt;/p&gt;
@@ -1100,9 +1100,9 @@ arr.length;&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>乐视2014校园招聘笔试</title>
-   <link href="http://mnhkahn.github.io/collection/2013/10/24/letv"/>
+   <link href="http://blog.cyeam.com/collection/2013/10/24/letv"/>
    <updated>2013-10-24T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/10/24/letv</id>
+   <id>http://blog.cyeam.com/collection/2013/10/24/letv</id>
    <content type="html">&lt;h3 id=&quot;&quot;&gt;试题一&lt;/h3&gt;
 
 &lt;h5 id=&quot;1_&quot;&gt;1. 程序，进程，线程的区别？进程的通信方式有哪些？&lt;/h5&gt;
@@ -1150,9 +1150,9 @@ arr.length;&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>趣游2014校园招聘笔试</title>
-   <link href="http://mnhkahn.github.io/collection/2013/10/24/gamewave"/>
+   <link href="http://blog.cyeam.com/collection/2013/10/24/gamewave"/>
    <updated>2013-10-24T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/10/24/gamewave</id>
+   <id>http://blog.cyeam.com/collection/2013/10/24/gamewave</id>
    <content type="html">&lt;h3 id=&quot;&quot;&gt;一、概念题&lt;/h3&gt;
 
 &lt;h5 id=&quot;1_&quot;&gt;1. 引用和指针的区别？&lt;/h5&gt;
@@ -1270,9 +1270,9 @@ struct Circle : Shape {
  
  <entry>
    <title>巨人网络2014校园招聘笔试</title>
-   <link href="http://mnhkahn.github.io/collection/2013/10/21/giant"/>
+   <link href="http://blog.cyeam.com/collection/2013/10/21/giant"/>
    <updated>2013-10-21T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/10/21/giant</id>
+   <id>http://blog.cyeam.com/collection/2013/10/21/giant</id>
    <content type="html">&lt;h3 id=&quot;&quot;&gt;一、改错题&lt;/h3&gt;
 
 &lt;h5 id=&quot;1_&quot;&gt;1. 下列代码的错误之处&lt;/h5&gt;
@@ -1381,9 +1381,9 @@ struct Circle : Shape {
  
  <entry>
    <title>去哪网2014校园招聘Java开发面经</title>
-   <link href="http://mnhkahn.github.io/collection/2013/10/19/qunarinterview"/>
+   <link href="http://blog.cyeam.com/collection/2013/10/19/qunarinterview"/>
    <updated>2013-10-19T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/10/19/qunarinterview</id>
+   <id>http://blog.cyeam.com/collection/2013/10/19/qunarinterview</id>
    <content type="html">&lt;p&gt;去哪网待遇非常给力，一个FE都能给到14x16。而且刚刚上市，发展很不错。我的面试官是重庆人，看到我的简历上写着本科是重庆大学的，也很照顾我，可惜我很不给力。一直摊开了问，从基础到Java源码、C++源码都问了一圈，还有C语言小技巧。面试难度符合他们公司的工资水平。&lt;/p&gt;
 
 &lt;p&gt;下面是记忆版的面试题目。&lt;/p&gt;
@@ -1541,9 +1541,9 @@ public class ZSingleton&amp;lt;T&amp;gt; {
  
  <entry>
    <title>完美世界2014校园招聘笔试</title>
-   <link href="http://mnhkahn.github.io/collection/2013/10/19/perfectworld"/>
+   <link href="http://blog.cyeam.com/collection/2013/10/19/perfectworld"/>
    <updated>2013-10-19T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/10/19/perfectworld</id>
+   <id>http://blog.cyeam.com/collection/2013/10/19/perfectworld</id>
    <content type="html">&lt;h3 id=&quot;&quot;&gt;一、单项选择题&lt;/h3&gt;
 
 &lt;h5 id=&quot;1_wwwwanmeicompingipc&quot;&gt;1. 某工作站无法访问www.wanmei.com的服务器，使用ping命令对该服务器的IP地址进行测试，响应正常；但是对服务器域名进行测试时出现超时错误，可能出现的问题是（C）&lt;/h5&gt;
@@ -1894,9 +1894,9 @@ int removeValue(Map&amp;lt;Integer, Integer&amp;gt; mymap, int value) {
  
  <entry>
    <title>广联达2014校园招聘笔试</title>
-   <link href="http://mnhkahn.github.io/collection/2013/10/17/glodon"/>
+   <link href="http://blog.cyeam.com/collection/2013/10/17/glodon"/>
    <updated>2013-10-17T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/10/17/glodon</id>
+   <id>http://blog.cyeam.com/collection/2013/10/17/glodon</id>
    <content type="html">&lt;h3 id=&quot;&quot;&gt;卷一&lt;/h3&gt;
 
 &lt;h5 id=&quot;1_&quot;&gt;1. 实现一个函数，把一个字符串中的字符从小写转为大写。&lt;/h5&gt;
@@ -1947,9 +1947,9 @@ int removeValue(Map&amp;lt;Integer, Integer&amp;gt; mymap, int value) {
  
  <entry>
    <title>触控科技2014校园招聘笔试题</title>
-   <link href="http://mnhkahn.github.io/collection/2013/10/15/chukong"/>
+   <link href="http://blog.cyeam.com/collection/2013/10/15/chukong"/>
    <updated>2013-10-15T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/10/15/chukong</id>
+   <id>http://blog.cyeam.com/collection/2013/10/15/chukong</id>
    <content type="html">&lt;h5 id=&quot;1_b&quot;&gt;1. 实现运行时多态的机制是（B）&lt;/h5&gt;
 
 &lt;ul&gt;
@@ -2101,9 +2101,9 @@ void swap_add_substract(int *a, int *b) {   // a = 1, b = 3
  
  <entry>
    <title>百度2014校园招聘后台开发笔试</title>
-   <link href="http://mnhkahn.github.io/collection/2013/10/13/baidu"/>
+   <link href="http://blog.cyeam.com/collection/2013/10/13/baidu"/>
    <updated>2013-10-13T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/10/13/baidu</id>
+   <id>http://blog.cyeam.com/collection/2013/10/13/baidu</id>
    <content type="html">&lt;h3 id=&quot;&quot;&gt;一、简答题&lt;/h3&gt;
 
 &lt;h5 id=&quot;1_osi&quot;&gt;1. 请描述下osi七层模型（开放式系统护栏参考模型）。&lt;/h5&gt;
@@ -2129,9 +2129,9 @@ void swap_add_substract(int *a, int *b) {   // a = 1, b = 3
  
  <entry>
    <title>阿里巴巴2014校园招聘面经</title>
-   <link href="http://mnhkahn.github.io/collection/2013/09/16/alibabainterview"/>
+   <link href="http://blog.cyeam.com/collection/2013/09/16/alibabainterview"/>
    <updated>2013-09-16T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/09/16/alibabainterview</id>
+   <id>http://blog.cyeam.com/collection/2013/09/16/alibabainterview</id>
    <content type="html">&lt;p&gt;上周六去中科院参加阿里的笔试，结果阿里那边出了意外，没有打印出题目来。他们应急是去筛选简历，通过的今天直接面试，剩下的下周日笔试。&lt;/p&gt;
 
 &lt;p&gt;昨天下午参加July的讲座的时候就接到了电话，跟我约今天来面试。很不巧，今天还是我新实习第一天入职的日子，果断不去入职了。更不巧的是，今天4号线信号故障，等了20分钟都没一辆车，还是坐公交去海淀黄庄倒的10号线。这样明显绕了。等到了大望路的阿里，时间也就刚刚好。&lt;/p&gt;
@@ -2165,9 +2165,9 @@ void swap_add_substract(int *a, int *b) {   // a = 1, b = 3
  
  <entry>
    <title>神州航天软件发展规划部实习笔试</title>
-   <link href="http://mnhkahn.github.io/collection/2013/09/09/bsastintern"/>
+   <link href="http://blog.cyeam.com/collection/2013/09/09/bsastintern"/>
    <updated>2013-09-09T00:00:00+08:00</updated>
-   <id>http://mnhkahn.github.io/collection/2013/09/09/bsastintern</id>
+   <id>http://blog.cyeam.com/collection/2013/09/09/bsastintern</id>
    <content type="html">&lt;h5 id=&quot;1_bug&quot;&gt;1. 修改bug之后的测试&lt;/h5&gt;
 
 &lt;ul&gt;

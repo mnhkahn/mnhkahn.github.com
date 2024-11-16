@@ -14,7 +14,7 @@ config包的`config.go`文件定义了两个接口，`ConfigContainer`和`Config
 
 config包里的其它文件是这两个接口的实现。xml文件夹实现了解析XML数据格式的方法，yaml文件夹实现了解析YAML格式的方法，ini和json分别解析INI格式和JSON格式。这里主要说一下INI格式的实现。
 
-`ini.go`文件定义了两个结构体`IniConfigContainer`和`IniConfig`，分别实现了上面的两个接口。golang接口的实现语法可以参考之前的文章[《Golang 接口实现》](http://blog.cyeam.com/golang/2014/07/20/go_inte/)。其中，IniConfigContainer不光实现了接口，还定义了内部变量来辅助实现。
+`ini.go`文件定义了两个结构体`IniConfigContainer`和`IniConfig`，分别实现了上面的两个接口。golang接口的实现语法可以参考之前的文章[《Golang 接口实现》](https://blog.cyeam.com/golang/2014/07/20/go_inte)。其中，IniConfigContainer不光实现了接口，还定义了内部变量来辅助实现。
 
 	filename       string
 	data           map[string]map[string]string // section=> key:val

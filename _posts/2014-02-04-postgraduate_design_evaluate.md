@@ -58,7 +58,7 @@ jitsi感觉太过成熟，先放弃使用。如果能移植到GAE，以后可以
 
 
 #####开发流程
-+ [Android Quick Start](http://mnhkahn.github.io/postgraduate%20design/2014/02/05/android_quickstart/)
++ [Android Quick Start](http://blog.cyeam.com/postgraduate%20design/2014/02/05/android_quickstart/)
 + SIP Sip注册和建立通信
 + RTSP 双通道通信传输
 + Android 视频编码
@@ -91,7 +91,7 @@ jitsi感觉太过成熟，先放弃使用。如果能移植到GAE，以后可以
 > android-ndk-r9c-linux-x86_64.tar.bz2
 
 + Google App Engine(Java)
-发现一神器，使用`*.appsp0t.com`可以访问自己的域名。这个通过反向代理实现。这样就能实现跨墙访问。Fuck GFW!目前计划在[http://brycelinux.appsp0t.com](brycelinux.appsp0t.com)测试和发布。
+发现一神器，使用`*.appsp0t.com`可以访问自己的域名。这个通过反向代理实现。这样就能实现跨墙访问。Fuck GFW!目前计划在 https://brycelinux.appsp0t.co m测试和发布。
     + Google App Engine SDK
 > Version 1.8.9   
 > [Download](http://googleappengine.googlecode.com/files/appengine-java-sdk-1.8.9.zip)

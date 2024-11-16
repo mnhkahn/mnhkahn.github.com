@@ -6,7 +6,7 @@ category: "web"
 tags: ["Golang"]
 ---
  
-上一周给我的网站加了一个搜索功能，能自动抓取我的博客和别人的CSDN博客。通过RSS抓取。这样数据格式规范，容易解析。问题是信息较少。后来发现在HTML源代码里面，会有为了方便搜索引擎索引的`meta`字段，能指出作者和详情。以我的博客[《Golang实现HTTP发送gzip请求》](http://blog.cyeam.com/golang/2014/11/29/golang_gzip/)为例。里面的`meta`信息如下：
+上一周给我的网站加了一个搜索功能，能自动抓取我的博客和别人的CSDN博客。通过RSS抓取。这样数据格式规范，容易解析。问题是信息较少。后来发现在HTML源代码里面，会有为了方便搜索引擎索引的`meta`字段，能指出作者和详情。以我的博客[《Golang实现HTTP发送gzip请求》](https://blog.cyeam.com/golang/2014/11/29/golang_gzip)为例。里面的`meta`信息如下：
 
 	<meta charset="utf-8">
 	<meta name="description" content="beego的httplib不支持发送gzip请求，自己研究了一下。">
@@ -22,12 +22,12 @@ tags: ["Golang"]
 
 直接抓取作者和简介可以用如下命令：
 
-	curl -s http://blog.cyeam.com/golang/2014/11/29/golang_gzip/ | pup 'head meta[name="author"] attr{content}'
-	curl -s http://blog.cyeam.com/golang/2014/11/29/golang_gzip/ | pup 'head meta[name="description"] attr{content}' 
+	curl -s https://blog.cyeam.com/golang/2014/11/29/golang_gzip | pup 'head meta[name="author"] attr{content}'
+	curl -s https://blog.cyeam.com/golang/2014/11/29/golang_gzip | pup 'head meta[name="description"] attr{content}' 
 
 这个包能完美解决我的问题，进去看了一下源码，发现包名是`main`，再一个是因为它用来解析HTML不是那么方便，想了想，我囧的还是用`cmd`的方式通过管道执行。
 
-	req := httplib.Get("http://blog.cyeam.com/golang/2014/11/29/golang_gzip/")
+	req := httplib.Get("https://blog.cyeam.com/golang/2014/11/29/golang_gzip")
 	res, err := req.Bytes()
 	if err != nil {
 		panic(err)

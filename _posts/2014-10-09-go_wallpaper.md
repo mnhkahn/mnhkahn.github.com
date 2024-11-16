@@ -6,7 +6,7 @@ category: "kaleidoscope"
 tags: ["Kaleidoscope", "Life"]
 ---
 
-之前安装了安了Ubuntu 14.04，还写了个小程序，能开机更新桌面壁纸——[《Ubuntu通过Bing壁纸自动更新》](http://blog.cyeam.com/kaleidoscope/2014/09/17/ubuntu_bing_bg/)。结果谁知道Ubuntu这个版本是怎么回事，一把开发环境配置好，就开不了机了。。。我这种学渣实在是处理不了，只能换Windows 8了。
+之前安装了安了Ubuntu 14.04，还写了个小程序，能开机更新桌面壁纸——[《Ubuntu通过Bing壁纸自动更新》](https://blog.cyeam.com/kaleidoscope/2014/09/17/ubuntu_bing_bg)。结果谁知道Ubuntu这个版本是怎么回事，一把开发环境配置好，就开不了机了。。。我这种学渣实在是处理不了，只能换Windows 8了。
 
 换了Windows 8还是惦记着我的更新壁纸程序。Windows系统和Linux不同，并没有提供修改壁纸的命令，只能提供Windows API编程进行修改。本科学游戏开发的我对这个还是比较熟悉的。
 

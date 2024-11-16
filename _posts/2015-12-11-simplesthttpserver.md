@@ -6,9 +6,9 @@ category: "network"
 tags: ["HTTP","Golang"]
 ---
 
-到了新单位总算有点闲了，接着倒腾HTTP。之前的文章可以参考：[《基于TCP套接字，通过Golang模拟HTTP请求》](http://blog.cyeam.com/network/2014/09/28/go_http/)和[《基于TCP套接字，通过Golang模拟HTTP请求（续）》](http://blog.cyeam.com/network/2014/09/29/go_http2/)。
+到了新单位总算有点闲了，接着倒腾HTTP。之前的文章可以参考：[《基于TCP套接字，通过Golang模拟HTTP请求》](https://blog.cyeam.com/network/2014/09/28/go_http)和[《基于TCP套接字，通过Golang模拟HTTP请求（续）》](https://blog.cyeam.com/network/2014/09/29/go_http2)。
 
-之前都是研究的客户端，现在来研究一下服务端。《HTTP权威指南》上面有一个非常简单的用`perl`开发的一个服务器，我就用大`Golang`照着写一个。HTTP协议是基于传输层的TCP协议，监听80端口。简单来写（复杂的我也不会），就是最简单的TCP监听，接收消息，处理并返回。我是参考的[《Go socket编程实践: TCP服务器和客户端实现》](http://colobu.com/2014/12/02/go-socket-programming-TCP/)。主逻辑就是这样：
+之前都是研究的客户端，现在来研究一下服务端。《HTTP权威指南》上面有一个非常简单的用`perl`开发的一个服务器，我就用大`Golang`照着写一个。HTTP协议是基于传输层的TCP协议，监听80端口。简单来写（复杂的我也不会），就是最简单的TCP监听，接收消息，处理并返回。我是参考的[《Go socket编程实践: TCP服务器和客户端实现》](https://colobu.com/2014/12/02/go-socket-programming-TCP/)。主逻辑就是这样：
 
 	ln, err := net.Listen("tcp", fmt.Sprintf("%s:%d", "", *portFlag))
 	defer ln.Close()
