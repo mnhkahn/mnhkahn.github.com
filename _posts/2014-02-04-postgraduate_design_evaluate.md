@@ -58,7 +58,7 @@ jitsi感觉太过成熟，先放弃使用。如果能移植到GAE，以后可以
 
 
 #####开发流程
-+ [Android Quick Start](http://blog.cyeam.com/postgraduate%20design/2014/02/05/android_quickstart/)
++ [Android Quick Start](http://blog.cyeam.com/postgraduate/2014/02/05/android_quickstart)
 + SIP Sip注册和建立通信
 + RTSP 双通道通信传输
 + Android 视频编码

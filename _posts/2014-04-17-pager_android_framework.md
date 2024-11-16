@@ -9,7 +9,7 @@ tags: ["Postgraduate design", "Paper"]
 
 根据系统的大体设计并结合Android自身特性，将会主要用到下列几个Android自身控件。下面做简单介绍：
 
-+ 用户交互界面由Activity实现，对该部分的详细介绍，请参考[5.1节](https://blog.cyeam.com/postgraduate%20design/2014/04/18/pager_listfragment)。
++ 用户交互界面由Activity实现，对该部分的详细介绍，请参考[5.1节](https://blog.cyeam.com/postgraduate/2014/04/18/pager_listfragment)。
 + 系统主要模块都是在后台自动调用并执行的，这样能简化系统设计并提高系统运行速度。Android平台提供了Service组件，支持在后台自动启动和停止，系统的音视频通话模块、SIP模块都可以直接基于Service实现。。
 
     Service运行于后台，没有任何用户界面。它们可以于Activity执行相同的操作。
@@ -21,6 +21,6 @@ tags: ["Postgraduate design", "Paper"]
 
     Android平台提供了Broadcast Receiver。Broadcast Receiver是Android在系统级别对Observer模式(Pub-Sub)的实现。接收器一直等待，直到其订阅的事件发生时，才被激活。系统的核心引擎使用了该设计模式。
 
-+ Android平台还提供了更加友好的Notification来增加和用户的交互。这个部分将在[5.3.2节](https://blog.cyeam.com/postgraduate%20design/2014/04/18/pager_notification)进行详细介绍。
++ Android平台还提供了更加友好的Notification来增加和用户的交互。这个部分将在[5.3.2节](https://blog.cyeam.com/postgraduate/2014/04/18/pager_notification)进行详细介绍。
 
 {% include JB/setup %}
