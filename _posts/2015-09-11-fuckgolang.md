@@ -10,7 +10,7 @@ tags: ["Golang"]
 
 为了我自己能方便点用，我把Golang官方文档的页面都下载下来放在我的VPS上面。VPS也不是每天都能连得上，趁昨天有机会赶紧放上去，然后用CDN加速。链接：
 
-> [http://cyeam.com/go/pkg/index.html](http://cyeam.com/go/pkg/index.html)
+> https://cyeam.com/go/pkg/index.html
 
 这让我想起前几天看到的一条微博。说古巴的一个网站，架设在了万恶的美帝，万恶的美帝不让他们用这个网站。古巴的屌丝们都是把这个网站整站下载到U盘里面偷出美帝进行浏览。异曲同工，哈哈哈。
 

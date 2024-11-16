@@ -14,11 +14,11 @@ tags: ["Golang","json"]
 ### 如何将JSON中的数字和字符串都解析为数字？
 
 接着[《介绍一下Json的Number》
-](http://blog.cyeam.com/golang/2016/05/02/jsonnumber)继续写，可以两篇文章一起读。
+](https://blog.cyeam.com/golang/2016/05/02/jsonnumber)继续写，可以两篇文章一起读。
 
 有一些情况下，JSON 解码需要适配多种类型，比如一串数字会被存成整数或者字符串两种格式，类型是不确定的，这个时候如何解析？
 
-通用一点的方法我们可以自定义类型，自己实现`MarshalJSON`方法来实现负责逻辑的解析，具体方法可以参考[《Golang——json数据处理》](http://blog.cyeam.com/json/2014/08/04/go_json)，但是对于数字，就不用这么复杂了，Go 已经提供了一`Number`来帮助我们。
+通用一点的方法我们可以自定义类型，自己实现`MarshalJSON`方法来实现负责逻辑的解析，具体方法可以参考[《Golang——json数据处理》](https://blog.cyeam.com/json/2014/08/04/go_json)，但是对于数字，就不用这么复杂了，Go 已经提供了一`Number`来帮助我们。
 
 ```
 var raw = []byte(`{"a":1}`)

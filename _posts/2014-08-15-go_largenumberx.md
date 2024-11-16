@@ -47,7 +47,7 @@ tags: ["Golang"]
 		return strings.Reverse(reuslt)
 	}
 
-字符串的反转可以参考[《字符串反转》](http://blog.cyeam.com/golang/2014/08/14/go_reverse)。相乘的过程中，需要将字符和整数进行转换，通过`a[i] - '0'`和`temp + '0'`就能实现。进位在最后一并进行。通过变量`plus`保存上一次的进位数目。
+字符串的反转可以参考[《字符串反转》](https://blog.cyeam.com/golang/2014/08/14/go_reverse)。相乘的过程中，需要将字符和整数进行转换，通过`a[i] - '0'`和`temp + '0'`就能实现。进位在最后一并进行。通过变量`plus`保存上一次的进位数目。
 
 本文所涉及到的完整源码请[参考](https://github.com/mnhkahn/go_code/blob/master/largenumberx.go)。
 

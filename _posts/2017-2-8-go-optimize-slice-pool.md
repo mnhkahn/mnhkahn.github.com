@@ -89,7 +89,7 @@ tags: ["Golang","optimize","tool"]
 
 而`c`，对我们而言其含义和`a`是一致的，但是***编译器对于这种不定长度的申请方式，也会在堆上面申请，即使申请的长度很短***。
 
-可以通过下面的命令查看变量申请的位置。详细内容可以参考我之前的文章[《【译】优化Go的模式》](http://blog.cyeam.com/golang/2016/08/18/apatternforoptimizinggo)
+可以通过下面的命令查看变量申请的位置。详细内容可以参考我之前的文章[《【译】优化Go的模式》](https://blog.cyeam.com/golang/2016/08/18/apatternforoptimizinggo)
 
 	go build -gcflags='-m' . 2>&1
 

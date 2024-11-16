@@ -46,7 +46,7 @@ tags: ["字符串"]
 		return strings.Split(c.String(key), ";")
 	}
 
-它会把取到的字符串进行切割，结合我们上面提到的，无论怎么切割，长度最少是1,所以`if`判断永远是`false`，取默认值的逻辑永远不会被执行。修改的方法也很简单，判断语言改成`if v[0] == ""`即可。完成的beego/config包介绍可以看我之前的[文章](http://blog.cyeam.com/beego/2014/11/12/beego_config)。我已经给谢大提了Merge Request，但是他一直没有理我。。。
+它会把取到的字符串进行切割，结合我们上面提到的，无论怎么切割，长度最少是1,所以`if`判断永远是`false`，取默认值的逻辑永远不会被执行。修改的方法也很简单，判断语言改成`if v[0] == ""`即可。完成的beego/config包介绍可以看我之前的[文章](https://blog.cyeam.com/beego/2014/11/12/beego_config)。我已经给谢大提了Merge Request，但是他一直没有理我。。。
 
 ---
 

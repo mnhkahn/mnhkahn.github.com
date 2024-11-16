@@ -10,7 +10,7 @@ tags: ["Android"]
 > 官方安装教程 https://developers.google.com/android/nexus/images#instructions
 > 官方下载系统镜像地址 http://developer.android.com/preview/setup-sdk.html
 
-我的平板是Nexus 7（2013版），选择razor下载即可。安装也很简单。将设备通过USB连上电脑。这里可能需要配置驱动，如果需要，请参考[《Linux Mint下安装Nexus 7 驱动》](http://blog.cyeam.com/kaleidoscope/2014/02/01/linux_android_drivers)
+我的平板是Nexus 7（2013版），选择razor下载即可。安装也很简单。将设备通过USB连上电脑。这里可能需要配置驱动，如果需要，请参考[《Linux Mint下安装Nexus 7 驱动》](https://blog.cyeam.com/kaleidoscope/2014/02/01/linux_android_drivers)
 
 + 启动设备进入fastboot模式。`adb reboot bootloader `
 + 解压镜像文件
