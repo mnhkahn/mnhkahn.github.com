@@ -1,5 +1,5 @@
 # This is the default format. 
-# For more see: http://jekyllrb.com/docs/permalinks/
+# For more see: https://jekyllrb.com/docs/permalinks/
 permalink: /:categories/:year/:month/:day/:title 
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
@@ -9,7 +9,7 @@ highlighter: rouge
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Cyeam
+title : Cyeam Go学习优化沉淀 架构设计分享
 tagline: Site Tagline
 description: 大家好我是Bryce，从事后端工作10年了。关注Go语言开发，这里有后端开发常见工具、开发常见问题和解决思路，希望能帮助到大家。
 author :
@@ -27,7 +27,7 @@ author :
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://blog.cyeam.com
+production_url : https://blog.cyeam.com
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -38,18 +38,18 @@ JB :
   # Links in your website should always be prefixed with {{BASE_PATH}}
   # however this value will be dynamically changed depending on your deployment situation.
   #
-  # CNAME (http://yourcustomdomain.com)
+  # CNAME (https://yourcustomdomain.com)
   #   DO NOT SET BASE_PATH 
   #   (urls will be prefixed with "/" and work relatively)
   #
-  # GitHub Pages (http://username.github.io)
+  # GitHub Pages (https://username.github.io)
   #   DO NOT SET BASE_PATH 
   #   (urls will be prefixed with "/" and work relatively)
   #
-  # GitHub Project Pages (http://username.github.io/project-name)
+  # GitHub Project Pages (https://username.github.io/project-name)
   #
   #   A GitHub Project site exists in the `gh-pages` branch of one of your repositories.
-  #  REQUIRED! Set BASE_PATH to: http://username.github.io/project-name
+  #  REQUIRED! Set BASE_PATH to: https://username.github.io/project-name
   #
   # CAUTION:
   #   - When in Localhost, your site will run from root "/" regardless of BASE_PATH
@@ -63,7 +63,7 @@ JB :
   #
   # Override this by defining an absolute path to assets here.
   # ex: 
-  #   http://s3.amazonaws.com/yoursite/themes/watermelon
+  #   https://s3.amazonaws.com/yoursite/themes/watermelon
   #   /assets
   #
   ASSET_PATH : false

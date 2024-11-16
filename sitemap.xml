@@ -6,11 +6,11 @@ sitemap:
 ---
  
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns:xsi="//www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="//www.sitemaps.org/schemas/sitemap/0.9 //www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="//www.sitemaps.org/schemas/sitemap/0.9">
 
   {% for post in site.posts %}
   <url>
-    <loc>http://mnhkahn.github.io{{ post.url }}</loc>
+    <loc>https://blog.cyeam.com{{ post.url }}</loc>
     {% if post.lastmod == null %}
     <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
     {% else %}
@@ -23,7 +23,7 @@ sitemap:
   {% for page in site.pages %}
   {% if page.sitemap != null and page.sitemap != empty %}
   <url>
-    <loc>http://mnhkahn.github.io{{ page.url }}</loc>
+    <loc>https://blog.cyeam.com{{ page.url }}</loc>
     <lastmod>{{ page.sitemap.lastmod | date_to_xmlschema }}</lastmod>
     <changefreq>{{ page.sitemap.changefreq }}</changefreq>
     <priority>{{ page.sitemap.priority }}</priority>
