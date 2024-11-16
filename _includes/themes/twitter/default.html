@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+    {% else %}
     <meta name='description' content='大家好我是Bryce，从事后端工作10年了。关注Go语言开发，这里有后端开发常见工具、开发常见问题和解决思路，希望能帮助到大家。'>
-    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    {% endif %}
     <meta name="author" content="{{ site.author.name }}">
 
     <meta name="google-translate-customization" content="a4136e955b3e09f2-45a74b56dc13e741-gf616ffda6e6360e0-11"></meta>
