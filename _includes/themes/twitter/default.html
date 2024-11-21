@@ -120,7 +120,14 @@
  -->
         {% include JB/analytics %}
       </footer>
-
+      <script
+          src="https://cdn.staticfile.net/translate.js/3.2.1/translate.js"></script>
+      <script>
+          translate.selectLanguageTag.show = false; //不出现的select的选择语言
+          translate.service.use('client.edge'); //设置机器翻译服务通道
+          translate.setAutoDiscriminateLocalLanguage();
+          translate.execute();
+      </script>
     </div>
 
   </body>
