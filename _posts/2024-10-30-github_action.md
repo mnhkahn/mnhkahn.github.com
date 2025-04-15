@@ -13,7 +13,7 @@ tags: ["Github","wechat"]
 
 先看图感受下，当部署完成后可以在微信里收到推送。Github Actions支持自动触发，执行命令。本文不会讲解具体语法，可以参考阮一峰的博客[《GitHub Actions 入门教程》](https://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)。
 
-# 代码自动部署（以fly.io为例）
+## 代码自动部署（以fly.io为例）
 
 1. 在代码仓库里执行`fly launch --no-deploy`创建部署文件`fly.toml`；
 2. 执行命令`fly tokens create deploy -x 999999h`创建部署密钥；
@@ -46,7 +46,7 @@ jobs:
 完整例子移步[Continuous Deployment with Fly.io and GitHub Actions](https://fly.io/docs/launch/continuous-deployment-with-github-actions/)。
 
 
-# 微信通知
+## 微信通知
 
 1. 重复上面第三步，新建一个Name为`WECHAT_WORK_BOT_WEBHOOK`的密钥，值为微信通知的Webhook地址，用企业微信创建一个即可（拉个微信群添加机器人后会展示出来）；
 2. 在目录`github/workflows`里新建文件`notify.yml`，粘贴下面的内容：
