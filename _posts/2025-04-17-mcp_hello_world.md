@@ -189,6 +189,10 @@ VSCode安装插件Cline，登录，配置MCP服务器。
 
 ![](https://res.cloudinary.com/cyeam/image/upload/v1744899675/%E6%88%AA%E5%B1%8F2025-04-17_22.20.39_s2frsr.png)
 
+## 最后
+
+MCP协议最大的应用场景在于AI编程，本地文件、数据库资源都可以作为Local Data Sources引入进来支持高效开发，Trae要赶紧跟上了。
+
 ---
 
 
