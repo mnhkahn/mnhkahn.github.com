@@ -170,12 +170,12 @@ func handleTimeRequest(req *protocol.CallToolRequest) (*protocol.CallToolResult,
 
 ### 客户端
 
-VSCode安装插件Cline，登录，配置MCP服务器。
+VSCode安装插件Cline，登录，配置MCP服务器。Trae也支持了，在AI对话框的设置添加下面的配置即可。
 
 ```json
 {
   "mcpServers": {
-    "cyeam": {
+    "current_time": {
       "timeout": 60,
       "url": "http://127.0.0.1:8080/sse",
       "transportType": "sse",
