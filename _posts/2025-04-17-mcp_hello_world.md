@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MCP 模型上下文协议初探，用Go快速构建一个 hello world"
+title: "MCP 模型上下文协议初探，用Go快速构建一个 MCP Server"
 description: "市面上模型非常多，不可能对每个模型都做插件开发。MCP协议能解决多种模型统一接入模型的问题。本文初步介绍了MCP协议、场景、用CLINE搭一个例子。"
 figure: "https://res.cloudinary.com/cyeam/image/upload/v1744897150/%E6%88%AA%E5%B1%8F2025-04-17_21.37.49_zysdtr.png"
 category: "AI"
