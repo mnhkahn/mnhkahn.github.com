@@ -195,5 +195,10 @@ MCP协议最大的应用场景在于AI编程，本地文件、数据库资源都
 
 ---
 
+## 扩展阅读
+
+- [Core architecture](https://modelcontextprotocol.io/docs/concepts/architecture)
+- [Server-Sent Events 教程](https://www.ruanyifeng.com/blog/2017/05/server-sent_events.html)
+- [几十行代码轻松打造属于自己的MCP服务器](https://mp.weixin.qq.com/s/O2iKdLxaAFlPkUtQZHQfKg)
 
 {% include JB/setup %}
