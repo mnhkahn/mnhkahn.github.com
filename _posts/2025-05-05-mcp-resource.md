@@ -14,6 +14,8 @@ tags: ["AI","MCP", "Golang"]
 ## 概述
 MCP 协议提供了标准协议来让服务端向客户端暴露资源内容，例如文件、数据库，每个资源使用唯一标识`URI`来区分。
 
+本文介绍最新版本[2025-03-26](https://modelcontextprotocol.io/specification/2025-03-26/server/resources#https%3A%2F%2F)。
+
 ## 协议消息
 
 - Listing Resources
