@@ -1,73 +1,88 @@
 ﻿/* Custom container */
 .container-narrow {
-  margin: 0 auto;
-  max-width: 750px;
-  background-color: #ffffff;
-  border-radius: 3px;
-  padding: 5px; }
+	margin: 0 auto;
+	max-width: 750px;
+	background-color: #ffffff;
+	border-radius: 3px;
+	padding: 5px;
+}
 
-.container-narrow > hr {
-  margin: 0px auto; }
+.container-narrow>hr {
+	margin: 0px auto;
+}
 
 .navbar .nav {
-  float: right; }
+	float: right;
+}
 
 /* posts index */
-.post > h3.title {
-  position: relative;
-  padding-top: 10px; }
+.post>h3.title {
+	position: relative;
+	padding-top: 10px;
+}
 
-.post > h3.title span.date {
-  position: absolute;
-  right: 0;
-  font-size: 0.9em; }
+.post>h3.title span.date {
+	position: absolute;
+	right: 0;
+	font-size: 0.9em;
+}
 
-.post > .more {
-  margin: 10px 0;
-  text-align: left; }
+.post>.more {
+	margin: 10px 0;
+	text-align: left;
+}
 
 /* post-full*/
 .post-full .date {
-  margin-bottom: 20px;
-  font-weight: bold; }
+	margin-bottom: 20px;
+	font-weight: bold;
+}
 
 /* tag_box */
 .tag_box {
-  list-style: none;
-  margin: 0;
-  overflow: hidden; }
+	list-style: none;
+	margin: 0;
+	overflow: hidden;
+}
 
 .tag_box li {
-  line-height: 28px; }
+	line-height: 28px;
+}
 
 .tag_box li i {
-  opacity: 0.9; }
+	opacity: 0.9;
+}
 
 .tag_box.inline li {
-  float: left; }
+	float: left;
+}
 
 .tag_box a {
-  padding: 3px 6px;
-  margin: 2px;
-  background: #eee;
-  color: #555;
-  border-radius: 3px;
-  text-decoration: none;
-  border: 1px dashed #cccccc; }
+	padding: 3px 6px;
+	margin: 2px;
+	background: #eee;
+	color: #555;
+	border-radius: 3px;
+	text-decoration: none;
+	border: 1px dashed #cccccc;
+}
 
 .tag_box a span {
-  vertical-align: super;
-  font-size: 0.8em; }
+	vertical-align: super;
+	font-size: 0.8em;
+}
 
 .tag_box a:hover {
-  background-color: #e5e5e5; }
+	background-color: #e5e5e5;
+}
 
 .tag_box a.active {
-  background: #57A957;
-  border: 1px solid #4c964d;
-  color: #FFF; }
-  
-  
+	background: #57A957;
+	border: 1px solid #4c964d;
+	color: #FFF;
+}
+
+
 .c2 {
 	line-height: 1.0;
 	padding-top: 0pt;
@@ -143,28 +158,30 @@
 }
 
 /* alpha list */
-ol { list-style-type: upper-alpha; }
+ol {
+	list-style-type: upper-alpha;
+}
 
 
 @font-face {
 	font-family: founder;
-	font-style:  normal;
-    font-weight: 400;
+	font-style: normal;
+	font-weight: 400;
 	src: url("founder.TTF");
 }
 
 body {
 	/*background: url(http://lh4.ggpht.com/bd7y0XYFjqg44W4idK30rW_XeuMLMKUcx5yWF-ro9ctTtpeiRU8FVMLsa-8NrWPIo5GQ7AdR5k_V63ay_GJ3PMnjWpElml-WFuBTNmlO) center;*/
-    /*background-repeat: no-repeat;*/
-	
+	/*background-repeat: no-repeat;*/
+
 	/* Auto 100% */
-/*	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+	/*	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
     -moz-background-size:100% 100%;
     background-size:100% 100%;
 */
 	/*background-attachment: fixed;*/
-	
-/*	font-family: founder;
+
+	/*	font-family: founder;
 	line-height: 20px;
 	color: #333333;*/
 }
@@ -172,16 +189,16 @@ body {
 /* image */
 img[alt=IMG-THUMBNAIL] {
 	display: inline-block;
-    height: auto;
-    max-height: 200px;
-    max-width: 100%;
-    padding: 4px;
-    line-height: 1.428571429;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 4px;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
+	height: auto;
+	max-height: 400px;
+	max-width: 100%;
+	padding: 4px;
+	line-height: 1.428571429;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	border-radius: 4px;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 
 /* google translate */
@@ -194,37 +211,35 @@ img[alt=IMG-THUMBNAIL] {
 	padding-top: 5px;
 
 	border-radius: 3px;
-  	padding: 5px;
+	padding: 5px;
 
-  	max-height: 400px;
+	max-height: 400px;
 	overflow-y: hidden;
 }
 
 /* navbar */
-.navbar {
-
-}
+.navbar {}
 
 /* opacity: */
 .opacity {
-	background: rgba(255,255,255,0.9);
+	background: rgba(255, 255, 255, 0.9);
 	border-color: #efefef;
 }
 
 .span12 {
- 	margin: auto !important;
+	margin: auto !important;
 }
 
 
 /* image center */
 .span12 h2 {
 	text-align: center;
- 	margin: 0 auto;
+	margin: 0 auto;
 }
 
 .center {
 	text-align: center;
- 	margin: 0 auto;
+	margin: 0 auto;
 }
 
 .read-all {
@@ -238,14 +253,17 @@ img[alt=IMG-THUMBNAIL] {
 
 /* a */
 a {
-	color:#000000;
-	font-weight:bold; /*CSS字体效果 普通 可以改成bold粗体 如果去除此行那么默认是不显示下划线的*/
-	text-decoration:none; /*CSS下划线效果：无下划线*/
+	color: #000000;
+	font-weight: bold;
+	/*CSS字体效果 普通 可以改成bold粗体 如果去除此行那么默认是不显示下划线的*/
+	text-decoration: none;
+	/*CSS下划线效果：无下划线*/
 }
 
 a:hover {
-	color:#000000;
-	text-decoration:none; /*CSS下划线效果：无下划线*/
+	color: #000000;
+	text-decoration: none;
+	/*CSS下划线效果：无下划线*/
 }
 
 .cyeam_float_right {
@@ -257,7 +275,7 @@ a:hover {
 	padding-top: 5px;
 
 	border-radius: 3px;
-  	padding: 5px;
+	padding: 5px;
 }
 
 .icon {
@@ -273,37 +291,37 @@ a:hover {
 	width: 250px;
 	border-radius: 35px;
 	margin: 50px auto;
-	
+
 	/* We are going to use multiple background images (linear-gradients) here to create the main background, the shine and the screen */
 	/* This is our first gradient, to draw more, we'll have to write them before this one separated by a comma */
 	/* Now, we'll draw the screen */
 	/* The screen should be below the shine, right? */
-	background: 
-		linear-gradient(-165deg, rgba(255,255,255,0.4), rgba(255,255,255,0.15) 35%, transparent 35%),
+	background:
+		linear-gradient(-165deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.15) 35%, transparent 35%),
 		linear-gradient(top, transparent 85px, #222222 85px, #151515 410px, transparent 410px),
 		linear-gradient(top, #000, #0a0a0a);
-	
+
 	/* Something isn't right... */
 	/* Now, it's perfect. Try playing with the values below to get a better understanding */
 	background-repeat: no-repeat;
 	background-size: 100% 100%, 220px 100%, 100% 100%;
 	background-position: 0 0, 15px 0, 0 0;
-	
-	
-	
+
+
+
 	/* Now we need the aluminium borders and the top button */
 	/* We'll use box shadows for that */
 	box-shadow: 0 0 0 3px black,
-							/* A small divider */
-							-40px -128px 0 -123px black,
-							0 0 0 5px #a09f9d,
-							/* Some metallic shine on the button */
-							49px -130px 3px -123px #777,
-							46px -130px 2px -123px #ddd,
-							/* Top button from here */
-							62px -111px 0 -105px #8e8d8b,
-							62px -112px 0 -105px #b4b3b1,
-							62px -113px 0 -105px #666;
+		/* A small divider */
+		-40px -128px 0 -123px black,
+		0 0 0 5px #a09f9d,
+		/* Some metallic shine on the button */
+		49px -130px 3px -123px #777,
+		46px -130px 2px -123px #ddd,
+		/* Top button from here */
+		62px -111px 0 -105px #8e8d8b,
+		62px -112px 0 -105px #b4b3b1,
+		62px -113px 0 -105px #666;
 }
 
 
@@ -323,12 +341,13 @@ a:hover {
 	bottom: 18px;
 	left: 100px;
 	border: 2px solid #0a0a0a;
-	
-	
-	
+
+
+
 	/* We'll use gradients for the depth */
 	background-image:
-		linear-gradient(left, rgba(0, 0, 0, 0.85), black); /* Looking good */
+		linear-gradient(left, rgba(0, 0, 0, 0.85), black);
+	/* Looking good */
 
 	/* Now some box-shadow magic to create speaker and front cam */
 	box-shadow:
@@ -337,10 +356,10 @@ a:hover {
 		-39px -410px 0 -22px #0a1c5a,
 		-40px -410px 0 -21px #0d1216,
 		-40px -410px 0 -19px #1b191a,
-		
-		
-	
-		/* Speaker, it's a mess. Really. */ 
+
+
+
+		/* Speaker, it's a mess. Really. */
 		/* now the outer covering of speaker, another mess */
 		-12px -410px 0 -22px #333,
 		-8px -410px 0 -22px #333,
@@ -352,7 +371,7 @@ a:hover {
 		16px -410px 0 -22px #333,
 		20px -410px 0 -22px #333,
 		24px -410px 0 -22px #333,
-		
+
 		-12px -410px 0 -18px #0a0a0a,
 		-9px -410px 0 -18px #0a0a0a,
 		-6px -410px 0 -18px #0a0a0a,
@@ -378,14 +397,14 @@ a:hover {
 	background: transparent;
 	top: 40px;
 	left: -7px;
-	
+
 	/* The shape is building up */
 	background-image:
 		/* This is going to be a long top to bottom linear gradient so see the output and code */
 		/* A final touch ;) */
 		linear-gradient(left, transparent 0px, transparent 1px, #7a7879 2px),
 		linear-gradient(top, #383838 1px, #b9b9b9 3px, #b9b9b9 10px, #383838 19px, #b9b9b9 23px, transparent 23px, transparent 53px, #383838 53px, #b9b9b9 54px, #dadada 58px, #383838 62px, black 62px, black 66px, #383838 66px, #b9b9b9 67px, #dadada 68px, #383838 70px, transparent 70px, transparent 100px, #383838 100px, #b9b9b9 101px, #dadada 105px, #383838 109px, black 109px, black 113px, #383838 113px, #b9b9b9 114px, #dadada 115px, #383838 117px);
-	
+
 }
 
 .iphone img {
@@ -395,25 +414,37 @@ a:hover {
 }
 
 .phone-bg {
-    margin-top: 10px;
-    padding-top: 60px;
-    background: url(http://siteapp.baidu.com/static/webappservice/pic/new-bg-mobile_dafd5fd.png) no-repeat 0 -10px;
-    height: 614px;
-    width: 332px;
-    margin-right: -10px;
-    position: relative;
-}
-.phone-bg .phone_display {
-    margin-left: 34px;
-    width: 272px;
-    height: 465px;
-    background-color: #fff;
+	margin-top: 10px;
+	padding-top: 60px;
+	background: url(http://siteapp.baidu.com/static/webappservice/pic/new-bg-mobile_dafd5fd.png) no-repeat 0 -10px;
+	height: 614px;
+	width: 332px;
+	margin-right: -10px;
+	position: relative;
 }
 
-.enlarged {
+.phone-bg .phone_display {
+	margin-left: 34px;
+	width: 272px;
+	height: 465px;
+	background-color: #fff;
+}
+
+.modal {
+	display: none;
 	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%) scale(2);
-	/* z-index: 1000; */
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-image {
+	display: block;
+	max-width: 90%;
+	max-height: 90%;
+	margin: auto;
+	margin-top: 5%;
 }

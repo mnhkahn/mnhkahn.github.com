@@ -93,6 +93,12 @@ func resourceHandler(ctx context.Context, r *protocol.ReadResourceRequest) (*pro
 }
 ```
 
+## 测试工具
+
+MCP官方提供的[Inspector](https://mcp-docs.cn/docs/tools/inspector)，支持本地部署调试，启动命令：
+
+	npx @modelcontextprotocol/inspector
+
 ![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1746452045/5d7de112-db70-44b6-8803-e11fe5fff54c.png)
 
 
