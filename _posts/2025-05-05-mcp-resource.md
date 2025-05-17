@@ -11,12 +11,12 @@ tags: ["AI","MCP", "Golang"]
 {:toc}
 ---
 
-## 概述
+### 概述
 MCP 协议提供了标准协议来让服务端向客户端暴露资源内容，例如文件、数据库，每个资源使用唯一标识`URI`来区分。
 
 本文介绍最新版本[2025-03-26](https://modelcontextprotocol.io/specification/2025-03-26/server/resources#https%3A%2F%2F)。
 
-## 协议消息
+### 协议消息
 
 - Listing Resources
 
@@ -38,13 +38,13 @@ MCP 协议提供了标准协议来让服务端向客户端暴露资源内容，�
 
 协议支持订阅资源变更，可以支持订阅指定资源当发生变更时会收到通知。
 
-## 数据流
+### 数据流
 
 ![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1746441901/8addd27e-4e07-4d59-a5b3-d5dd8a25f065.png)
 
-## 资源类型
+### 资源类型
 
-### 资源定义
+#### 资源定义
 
 - uri: 资源的唯一标识符
 - name: 资源的名称
@@ -52,18 +52,18 @@ MCP 协议提供了标准协议来让服务端向客户端暴露资源内容，�
 - mimeType: 【可选】资源的MIME类型，常见的有：`text/plain`、`text/html`、`image/jpeg`、`image/png`、`application/json`、`application/pdf`、`application/octet-stream`等
 - size: 【可选】资源大小，单位为字节
 
-### URI Scheme
+#### URI Scheme
 
 - https://
 - file://
 - git://
 
-### 错误码
+#### 错误码
 
 - 资源不存在: `-32002`
 - 内部错误：`-32603`
 
-## Go 实现
+### Go 实现
 
 ```go
 func registerAllGoResources(mcpServer *server.Server) {
@@ -93,11 +93,11 @@ func resourceHandler(ctx context.Context, r *protocol.ReadResourceRequest) (*pro
 }
 ```
 
-## 测试工具
+### 测试工具
 
 MCP官方提供的[Inspector](https://mcp-docs.cn/docs/tools/inspector)，支持本地部署调试，启动命令：
 
-	npx @modelcontextprotocol/inspector
+	npx @modelcontextprotocol/inspector https://www.cyeam.com/sse
 
 ![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1746452045/5d7de112-db70-44b6-8803-e11fe5fff54c.png)
 
