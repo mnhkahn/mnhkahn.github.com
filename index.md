@@ -1,14 +1,16 @@
 ---
 layout: page
 title: Cyeam
-tagline: 谁人没试过犹豫，达到理想不太易。
+tagline: 人生得意须尽欢，莫使金樽空对月。
 ---
+
 {% include JB/setup %}
 
 {% for post in site.posts %}
-	{% if forloop.index == 10 %}
-		{% break %}
-	{% endif %}
+{% if forloop.index == 10 %}
+{% break %}
+{% endif %}
+
 <div class="cyeam_post">
     <h2>
         <a id="{{post.title}}" href="{{post.url}}" target="_blank">
@@ -36,6 +38,7 @@ tagline: 谁人没试过犹豫，达到理想不太易。
         </a>
     </p>
     {% endif %}
+
 </div>
 <br>
 ---

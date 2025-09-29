@@ -1,39 +1,33 @@
 ---
 layout: page
 title: Cyeam
-tagline: 谁人没试过犹豫，达到理想不太易。
+tagline: 人生得意须尽欢，莫使金樽空对月。
 ---
-{% include JB/setup %}
 
-{% for post in site.posts %}
+{% include JB/setup %} {% for post in site.posts %}
 <div class="cyeam_post">
     <h2>
-        <a id="{{post.title}}" href="{{post.url}}" target="_blank">
-            {{post.title}}
-        </a>
+        <a id="{{post.title}}" href="{{post.url}}" target="_blank">{{post.title}}</a>
     </h2>
     <p class="date">
-        <span class="icon-calendar">
-        </span>
+        <span class="icon-calendar"></span>
         {{post.date|date: "%Y-%m-%d"}}
     </p>
     <p class="description">{{post.description}}</p>
 
     <p class="read-all">
         <a href="{{post.url}}" target="_blank">
-            <span class="icon-resize-full">
-            </span>
+            <span class="icon-resize-full"></span>
             阅读全文
         </a>
     </p>
     {% if post.figure %}
     <p class="figure center">
         <a href="{{post.url}}" target="_blank">
-            <img src="{{post.figure}}" alt="IMG-THUMBNAIL"/>
+            <img src="{{post.figure}}" alt="IMG-THUMBNAIL" />
         </a>
     </p>
     {% endif %}
 </div>
-<br>
----
-{% endfor %}
+<br />
+--- {% endfor %}
