@@ -25,13 +25,13 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshots/blog_wide.jpg",
+      "src": "/blog_wide.jpg",
       "sizes": "1280x720",
       "type": "image/jpg",
       "form_factor": "wide"
     },
     {
-      "src": "/screenshots/blog_mobile.jpg",
+      "src": "/blog_mobile.jpg",
       "sizes": "414x896",
       "type": "image/jpg"
     }
