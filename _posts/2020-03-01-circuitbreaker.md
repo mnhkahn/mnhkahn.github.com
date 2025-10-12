@@ -1,14 +1,15 @@
 ---
 layout: post
 title: "【Go实现】熔断机制"
-description: ""
-figure: "https://res.cloudinary.com/practicaldev/image/fetch/s--LDr4sIMX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/bk0c85is3c5767cc3qzt.png"
+description: "一文读懂 Go 语言熔断机制：原理、实现与核心细节"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1610534796/image.png"
 category: "Framework"
-tags: ["go","circuitbreaker"]
+tags: ["go", "circuitbreaker"]
 ---
 
-* 目录
-{:toc}
+-   目录
+    {:toc}
+
 ---
 
 ### 什么是熔断？
@@ -20,10 +21,10 @@ tags: ["go","circuitbreaker"]
 ### 原理
 
 1. 通常熔断器分为三个时期: CLOSED，OPEN，HALFOPEN
-2. RPC正常时，为CLOSED；
-3. 当RPC错误增多时，熔断器会被触发, 进入OPEN；
-4. OPEN后经过一定的冷却时间，熔断器变为HALFOPEN；
-5. HALFOPEN时会对下游进行一些有策略的访问, 然后根据结果决定是变为CLOSED，还是OPEN；
+2. RPC 正常时，为 CLOSED；
+3. 当 RPC 错误增多时，熔断器会被触发, 进入 OPEN；
+4. OPEN 后经过一定的冷却时间，熔断器变为 HALFOPEN；
+5. HALFOPEN 时会对下游进行一些有策略的访问, 然后根据结果决定是变为 CLOSED，还是 OPEN；
 
 总得来说三个状态的转换大致如下图：
 
@@ -36,16 +37,16 @@ tags: ["go","circuitbreaker"]
 #### IsAllowed 是否允许请求，根据当前状态判断
 
 ##### CLOSE 允许
-	
+
 ##### OPEN
-	
-- 在 CoolingTimeout 冷却时间内，不允许
-- 过了冷却时间，状态变为 HALFOPEN，允许访问
+
+-   在 CoolingTimeout 冷却时间内，不允许
+-   过了冷却时间，状态变为 HALFOPEN，允许访问
 
 ##### HALFOPEN
 
-- 在 DetectTimeout 检测时间内，允许访问
-- 否则不允许
+-   在 DetectTimeout 检测时间内，允许访问
+-   否则不允许
 
 ```
 atomic.StoreInt32((*int32)(&b.state), int32(HALFOPEN))
@@ -57,10 +58,9 @@ atomic.StoreInt32((*int32)(&b.state), int32(HALFOPEN))
 type TripFunc func(Metricser) bool
 ```
 
-
-- ThresholdTripFunc 错误阈值
-- ConsecutiveTripFunc 连续错误超过阈值
-- RateTripFunc 根据最少访问数和错误率判断
+-   ThresholdTripFunc 错误阈值
+-   ConsecutiveTripFunc 连续错误超过阈值
+-   RateTripFunc 根据最少访问数和错误率判断
 
 #### Metricser 访问统计，包括成功数、失败数、超时数、错误率、采样数、连续错误数
 
@@ -81,7 +81,6 @@ type Metricser interface {
    Reset()
 }
 ```
-
 
 ##### window 实现类
 
@@ -110,8 +109,7 @@ type bucket struct {
 }
 ```
 
-
-用环形队列实现动态统计。把一个连续的时间切成多个小份，每一个 bucket 保存 BucketTime 的统计数据，BucketTime * BucketNums 是统计的时间区间。
+用环形队列实现动态统计。把一个连续的时间切成多个小份，每一个 bucket 保存 BucketTime 的统计数据，BucketTime \* BucketNums 是统计的时间区间。
 
 每 BucketTime，会有一个 bucket 过期
 
@@ -145,14 +143,11 @@ if w.latest >= w.bucketNums {
 type PanelStateChangeHandler func(key string, oldState, newState State, m Metricser)
 ```
 
-
 #### 缺陷
 
 1. 所有 breaker 公用同一个 BucketTime，统计周期不支持更新
 2. 冷却时间不支持动态更新
 
-
 ---
-
 
 {% include JB/setup %}
