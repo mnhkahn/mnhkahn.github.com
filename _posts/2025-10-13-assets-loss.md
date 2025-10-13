@@ -4,7 +4,7 @@ title: "资损常见治理思路"
 description: "总结了下资损常见的治理思路，包括一致性、卡单、幂等（重复执行无副作用）、合理性。"
 figure: "https://res.cloudinary.com/cyeam/image/upload/v1759926165/IMG_20251008_193818%20%286%29.png"
 category: "Monitor"
-tags: ["monitor", "fatal"]
+tags: ["Monitor", "fatal"]
 ---
 
 -   目录
