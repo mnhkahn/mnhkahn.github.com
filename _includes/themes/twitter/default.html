@@ -102,26 +102,13 @@
         <div class="content" id="content">
             {{ content }}
         </div>
-
-        <!--
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-           style="display:inline-block;width:728px;height:90px"
-           data-ad-client="ca-pub-1651120361108148"
-           data-ad-slot="4548335295"></ins>
-      <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
--->
-
-        <!-- <hr> -->
         <footer>
-            <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
-                with help from Jekyll Bootstrap and Twitter Bootstrap
-            </p>
-            <!-- 		<a rel="license" href="//creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="//purl.org/dc/terms/" href="//purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">Cyeam</span> by <a xmlns:cc="//creativecommons.org/ns#" href="www.cyeam.com" property="cc:attributionName" rel="cc:attributionURL">Bryce</a> is licensed under a <a rel="license" href="//creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
- -->
-            {% include JB/analytics %}
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }} with help from Jekyll Bootstrap and Twitter Bootstrap</p>
+                    {% include JB/analytics %}
+                </div>
+            </div>
         </footer>
         <script src="https://cdn.staticfile.net/translate.js/3.2.1/translate.js"></script>
         <script>
