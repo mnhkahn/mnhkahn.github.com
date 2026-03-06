@@ -103,12 +103,9 @@
             {{ content }}
         </div>
         <footer>
-            <div class="container-fluid">
-                <div class="row-fluid">
-                    <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }} with help from Jekyll Bootstrap and Twitter Bootstrap</p>
-                    {% include JB/analytics %}
-                </div>
-            </div>
+            <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }} with help from Jekyll Bootstrap and Twitter Bootstrap
+                {% include JB/analytics %}
+            </p>
         </footer>
         <script src="https://cdn.staticfile.net/translate.js/3.2.1/translate.js"></script>
         <script>
