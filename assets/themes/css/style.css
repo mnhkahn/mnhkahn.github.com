@@ -393,10 +393,3 @@ a:hover {
     height: 465px;
     background-color: #fff;
 }
-
-@media (max-width: 767px) {
-    .navbar-inner {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-}

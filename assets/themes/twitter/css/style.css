@@ -448,3 +448,10 @@ a:hover {
 	margin: auto;
 	margin-top: 5%;
 }
+
+@media (max-width: 767px) {
+    .navbar-inner {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
