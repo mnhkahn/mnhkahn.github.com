@@ -127,9 +127,7 @@
                 <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }} with help from Jekyll Bootstrap and Twitter Bootstrap {% include JB/analytics %}</p>
             </footer>
             <!-- 引入 Mermaid 核心库（指定稳定版本，避免兼容问题） -->
-            <script src="https://res.cloudinary.com/cyeam/raw/upload/v1772973335/mermaid.min.js"></script>
-
-            <!-- 解析 Markdown 中的 mermaid 代码块并渲染 -->
+            <script src="https://cdn.staticdelivr.com/npm/mermaid@11.12.2/dist/mermaid.min.js"></script>
             <script>
                 // 页面加载完成后执行
                 document.addEventListener("DOMContentLoaded", function () {
@@ -146,22 +144,25 @@
                         mermaidDiv.textContent = code;
                         // 替换原代码块（<pre><code>）为 mermaid 容器
                         block.parentElement.replaceWith(mermaidDiv);
+                        initImagePreview();
                     });
 
                     // 初始化 Mermaid（启用自动渲染）
                     mermaid.initialize({
                         startOnLoad: true,
-                        theme: "default", // 可选：forest/dark/neutral
+                        theme: "forest", // 可选：forest/dark/neutral
                         securityLevel: "loose", // 解决 GitHub Pages 可能的权限限制
                     });
                 });
             </script>
-            <script src="https://cdn.staticfile.net/translate.js/3.2.1/translate.js"></script>
+            <script src="https://www.cyeam.com/js/translate.js"></script>
             <script>
-                translate.selectLanguageTag.show = false; //不出现的select的选择语言
-                translate.service.use("client.edge"); //设置机器翻译服务通道
-                translate.setAutoDiscriminateLocalLanguage();
-                translate.execute();
+                document.addEventListener("DOMContentLoaded", function () {
+                    translate.selectLanguageTag.show = false; //不出现的select的选择语言
+                    translate.service.use("client.edge"); //设置机器翻译服务通道
+                    translate.setAutoDiscriminateLocalLanguage();
+                    translate.execute();
+                });
             </script>
         </div>
     </body>

@@ -1,7 +1,10 @@
 $(document).ready(function () {
+    initImagePreview();
+});
+
+function initImagePreview() {
     // 同时获取所有 img 和 svg 标签（使用 querySelectorAll 支持多选择器）
     const elements = document.querySelectorAll("img, svg");
-
     // 遍历元素并为每个元素绑定点击事件
     elements.forEach(function (element) {
         element.onclick = function () {
@@ -9,8 +12,7 @@ $(document).ready(function () {
             showModal(element);
         };
     });
-});
-
+}
 function showModal(image) {
     var modal = document.getElementById("modal");
     var modalImage = document.getElementById("modal-image");
