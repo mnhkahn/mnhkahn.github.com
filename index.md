@@ -11,37 +11,32 @@ tagline: 人生得意须尽欢，莫使金樽空对月。
 {% break %}
 {% endif %}
 
-<div class="cyeam_post">
-    <h2>
+<div class="">
+    <h2 class="text-center">
         <a id="{{post.title}}" href="{{post.url}}" target="_blank">
             {{post.title}}
         </a>
     </h2>
-    <p class="date">
-        <span class="icon-calendar">
-        </span>
-        {{post.date|date: "%Y-%m-%d"}}
-    </p>
+    <div class="row">
+        <div class="col-6 text-start px-3">
+            <i class="fa-regular fa-calendar-days"></i>
+            {{post.date|date: "%Y-%m-%d"}}
+        </div>
+         <div class="col-6 text-end px-3">
+            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>阅读全文
+        </div>
+    </div>
     <p class="description">{{post.description}}</p>
-
-    <p class="read-all">
-        <a href="{{post.url}}" target="_blank">
-            <span class="icon-resize-full">
-            </span>
-            阅读全文
-        </a>
-    </p>
     {% if post.figure %}
-    <p class="figure center">
+    <div class="text-center">
         <a href="{{post.url}}" target="_blank">
-            <img src="{{post.figure}}" alt="IMG-THUMBNAIL"/>
+            <img src="{{post.figure}}" alt="IMG-THUMBNAIL" class="img-fluid"/>
         </a>
-    </p>
+    </div>
     {% endif %}
 
 </div>
-<br>
----
+<hr>
 {% endfor %}
 
 <center>

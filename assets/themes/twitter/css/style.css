@@ -186,11 +186,13 @@ body {
 
 /* image */
 img[alt="IMG-THUMBNAIL"] {
-    display: inline-block;
+    display: block !important;
     height: auto;
     max-height: 400px;
     max-width: 100%;
     padding: 4px;
+    margin-right: auto !important;
+    margin-left: auto !important;
     line-height: 1.428571429;
     background-color: #ffffff;
     border: 1px solid #dddddd;

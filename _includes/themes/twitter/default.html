@@ -2,6 +2,8 @@
 <html lang="en" xmlns:wb="http://open.weibo.com/wb">
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- 标准 Bootstrap 5 viewport -->
         <title>{{ page.title }}</title>
         {% if page.description %}
         <meta name="description" content="{{ page.description }}" />
@@ -9,43 +11,143 @@
         <meta name="description" content="大家好我是Bryce，从事后端工作10年了。关注Go语言开发，这里有后端开发常见工具、开发常见问题和解决思路，希望能帮助到大家。" />
         {% endif %}
         <meta name="author" content="{{ site.author.name }}" />
-
-        <!-- 修正：移除多余的</meta>结束标签，meta是自闭合标签 -->
         <meta name="google-translate-customization" content="a4136e955b3e09f2-45a74b56dc13e741-gf616ffda6e6360e0-11" />
 
-        <!-- Enable responsive viewport -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-        <!--[if lt IE 9]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-
-        <!-- Le styles -->
-        <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet" />
+        <!-- Bootstrap 5 CSS -->
+        <link href="https://cdn.staticdelivr.com/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/fd82d40e9b.js" crossorigin="anonymous"></script>
+        <!-- 自定义样式 -->
         <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all" />
 
         <!-- Le fav and touch icons -->
-        <!-- Update these with your own images -->
         <link rel="shortcut icon" href="/assets/images/c32.ico" />
-        <!--  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
 
         <!-- atom & rss feed -->
         <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed" />
         <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed" />
-        <link href="/assets/themes/css/myreward.css" rel="stylesheet" type="text/css" />
 
-        <!-- jQuery -->
-        <script src="//libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+        <!-- DocSearch -->
+        <link rel="stylesheet" href="https://cdn.staticdelivr.com/npm/@docsearch/css@3" />
+    </head>
+
+    <body>
+        <header class="p-1 text-bg-dark">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none me-md-auto d-none d-lg-block">
+                        <img src="https://res.cloudinary.com/cyeam/image/upload/v1537933515/cyeam/bryce.jpg" id="site-logo" style="width: 50px" alt="Cyeam Logo" />
+                    </a>
+                    <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li class="d-block d-lg-none">
+                            <a href="/" class="nav-link px-2 text-white"><b>HOME</b></a>
+                        </li>
+                        <li>
+                            <a href="//www.cyeam.com/tool/jsonpack" class="nav-link px-2 text-white"><b>开发工具</b></a>
+                        </li>
+                        <li>
+                            <a href="//www.cyeam.com/pin" class="nav-link px-2 text-white"><b>随记</b></a>
+                        </li>
+                        <li>
+                            <a href="//geek.cyeam.com/geek" class="nav-link px-2 text-white"><b>头条</b></a>
+                        </li>
+                        <li>
+                            <a href="//book.cyeam.com/book/go-optimize" class="nav-link px-2 text-white"><b>Go优化之路</b></a>
+                        </li>
+                    </ul>
+                    <div id="docsearch"></div>
+                    <script src="https://res.cloudinary.com/cyeam/raw/upload/v1749050388/static/docsearch3.js"></script>
+                    <link rel="stylesheet" href="https://res.cloudinary.com/cyeam/raw/upload/v1749050387/static/docsearch3.css" />
+                    <script type="text/javascript">
+                        docsearch({
+                            appId: "R0OU0JZTBA",
+                            apiKey: "745219c0c5e3e85de57e401368c82466",
+                            indexName: "man_cyeam_pages",
+                            container: "#docsearch",
+                            placeholder: "Golang优化之路",
+                            debug: true,
+                        });
+                    </script>
+                    <div id="translate"></div>
+                    <!-- 引入多语言切换的js -->
+                    <script src="https://www.cyeam.com/js/translate.js"></script>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            translate.selectLanguageTag.show = true; //不出现的select的选择语言
+                            translate.selectLanguageTag.languages = "chinese_simplified,english,japanese,korean,french,deutsch,chinese_traditional";
+                            translate.service.use("client.edge"); //设置机器翻译服务通道
+                            translate.setAutoDiscriminateLocalLanguage();
+                            translate.execute();
+                            document.getElementById("translateSelectLanguage").classList.add("form-select");
+                        });
+                    </script>
+                </div>
+            </div>
+        </header>
+
+        <div id="container" class="container-narrow opacity">
+            <div class="content" id="content">{{ content }}</div>
+
+            <footer class="d-flex flex-wrap justify-content-center align-items-center">
+                <div class="col-12 col-md-7 mb-0 text-body-secondary text-center text-md-start">
+                    <p class="copyright small mb-0">&copy; {{ site.time | date: '%Y' }} {{ site.author.name }} with help from Jekyll & Bootstrap {% include JB/analytics %}</p>
+                </div>
+                <div class="nav col-12 col-md-5 justify-content-center justify-content-lg-end">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a href="/calendar" class="nav-link px-2 text-body-secondary"><b>日历</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/about" class="nav-link px-2 text-body-secondary"><b>关于我</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="//www.cyeam.com/mcp/quickstart" class="nav-link px-2 text-body-secondary"><b>MCP</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://blog.cyeam.com/" class="nav-link px-2 text-body-secondary"><b>博客</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://blog.cyeam.com/ai/2026/03/14/medicine" class="nav-link px-2 text-body-secondary"><b>药不能停</b></a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+
+        <!-- 保留 jQuery (以防 cyeam.js 依赖) -->
+        <script src="https://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
         <script>
             !window.jQuery && document.write('<script src="/assets/js/jquery-1.7.2.min.js"><\/script>');
         </script>
         <script type="text/javascript" src="/assets/js/cyeam.js"></script>
 
-        <!-- google adsense -->
+        <!-- Bootstrap 5 JS Bundle (含 Popper) -->
+        <script src="https://cdn.staticdelivr.com/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Mermaid -->
+        <script src="https://cdn.staticdelivr.com/npm/mermaid@11.12.2/dist/mermaid.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const mermaidBlocks = document.querySelectorAll("pre code.language-mermaid");
+                mermaidBlocks.forEach((block) => {
+                    const code = block.textContent.trim();
+                    const mermaidDiv = document.createElement("div");
+                    mermaidDiv.className = "mermaid";
+                    mermaidDiv.textContent = code;
+                    block.parentElement.replaceWith(mermaidDiv);
+                    initImagePreview(); // 注意：确保 initImagePreview 已定义或在此之前加载
+                });
+
+                mermaid.initialize({
+                    startOnLoad: true,
+                    theme: "forest",
+                    securityLevel: "loose",
+                });
+            });
+        </script>
+
+        <!-- Google Adsense -->
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({
@@ -53,117 +155,5 @@
                 enable_page_level_ads: true,
             });
         </script>
-    </head>
-
-    <body>
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container-narrow">
-                    <div class="wrapperLogo hidden-phone visible-desktop" id="wrapperLogo" style="float: left; width: 80px">
-                        <a href="{{ HOME_PATH }}"><img src="/assets/images/logo.jpg" style="width: 50px" /></a>
-                    </div>
-                    <ul class="nav">
-                        <li>
-                            <a href="{{ HOME_PATH }}" class="hidden-desktop visible-phone">
-                                <span class="icon-home"></span>
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://book.cyeam.com/book/go-optimize?utm_source=blog">
-                                <span class="icon-th-list"></span>
-                                Go优化之路
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/categories.html">
-                                <span class="icon-th-list"></span>
-                                分类
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/archive.html">
-                                <span class="icon-ok"></span>
-                                归档
-                            </a>
-                        </li>
-                        <li>
-                            <a href="//www.cyeam.com/about">
-                                <span class="icon-th"></span>
-                                关于
-                            </a>
-                        </li>
-                        <!--<li><a href="/tags.html"><span class="icon-tags"></span> Tags</a></li> -->
-                        <!-- <li><a href="/pages.html"><span class="icon-th"></span> Pages</a></li> -->
-                        <!-- <li><a href="https://job.bytedance.com/2018/spring_referral/?token=QOXO%2BFcho1y6lW7s7iRCXg%3D%3D&key=MTkzMzksMjE0NjYsMTk5NTIsMjE2MjAsMjE3NDYsMTg2Nzk%3D"><span class="icon-comment"></span> 内推</a></li> -->
-                        <li><a href="/link.html">友链</a></li>
-                        <li>
-                            <div id="docsearch" style="margin-top: 5px"></div>
-                            <script src="https://cdn.staticdelivr.com/npm/@docsearch/js@3"></script>
-                            <!-- 修正：补充link标签的自闭合斜杠 -->
-                            <link rel="stylesheet" href="https://cdn.staticdelivr.com/npm/@docsearch/css@3" />
-                            <script type="text/javascript">
-                                docsearch({
-                                    appId: "R0OU0JZTBA",
-                                    apiKey: "745219c0c5e3e85de57e401368c82466",
-                                    indexName: "man_cyeam_pages",
-                                    container: "#docsearch",
-                                    placeholder: "Golang优化之路",
-                                    debug: true,
-                                });
-                            </script>
-                        </li>
-                        <!--{% assign pages_list = site.pages %}
-            {% assign group = 'navigation' %}
-            {% include JB/pages_list %}-->
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="container-narrow" class="container-narrow opacity">
-            <div class="content" id="content">{{ content }}</div>
-            <footer>
-                <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }} with help from Jekyll Bootstrap and Twitter Bootstrap {% include JB/analytics %}</p>
-            </footer>
-            <!-- 引入 Mermaid 核心库（指定稳定版本，避免兼容问题） -->
-            <script src="https://cdn.staticdelivr.com/npm/mermaid@11.12.2/dist/mermaid.min.js"></script>
-            <script>
-                // 页面加载完成后执行
-                document.addEventListener("DOMContentLoaded", function () {
-                    // 找到所有标注为 mermaid 的代码块
-                    const mermaidBlocks = document.querySelectorAll("pre code.language-mermaid");
-
-                    // 遍历每个代码块，替换为 mermaid 渲染容器
-                    mermaidBlocks.forEach((block) => {
-                        // 获取 mermaid 代码内容
-                        const code = block.textContent.trim();
-                        // 创建 mermaid 容器
-                        const mermaidDiv = document.createElement("div");
-                        mermaidDiv.className = "mermaid";
-                        mermaidDiv.textContent = code;
-                        // 替换原代码块（<pre><code>）为 mermaid 容器
-                        block.parentElement.replaceWith(mermaidDiv);
-                        initImagePreview();
-                    });
-
-                    // 初始化 Mermaid（启用自动渲染）
-                    mermaid.initialize({
-                        startOnLoad: true,
-                        theme: "forest", // 可选：forest/dark/neutral
-                        securityLevel: "loose", // 解决 GitHub Pages 可能的权限限制
-                    });
-                });
-            </script>
-            <script src="https://www.cyeam.com/js/translate.js"></script>
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    translate.selectLanguageTag.show = false; //不出现的select的选择语言
-                    translate.service.use("client.edge"); //设置机器翻译服务通道
-                    translate.setAutoDiscriminateLocalLanguage();
-                    translate.execute();
-                });
-            </script>
-        </div>
     </body>
 </html>
