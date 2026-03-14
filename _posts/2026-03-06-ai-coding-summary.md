@@ -46,4 +46,11 @@ AI编码近一年发展速度还是比较明显的，从之前代码都跑不通
 2. 前一步成功意味着基础的上下文和任务说清楚了，继续迭代提出新要求
     1. 在这个过程中我需要验证每次返回的结果，指出问题
 
+### 药不能停
+
+基于豆包的***专家***模式开发了提醒吃药工具，代码比较简单，发布在[GitHub](https://github.com/mnhkahn/medicine)。因为我也不会开发安卓，属于一步一步问的，比如这段代码应该放在哪个目录哪个文件，回答的都很靠谱。
+
+![IMG-THUMBNAIL](https://cdn-app-icon2.pgyer.com/f/0/1/7/c/f017c08f211fff9d8cd3c2fd3742090c?x-oss-process=image/resize,m_lfit,h_120,w_120/format,jpg)
+发布到了[蒲公英](https://www.pgyer.com/yaobunengting)，大家可以尝试使用。
+
 {% include JB/setup %}
