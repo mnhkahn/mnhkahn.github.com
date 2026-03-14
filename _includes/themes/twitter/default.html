@@ -124,26 +124,23 @@
 
         <!-- Bootstrap 5 JS Bundle (含 Popper) -->
         <script src="https://cdn.staticdelivr.com/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- 1. 引入 Prism.css（放在这里或 <head> 都可以） -->
+        <link href="https://cdn.staticdelivr.com/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
+        <script src="https://cdn.staticdelivr.com/npm/prismjs@1.29.0/prism.min.js"></script>
+        <script src="https://cdn.staticdelivr.com/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
         <!-- Mermaid -->
         <script src="https://cdn.staticdelivr.com/npm/mermaid@11.12.2/dist/mermaid.min.js"></script>
+        <script src="https://www.cyeam.com/js/util.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                const mermaidBlocks = document.querySelectorAll("pre code.language-mermaid");
-                mermaidBlocks.forEach((block) => {
-                    const code = block.textContent.trim();
-                    const mermaidDiv = document.createElement("div");
-                    mermaidDiv.className = "mermaid";
-                    mermaidDiv.textContent = code;
-                    block.parentElement.replaceWith(mermaidDiv);
-                    initImagePreview(); // 注意：确保 initImagePreview 已定义或在此之前加载
-                });
-
                 mermaid.initialize({
                     startOnLoad: true,
                     theme: "forest",
                     securityLevel: "loose",
                 });
+                const preview = document.getElementById("content");
+                const mermaidInitializer = new MermaidInitializer(preview);
             });
         </script>
 
