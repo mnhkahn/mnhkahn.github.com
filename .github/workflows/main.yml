@@ -1,8 +1,12 @@
 name: Watch Workflow Status
 on:
+  # 完全保留你原有的触发逻辑：Pages构建完成后触发
   workflow_run:
     workflows: [ "pages-build-deployment" ]
     types: [ completed ]
+  # 新增手动触发，方便测试配置是否正常（不需要可直接删除）
+  workflow_dispatch:
+
 env:
   # 飞书机器人Webhook，需提前在仓库Secrets中配置 LARK_BOT_WEBHOOK
   LARK_BOT_WEBHOOK: ${{ secrets.LARK_BOT_WEBHOOK }}
@@ -15,12 +19,12 @@ jobs:
       - id: prep
         uses: hocgin/action-env@main
 
-      - name: Feishu(Lark) Notification (Fix 10208 Error)
+      - name: Feishu(Lark) Notification
         run: |
-          # 定义部署状态文本
+          # 1. 预处理部署状态文本
           DEPLOY_STATUS="${{ github.event.workflow_run.conclusion == 'success' && '☀️ GitHub Pages 构建部署成功' || '🌧️ GitHub Pages 构建部署失败' }}"
           
-          # 构建飞书富文本内容（严格符合官方post格式规范）
+          # 2. 严格按照飞书官方规范，生成富文本二维数组内容（自动转义所有特殊字符，避免JSON损坏）
           POST_CONTENT=$(jq -n --compact-output \
             --arg repo_name "${{ steps.prep.outputs.repo_full_name }}" \
             --arg repo_url "${{ steps.prep.outputs.repo_html_url }}" \
@@ -43,20 +47,21 @@ jobs:
               [{"tag": "text", "text": "🔧 分支信息：\($source_branch) -> \($target_branch)", "style": {"color": "orange"}}],
               [{"tag": "text", "text": "🏆 版本信息：\($env) / \($version)", "style": {"color": "grey"}}],
               [{"tag": "text", "text": "📝 提交信息：\($commit_body)"}],
-              [{"tag": "a", "text": "👉 查看仓库详情", "href": $homepage}]
+              [{"tag": "a", "text": "查看仓库详情", "href": $homepage}]
             ]
             '
           )
 
-          # 生成完全符合飞书官方规范的请求体
+          # 3. 生成完全符合飞书官方规范的请求体，零格式错误
           REQUEST_BODY=$(jq -n \
+            --arg title "GitHub Pages 部署通知" \
             --argjson content "$POST_CONTENT" \
             '{
               "msg_type": "post",
               "content": {
                 "post": {
                   "zh_cn": {
-                    "title": "GitHub Pages 部署通知",
+                    "title": $title,
                     "content": $content
                   }
                 }
@@ -64,7 +69,11 @@ jobs:
             }'
           )
 
-          # 发送通知到飞书Webhook
+          # 4. 打印请求体（可在Actions日志中查看，方便排查问题）
+          echo "=== 飞书请求体 ==="
+          echo "$REQUEST_BODY"
+
+          # 5. 发送通知到飞书Webhook
           curl -X POST \
             -H "Content-Type: application/json" \
             -d "$REQUEST_BODY" \
