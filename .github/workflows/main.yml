@@ -1,38 +1,54 @@
 name: Watch Workflow Status
 on:
-  # 完全保留你原有的触发逻辑：Pages构建部署完成后触发
   workflow_run:
     workflows: [ "pages-build-deployment" ]
     types: [ completed ]
 env:
-  # 飞书机器人Webhook，需在仓库Secrets中配置 LARK_BOT_WEBHOOK
+  # 改为飞书机器人的 Webhook 地址（需在 Secrets 中配置 LARK_BOT_WEBHOOK）
   LARK_BOT_WEBHOOK: ${{ secrets.LARK_BOT_WEBHOOK }}
-  # 若机器人开启了签名校验，需配置此项，无签名可直接删除
-  LARK_BOT_SECRET: ${{ secrets.LARK_BOT_SECRET }}
 
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      # 完全复用你原有的环境信息提取步骤，所有变量100%兼容，无需修改
       - id: prep
         uses: hocgin/action-env@main
 
-      # 飞书通知步骤，替换原企业微信通知
-      - name: Feishu(Lark) Notification
-        uses: actions-cool/feishu-notice@v3
-        with:
-          webhook: ${{ env.LARK_BOT_WEBHOOK }}
-          secret: ${{ env.LARK_BOT_SECRET }} # 无签名校验可删除此行
-          msgtype: markdown
-          # 适配飞书Markdown语法，保留所有原有信息，优化Pages场景文案
-          content: |
-            **【[${{ steps.prep.outputs.repo_full_name }}](${{ steps.prep.outputs.repo_html_url }})】**
-            ${{ github.event.workflow_run.conclusion == 'success' && '☀️ GitHub Pages 构建部署成功' || '🌧️ GitHub Pages 构建部署失败' }}
-            🏃 触发人：[@${{ steps.prep.outputs.sender }}](${{ steps.prep.outputs.sender_html_url }})
-            🕐 触发时间：<span style="color:grey;">${{ steps.prep.outputs.action_trigger_at }}</span>
-            🔧 分支信息：<span style="color:orange;">${{ steps.prep.outputs.source_branch || '∅' }} -> ${{ steps.prep.outputs.target_branch || '∅' }}</span>
-            🏆 版本信息：<span style="color:grey;">${{ steps.prep.outputs.env || '未知版本' }} / ${{ steps.prep.outputs.version || '未知版本' }}</span>
-            📝 提交信息：${{ steps.prep.outputs.commit_body }}
-
-            [查看仓库详情](${{ steps.prep.outputs.repo_homepage || steps.prep.outputs.repo_html_url }})
+      - name: Send Lark notification
+        env:
+          LARK_WEBHOOK: ${{ env.LARK_BOT_WEBHOOK }}
+        run: |
+          # 使用 jq 安全构建飞书 post 消息
+          jq -n \
+            --arg repo_full_name "${{ steps.prep.outputs.repo_full_name }}" \
+            --arg repo_html_url "${{ steps.prep.outputs.repo_html_url }}" \
+            --arg conclusion "${{ github.event.workflow_run.conclusion }}" \
+            --arg sender "${{ steps.prep.outputs.sender }}" \
+            --arg sender_html_url "${{ steps.prep.outputs.sender_html_url }}" \
+            --arg action_trigger_at "${{ steps.prep.outputs.action_trigger_at }}" \
+            --arg source_branch "${{ steps.prep.outputs.source_branch }}" \
+            --arg target_branch "${{ steps.prep.outputs.target_branch }}" \
+            --arg env "${{ steps.prep.outputs.env }}" \
+            --arg version "${{ steps.prep.outputs.version }}" \
+            --arg commit_body "${{ steps.prep.outputs.commit_body }}" \
+            --arg repo_homepage "${{ steps.prep.outputs.repo_homepage }}" \
+            '{
+              msg_type: "post",
+              content: {
+                post: {
+                  zh_cn: {
+                    title: "工作流执行通知",
+                    content: [
+                      [ { tag: "a", text: "【\($repo_full_name)】", href: $repo_html_url } ],
+                      [ { tag: "text", text: (if $conclusion == "success" then "☀️☀️☀️☀️☀️" else "🌧️🌧️🌧️🌧️🌧️" end) } ],
+                      [ { tag: "a", text: "@\($sender)", href: $sender_html_url } ],
+                      [ { tag: "text", text: "🕐 \($action_trigger_at)" } ],
+                      [ { tag: "text", text: "🔧 \($source_branch // "∅") -> \($target_branch // "∅")" } ],
+                      [ { tag: "text", text: "🏆 \($env // "未知版本") / \($version // "未知版本")" } ],
+                      [ { tag: "text", text: "📝 提交信息: \($commit_body // "")" } ],
+                      [ { tag: "a", text: "查看更多", href: ($repo_homepage // $repo_html_url) } ]
+                    ]
+                  }
+                }
+              }
+            }' | curl -X POST -H "Content-Type: application/json" -d @- $LARK_WEBHOOK
