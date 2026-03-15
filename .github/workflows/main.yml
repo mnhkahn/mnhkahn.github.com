@@ -1,80 +1,38 @@
 name: Watch Workflow Status
 on:
-  # 完全保留你原有的触发逻辑：Pages构建完成后触发
+  # 完全保留你原有的触发逻辑：Pages构建部署完成后触发
   workflow_run:
     workflows: [ "pages-build-deployment" ]
     types: [ completed ]
-  # 新增手动触发，方便测试配置是否正常（不需要可直接删除）
-  workflow_dispatch:
-
 env:
-  # 飞书机器人Webhook，需提前在仓库Secrets中配置 LARK_BOT_WEBHOOK
+  # 飞书机器人Webhook，需在仓库Secrets中配置 LARK_BOT_WEBHOOK
   LARK_BOT_WEBHOOK: ${{ secrets.LARK_BOT_WEBHOOK }}
+  # 若机器人开启了签名校验，需配置此项，无签名可直接删除
+  LARK_BOT_SECRET: ${{ secrets.LARK_BOT_SECRET }}
 
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      # 完全复用你原有的环境信息提取步骤，所有变量100%兼容
+      # 完全复用你原有的环境信息提取步骤，所有变量100%兼容，无需修改
       - id: prep
         uses: hocgin/action-env@main
 
+      # 飞书通知步骤，替换原企业微信通知
       - name: Feishu(Lark) Notification
-        run: |
-          # 1. 预处理部署状态文本
-          DEPLOY_STATUS="${{ github.event.workflow_run.conclusion == 'success' && '☀️ GitHub Pages 构建部署成功' || '🌧️ GitHub Pages 构建部署失败' }}"
-          
-          # 2. 严格按照飞书官方规范，生成富文本二维数组内容（自动转义所有特殊字符，避免JSON损坏）
-          POST_CONTENT=$(jq -n --compact-output \
-            --arg repo_name "${{ steps.prep.outputs.repo_full_name }}" \
-            --arg repo_url "${{ steps.prep.outputs.repo_html_url }}" \
-            --arg status "$DEPLOY_STATUS" \
-            --arg sender "${{ steps.prep.outputs.sender }}" \
-            --arg sender_url "${{ steps.prep.outputs.sender_html_url }}" \
-            --arg trigger_at "${{ steps.prep.outputs.action_trigger_at }}" \
-            --arg source_branch "${{ steps.prep.outputs.source_branch || '∅' }}" \
-            --arg target_branch "${{ steps.prep.outputs.target_branch || '∅' }}" \
-            --arg env "${{ steps.prep.outputs.env || '未知版本' }}" \
-            --arg version "${{ steps.prep.outputs.version || '未知版本' }}" \
-            --arg commit_body "${{ steps.prep.outputs.commit_body }}" \
-            --arg homepage "${{ steps.prep.outputs.repo_homepage || steps.prep.outputs.repo_html_url }}" \
-            '
-            [
-              [{"tag": "a", "text": "【\($repo_name)】", "href": $repo_url, "style": {"bold": true}}],
-              [{"tag": "text", "text": $status, "style": {"bold": true}}],
-              [{"tag": "text", "text": "🏃 触发人："}, {"tag": "a", "text": "@\($sender)", "href": $sender_url}],
-              [{"tag": "text", "text": "🕐 触发时间：\($trigger_at)", "style": {"color": "grey"}}],
-              [{"tag": "text", "text": "🔧 分支信息：\($source_branch) -> \($target_branch)", "style": {"color": "orange"}}],
-              [{"tag": "text", "text": "🏆 版本信息：\($env) / \($version)", "style": {"color": "grey"}}],
-              [{"tag": "text", "text": "📝 提交信息：\($commit_body)"}],
-              [{"tag": "a", "text": "查看仓库详情", "href": $homepage}]
-            ]
-            '
-          )
+        uses: actions-cool/feishu-notice@v3
+        with:
+          webhook: ${{ env.LARK_BOT_WEBHOOK }}
+          secret: ${{ env.LARK_BOT_SECRET }} # 无签名校验可删除此行
+          msgtype: markdown
+          # 适配飞书Markdown语法，保留所有原有信息，优化Pages场景文案
+          content: |
+            **【[${{ steps.prep.outputs.repo_full_name }}](${{ steps.prep.outputs.repo_html_url }})】**
+            ${{ github.event.workflow_run.conclusion == 'success' && '☀️ GitHub Pages 构建部署成功' || '🌧️ GitHub Pages 构建部署失败' }}
+            🏃 触发人：[@${{ steps.prep.outputs.sender }}](${{ steps.prep.outputs.sender_html_url }})
+            🕐 触发时间：<span style="color:grey;">${{ steps.prep.outputs.action_trigger_at }}</span>
+            🔧 分支信息：<span style="color:orange;">${{ steps.prep.outputs.source_branch || '∅' }} -> ${{ steps.prep.outputs.target_branch || '∅' }}</span>
+            🏆 版本信息：<span style="color:grey;">${{ steps.prep.outputs.env || '未知版本' }} / ${{ steps.prep.outputs.version || '未知版本' }}</span>
+            📝 提交信息：${{ steps.prep.outputs.commit_body }}
 
-          # 3. 生成完全符合飞书官方规范的请求体，零格式错误
-          REQUEST_BODY=$(jq -n \
-            --arg title "GitHub Pages 部署通知" \
-            --argjson content "$POST_CONTENT" \
-            '{
-              "msg_type": "post",
-              "content": {
-                "post": {
-                  "zh_cn": {
-                    "title": $title,
-                    "content": $content
-                  }
-                }
-              }
-            }'
-          )
-
-          # 4. 打印请求体（可在Actions日志中查看，方便排查问题）
-          echo "=== 飞书请求体 ==="
-          echo "$REQUEST_BODY"
-
-          # 5. 发送通知到飞书Webhook
-          curl -X POST \
-            -H "Content-Type: application/json" \
-            -d "$REQUEST_BODY" \
-            "$LARK_BOT_WEBHOOK"
+            [查看仓库详情](${{ steps.prep.outputs.repo_homepage || steps.prep.outputs.repo_html_url }})
