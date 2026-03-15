@@ -87,6 +87,65 @@ jobs:
 3. on/workflow_run 指在部署完成后执行这个脚本，`workflows`里的`Fly Deploy`是前面第一步的工作流名称，如果你用的不是fly，按照自己情况修改；
 4. jobs 复用了`chf007/action-wechat-work@master`包的能力，发送markdown格式的消息，能使用的变量可以参考这个[文件](https://github.com/hocgin/action-env/blob/main/action.yml)。
 
+## 飞书通知
+
+```
+name: Watch Workflow Status
+on:
+  workflow_run:
+    workflows: [ "Fly Deploy" ]
+    types: [ completed ]
+env:
+  # 飞书机器人 Webhook 地址（需在 Secrets 中配置 LARK_BOT_WEBHOOK）
+  LARK_BOT_WEBHOOK: ${{ secrets.LARK_BOT_WEBHOOK }}
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - id: prep
+        uses: hocgin/action-env@main
+
+      - name: Send Lark notification
+        env:
+          LARK_WEBHOOK: ${{ env.LARK_BOT_WEBHOOK }}
+        run: |
+          # 使用 jq 构建飞书 post 消息
+          jq -n \
+            --arg repo_full_name "${{ steps.prep.outputs.repo_full_name }}" \
+            --arg repo_html_url "${{ steps.prep.outputs.repo_html_url }}" \
+            --arg conclusion "${{ github.event.workflow_run.conclusion }}" \
+            --arg sender "${{ steps.prep.outputs.sender }}" \
+            --arg sender_html_url "${{ steps.prep.outputs.sender_html_url }}" \
+            --arg action_trigger_at "${{ steps.prep.outputs.action_trigger_at }}" \
+            --arg source_branch "${{ steps.prep.outputs.source_branch }}" \
+            --arg target_branch "${{ steps.prep.outputs.target_branch }}" \
+            --arg env "${{ steps.prep.outputs.env }}" \
+            --arg version "${{ steps.prep.outputs.version }}" \
+            --arg commit_body "${{ steps.prep.outputs.commit_body }}" \
+            --arg repo_homepage "${{ steps.prep.outputs.repo_homepage }}" \
+            '{
+              msg_type: "post",
+              content: {
+                post: {
+                  zh_cn: {
+                    title: "Cyeam站点部署通知（Fly Deploy）",
+                    content: [
+                      [ { tag: "a", text: "【\($repo_full_name)】", href: $repo_html_url } ],
+                      [ { tag: "text", text: (if $conclusion == "success" then "☀️☀️☀️☀️☀️" else "🌧️🌧️🌧️🌧️🌧️" end) } ],
+                      [ { tag: "a", text: "@\($sender)", href: $sender_html_url } ],
+                      [ { tag: "text", text: "🕐 \($action_trigger_at)" } ],
+                      [ { tag: "text", text: "🔧 \($source_branch // "∅") -> \($target_branch // "∅")" } ],
+                      [ { tag: "text", text: "🏆 \($env // "未知版本") / \($version // "未知版本")" } ],
+                      [ { tag: "text", text: "📝 提交信息: \($commit_body // "")" } ],
+                      [ { tag: "a", text: "查看更多", href: ($repo_homepage // $repo_html_url) } ]
+                    ]
+                  }
+                }
+              }
+            }' | curl -X POST -H "Content-Type: application/json" -d @- $LARK_WEBHOOK
+```
+
 ---
 
 
