@@ -4,7 +4,7 @@ on:
     workflows: [ "pages-build-deployment" ]
     types: [ completed ]
 env:
-  WECHAT_WORK_BOT_WEBHOOK: ${{secrets.WECHAT_WORK_BOT_WEBHOOK}}
+  LARK_BOT_WEBHOOK: ${{ secrets.LARK_BOT_WEBHOOK }}
 
 jobs:
   notify:
@@ -12,19 +12,36 @@ jobs:
     steps:
       - id: prep
         uses: hocgin/action-env@main
-      - name: WeChat Work Notification
-        uses: chf007/action-wechat-work@master
-        env:
-          WECHAT_WORK_BOT_WEBHOOK: ${{env.WECHAT_WORK_BOT_WEBHOOK}}
-        with:
-          msgtype: markdown
-          content: "**【[${{ steps.prep.outputs.repo_full_name }}](${{ steps.prep.outputs.repo_html_url }})】** \n
-          📌 ${{ github.event.workflow_run.conclusion == 'success' && '☀️☀️☀️☀️☀️' || '🌧️🌧️🌧️🌧️🌧️' }} \n
-          🏃 [@${{ steps.prep.outputs.sender }}](${{ steps.prep.outputs.sender_html_url }})\n
-          🕐 <font color=\"comment\">${{ steps.prep.outputs.action_trigger_at }}</font> \n
-          🔧 <font color=\"warning\">${{ steps.prep.outputs.source_branch || '∅' }} -> ${{ steps.prep.outputs.target_branch || '∅' }}</font> \n
-          🏆 <font color=\"comment\">${{ steps.prep.outputs.env || '未知版本' }} / ${{ steps.prep.outputs.version || '未知版本' }}</font> \n
-          📝 提交信息: ${{ steps.prep.outputs.commit_body }} \n
-          \n
-          [查看更多](${{ steps.prep.outputs.repo_homepage || steps.prep.outputs.repo_html_url }})
-          "
+
+      - name: Feishu(Lark) Notification via Native Curl
+        run: |
+          # 构建飞书Markdown消息内容，完全保留原有字段
+          MESSAGE_CONTENT=$(cat << EOF
+          **【[${{ steps.prep.outputs.repo_full_name }}](${{ steps.prep.outputs.repo_html_url }})】**
+          ${{ github.event.workflow_run.conclusion == 'success' && '☀️ GitHub Pages 构建部署成功' || '🌧️ GitHub Pages 构建部署失败' }}
+          🏃 触发人：[@${{ steps.prep.outputs.sender }}](${{ steps.prep.outputs.sender_html_url }})
+          🕐 触发时间：<span style="color:grey;">${{ steps.prep.outputs.action_trigger_at }}</span>
+          🔧 分支信息：<span style="color:orange;">${{ steps.prep.outputs.source_branch || '∅' }} -> ${{ steps.prep.outputs.target_branch || '∅' }}</span>
+          🏆 版本信息：<span style="color:grey;">${{ steps.prep.outputs.env || '未知版本' }} / ${{ steps.prep.outputs.version || '未知版本' }}</span>
+          📝 提交信息：${{ steps.prep.outputs.commit_body }}
+
+          [查看仓库详情](${{ steps.prep.outputs.repo_homepage || steps.prep.outputs.repo_html_url }})
+          EOF
+          )
+
+          # 生成符合飞书API规范的请求体，自动处理特殊字符转义
+          REQUEST_BODY=$(jq -n \
+            --arg content "$MESSAGE_CONTENT" \
+            '{
+              "msg_type": "markdown",
+              "content": {
+                "markdown": { "text": $content }
+              }
+            }'
+          )
+
+          # 发送通知到飞书机器人
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d "$REQUEST_BODY" \
+            "$LARK_BOT_WEBHOOK"
