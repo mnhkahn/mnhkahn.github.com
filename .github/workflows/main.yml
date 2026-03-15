@@ -37,7 +37,7 @@ jobs:
               content: {
                 post: {
                   zh_cn: {
-                    title: "工作流执行通知",
+                    title: "Cyeam博客更新通知",
                     content: [
                       [ { tag: "a", text: "【\($repo_full_name)】", href: $repo_html_url } ],
                       [ { tag: "text", text: (if $conclusion == "success" then "☀️☀️☀️☀️☀️" else "🌧️🌧️🌧️🌧️🌧️" end) } ],
