@@ -11,13 +11,13 @@ tagline: 人生得意须尽欢，莫使金樽空对月。
 {% break %}
 {% endif %}
 
-<div class="">
+<div>
     <h2 class="text-center">
         <a id="{{post.title}}" href="{{post.url}}" target="_blank">
             {{post.title}}
         </a>
     </h2>
-    <div class="row">
+    <div class="row gx-0">
         <div class="col-6 text-start px-3">
             <i class="fa-regular fa-calendar-days"></i>
             {{post.date|date: "%Y-%m-%d"}}
