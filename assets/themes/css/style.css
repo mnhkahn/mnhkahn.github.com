@@ -4,7 +4,9 @@
   max-width: 750px;
   background-color: #ffffff;
   border-radius: 3px;
-  padding: 5px; }
+  padding: 5px;
+  box-sizing: border-box
+}
 
 .container-narrow > hr {
   margin: 0px auto; }
