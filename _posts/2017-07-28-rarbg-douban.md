@@ -14,7 +14,7 @@ tags: ["rarbg","douban"]
 
 ### 效果图
 
-![mark](https://res.cloudinary.com/cyeam/image/upload/v1537938730/cyeam/9090jkikKD.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537938730/cyeam/9090jkikKD.png)
 
 ### 安装方法
 
