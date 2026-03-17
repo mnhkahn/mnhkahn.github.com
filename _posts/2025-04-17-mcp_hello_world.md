@@ -187,7 +187,7 @@ VSCode安装插件Cline，登录，配置MCP服务器。Trae也支持了，在AI
 
 输入问题：「告诉我北京时间」，等待即可。
 
-![](https://res.cloudinary.com/cyeam/image/upload/v1744899675/%E6%88%AA%E5%B1%8F2025-04-17_22.20.39_s2frsr.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1744899675/%E6%88%AA%E5%B1%8F2025-04-17_22.20.39_s2frsr.png)
 
 ## 最后
 
