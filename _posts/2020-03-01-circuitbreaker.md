@@ -28,7 +28,7 @@ tags: ["go", "circuitbreaker"]
 
 总得来说三个状态的转换大致如下图：
 
-![](https://res.cloudinary.com/practicaldev/image/fetch/s--LDr4sIMX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/bk0c85is3c5767cc3qzt.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/practicaldev/image/fetch/s--LDr4sIMX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/bk0c85is3c5767cc3qzt.png)
 
 ### Go 实现
 

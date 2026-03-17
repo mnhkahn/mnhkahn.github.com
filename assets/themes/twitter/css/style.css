@@ -168,22 +168,6 @@ ol {
     src: url("founder.TTF");
 }
 
-body {
-    /*background: url(http://lh4.ggpht.com/bd7y0XYFjqg44W4idK30rW_XeuMLMKUcx5yWF-ro9ctTtpeiRU8FVMLsa-8NrWPIo5GQ7AdR5k_V63ay_GJ3PMnjWpElml-WFuBTNmlO) center;*/
-    /*background-repeat: no-repeat;*/
-
-    /* Auto 100% */
-    /*	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
-    -moz-background-size:100% 100%;
-    background-size:100% 100%;
-*/
-    /*background-attachment: fixed;*/
-
-    /*	font-family: founder;
-	line-height: 20px;
-	color: #333333;*/
-}
-
 /* image */
 img[alt="IMG-THUMBNAIL"] {
     display: block !important;
@@ -455,6 +439,7 @@ table td {
     border: 1px solid #ddd; /* 浅灰色边框（GitHub 风格） */
     padding: 8px 12px; /* 单元格内边距，内容不贴边 */
     text-align: left; /* 文本左对齐（可改 center/right） */
+    word-break: break-word;
 }
 
 /* 表头样式：背景色、加粗 */

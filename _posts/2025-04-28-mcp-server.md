@@ -134,6 +134,6 @@ func main() {
 命令：`使用mcp服务告诉我北京时间`。
 
 结果：
-![](https://res.cloudinary.com/cyeam/image/upload/v1745852839/1753e5c1-0453-47e4-8202-85d51d05d8e5.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1745852839/1753e5c1-0453-47e4-8202-85d51d05d8e5.png)
 
 {% include JB/setup %}
