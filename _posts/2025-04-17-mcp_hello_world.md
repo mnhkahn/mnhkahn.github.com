@@ -28,7 +28,7 @@ Model Context Protocol (MCP)是一个开源协议，正如 USB-C 为将你的设
 
 MCP协议支持两种数据通信方式：
 
-![](https://res.cloudinary.com/cyeam/image/upload/v1744897827/640.webp_az9ha1.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1744897827/640.webp_az9ha1.png)
 
 1. 本地通信
 	- 对于本地进程，使用stdio传输方式，就是常见的进程输入输出；
