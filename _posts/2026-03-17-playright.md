@@ -12,6 +12,13 @@ tags: ["CSS", "Tool", "Mobile"]
 
 ---
 
+按照依赖包：
+
+```
+npm install playwright --save
+npx playwright install
+```
+
 保存下面的脚本，用命令`node scan.js`运行即可。
 
 ```node

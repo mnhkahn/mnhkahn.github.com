@@ -53,8 +53,6 @@ tags: ["Golang","optimize","tool"]
 
 ### 实现
 
-![IMG-THUMBNAIL](https://wikimedia.org/api/rest_v1/media/math/render/svg/deecd5b1f0f921ae95f5df9521b1846f8f9e2ee3)
-
 	import "math"
 	
 	func Encode(k1, k2 uint64) uint64 {
@@ -65,11 +63,6 @@ tags: ["Golang","optimize","tool"]
 	
 		return pair
 	}
-	
-+ ![IMG-THUMBNAIL](https://wikimedia.org/api/rest_v1/media/math/render/svg/daa8d22b2942b099d4be50c2991eebdaaf700487)
-+ ![IMG-THUMBNAIL](https://wikimedia.org/api/rest_v1/media/math/render/svg/a5ea840fb429ed04261f8ab3a3b095a6ae1b66a9)
-+ ![IMG-THUMBNAIL](https://wikimedia.org/api/rest_v1/media/math/render/svg/e3827ff2a4b59fa136c4076bd81eca3b9e7f3313)
-+ ![IMG-THUMBNAIL](https://wikimedia.org/api/rest_v1/media/math/render/svg/6373c7017075ef6a24a68995c10b564a2e5eccf6)
 
 	func Decode(pair uint64) (uint64, uint64) {
 		w := math.Floor((math.Sqrt(float64(8*pair+1)) - 1) / 2)

@@ -2,7 +2,7 @@
 layout: post
 title: "【Go实现】熔断机制"
 description: "一文读懂 Go 语言熔断机制：原理、实现与核心细节"
-figure: "https://res.cloudinary.com/cyeam/image/upload/v1610534796/image.png"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1773795225/clipboard_1773795222320_vj2qg21fz.webp"
 category: "Framework"
 tags: ["go", "circuitbreaker"]
 ---
@@ -16,8 +16,6 @@ tags: ["go", "circuitbreaker"]
 
 熔断是指在下游发生错误时上游主动关闭或限制对下游的请求。
 
-![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1610534796/image.png)
-
 ### 原理
 
 1. 通常熔断器分为三个时期: CLOSED，OPEN，HALFOPEN
@@ -28,7 +26,7 @@ tags: ["go", "circuitbreaker"]
 
 总得来说三个状态的转换大致如下图：
 
-![IMG-THUMBNAIL](https://res.cloudinary.com/practicaldev/image/fetch/s--LDr4sIMX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/bk0c85is3c5767cc3qzt.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1773795225/clipboard_1773795222320_vj2qg21fz.webp)
 
 ### Go 实现
 

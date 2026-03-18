@@ -11,9 +11,9 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 
 #####音视频采集，压缩，发送，解码，显示的流程
 
-![系统流程图](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
 
-#####1. 流媒体编码
+##### 1. 流媒体编码
 视频采集可以直接使用硬件编码，而解码需要使用到软件解码。使用开源的C库FFmpeg进行解码。
 这是比较熟悉的一个部分，之前做过，而且用JNI调用成功了`hello, world`。。。现在考虑去Github找，使用开源的编译好的库。
 
@@ -22,7 +22,7 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 + [havlenapetr / FFMpeg](https://github.com/havlenapetr/FFMpeg)
 + [halfninja / android-ffmpeg-x264](https://github.com/halfninja/android-ffmpeg-x264)
 
-#####2. 流媒体传输
+##### 2. 流媒体传输
 将采集到的音视频分别进行传输。_ref_AndroidRTC里面只有c的源文件，没有编译好的动态链接库。可能还需要自己编译。
 
 **流媒体传输用的RTSP协议，有一个开源的实现libstreaming，还有一个封装了该库的ipcamera实现spydroid-ipcamera。大概看了一下代码，RTSP封装难度应该也不大，到时候可以自行尝试封装。**
@@ -34,7 +34,7 @@ tags: ["Postgraduate design", "Android", "RTP", "FFmpeg", "SIP", "Evaluate"]
 + [**fyhertz / spydroid-ipcamera**  ](https://github.com/fyhertz/spydroid-ipcamera)
 
 
-#####3. SIP(Session Initiation Protocol)
+##### 3. SIP(Session Initiation Protocol)
 这块因为我想部署到GAE上面，所以不能使用C++，考虑使用Java的开源库。此外，还要调研GAE上面执行C++动态链接库的可行性。
 
 **原本打算在GAE开发SIP服务器的，天真了。。。后来找到了opensips，这是用C语言开发的，可以完全支持SIP协议。而且还有支持在线管理opensips的应用SerMyAdmin。**
@@ -57,7 +57,7 @@ jitsi感觉太过成熟，先放弃使用。如果能移植到GAE，以后可以
 + [**SerMyAdmin**](http://sourceforge.net/projects/sermyadmin/)
 
 
-#####开发流程
+##### 开发流程
 + [Android Quick Start](https://blog.cyeam.com/postgraduate/2014/02/05/android_quickstart)
 + SIP Sip注册和建立通信
 + RTSP 双通道通信传输
@@ -68,12 +68,12 @@ jitsi感觉太过成熟，先放弃使用。如果能移植到GAE，以后可以
 
 ---
 
-######*开发环境*
+###### *开发环境*
 + Nexus 7
     + Android version **4.4.2**
     + Kernel version **3.4.0-gac9222c**
 
-    ![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/nexus%207.jpg)
+    ![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933559/cyeam/nexus_7.jpg)
 
 + Java
 
