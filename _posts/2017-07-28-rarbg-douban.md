@@ -3,7 +3,7 @@ layout: post
 title: "开发了一个rarbg插件"
 description: "可以支持在电影列表展示中文标题和豆瓣评分"
 category: "kaleidoscope"
-figure: "https://img3.doubanio.com/f/sns/19886d443852bee48de2ed91f4a3bdfdaf8c809c/pics/nav/logo_db.png"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1773804668/R-C.webp"
 tags: ["rarbg","douban"]
 ---
 
