@@ -101,7 +101,7 @@ func (b *Builder) String() string {
 
 > 从 ptype 输出的结构来看，string 可看做 [2]uintptr，而 [ ]byte 则是 [3]uintptr，这便于我们编写代码，无需额外定义结构类型。如此，str2bytes 只需构建 [3]uintptr{ptr, len, len}，而 bytes2str 更简单，直接转换指针类型，忽略掉 cap 即可。
 
-![](https://segmentfault.com/img/bVvaxk)
+![IMG-THUMBNAIL](https://segmentfault.com/img/bVvaxk)
 
 详细可以参考雨痕的[【Go性能优化技巧 1/10】](https://segmentfault.com/a/1190000005006351)。
 

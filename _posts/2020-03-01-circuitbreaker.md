@@ -16,7 +16,7 @@ tags: ["go", "circuitbreaker"]
 
 熔断是指在下游发生错误时上游主动关闭或限制对下游的请求。
 
-![](https://res.cloudinary.com/cyeam/image/upload/v1610534796/image.png)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1610534796/image.png)
 
 ### 原理
 
