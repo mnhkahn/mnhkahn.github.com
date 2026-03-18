@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Cyeam
+title: Golang优化之路
 tagline: 人生得意须尽欢，莫使金樽空对月。
 ---
 
