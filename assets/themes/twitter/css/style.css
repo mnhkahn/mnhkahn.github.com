@@ -11,8 +11,14 @@
     margin: 0px auto;
 }
 
-.navbar .nav {
-    float: right;
+.content ｛
+/* 核心属性：强制换行，兼容所有浏览器 */
+  word-wrap: break-word;      /* 旧版浏览器兼容 */
+  word-break: break-all;      /* 允许任意位置换行（包括长数字/字母串） */
+  overflow-wrap: break-word;  /* 现代浏览器标准属性 */
+  /* 可选：防止横向滚动溢出 */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* posts index */
