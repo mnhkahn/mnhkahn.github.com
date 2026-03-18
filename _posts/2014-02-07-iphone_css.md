@@ -6,7 +6,7 @@ category: "Kaleidoscope"
 tags: ["CSS", "iPhone"]
 ---
 
-###1. 通过给图片加CSS实现
+### 1. 通过给图片加CSS实现
 <div class="iphone">
     <img src="https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/nexus7_screenshot.png" />
 </div>
@@ -152,7 +152,7 @@ tags: ["CSS", "iPhone"]
 
 > http://cssdeck.com/labs/iphone_with_css3
 
-###2. 通过嵌套DIV实现
+### 2. 通过嵌套DIV实现
 
 今天无意间在百度Site App里看到的可以模拟Android的，iPhone和Android凑齐了，哈哈。
 

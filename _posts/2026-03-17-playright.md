@@ -29,29 +29,46 @@ const path = require('path');
 
 // --- 配置区域 ---
 const CONFIG = {
-  // 两种模式自动切换：
-  // 1. 仅填1个sitemap.xml地址 → 自动解析sitemap
-  // 2. 填多个URL/非sitemap地址 → 直接使用配置的URL列表
   urls: [
-    // 示例1: sitemap模式 (仅保留这一行)
+// 'https://www.cyeam.com/tool/ddl2gostruct',
+// 'https://www.cyeam.com/tool/json2ddl',
+ 
     'https://www.cyeam.com/sitemap.xml',
-    
-    // 示例2: 手动URL模式 (保留多个URL)
-    // 'https://www.cyeam.com/',
-    // 'https://www.cyeam.com/tool/pixel',
-    // 'https://www.cyeam.com/baby/chaizi/onegrade2nd',
-    // 'https://www.cyeam.com/geek',
-    // 'https://blog.cyeam.com/css/2026/03/16/overflow'
-  ],
+   ],
   outputDir: './scan-results',
-  timeout: 30000,
+  timeout: 10000,
   headless: true,
-  // 定义要测试的设备列表
   devicesToTest: [
-    { name: 'Desktop-1080p', viewport: { width: 1920, height: 1080 } },
-    { name: 'Mobile-iPhone-15', preset: 'iPhone 15' }
+    { name: 'Mobile-iPhone-15', preset: 'iPhone 15' },
+    { name: 'Desktop-MacBook-Pro-16', preset: 'MacBook Pro 16' },
   ],
-  maxSitemapUrls: 50 // sitemap模式下最多解析的URL数量（可调整）
+  maxSitemapUrls: 300,
+  retryTimes: 3 // 重试次数
+};
+
+// --- 辅助函数：带重试的page.goto ---
+const gotoWithRetry = async (page, url, options, maxRetries) => {
+  let lastError;
+  for (let retry = 1; retry <= maxRetries; retry++) {
+    try {
+      if (retry > 1) {
+        console.log(`   🔄 重试(${retry}/${maxRetries})访问: ${url}`);
+      }
+      await page.goto(url, options);
+      return; // 成功则直接返回
+    } catch (error) {
+      lastError = error;
+      if (error.message.includes('Timeout') || error.message.includes('timeout')) {
+        if (retry === maxRetries) {
+          throw new Error(`[Retry Failed] 超过${maxRetries}次重试仍无法访问: ${url}，错误：${error.message}`);
+        }
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      } else {
+        throw error;
+      }
+    }
+  }
+  throw lastError;
 };
 
 // --- 辅助函数：原生解析Sitemap ---
@@ -59,27 +76,55 @@ const fetchSitemapUrls = (sitemapUrl) => {
   return new Promise((resolve, reject) => {
     https.get(sitemapUrl, (res) => {
       let xml = '';
+      // 1. 处理编码问题（避免chunk拼接乱码）
+      res.setEncoding('utf8');
+      
       res.on('data', (chunk) => xml += chunk);
       res.on('end', () => {
-        const urlRegex = /<loc>(.*?)<\/loc>/g;
-        const urls = [];
-        let match;
-        while ((match = urlRegex.exec(xml)) !== null) {
-          urls.push(match[1]);
-        }
-        // 过滤掉非当前域名的URL，只保留同域名
-        const baseDomain = new URL(sitemapUrl).hostname;
-        const filteredUrls = urls.filter(url => {
-          try {
-            return new URL(url).hostname === baseDomain;
-          } catch (e) {
-            return false;
+        try {
+          // 2. 替换正则匹配方式：用matchAll（ES2020+），避免lastIndex陷阱
+          const urlRegex = /<loc>(.*?)<\/loc>/g;
+          // 兼容写法：如果环境不支持matchAll，用while循环+重置lastIndex
+          const urls = [];
+          let match;
+          // 重置正则lastIndex，确保从头匹配
+          urlRegex.lastIndex = 0;
+          while ((match = urlRegex.exec(xml)) !== null) {
+            if (match[1]) {
+              urls.push(match[1].trim()); // 去除首尾空格，避免无效URL
+            }
           }
-        });
-        // 限制最大数量
-        resolve(filteredUrls.slice(0, CONFIG.maxSitemapUrls));
+
+          // 3. 优化域名过滤逻辑：匹配主域名（而非完整hostname）
+          const baseUrlObj = new URL(sitemapUrl);
+          // 提取主域名（如从www.cyeam.com提取cyeam.com）
+          const baseDomain = baseUrlObj.hostname.split('.').slice(-2).join('.');
+          
+          const filteredUrls = urls.filter(url => {
+            try {
+              const urlObj = new URL(url);
+              // 匹配主域名（支持所有子域名：www/blog/note/game.cyeam.com）
+              const urlDomain = urlObj.hostname.split('.').slice(-2).join('.');
+              return urlDomain === baseDomain;
+            } catch (e) {
+              console.warn('无效URL:', url, e.message);
+              return false;
+            }
+          });
+
+          // 4. 最终结果：按CONFIG截断（但先确保CONFIG值足够大）
+          const result = filteredUrls.slice(0, CONFIG.maxSitemapUrls);
+          console.log(`提取结果：总匹配${urls.length}个 → 过滤后${filteredUrls.length}个 → 最终${result.length}个`);
+          resolve(result);
+        } catch (e) {
+          reject(new Error(`解析XML失败：${e.message}`));
+        }
       });
-    }).on('error', reject);
+    })
+    // 处理请求错误（如超时、连接失败）
+    .on('error', (err) => reject(new Error(`请求Sitemap失败：${err.message}`)))
+    // 处理超时
+    .setTimeout(10000, () => reject(new Error('请求Sitemap超时')));
   });
 };
 
@@ -97,7 +142,6 @@ const initDirs = (deviceName) => {
     let urls = [];
     let isSitemapMode = false;
 
-    // 自动判断模式：仅1个URL且是sitemap.xml → sitemap模式
     if (CONFIG.urls.length === 1 && CONFIG.urls[0].toLowerCase().includes('sitemap.xml')) {
       isSitemapMode = true;
       const sitemapUrl = CONFIG.urls[0];
@@ -105,7 +149,6 @@ const initDirs = (deviceName) => {
       urls = await fetchSitemapUrls(sitemapUrl);
       console.log(`✅ 从sitemap解析出 ${urls.length} 个URL\n`);
     } else {
-      // 手动URL模式
       urls = CONFIG.urls;
       console.log(`📋 使用手动配置的URL列表，共 ${urls.length} 个URL\n`);
     }
@@ -115,13 +158,11 @@ const initDirs = (deviceName) => {
       return;
     }
 
-    // 遍历测试设备
     for (const deviceConfig of CONFIG.devicesToTest) {
       console.log(`\n========== 正在测试设备: ${deviceConfig.name} ==========`);
       const { dir, shotDir } = initDirs(deviceConfig.name);
       const results = [];
 
-      // 启动浏览器
       const browser = await chromium.launch({ headless: CONFIG.headless });
       
       let context;
@@ -134,19 +175,21 @@ const initDirs = (deviceName) => {
 
       const page = await context.newPage();
 
-      // 遍历每个URL检测
       for (const url of urls) {
-        const pageResult = { url, errors: [], screenshot: null };
+        // 1. 初始化结果对象，新增timeCost字段
+        const pageResult = { url, errors: [], screenshot: null, timeCost: 0 };
         const safeFilename = url.replace(/[^a-zA-Z0-9]/g, '_');
+        
+        // 2. 记录访问开始时间（毫秒级）
+        const startTime = Date.now();
 
         try {
-          // 监听JS错误
           page.on('pageerror', err => pageResult.errors.push(`[JS] ${err.message}`));
           
-          // 访问页面
-          await page.goto(url, { waitUntil: 'networkidle', timeout: CONFIG.timeout });
+          // 访问页面（包含重试逻辑）
+          await gotoWithRetry(page, url, { waitUntil: 'load', timeout: CONFIG.timeout }, CONFIG.retryTimes);
 
-          // 检查1: 横向滚动条（布局溢出）
+          // 检查横向滚动条
           const hasHorizontalScroll = await page.evaluate(() => {
             return document.documentElement.scrollWidth > document.documentElement.clientWidth;
           });
@@ -154,14 +197,13 @@ const initDirs = (deviceName) => {
             pageResult.errors.push('[Layout] 检测到横向滚动条，内容溢出屏幕');
           }
 
-          // 检查2: 裂图检测（跳过大图预览的viewer图片）
+          // 检查裂图
           const brokenImages = await page.evaluate(() => {
             const imgs = Array.from(document.images);
             return imgs
-              .filter(img => !img.alt.includes('大图预览')) // 跳过viewer图片
-              .filter(img => img.naturalWidth === 0) // 筛选裂图
+              .filter(img => !img.alt.includes('大图预览'))
+              .filter(img => img.naturalWidth === 0)
               .map(img => {
-                // 生成XPath定位
                 const getXPath = (element) => {
                   if (element.id !== '') return `//*[@id="${element.id}"]`;
                   if (element === document.body) return '/html/body';
@@ -185,7 +227,6 @@ const initDirs = (deviceName) => {
               });
           });
 
-          // 记录裂图详情
           if (brokenImages.length > 0) {
             for (const brokenImg of brokenImages) {
               const errMsg = `[Layout] 裂图详情：
@@ -204,20 +245,23 @@ const initDirs = (deviceName) => {
 
         } catch (e) {
           pageResult.errors.push(`[Critical] ${e.message}`);
+        } finally {
+          // 3. 计算总耗时（无论成功/失败，都会执行）
+          pageResult.timeCost = Date.now() - startTime;
         }
 
         results.push(pageResult);
         
-        // 控制台输出结果（带错误明细）
+        // 4. 控制台输出时展示耗时
         if (pageResult.errors.length > 0) {
-          console.log(`❌ ${url}`);
+          console.log(`❌ ${url} (耗时: ${pageResult.timeCost}ms)`);
           pageResult.errors.forEach(err => console.log(`   - ${err}`));
         } else {
-          console.log(`✅ ${url}`);
+          console.log(`✅ ${url} (耗时: ${pageResult.timeCost}ms)`);
         }
       }
 
-      // 保存检测报告
+      // 保存检测报告（包含耗时字段）
       fs.writeFileSync(path.join(dir, 'report.json'), JSON.stringify(results, null, 2));
       await browser.close();
     }

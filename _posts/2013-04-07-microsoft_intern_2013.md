@@ -6,7 +6,7 @@ category: "Collection"
 tags: ["Job", "Exam"]
 ---
 
-#####1. Which of the following convension(s) support(s) support variable length parameter (e.g. printf)? (3 Points)
+##### 1. Which of the following convension(s) support(s) support variable length parameter (e.g. printf)? (3 Points)
 
 A. cdecl
 
@@ -16,7 +16,7 @@ C. pascal
 
 D. fastcall
 
-#####2.What's the output of the following code? (3 Points)
+##### 2.What's the output of the following code? (3 Points)
 
 	class A
 	{
@@ -66,7 +66,7 @@ C. `A::f() B::f() const`
 
 D. `A::f() A::f() const`
 
-#####3.What is the difference between a linked list and an array? (3 Points)
+##### 3.What is the difference between a linked list and an array? (3 Points)
 
 A. Search complexity when both are sorted
 
@@ -76,7 +76,7 @@ C. Random access efficiency
 
 D. Data storage type
 
-#####4.About the Thread and Process in Windows, which description(s) is (are) correct? (3 Points)
+##### 4.About the Thread and Process in Windows, which description(s) is (are) correct? (3 Points)
 
 A. One application in OS must have one Process, but not a necessary to have one Thread
 
@@ -86,7 +86,7 @@ C. Thread must belong to a Process
 
 D. Thread could change its belonging Process
 
-#####5.What is the output of the following code? (3 Points)
+##### 5.What is the output of the following code? (3 Points)
 
 	{
 	    int x = 10;
@@ -105,7 +105,7 @@ C. 11, 10
 
 D. 11, 11
 
-#####6.For the following Java or C# code (3 Points)
+##### 6.For the following Java or C# code (3 Points)
 
 	int[][] myArray3 =
         new int[3][] {
@@ -124,7 +124,7 @@ C. 6
 
 D. overflow
 
-#####7.Please choose the right statement about const usage: (3 Points)
+##### 7.Please choose the right statement about const usage: (3 Points)
 
 A. const int a; // const integer
 
@@ -136,7 +136,7 @@ D. const int *a; // a const pointer which point to integer
 
 E. int const *a; // a const pointer which point to integer
 
-#####8.Given the following code: (3 Points)
+##### 8.Given the following code: (3 Points)
 
 	#include <iostream>
 	class A
@@ -185,7 +185,7 @@ C. 11112222
 
 D. 21212121
 
-#####9.1 of 1000 bottles of water is poisoned which will kill a rat in 1 week if the rat drunk any amount of the water. Given the bottles of water have no visual difference, how many rates are needed at least to find the poisoned one in 1 week? (5 Points)
+##### 9.1 of 1000 bottles of water is poisoned which will kill a rat in 1 week if the rat drunk any amount of the water. Given the bottles of water have no visual difference, how many rates are needed at least to find the poisoned one in 1 week? (5 Points)
 
 A. 9
 
@@ -199,7 +199,7 @@ E. None of the above
 
 ***为每瓶水编号，从1～1000，然后转成二进制，从0000000001~1111100111，找十只老鼠，按照二进制位对应得给老鼠喝水。最后查看死掉的老鼠编号，就能对应找到水的二进制编码。
 
-#####10.Which of following statement(s) eaual(s) value 1 in C programming language? (5 Points)
+##### 10.Which of following statement(s) eaual(s) value 1 in C programming language? (5 Points)
 
 A. the return value of main function if program ends normally
 
@@ -211,7 +211,7 @@ D. return "microsoft" == "microsoft";
 
 E. None of the above
 
-#####11.If you computed 32 bit signed integers F and G from 32 bit signed integer X using F = X/2 and G = (X >> 1), and if you found F != G, this implies that (5 Points)
+##### 11.If you computed 32 bit signed integers F and G from 32 bit signed integer X using F = X/2 and G = (X >> 1), and if you found F != G, this implies that (5 Points)
 
 A. There's a compiler error
 
@@ -223,7 +223,7 @@ D. F - G = 1
 
 E. G - F = 1
 
-#####12.How many rectangles you can find from 3 * 4 grid?***D*** (5 Points)
+##### 12.How many rectangles you can find from 3 * 4 grid?***D*** (5 Points)
 
 A. 18
 
@@ -250,7 +250,7 @@ E. None of the above is correct
 4*2：2个；
 4*3：1个。一共60个。
 
-#####13.One line can split of a surface to 2 parts, 2 lines can split a surface to 4 parts. Given 100 lines, no two parallel lines, no three lines join at same point, how many parts can 100 lines split? (5 Points)
+##### 13.One line can split of a surface to 2 parts, 2 lines can split a surface to 4 parts. Given 100 lines, no two parallel lines, no three lines join at same point, how many parts can 100 lines split? (5 Points)
 
 A. 5051
 
@@ -260,7 +260,7 @@ C. 5510
 
 D. 5511
 
-#####14.Which of the following sorting algorithm(s) is(are) stabe sorting? (5 Points)
+##### 14.Which of the following sorting algorithm(s) is(are) stabe sorting? (5 Points)
 
 A. bubble sort
 
@@ -272,7 +272,7 @@ D. merge sort
 
 E. Selection sort
 
-#####15.Model-View-Contrller (MVC) is an architectural pattern that is frequently used in web applications. Which of the following statement(s) is(are) correct? (5 Points)
+##### 15.Model-View-Contrller (MVC) is an architectural pattern that is frequently used in web applications. Which of the following statement(s) is(are) correct? (5 Points)
 
 A. Models often represent data and the business logics needed to manipulate the data in the application
 
@@ -282,7 +282,7 @@ C. A controller is the linke between a user and the system. It accepts input fro
 
 D. The common practice of MVC in web applications is, the model receives GET or POST input from user and decides what to do with it, handing over to controller and which hand control to views (HTML-generating components)
 
-#####16.We can recover the binary tree if given the output of (5 Points)
+##### 16.We can recover the binary tree if given the output of (5 Points)
 
 A. Preorder traversal and inorder traversal
 
@@ -292,7 +292,7 @@ C. Inorder traversal and postorder traversal
 
 D. Postorder traversal
 
-#####17.Given a string with n characters, suppose all the characters are different from each other, how many substrings do we have? (5 Points)***C***
+##### 17.Given a string with n characters, suppose all the characters are different from each other, how many substrings do we have? (5 Points)***C***
 
 A. n + 1
 
@@ -308,7 +308,7 @@ E. n!
 
 ***还有一种解法，按照长度计算。如果长为1，有n中情况，长为2，有n-1中情况……长为n，只有一种情况。结果就是1+2+...n=n(n+1)/2***
 
-#####18.Given the following database table, how many rows will the following SQL statement update? (5 Points)
+##### 18.Given the following database table, how many rows will the following SQL statement update? (5 Points)
 
 	update Books set NumberofCopies = NumberOfCopies + 1 Where AuthorID
 	in
@@ -333,11 +333,11 @@ D. 4
 
 E. 5
 
-#####19.What is the sortest path between S and node T, given the graph below? Note: the numbers represent the lengths of the connected nodes (13 Points)
+##### 19.What is the sortest path between S and node T, given the graph below? Note: the numbers represent the lengths of the connected nodes (13 Points)
 
 ![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1537933530/cyeam/msintern2013.png)
 
-#####20.Given a set of N balls and one of which is defective (weighs less than others), you are allowed to weigh with a balance 3 times to find the defective. Which of the following are possible N? (13 Points)
+##### 20.Given a set of N balls and one of which is defective (weighs less than others), you are allowed to weigh with a balance 3 times to find the defective. Which of the following are possible N? (13 Points)
 
 A. 12
 
