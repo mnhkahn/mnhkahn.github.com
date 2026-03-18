@@ -12,8 +12,8 @@
     margin: 0px auto;
 }
 
-.navbar .nav {
-    float: right;
+code {
+    word-break: break-word;
 }
 
 /* posts index */
