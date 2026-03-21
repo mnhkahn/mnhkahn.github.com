@@ -40,7 +40,7 @@ ERR_CONNECTION_CLOSED 访问网页有问题
 因为是偶发问题很难复现，最后问题就是出现在第5步，当出问题时查了下域名记录，结果如下，其中多了`ech_config_list`，这就是问题所在，该记录携带了 Cloudflare 的 ECH 加密配置和 Cloudflare 边缘节点 IP，Chrome 优先用这个 Cloudflare 节点发起连接；但我们无法正常使用ECH，收到请求后直接关闭了 TCP 连接。其他人也需要了[类似问题](https://v2ex.com/t/1077702)，Cloudflare无法在页面关闭，需要用命令行。
 
 ```
-Resolved IP addresses of "note.cyeam.com": ["66.241.124.103","2a09:8280:1::1:d40a"].
+Resolved IP addresses of "note.cyeam.com": ["1.1.1.1"].
 Alternative endpoint: {"alpns":["h2","http/1.1"],"ech_config_list":"fdsafafdafadsfadsfdsa","ip_endpoints":["1.1.1.1"]}
 ```
 
