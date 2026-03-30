@@ -98,7 +98,20 @@ OPENCLAW_HOME /data/.openclaw
 ```
 
 # 运行效果
+
 cron执行效果如下，每天定时推送热门新闻。
+
+```
+openclaw cron add \
+  --name "每日热榜推送" \
+  --cron "0 0 * * *" \
+  --tz "Asia/Shanghai" \
+  --session isolated \
+  --message "使用 daily-hot-push 技能获取今日热榜TOP10并推送" \
+  --announce \
+  --channel feishu \
+  --to "ou_aaaaa"
+```
 
 ![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1774882140/clipboard_1774882131026_vp8i2e6w4.webp)
 
