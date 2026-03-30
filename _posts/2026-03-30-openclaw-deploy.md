@@ -98,7 +98,9 @@ OPENCLAW_HOME /data/.openclaw
 ```
 
 # 运行效果
-![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1774879238/clipboard_1774879233995_tsop4747t.webp)
+cron执行效果如下，每天定时推送热门新闻。
+
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1774882140/clipboard_1774882131026_vp8i2e6w4.webp)
 
 # 常用命令
 
