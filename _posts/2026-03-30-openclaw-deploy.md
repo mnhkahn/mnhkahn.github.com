@@ -148,6 +148,7 @@ openclaw config set tools.deny '["group:web","browser"]'
 /model
 /model list
 /model openrouter/nvidia/nemotron-nano-12b-v2-vl:free
+/verbose full
 ```
 
 {% include JB/setup %}
