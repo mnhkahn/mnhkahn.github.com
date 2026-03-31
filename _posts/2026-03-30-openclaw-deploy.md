@@ -139,4 +139,15 @@ openclaw cron list --all
 openclaw config set agents.sandbox.mode all
 openclaw config set tools.deny '["group:web","browser"]'
 ```
+
+## 斜杠命令
+
+官方文档[斜杠命令](https://docs.openclaw.ai/zh-CN/tools/slash-commands)
+
+```
+/model
+/model list
+/model openrouter/nvidia/nemotron-nano-12b-v2-vl:free
+```
+
 {% include JB/setup %}
