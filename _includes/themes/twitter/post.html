@@ -9,7 +9,7 @@
 <div class="row gx-0">
     <div class="col-12">
         <div class="date text-muted mb-3">
-            <i class="fa-regular fa-calendar-days"></i>
+            <i class="bi bi-calendar"></i>
             <span>{{ page.date | date_to_long_string }}</span>
         </div>
         {% if page.figure %}
@@ -39,12 +39,12 @@
 
         {% unless page.categories == empty %}
         <ul class="tag_box list-inline">
-            <i class="fa-solid fa-folder-open"></i>
+            <i class="bi bi-folder2-open"></i>
             {% assign categories_list = page.categories %} {% include JB/categories_list %}
         </ul>
         {% endunless %} {% unless page.tags == empty %}
         <ul class="tag_box list-inline">
-            <i class="fa-solid fa-tag"></i>
+            <i class="bi bi-tag"></i>
             {% assign tags_list = page.tags %} {% include JB/tags_list %}
         </ul>
         {% endunless %} {% include JB/sharing %}

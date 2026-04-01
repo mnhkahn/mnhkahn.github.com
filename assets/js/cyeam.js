@@ -34,7 +34,7 @@ function initCopyBtn() {
         // 创建复制按钮
         const copyBtn = document.createElement("button");
         copyBtn.className = "copy-btn btn btn-sm btn-outline-secondary position-absolute top-0 end-0 m-2 z-1";
-        copyBtn.innerHTML = '<i class="fa-regular fa-clipboard"></i>';
+        copyBtn.innerHTML = '<i class="bi bi-clipboard"></i>';
         copyBtn.title = "复制代码";
         copyBtn.style.zIndex = "10"; // 确保按钮在代码之上
 
@@ -55,7 +55,7 @@ function copyToClipboard(text, btn) {
         .writeText(text)
         .then(function () {
             const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-regular fa-circle-check"></i>已复制';
+            btn.innerHTML = '<i class="bi bi-check-circle"></i>已复制';
             btn.classList.remove("btn-outline-secondary");
             btn.classList.add("btn-success");
             setTimeout(function () {
@@ -68,7 +68,7 @@ function copyToClipboard(text, btn) {
             console.error("复制失败:", err);
             btn.innerHTML = "复制失败";
             setTimeout(function () {
-                btn.innerHTML = '<i class="bi bi-clipboard"></i> 复制';
+                btn.innerHTML = '<i class="bi bi-clipboard"></i>';
             }, 2000);
         });
 }
