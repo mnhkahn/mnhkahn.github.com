@@ -79,6 +79,7 @@ OPENCLAW_HOME /data/.openclaw
 ```
 /data/.openclaw/
 ├── openclaw.json                 # 主配置文件（JSON/JSON5）
+├── exec-approvals.json           # 执行审批配置文件（JSON/JSON5）
 ├── workspace/                    # 你的 AI “灵魂”文件夹（推荐 git 版本控制）
 │   ├── SOUL.md                   # 人格设定（语气、风格）
 │   ├── USER.md                   # 你的个人信息（让 AI 更懂你）
@@ -138,6 +139,7 @@ openclaw channels list
 openclaw cron list --all
 openclaw config set agents.sandbox.mode all
 openclaw config set tools.deny '["group:web","browser"]'
+openclaw approvals get
 ```
 
 ## 斜杠命令

@@ -17,6 +17,50 @@ tags: ["AI", "OpenClaw"]
 - 对话日志目录：`/data/.openclaw/agents/<agent_id>/sessions/<run_id>.jsonl`；
 - OpenRouter并不支持查看完整上下文，这里建议接入[LangSmith](https://smith.langchain.com/)库来解决。
 
+# 全链路数据流转总流程
+
+```
+用户消息 → 对应Channel适配器（协议转换）→ Gateway 接收校验 → 会话锁获取与上下文加载
+→ Agent Core 核心推理（Prompt 组装→模型选择→LLM 调用→工具/Skill 调用决策）
+→ Skill/Plugin 执行 → 结果回灌 LLM → 多轮推理循环（按需）→ 最终回复生成
+→ Gateway 消息封装 → 对应 Channel 适配器 → 用户端接收
+```
+
+## 源码目录
+
+```
+openclaw/
+├── src/
+│   ├── agents/                 # Agent 核心执行逻辑（对话处理核心）
+│   │   └── pi-embedded-runner/ # 嵌入式 Agent 运行时（核心推理入口）
+│   ├── channels/               # 渠道接入层（微信/飞书/API 等适配器）
+│   ├── gateway/                # 调度网关层（Cron/Heartbeat/会话管理）
+│   ├── core/                   # 核心基础能力（Skill/Plugin/事件/存储）
+│   │   ├── skills/             # Skill 技能系统核心
+│   │   ├── plugins/            # Plugin 插件管理核心
+│   │   └── storage/            # 持久化存储实现
+│   ├── extensions/             # 扩展模块（模型路由/钩子等）
+│   └── utils/                  # 通用工具函数
+├── docs/                       # 官方文档
+└── examples/                   # 官方示例代码[[2]]
+```
+
+| 关键函数/模块    | 文件路径                             | 职责说明                                                                                                                                                                                                |
+| ---------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Channel Adapter  | src/channels/                        | 消息适配器：每个聊天平台对应一个适配器，负责接收特定平台的消息，并将其转换为 OpenClaw 内部的标准化事件格式。这是连接外部世界与 OpenClaw 内部系统的桥梁。                                                |
+| Gateway          | src/gateway/server.impl.ts           | 网关服务：作为系统的神经中枢，Gateway 是一个 WebSocket 服务器，负责管理所有渠道的连接、会话状态以及消息路由。它接收来自 Channel 的标准事件。                                                            |
+| Command Queue    | src/auto-reply/reply/queue.ts        | 指令队列：收到的消息不会立即执行，而是进入一个基于会话（Session）的队列。该队列有三种模式（collect/steer/followup），决定了新消息是排队等待、中断当前任务还是作为后续指令，确保了任务处理的并发与有序。 |
+| agent/agent.wait | src/auto-reply/reply/agent-runner.ts | 执行触发器：队列中的任务最终通过调用 agent() 或 agent.wait() RPC 方法，唤醒 Agent Runtime，正式开始一个完整的 ReAct 执行回合。agent.wait() 会等待任务执行完毕并返回结果。                               |
+
+## 四层调用链
+
+| 层级 | 关键函数                 | 文件路径                                       | 职责说明                                                                                                                                                               |
+| ---- | ------------------------ | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| L1   | runReplyAgent            | src/auto-reply/reply/agent-runner.ts           | 最高层封装：处理队列策略、任务“掌舵”（Steer）检查、最终结果的后处理和使用量上报。它确保一个入站消息能被完整地响应。                                                    |
+| L2   | runAgentTurnWithFallback | src/auto-reply/reply/agent-runner-execution.ts | 失败回退层：核心职责是“容错”。它包裹了模型调用，当遇到可恢复的错误（如上下文超长、瞬时网络问题、API 限流）时，会自动执行重试、上下文压缩或切换到备用模型等回退策略。   |
+| L3   | runEmbeddedPiAgent       | src/agents/pi-embedded-runner/run.ts           | 并发控制与资源准备层：管理执行“车道”（Lane），确保每个会话的任务串行执行。此层还负责解析模型、迭代认证配置（Auth Profile）。                                           |
+| L4   | runEmbeddedAttempt       | src/agents/pi-embedded-runner/run/attempt.ts   | 单次尝试执行层：这是最核心的执行单元。它负责准备工作区（Workspace）、创建工具集、初始化会话，并最终调用 subscribeEmbeddedPiSession 发起对大语言模型（LLM）的单次请求。 |
+
 # 模型选择规则
 
 ## 实际案例
@@ -216,9 +260,11 @@ openclaw system heartbeat last # 查询上一次执行结果
 ## 开启心跳
 ```
 "heartbeat": {
-    "every": "30m",
+    "every": "120m",
+    "model": "openrouter/minimax/minimax-m2.5:free",
+    "ackMaxChars": 0,
     "target": "feishu",
-    "to": "chat:${FEISHU_CHAT_ID}" 
+    "to": "${FEISHU_CHAT_ID}"
 }
 // 完整配置
 {
@@ -241,6 +287,15 @@ openclaw system heartbeat last # 查询上一次执行结果
     }
 }
 ```
+
+## 飞书场景配置
+
+| 场景                | 配置格式示例                                                  | ID 前缀  | 对应的 receive_id_type |
+| ------------------- | ------------------------------------------------------------- | -------- | ---------------------- |
+| 群聊（推荐）        | chat:oc_abc123、group:oc_abc123、channel:oc_abc123、oc_abc123 | oc_      | chat_id                |
+| 用户私聊（open_id） | user:ou_abc123、dm:ou_abc123、open_id:ou_abc123、ou_abc123    | ou_      | open_id                |
+| 用户私聊（user_id） | user:abc123、dm:abc123、abc123                                | 无前缀   | user_id                |
+| 邮箱                | email:user@example.com、user@example.com                      | 邮箱格式 | email                  |
 
 ## 流程图
 
