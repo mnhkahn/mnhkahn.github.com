@@ -1,39 +1,36 @@
 {
-  "name": "Golang优化之路",
-  "short_name": "Golang优化之路",
-  "start_url": "/categories.html#golang-ref",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2196F3",
-  "icons": [
-    {
-      "src": "/assets/images/c32.ico",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "/assets/images/go-optimize.jpg",
-      "sizes": "512x512",
-      "type": "image/jpg"
-    }
-  ],
-  "description": "《Golang 优化之路》我这几年总结的基础知识、源码分析、优化内容、架构理念。",
-  "scope": "/",
-  "categories": [
-    "book",
-    "productivity"
-  ],
-  "screenshots": [
-    {
-      "src": "/assets/images/blog_wide.jpg",
-      "sizes": "1280x720",
-      "type": "image/jpg",
-      "form_factor": "wide"
-    },
-    {
-      "src": "/assets/images/blog_mobile.jpg",
-      "sizes": "414x896",
-      "type": "image/jpg"
-    }
-  ]
+    "name": "AI+Go架构师",
+    "short_name": "AI+Go架构师",
+    "start_url": "/categories.html#golang-ref",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2196F3",
+    "icons": [
+        {
+            "src": "/assets/images/c32.ico",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/go-optimize.jpg",
+            "sizes": "512x512",
+            "type": "image/jpg"
+        }
+    ],
+    "description": "《Golang 优化之路》我这几年总结的基础知识、源码分析、优化内容、架构理念。",
+    "scope": "/",
+    "categories": ["book", "productivity"],
+    "screenshots": [
+        {
+            "src": "/assets/images/blog_wide.jpg",
+            "sizes": "1280x720",
+            "type": "image/jpg",
+            "form_factor": "wide"
+        },
+        {
+            "src": "/assets/images/blog_mobile.jpg",
+            "sizes": "414x896",
+            "type": "image/jpg"
+        }
+    ]
 }
