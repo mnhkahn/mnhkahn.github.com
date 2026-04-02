@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "在fly.io上部署OpenClaw"
-description: "在fly.io上部署OpenClaw是有一定成本的，我整理了部署过程中的问题搭了部署脚手架。"
+title: "OpenClaw部署实战：在fly.io上快速搭建AI智能助手"
+description: "详细介绍在fly.io上部署OpenClaw的完整流程，包括快速开始指南、部署架构解析、核心配置文件说明、工作目录结构以及常用命令。文章提供了部署脚手架，解决了部署过程中的常见问题，涵盖了从环境变量配置、磁盘挂载到服务启动的全流程。还介绍了OpenClaw的运行效果和日常管理命令，帮助开发者快速在fly.io上搭建和管理AI智能助手。"
 figure: "https://res.cloudinary.com/cyeam/image/upload/v1774879238/clipboard_1774879233995_tsop4747t.webp"
 category: "OpenClaw"
 tags: ["AI", "OpenClaw", "fly.io"]
@@ -66,15 +66,19 @@ flowchart TD
    2. 执行需要的cli放在`/usr/bin`，`/usr/local/bin`，确保全局可调用。
    3. 环境变量注入：通过容器环境变量，配置 OpenClaw 的核心运行参数，主要是OpenClaw和Skill的配置文件路径、模型并发限制等。
 ```
-OPENCLAW_STATE_DIR=/data
-OPENCLAW_HOME /data/.openclaw
-OPENCLAW_CONFIG_PATH=/data/config
-OPENCLAW_HOME /data/.openclaw
+OPENCLAW_HOME = "/data"
+OPENCLAW_STATE_DIR = "/data/.openclaw"
+OPENCLAW_CONFIG_PATH = "/data/.openclaw/openclaw.json"
 ```
    4. 敏感密钥安全管理：通过.env文件、fly Secrets 等安全方式，注入模型 API 密钥、飞书渠道凭证、第三方服务 Token 等敏感信息，避免硬编码到镜像中造成泄露。
 1. [processes]从start-services.sh作为入口启动服务，核心是openclaw.json配置文件。
    1. 默认日志在/tmp/openclaw.log。
    2. openclaw工作目录功能如下，workspace里的文件调教方式可参考[《搞懂这7个配置文件让你的OpenClaw变智能助手》](https://developer.aliyun.com/article/1715278)：
+
+| 环境变量           | 作用                        | 优先级 | 默认值                   | 示例            |
+| ------------------ | --------------------------- | ------ | ------------------------ | --------------- |
+| OPENCLAW_HOME      | 用户主目录，用于解析 ~ 路径 | 低     | $HOME                    | /data           |
+| OPENCLAW_STATE_DIR | 状态/配置目录，存储所有文件 | 高     | $OPENCLAW_HOME/.openclaw | /data/.openclaw |
 
 ```
 /data/.openclaw/

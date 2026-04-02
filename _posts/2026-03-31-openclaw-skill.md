@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "OpenClaw原理梳理：模型选择、Skill、Heartbeat"
-description: "结合源码全面梳理OpenClaw运行逻辑，以实际案例论证。"
+title: "OpenClaw深度解析：模型选择、Skill系统与Heartbeat机制"
+description: "全面梳理OpenClaw的运行原理，包括全链路数据流转、四层调用链架构、模型选择规则、Skill技能系统、Heartbeat心跳机制和Approval安全机制。文章结合源码分析和实际案例，详细介绍了OpenClaw的核心组件和工作流程，包括消息处理时序、LLM交互过程、心跳触发机制和安全审批策略。通过深入理解这些关键概念，开发者可以更好地配置和扩展OpenClaw，构建更智能的AI助手系统。"
 figure: "https://res.cloudinary.com/cyeam/image/upload/v1774879238/clipboard_1774879233995_tsop4747t.webp"
 category: "OpenClaw"
 tags: ["AI", "OpenClaw"]
@@ -424,6 +424,17 @@ graph TB
 | sent     | -                    | 心跳消息发送成功                 |
 | failed   | -                    | 心跳消息发送失败                 |
 
+| Reason     | 触发方式  | 说明                                  |
+| ---------- | --------- | ------------------------------------- |
+| interval   | 定时触发  | 配置 heartbeat.every: 30m 的定时触发  |
+| wake       | 外部唤醒  | CLI --mode now、服务重启、Push 通知等 |
+| hook       | Webhook   | HTTP webhook 触发（hook:wake）        |
+| cron       | Cron 任务 | Cron 定时任务触发（cron:*）           |
+| exec-event | 执行事件  | Shell 命令执行完成后触发              |
+| manual     | 手动      | 其他手动触发方式                      |
+| retry      | 重试      | 心跳失败重试                          |
+| other      | 其他      | 未识别的触发方式                      |
+
 ## 交互案例
 
 与SKILL区别不大，提示词如下：
@@ -432,5 +443,31 @@ Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not i
 When reading HEARTBEAT.md, use workspace file /data/.openclaw/workspace/HEARTBEAT.md (exact case). Do not read docs/heartbeat.md.
 Current time: Tuesday, March 31st, 2026 — 04:15 (UTC) / 2026-03-31 04:15 UTC
 ```
+
+# Approval
+
+## security - 安全模式
+
+| 值          | 代码作用                  | 说明                                   |
+| ----------- | ------------------------- | -------------------------------------- |
+| "deny"      | 默认拒绝所有              | 最严格，默认拒绝所有命令执行           |
+| "allowlist" | 只允许 allowlist 中的命令 | 平衡安全和灵活，需要手动配置 allowlist |
+| "full"      | 允许所有命令              | 最宽松，完全关闭安全检查               |
+
+## ask - 审批询问策略
+
+| 值        | 代码作用                | 说明                                          |
+| --------- | ----------------------- | --------------------------------------------- |
+| "off"     | 从不询问审批            | 完全跳过审批流程，直接根据安全模式决定        |
+| "on-miss" | 不在 allowlist 中时询问 | 只有当命令不在 allowlist 中时才弹出审批询问   |
+| "always"  | 总是询问审批            | 无论命令是否在 allowlist 中，都会弹出审批询问 |
+
+## askFallback - 审批超时后的行为 
+
+| 值          | 代码作用             | 说明                                  |
+| ----------- | -------------------- | ------------------------------------- |
+| "deny"      | 超时后拒绝执行       | 最安全，超时后默认拒绝命令            |
+| "allowlist" | 超时后检查 allowlist | 超时后，如果命令在 allowlist 中就允许 |
+| "full"      | 超时后直接允许       | 最宽松，超时后无条件允许命令          |
 
 {% include JB/setup %}
