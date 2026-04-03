@@ -84,19 +84,36 @@ class PinIndexer:
             entry_id = entry.find("atom:id", ns)
             title = entry.find("atom:title", ns)
             content = entry.find("atom:content", ns)
-            published = entry.find("atom:published", ns)
             updated = entry.find("atom:updated", ns)
 
+            # 提取所有 link 元素
+            links = entry.findall("atom:link", ns)
+            link_url = ""
+            figure_url = ""
+            for link_elem in links:
+                rel = link_elem.get("rel", "")
+                href = link_elem.get("href", "")
+                if rel == "alternate":
+                    link_url = href
+                elif rel == "enclosure":
+                    figure_url = href
+
             raw_id = entry_id.text if entry_id is not None else ""
+            date_str = (
+                updated.text[:10]
+                if updated is not None and len(updated.text) >= 10
+                else ""
+            )
             entry_data = {
                 "title": title.text if title is not None else "",
                 "content": content.text if content is not None else "",
-                "published": published.text if published is not None else "",
-                "updated": updated.text if updated is not None else "",
+                "date": date_str,
+                "link": link_url,
+                "figure": figure_url,
             }
 
             entry_data["id"] = hashlib.sha256(
-                (raw_id + entry_data["title"] + entry_data["published"]).encode()
+                (raw_id + entry_data["title"] + entry_data["date"]).encode()
             ).hexdigest()[:32]
 
             entries.append(entry_data)
@@ -124,10 +141,12 @@ class PinIndexer:
                     vector = vector + [0.0] * (self.vector_size - len(vector))
 
                 payload = {
+                    "id": entry["id"],
                     "title": entry["title"],
                     "content": entry["content"],
-                    "published": entry["published"],
-                    "updated": entry["updated"],
+                    "date": entry["date"],
+                    "link": entry["link"],
+                    "figure": entry["figure"],
                     "source": "pin",
                 }
 

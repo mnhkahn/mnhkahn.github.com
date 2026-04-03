@@ -87,14 +87,33 @@ class BlogIndexer:
 
         post_content = parts[2].strip()
 
+        filename = os.path.basename(filepath).replace(".md", "")
+        # 文件名格式: YYYY-MM-DD-title
+        date_parts = filename.split("-")[:3]
+        date_str = "-".join(date_parts) if len(date_parts) == 3 else ""
+        slug = (
+            "-".join(filename.split("-")[3:])
+            if len(filename.split("-")) > 3
+            else filename
+        )
+
+        category = front_matter.get("category", "").lower()
+        year = date_parts[0] if len(date_parts) >= 1 else ""
+        month = date_parts[1] if len(date_parts) >= 2 else ""
+        day = date_parts[2] if len(date_parts) >= 3 else ""
+
+        link = f"https://blog.cyeam.com/{category}/{year}/{month}/{day}/{slug}"
+
         return {
-            "id": hashlib.sha256(os.path.basename(filepath).encode()).hexdigest()[:32],
+            "id": hashlib.sha256(filename.encode()).hexdigest()[:32],
             "title": front_matter.get("title", ""),
             "description": front_matter.get("description", ""),
             "category": front_matter.get("category", ""),
             "tags": front_matter.get("tags", []),
             "figure": front_matter.get("figure", ""),
             "content": post_content,
+            "date": date_str,
+            "link": link,
         }
 
     def embed_text(self, text: str, embedder) -> list[float]:
@@ -130,6 +149,8 @@ class BlogIndexer:
                     "category": post["category"],
                     "tags": post["tags"],
                     "content": post["content"],
+                    "date": post["date"],
+                    "link": post["link"],
                 }
                 if post["figure"]:
                     payload["figure"] = post["figure"]
