@@ -41,6 +41,9 @@
                         <li class="d-block d-lg-none">
                             <a href="/" class="nav-link px-2 text-white"><b>HOME</b></a>
                         </li>
+                        <li class="d-block d-lg-none">
+                            <a href="/" class="nav-link px-2 text-white"><b>HOME</b></a>
+                        </li>
                         <li>
                             <a href="//www.cyeam.com/tool/jsonpack" class="nav-link px-2 text-white"><b>开发工具</b></a>
                         </li>
@@ -53,33 +56,139 @@
                         <li>
                             <a href="https://blog.cyeam.com/tag-feeds/ai.html" class="nav-link px-2 text-white"><b>AI笔记</b></a>
                         </li>
+                        <li class="d-flex align-items-center">
+                            <div class="input-group input-group-sm ai-search-container" style="width: 150px; background: #444; border-radius: 20px; overflow: hidden; transition: all 0.3s ease; border: 1px solid transparent">
+                                <input
+                                    type="text"
+                                    id="ai-search-input"
+                                    class="form-control bg-transparent border-0 text-gray-200 ai-search-input"
+                                    placeholder="求助架构师"
+                                    aria-label="AI搜索"
+                                    style="
+                                        ::-webkit-input-placeholder {
+                                            color: #aaa;
+                                        }
+                                        ::-moz-placeholder {
+                                            color: #aaa;
+                                        }
+                                        :-ms-input-placeholder {
+                                            color: #aaa;
+                                        }
+                                        :-moz-placeholder {
+                                            color: #aaa;
+                                        }
+                                    "
+                                />
+                                <div class="input-group-text bg-transparent border-0 d-flex gap-1 ps-0 ai-search-shortcut">
+                                    <button type="button" class="btn text-gray-300" style="border: 1px solid #555; border-radius: 4px; padding: 2px 6px; background: #555; cursor: default; pointer-events: none; font-size: 12px">
+                                        <i class="bi bi-command"></i>
+                                    </button>
+                                    <button type="button" class="btn text-gray-300" style="border: 1px solid #555; border-radius: 4px; padding: 2px 6px; background: #555; cursor: default; pointer-events: none; font-size: 12px">
+                                        <span class="fw-bold">K</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <div class="dropdown">
+                                <button class="btn btn-sm p-0 text-white" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="height: 32px">
+                                    <span class="flag-icon flag-icon-cn"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-lang="chinese_simplified">
+                                            <span class="flag-icon flag-icon-cn"></span>
+                                            <span>简体中文</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-lang="english">
+                                            <span class="flag-icon flag-icon-us"></span>
+                                            <span>English</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-lang="japanese">
+                                            <span class="flag-icon flag-icon-jp"></span>
+                                            <span>日本語</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-lang="korean">
+                                            <span class="flag-icon flag-icon-kr"></span>
+                                            <span>한국어</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-lang="french">
+                                            <span class="flag-icon flag-icon-fr"></span>
+                                            <span>Français</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-lang="deutsch">
+                                            <span class="flag-icon flag-icon-de"></span>
+                                            <span>Deutsch</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-lang="chinese_traditional">
+                                            <span class="flag-icon flag-icon-tw"></span>
+                                            <span>繁體中文</span>
+                                        </a>
+                                    </li>
+                                    <script src="https://cdn.staticfile.net/translate.js/3.8.2/translate.js"></script>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function () {
+                                            // 初始化翻译服务
+                                            translate.selectLanguageTag.show = false; // 隐藏自动生成的选择器
+                                            translate.selectLanguageTag.languages = "chinese_simplified,english,japanese,korean,french,deutsch,chinese_traditional";
+                                            translate.service.use("client.edge"); //设置机器翻译服务通道
+                                            translate.setAutoDiscriminateLocalLanguage();
+                                            translate.execute();
+
+                                            // 绑定下拉菜单事件
+                                            const languageLinks = document.querySelectorAll(".dropdown-item[data-lang]");
+                                            const dropdownButton = document.getElementById("languageDropdown");
+
+                                            languageLinks.forEach((link) => {
+                                                link.addEventListener("click", function (e) {
+                                                    e.preventDefault();
+                                                    const lang = this.getAttribute("data-lang");
+                                                    translate.changeLanguage(lang);
+                                                    renderFlagByCurrentLang();
+                                                });
+                                            });
+
+                                            // 根据语言获取对应的国旗 class
+                                            function getFlagClass(lang) {
+                                                const flagMap = {
+                                                    chinese_simplified: "flag-icon-cn",
+                                                    english: "flag-icon-us",
+                                                    japanese: "flag-icon-jp",
+                                                    korean: "flag-icon-kr",
+                                                    french: "flag-icon-fr",
+                                                    deutsch: "flag-icon-de",
+                                                    chinese_traditional: "flag-icon-tw",
+                                                };
+                                                return flagMap[lang] || "flag-icon-cn";
+                                            }
+
+                                            // 根据当前语言渲染国旗
+                                            function renderFlagByCurrentLang() {
+                                                const currentLang = translate.language.getCurrent();
+                                                const flagClass = getFlagClass(currentLang);
+                                                dropdownButton.innerHTML = '<span class="flag-icon ' + flagClass + '"></span>';
+                                            }
+
+                                            // 页面加载完成后，根据当前语言渲染国旗
+                                            renderFlagByCurrentLang();
+                                        });
+                                    </script>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
-                    <div id="docsearch"></div>
-                    <script src="https://res.cloudinary.com/cyeam/raw/upload/v1749050388/static/docsearch3.js"></script>
-                    <link rel="stylesheet" href="https://res.cloudinary.com/cyeam/raw/upload/v1749050387/static/docsearch3.css" />
-                    <script type="text/javascript">
-                        docsearch({
-                            appId: "R0OU0JZTBA",
-                            apiKey: "745219c0c5e3e85de57e401368c82466",
-                            indexName: "man_cyeam_pages",
-                            container: "#docsearch",
-                            placeholder: "AI+Go架构师",
-                            debug: true,
-                        });
-                    </script>
-                    <div id="translate"></div>
-                    <!-- 引入多语言切换的js -->
-                    <script src="https://www.cyeam.com/js/translate.js"></script>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                            translate.selectLanguageTag.show = true; //不出现的select的选择语言
-                            translate.selectLanguageTag.languages = "chinese_simplified,english,japanese,korean,french,deutsch,chinese_traditional";
-                            translate.service.use("client.edge"); //设置机器翻译服务通道
-                            translate.setAutoDiscriminateLocalLanguage();
-                            translate.execute();
-                            document.getElementById("translateSelectLanguage").classList.add("form-select");
-                        });
-                    </script>
                 </div>
             </div>
         </header>
@@ -103,7 +212,7 @@
                             <a href="//www.cyeam.com/mcp/quickstart" class="nav-link px-2 text-body-secondary"><b>MCP</b></a>
                         </li>
                         <li class="nav-item">
-                            <a href="https://www.doubao.com/chat/7623735904791805986?type=1" class="nav-link px-2 text-body-secondary"><b>架构师</b></a>
+                            <a href="//blog.cyeam.com" class="nav-link px-2 text-body-secondary"><b>博客</b></a>
                         </li>
                         <li class="nav-item">
                             <a href="https://blog.cyeam.com/ai/2026/03/14/medicine" class="nav-link px-2 text-body-secondary"><b>药不能停</b></a>
