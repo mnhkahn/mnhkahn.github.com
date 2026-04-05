@@ -1,0 +1,63 @@
+name: Index Blog Posts
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+env:
+  LARK_BOT_WEBHOOK: ${{ secrets.LARK_BOT_WEBHOOK }}
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r scripts/requirements.txt
+
+      - name: Index blog posts
+        env:
+          QDRANT_URL: ${{ secrets.QDRANT_URL }}
+          QDRANT_API_KEY: ${{ secrets.QDRANT_API_KEY }}
+          QDRANT_COLLECTION: ${{ secrets.QDRANT_COLLECTION }}
+          QDRANT_VECTOR_SIZE: ${{ secrets.QDRANT_VECTOR_SIZE }}
+          QDRANT_VECTOR_NAME: ${{ secrets.QDRANT_VECTOR_NAME }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_TOKEN: ${{ secrets.LLM_TOKEN }}
+          LLM_EMBEDDING_MODEL: ${{ secrets.LLM_EMBEDDING_MODEL }}
+          LLM_EMBEDDING_DIMENSION: ${{ secrets.LLM_EMBEDDING_DIMENSION }}
+        run: python scripts/index_to_qdrant.py
+
+      - name: Send Lark notification
+        if: success()
+        env:
+          LARK_WEBHOOK: ${{ env.LARK_BOT_WEBHOOK }}
+        run: |
+          jq -n \
+            --arg title "博客文章索引更新" \
+            --arg status "☀️☀️☀️☀️☀️ 成功" \
+            --arg time "$(date '+%Y-%m-%d %H:%M:%S')" \
+            '{
+              msg_type: "post",
+              content: {
+                post: {
+                  zh_cn: {
+                    title: $title,
+                    content: [
+                      [{ tag: "text", text: $status }],
+                      [{ tag: "text", text: ("🕐 " + $time) }]
+                    ]
+                  }
+                }
+              }
+            }' | curl -X POST -H "Content-Type: application/json" -d @- $LARK_WEBHOOK

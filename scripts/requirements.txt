@@ -1,0 +1,6 @@
+qdrant-client
+openai
+requests
+pyyaml
+python-dotenv
+sentence-transformers
