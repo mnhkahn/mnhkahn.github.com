@@ -36,7 +36,7 @@ jobs:
           LLM_TOKEN: ${{ secrets.LLM_TOKEN }}
           LLM_EMBEDDING_MODEL: ${{ secrets.LLM_EMBEDDING_MODEL }}
           LLM_EMBEDDING_DIMENSION: ${{ secrets.LLM_EMBEDDING_DIMENSION }}
-        run: python scripts/index_to_qdrant.py
+        run: python scripts/index_to_qdrant.py --limit 5
 
       - name: Send Lark notification
         if: success()
