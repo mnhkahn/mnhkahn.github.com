@@ -207,10 +207,6 @@ img[alt="IMG-THUMBNAIL"] {
     overflow-y: hidden;
 }
 
-/* navbar */
-.navbar {
-}
-
 /* opacity: */
 .opacity {
     background: rgba(255, 255, 255, 0.9);
