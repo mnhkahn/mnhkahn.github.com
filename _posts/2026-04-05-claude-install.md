@@ -57,6 +57,29 @@ claude
 3. 配置`ccr ui`。强烈建议用这个，比直接改配置省事。
 4. 启动Claude。`ccr code`。
 
+# 接入LangSmith
+
+## 安装插件
+```
+/plugin marketplace add langchain-ai/langsmith-claude-code-plugins
+/plugin install langsmith-tracing@langsmith-claude-code-plugins
+/reload-plugins
+```
+
+## 配置Token
+
+路径：`.claude/settings.local.json`。
+```
+{
+  "env": {
+    "TRACE_TO_LANGSMITH": "true",
+    "CC_LANGSMITH_API_KEY": "<LangSmith API key>",
+    "CC_LANGSMITH_PROJECT": "my-project"
+  }
+}
+```
+
+[Trace Claude Code applications](https://docs.langchain.com/langsmith/trace-claude-code)
 # Shortcuts
 
 | Shortcut  | Action                                     |
