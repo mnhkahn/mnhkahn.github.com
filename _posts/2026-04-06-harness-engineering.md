@@ -2,6 +2,7 @@
 layout: post
 title: "Harness Engineering深度解析：AI时代的系统控制新范式"
 description: "系统对比Prompt Engineering、Context Engineering和Harness Engineering三种AI工程方法的核心差异，从核心定位、技术手段到应用场景进行全面分析。文章详细阐述Harness Engineering在系统控制、自主执行和安全可靠性方面的优势，为AI系统开发提供全新的工程视角。"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1775461400/cb449771-c214-46f2-b920-23545981bae5.webp"
 category: "AI"
 tags: ["AI", "Harness Engineering", "Prompt Engineering", "Context Engineering"]
 ---
@@ -26,5 +27,14 @@ tags: ["AI", "Harness Engineering", "Prompt Engineering", "Context Engineering"]
 
 更多阅读：
 - [2026 AI 开发新范式：Harness Engineering（驾驭工程）为何是智能体的决胜点？](https://mp.weixin.qq.com/s?__biz=MzY4NzAzOTMxMQ==&mid=2247483770&idx=1&sn=f35fe72584f3a06e415374b93866e52e&chksm=f285a3b7f5525c7728c4786d9cdb2d537175bbc80ab29cdfcf82306cc0ceeb67679d47766b52&mpshare=1&srcid=0405ou8kKlrFZwUPMWG0RKdg&sharer_shareinfo=ca6d0395e3844d726629609a65950860&sharer_shareinfo_first=ca6d0395e3844d726629609a65950860&from=timeline&scene=2&subscene=1&sessionid=1775389781&clicktime=1775393610&enterid=1775393610&ascene=2&fasttmpl_type=0&fasttmpl_fullversion=8198750-zh_CN-zip&fasttmpl_flag=0&realreporttime=1775393610299&devicetype=android-36&version=2800455e&nettype=WIFI&abtest_cookie=AAACAA%3D%3D&lang=zh_CN&countrycode=CN&exportkey=n_ChQIAhIQLrV3Z6FNARBA18j6HgJWhhLZAQIE97dBBAEAAAAAAMF4EGXkL1oAAAAOpnltbLcz9gKNyK89dVj05Fua3wl%2BOMIR6nYzbVRQBjfErWIK0N4guPCG7YeZuqKnrUZN%2FHW874oZ9E%2F8tS49gafo3KWnb6Ut%2F16f8u8Ew23eUaI8YTD%2BF1L7JeKTAP73H%2BCdM3Y7BqzPgZ%2B5t4PUj8UKuj2Fo%2Fsbcz6SbulnaWlp9dXHcZ4%2FbQSOrTwPqrO2EEclzAhjqxAKDoHf1tIi4IZ5verd7%2BJU%2Fn2xordqbyecazhHe6JpAlt%2FopoJaeXvNZE%3D&pass_ticket=STXDxqr1fHzDxQgY62AnLArtheY%2Bt%2BnwvStnOl71NpzsFioMSJ%2BoMzc5Vo6XrORM&wx_header=3)
+
+# Harness Engineering架构
+
+Code Harness = 模型层 + 智能体循环 + 运行时支撑
+- 模型层：LLM / Reasoning LLM（引擎）
+- 智能体循环：Observe → Inspect → Choose → Act（决策闭环）
+- 运行时支撑：上下文、工具、权限、缓存、记忆、子代理（脚手架）
+
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1775461400/cb449771-c214-46f2-b920-23545981bae5.webp)
 
 {% include JB/setup %}
