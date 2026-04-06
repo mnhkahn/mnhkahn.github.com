@@ -35,6 +35,6 @@ Code Harness = 模型层 + 智能体循环 + 运行时支撑
 - 智能体循环：Observe → Inspect → Choose → Act（决策闭环）
 - 运行时支撑：上下文、工具、权限、缓存、记忆、子代理（脚手架）
 
-![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1775461400/cb449771-c214-46f2-b920-23545981bae5.webp)
+![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1775461401/fddabad8-788e-43aa-af06-f99a7e861c60.webp)
 
 {% include JB/setup %}
