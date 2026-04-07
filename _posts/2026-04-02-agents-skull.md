@@ -93,6 +93,12 @@ my-skill/
 └── assets/           # Optional: templates, resources
 ```
 
+| 位置 | 路径                                   | 适用于         |
+| ---- | -------------------------------------- | -------------- |
+| 个人 | ~/.claude/skills/<skill-name>/SKILL.md | 你的所有项目   |
+| 项目 | .claude/skills/<skill-name>/SKILL.md   | 仅此项目       |
+| 插件 | <plugin>/skills/<skill-name>/SKILL.md  | 启用插件的位置 |
+
 ## 如何工作
 
 - 发现阶段：启动时，智能体仅加载每项可用技能的名称与描述，只需足够判断该技能是否相关即可。
@@ -101,7 +107,9 @@ my-skill/
 
 ## 例子
 
-详细内容可移步官方文档：[SKILL.md规范](https://agentskills.io/specification)
+- 详细内容可移步官方文档：[SKILL.md规范](https://agentskills.io/specification)
+- 更多例子：[UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
+- [使用 skills 扩展 Claude - Claude Code Docs](https://code.claude.com/docs/zh-CN/skills#%E7%94%9F%E6%88%90%E8%A7%86%E8%A7%89%E8%BE%93%E5%87%BA)
 
 ```
 ---
@@ -123,6 +131,32 @@ description: 简要描述这个技能的功能和使用场景
 
 ## 示例 (可选)
 输入/输出示例，展示预期效果。
+```
+
+## 渐进式拉取skill
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant Agent as Claude Code Agent
+    participant Skill as Skill 知识库 (.md)
+    participant LLM as Claude LLM
+
+    %% 交互流程
+    User->>Agent: 提出需求（如：生成SVG动画）
+    
+    Agent->>Skill: 根据需求检索匹配技能
+    Skill-->>Agent: 返回对应技能手册内容
+    
+    Agent->>LLM: 注入技能上下文 + 用户需求
+    LLM-->>Agent: 要求查询Skill完整信息
+    
+    Agent->>LLM: 注入完整 Skill 上下文
+    LLM-->>Agent: 要求执行Skill命令（如：sed）
+    Agent->>LLM: 提供执行结果
+
+    LLM-->>Agent: 生成最终结果
+    Agent-->>User: 输出最终答案
 ```
 
 {% include JB/setup %}
