@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Harness Engineering深度解析：AI时代的系统控制新范式"
-description: "系统对比Prompt Engineering、Context Engineering和Harness Engineering三种AI工程方法的核心差异，从核心定位、技术手段到应用场景进行全面分析。文章详细阐述Harness Engineering在系统控制、自主执行和安全可靠性方面的优势，为AI系统开发提供全新的工程视角。"
+description: "全面解析Harness Engineering（驾驭工程）的核心概念与实现架构，系统对比AI工程化三阶段（Prompt Engineering、Context Engineering、Harness Engineering）的差异。文章详细介绍Code Harness的五层架构设计：实时代码仓库上下文、提示词形态与缓存复用、工具执行与安全管控、上下文瘦身优化、任务委派与子智能体，通过流程图、表格和架构图深入阐述各阶段技术实现细节，为AI智能体开发提供完整的工程化解决方案。"
 figure: "https://res.cloudinary.com/cyeam/image/upload/v1775461400/cb449771-c214-46f2-b920-23545981bae5.webp"
 category: "AI"
 tags: ["AI", "Harness Engineering", "Prompt Engineering", "Context Engineering"]
