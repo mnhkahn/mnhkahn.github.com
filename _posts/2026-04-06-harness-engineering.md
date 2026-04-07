@@ -235,6 +235,7 @@ flowchart LR
     F["Full transcript<br/>User requests, tools results, LLM responses"] -->|4| G["Asymmetric detail<br/>Recent rich, older short"]:::highlight
     E -->|5| H["Compact transcript<br/>Recent, compacted history"]
     G --> H
+    B --> H
     H -->|6| I["Prompt<br/>The assembled prompt<br/>(last section)"]
     I -->|7| J[LLM]
 ```
