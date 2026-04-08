@@ -196,6 +196,16 @@ flowchart TD
 - 生成 → 执行 → 验证 → 诊断 → 自愈 → 再执行
 - 闭环 = 零幻觉、高可靠的根本原因
 
+#### 强力提示词
+
+- `src/services/compact/prompt.ts:19`：明确要求 Your entire response must be plain text: an <analysis> block followed by a <summary> block.这是最直接的“先分析再给总结”。
+- `src/services/compact/prompt.ts:31`：Before providing your final summary, wrap your
+analysis in <analysis> tags...，属于硬性两阶段输出。
+- `src/commands/security-review.ts:92`：有 ANALYSIS METHODOLOGY，后面分 Phase 1/2/3做仓库研究、对比分析、漏洞评估，明显是先论证再结论。
+- `src/commands/security-review.ts:130`：要求 FALSE POSITIVE FILTERING 和 confidence score，不是简单找问题，而是要求证据和置信度。
+- `src/memdir/memoryTypes.ts:201`：Before answering the user ... verify that the memory is still correct and up-to-date，这是“先验证再回答”。
+- `src/coordinator/coordinatorMode.ts:328`：Prove the code works, don't just confirm it exists，要求给可验证依据，不接受口头确认。
+
 ## 第四阶段：上下文瘦身（防爆炸与优化）
 
 ### 4. 给上下文瘦身，防止撑爆 (Minimizing Context Bloat)
