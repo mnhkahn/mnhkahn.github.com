@@ -33,6 +33,8 @@ export OPENROUTER_API_KEY="<your-openrouter-api-key>"
 export ANTHROPIC_BASE_URL="https://openrouter.ai/api"
 export ANTHROPIC_AUTH_TOKEN="$OPENROUTER_API_KEY"
 export ANTHROPIC_API_KEY=""
+
+source ~/.zshrc # 记得要让模型生效
 ```
 
 ## 启动
@@ -89,6 +91,43 @@ claude
 | Claude 3.5/4.5 Opus（逻辑王 / 高阶规划）   | 宏大乐章 | 复杂任务攻坚               | 系统架构设计、高复杂度算法开发、大型项目重构、超长上下文深度理解 | 思考逻辑缜密、具备全局统筹能力，是 Claude 系列中推理能力最强的型号     |
 | Claude 3.5/4.5 Haiku（闪电速 / 轻量级）    | 俳句     | 简单辅助、高频轻量任务处理 | 简单样板代码生成、文档内容总结、代码格式化、轻量自动化脚本编写   | 响应速度最快，调用成本极低，适合高频次、低复杂度的辅助需求             |
 
+# 增加提示音
+
+这个很重要，由于CC能力很强需要后台做很多事情，所以需要提示音来提醒我们任务进度。你可以参考这篇文档调整自己喜欢的提示音[配置任务提示音](https://claude-docs.plugins-world.cn/claude-docs/experience/notification-sound.html)。
+
+- Notification 需要操作确认时播放Glass.aiff
+- Stop 任务完成时播放Ping.aiff
+
+```
+vi ~/.claude/settings.json
+
+{
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Ping.aiff"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 # Shortcuts
 
 | Shortcut  | Action                                     |
@@ -105,5 +144,9 @@ claude
 | Ctrl+F    | Kill all background agents (press twice)   |
 
 [Claude Code Cheat Sheet – Commands, Shortcuts, Tips](https://computingforgeeks.com/claude-code-cheat-sheet/#google_vignette)
+
+# 配置文件
+
+[Claude Code 设置](https://code.claude.com/docs/zh-CN/settings)。
 
 {% include JB/setup %}
