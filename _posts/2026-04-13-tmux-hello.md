@@ -40,6 +40,9 @@ sudo yum install tmux
 ```
 
 ## 配置
+
+路径：`.tmux.conf`
+
 ```bash
 # ------------------------------
 # Tmux 基础配置（Claude Teams 专用）
