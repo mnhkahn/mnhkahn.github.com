@@ -169,4 +169,13 @@ set -g message-style "fg=white,bg=blue"
 | 复制         | Enter      | 复制到缓冲区  |
 | 粘贴         | 前缀键 + ] | 粘贴内容      |
 
+### 光标
+
+| 操作             | 快捷键   |
+| ---------------- | -------- |
+| 向前跳转一个单词 | option+b |
+| 向后跳转一个单词 | option+f |
+
+iTerm2需要配置Option键，配置成ESC+，详细看下面文档：[mac 下使用 iTerm 终端工具无法使用 alt+b 和 alt+f 快捷键的解决方法原创](https://cloud.tencent.com/developer/article/1006011)
+
 {% include JB/setup %}

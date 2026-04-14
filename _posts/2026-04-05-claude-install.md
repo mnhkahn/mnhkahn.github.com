@@ -91,6 +91,14 @@ claude
 | Claude 3.5/4.5 Opus（逻辑王 / 高阶规划）   | 宏大乐章 | 复杂任务攻坚               | 系统架构设计、高复杂度算法开发、大型项目重构、超长上下文深度理解 | 思考逻辑缜密、具备全局统筹能力，是 Claude 系列中推理能力最强的型号     |
 | Claude 3.5/4.5 Haiku（闪电速 / 轻量级）    | 俳句     | 简单辅助、高频轻量任务处理 | 简单样板代码生成、文档内容总结、代码格式化、轻量自动化脚本编写   | 响应速度最快，调用成本极低，适合高频次、低复杂度的辅助需求             |
 
+# Claude Teams
+
+官方文档：[协调 Claude Code 会话团队](https://code.claude.com/docs/zh-CN/agent-teams#%E5%90%AF%E7%94%A8-agent-teams)
+
+```
+我需要做一个安卓app，功能是xxxx。创建一个Agent团队， 从不同的角度来探索这个问题：一个负责调研xxxxxx；一个负责交互，要设计出来完整功能，例如xxxxxx；一个负责开发app，基于原生安卓框架开发；一个负责测试，确保调研和设计到功能都被实现。这几个角色的工作有依赖关系，注意工作流程。
+```
+
 # 增加提示音
 
 这个很重要，由于CC能力很强需要后台做很多事情，所以需要提示音来提醒我们任务进度。你可以参考这篇文档调整自己喜欢的提示音[配置任务提示音](https://claude-docs.plugins-world.cn/claude-docs/experience/notification-sound.html)。
