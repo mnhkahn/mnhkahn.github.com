@@ -158,16 +158,5 @@ sequenceDiagram
     LLM-->>Agent: 生成最终结果
     Agent-->>User: 输出最终答案
 ```
-## npx skills——AI Agent 能力包管理器
-
-**npx skills = Vercel 开源 AI 代理技能管理器 CLI（Claude Code / Cursor / OpenCode 专用**
-
-一键安装 / 管理 AI 技能包（SKILL.md），自动放到 Claude/Cursor 对应目录（.claude/skills）。全局安装要在HOME目录下执行。
-
-```
-npx skills add 仓库地址       # 安装技能
-npx skills list               # 查看已装技能
-npx skills init               # 新建自己的 SKILL.md
-```
 
 {% include JB/setup %}
