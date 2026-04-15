@@ -63,7 +63,6 @@ npx skills path               # 查看技能包目录
 | Vercel 兼容 | 支持，`npx skills add` 可安装                           | 支持，同一个 Vercel Skill 包无需修改                                       |
 | 安全模型    | Anthropic 托管 + 权限沙箱                               | 用户自行负责：需审计 Skill 内容防止 RCE、数据泄露                          |
 | 生态规模    | 官方内置 + 社区贡献                                     | ClawHub 市场 860+ 技能 + 社区贡献                                          |
-| 成本        | $20-200/月（Anthropic 订阅）                            | 开源免费，仅 API 调用费 $5-150/月                                          |
 
 ## 关键差异总结
 
