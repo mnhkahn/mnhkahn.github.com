@@ -34,15 +34,39 @@ npx skills path               # 查看技能包目录
 ## 核心结构
 
 ```
-你的项目/
-└── .skills/             # 所有技能都在这里
-    ├── installed.json   # 已安装列表
-    └── skills/          # 技能源码
+skill-name/
+├── SKILL.md          # 必填：元数据 + 使用说明/指令
+├── scripts/          # 可选：可执行代码
+├── references/       # 可选：参考文档
+├── assets/           # 可选：模板、资源文件
+└── ...               # 其他任意附加文件或目录
 ```
 
 1. system prompt（AI 行为规则）
 2. tools（可执行命令 / API / 浏览器操作）
 3. knowledge（文档 / 规范 / 最佳实践）
+
+## 测试Skill
+
+
+```
+# 校验当前目录下所有技能配置（SKILL.md、skill-manifest.json）
+npx skills validate
+
+# 校验单个技能文件
+npx skills validate ./skills/your-skill/SKILL.md
+```
+
+## SKILL.md 文档YAML规范
+
+| 字段          | 必填 | 约束说明                                                                |
+| ------------- | ---- | ----------------------------------------------------------------------- |
+| name          | 是   | 最多 64 个字符。仅允许小写字母、数字和连字符。不能以连字符开头或结尾。  |
+| description   | 是   | 最多 1024 个字符。不能为空。描述该技能的功能及适用场景。                |
+| license       | 否   | 许可证名称，或指向内置许可证文件的引用。                                |
+| compatibility | 否   | 最多 500 个字符。说明环境依赖要求（目标产品、系统软件包、网络权限等）。 |
+| metadata      | 否   | 用于附加元数据的任意键值对配置。                                        |
+| allowed-tools | 否   | 由空格分隔的字符串，列出该技能可使用的预授权工具。（实验性功能）        |
 
 # Claude Code Skill / OpenCLaw Skill / Vercel Skill
 
