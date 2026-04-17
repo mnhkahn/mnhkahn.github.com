@@ -2,7 +2,7 @@
 layout: post
 title: "npx skills深度解析：AI Agent技能包管理器完全指南"
 description: "详细介绍npx skills（Vercel开源AI代理技能管理器）的使用方法，包括常用命令、核心结构、SKILL.md文档YAML规范。文章对比Claude Code Skills、OpenClaw Skills和Vercel Skill的差异，分析格式兼容性、模型绑定、安全模型等关键维度，并提供优秀Skill案例和提示词设计洞察，帮助开发者高效管理和分享AI Agent技能包。"
-figure: "https://res.cloudinary.com/cyeam/image/upload/v1776431654/clipboard_1776431650060_yllpr96wc.webp"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1776251967/clipboard_1776251964128_fnof8lfxg.webp"
 category: "AI"
 tags: ["AI", "Skills", "Claude Code", "OpenClaw", "Agent"]
 ---
