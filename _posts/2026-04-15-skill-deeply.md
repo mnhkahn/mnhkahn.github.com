@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "LLM API接口对比：Claude、Google与OpenAI协议详解"
-description: "详细对比三种主流LLM API接口的特性与差异，包括Claude原生协议、Google Antigravity测试版和OpenAI兼容协议。文章分析了各接口的协议类型、适用场景、稳定性和生态兼容性，并从请求体结构、流式响应格式和错误处理等维度进行深入比较，提供了基于不同使用场景的接口选择指南。"
-figure: "https://res.cloudinary.com/cyeam/image/upload/v1776251967/clipboard_1776251964128_fnof8lfxg.webp"
+title: "npx skills深度解析：AI Agent技能包管理器完全指南"
+description: "详细介绍npx skills（Vercel开源AI代理技能管理器）的使用方法，包括常用命令、核心结构、SKILL.md文档YAML规范。文章对比Claude Code Skills、OpenClaw Skills和Vercel Skill的差异，分析格式兼容性、模型绑定、安全模型等关键维度，并提供优秀Skill案例和提示词设计洞察，帮助开发者高效管理和分享AI Agent技能包。"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1776431654/clipboard_1776431650060_yllpr96wc.webp"
 category: "AI"
-tags: ["AI","LLM", "API", "Claude", "OpenAI", "Google"]
+tags: ["AI", "Skills", "Claude Code", "OpenClaw", "Agent"]
 ---
 
 - 目录
@@ -50,11 +50,8 @@ skill-name/
 
 
 ```
-# 校验当前目录下所有技能配置（SKILL.md、skill-manifest.json）
-npx skills validate
-
-# 校验单个技能文件
-npx skills validate ./skills/your-skill/SKILL.md
+# 校验技能文件
+npx skills-ref validate ~/.claude/skills/wiki/SKILL.md
 ```
 
 ## SKILL.md 文档YAML规范
