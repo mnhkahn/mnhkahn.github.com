@@ -4,7 +4,7 @@ title: "Agent Harness 五源语：从不可靠的 LLM 到可靠的工程系统"
 description: "解析 AI 编码代理 Harness 的五个核心源语——Skill、Rule、Hook、Memory、Eval，如何通过递进防御将概率性模型转化为可靠的工程系统。"
 category: "AI"
 tags: ["AI", "Agent", "Harness Engineering", "LLM", "工程实践"]
-figure: "https://res.cloudinary.com/cyeam/image/upload/v1780321470/clipboard_1780321466560_13i85s1lh.webp"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1780324344/agent-harness-five-primitives_d6kmbc.svg"
 ---
 
 * 目录
