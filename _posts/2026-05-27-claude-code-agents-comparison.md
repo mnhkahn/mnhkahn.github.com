@@ -4,6 +4,7 @@ title: "Claude Code 内置 Agent 对比：工具、权限与适用场景"
 description: "梳理 Claude Code 6 个内置 Agent 的核心属性、工具权限、模型和使用场景，并解释多 Agent 协作、Agent 核心概念，以及如何选择合适的 Agent。"
 category: "AI"
 tags: ["AI", "Agent", "Claude Code", "开发工具"]
+figure: "https://res.cloudinary.com/cyeam/raw/upload/v1780409886/claude-code-agents-comparison.svg"
 ---
 
 * 目录

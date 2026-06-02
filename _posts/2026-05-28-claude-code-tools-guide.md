@@ -4,6 +4,7 @@ title: "Claude Code 工具使用指南与实现原理"
 description: "详解 Claude Code 内置工具集的使用方式、入参、输出格式和实现原理，涵盖文件搜索、内容读取、文本替换、命令行调用和网页内容获取等核心功能。"
 category: "AI"
 tags: ["AI", "Claude Code", "开发工具", "工具"]
+figure: https://res.cloudinary.com/cyeam/raw/upload/v1780410081/claude-code-tools-guide.svg
 ---
 
 * 目录

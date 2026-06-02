@@ -4,6 +4,7 @@ title: "AI Agent Skill 拆分：从大文档到按需加载"
 description: "介绍 AI Agent Skill 的拆分逻辑，说明为什么 SKILL.md 应该只作为入口文件，如何通过 references、scripts、--help 和交叉引用实现按需加载，降低 token 成本并提升执行稳定性。"
 category: "AI"
 tags: ["AI", "Agent", "Skills", "Token", "工程实践"]
+figure: "https://res.cloudinary.com/cyeam/raw/upload/v1780409696/skill-on-demand-loading.svg"
 ---
 
 * 目录
