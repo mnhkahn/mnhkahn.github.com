@@ -82,7 +82,7 @@ flowchart TD
     subgraph Open[Open]
         cli
         MCP
-        HTTP
+        OpenAPI
     end
 
     Skills((Skills))
