@@ -64,38 +64,30 @@ Karpathy 指出，对 AI 能力的认知存在巨大鸿沟，根源是两类使�
 - **Agent 应用**：搭好基础架构，做好 Harness（未来还应有新的方案）、上下文压缩、插件化。
 - **业务应用**：提供 Skill、Plugin；提供 CLI、OpenAPI、MCP。
 
-```mermaid
-flowchart TD
-    LLM[LLM]
-
-    subgraph Channel[Channel]
-        Lark
-        Telegram
-    end
-
-    subgraph Agent[AI Agent]
-        Claude
-        Codex
-        OpenClaw
-    end
-
-    subgraph Open[Open]
-        cli
-        MCP
-        OpenAPI
-    end
-
-    Skills((Skills))
-    Local[("local data")]
-
-    Channel --> Agent
-    Agent --> LLM
-    Agent --> Open
-    Agent --> Skills
-    Agent --> Local
-```
+![未来 Agent 架构：入口、Agent 应用、模型、工具与数据](https://res.cloudinary.com/cyeam/image/upload/v1784990372/future-agent-architecture.webp)
 
 架构变化也会导致产品形态变化。真正的竞争核心已不是“谁会聊天”，而是**“谁能把模型、工具、系统、入口和成本整合成可执行产品”**，尤其是部分之前是由人工完成的整合工作。
+
+---
+
+## 一个正在运行的例子：把学习平板接入 Agent
+
+上面的架构不是只适用于“写代码”。最近做的学习平板，正好把它落成了一套很小、但边界很清楚的系统：平板既是一个作业应用，也是一个可被 Agent 调用的设备。
+
+![学习平板与 Agent 的双链路架构](https://res.cloudinary.com/cyeam/image/upload/v1784989920/learning-tablet-architecture.webp)
+
+核心不是把所有能力塞进一个接口，而是把两种通信分开。
+
+- **HTTPS REST 是数据链路**：平板直接连接 `cyeam_web`，完成设备配对、同步作业、提交完成状态与上传作业照片；`cyeam_web` 再通过 Trello API 读写作业卡片。设备配对和提交记录是服务端自己的主数据，并不依附于 Trello。
+- **WSS + MCP 是设备控制链路**：平板主动连接小李服务端的 Gateway，注册通知、拍照、临时解除学习模式、查询本地作业状态等能力。小李 Agent 根据对话选择工具，Gateway 再按 `device_id` 把 MCP 调用路由回对应的平板。
+- **Agent 不替代业务系统**：它通过 Trello CLI 查询和管理作业，通过 MCP 管理设备；作业数据和设备操作各有明确的来源、权限边界与失败处理方式。
+
+这也是我认为 Agent 应用更可靠的一种形态：业务系统继续拥有数据和确定性流程，Agent 负责理解意图、选择工具和编排步骤；MCP 不做“万能后端”，而是把设备能力变成可发现、可调用、可返回结果的接口。
+
+相关代码：
+
+- [Android 学习平板 App](https://github.com/mnhkahn/homework)
+- [作业 REST 服务（cyeam_web）](https://github.com/mnhkahn/cyeam_web)
 
 ## 我们现在要做的
 
