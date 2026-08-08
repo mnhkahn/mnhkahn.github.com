@@ -99,11 +99,93 @@ func decompKey(parts []string) string {
 
 能从字库检索到一个字，并不等于每位用户都能看见它。常用汉字大多位于 Unicode 的基本多文种平面（BMP）；但扩展 B 区及之后的汉字码点超过 `U+FFFF`，需要更完整的 CJK 扩展字库。许多系统默认字体没有覆盖这些字符，浏览器就可能显示空白方框、替代符号，或在不同设备上呈现出不一致的字形。
 
-组字工具在数据模型中逐个检查结果字的 Unicode 码点：只要含有超过 `0xFFFF` 的字符，就标记为 `OutsideBMP`。普通汉字仍优先使用一组中文字体栈直接渲染；对基本平面以外的字，则改为加载 GlyphWiki 的明朝体 SVG 字形。页面因此可以稳定展示 `𣀧` 一类扩展区字，而不依赖用户是否恰好安装了某一种字体。
+下面是一套可以直接复用的渐进增强方案：**普通字用文本和字体栈，扩展区字用 SVG 字形兜底；无论哪种显示路径，始终保留原始 Unicode 字符。**
 
-这不是把文本完全替换成图片。卡片保留原始字符作为 `data-word` 和图片的 `alt` 文本，所以复制按钮复制的仍是 Unicode 字符本身；放大预览也按同一策略显示。若外部字形源暂时不可用，前端会监听图片加载失败事件，并回退到带有完整字体栈的可选中文本。即使字体最终仍无法覆盖该字，用户至少不会失去查询结果、码点和复制能力。
+## 用到的工具与资源
 
-这种“优先可复制的文本、必要时稳定显示字形、失败后再回退文本”的顺序，适合处理生僻字：视觉呈现不能影响信息本身，外部资源也不应成为查询流程的单点故障。
+| 工具或资源 | 在方案中的职责 | 是否必须 |
+|---|---|---|
+| Go 标准库 `fmt` | 格式化 Unicode 码点，并拼出 SVG 地址 | 后端为 Go 时需要 |
+| [GlyphWiki](https://glyphwiki.org/) | 按 Unicode 码点提供 CJK 扩展字的 SVG 字形 | 推荐，解决跨设备显示 |
+| [程荣光刻楷 Web Font](https://chinese-fonts-cdn.deno.dev/packages/crgkk/dist/%E7%A8%8B%E8%8D%A3%E5%85%89%E5%88%BB%E6%A5%B7/result.css) | 补强常用汉字和部分扩展字的浏览器字体栈 | 可选，但体验更好 |
+| Bootstrap 5 | 本项目用它承载卡片、弹窗等界面；与字形方案无耦合 | 可替换 |
+| 原生 JavaScript | 监听 SVG 加载失败并回退到原始文本 | 推荐，不额外引入包 |
+
+这里不需要专门的“生僻字 npm 包”。关键在于 Unicode 码点判断、一个可信字形源，以及失败回退。若不是 Go 服务端，把下面的码点判断移到任意后端或浏览器端即可。
+
+## 后端：标记扩展区字并生成字形地址
+
+模型只需提供两个方法。`rune` 是 Go 的 Unicode 码点类型，因此无需按 UTF-8 字节手动切分字符串。
+
+```go
+import "fmt"
+
+// 是否包含基本多文种平面以外的字符。
+func outsideBMP(word string) bool {
+    for _, r := range word {
+        if r > 0xFFFF {
+            return true
+        }
+    }
+    return false
+}
+
+// GlyphWiki 的字形文件名使用小写十六进制 Unicode 码点。
+func glyphURL(word string) string {
+    for _, r := range word {
+        return fmt.Sprintf("https://glyphwiki.org/glyph/u%x.svg", r)
+    }
+    return ""
+}
+```
+
+对组字工具而言，结果卡片会同时携带 `word`、`outsideBMP` 和 `glyphURL`。只要 `outsideBMP` 为真，模板便显示 SVG；否则直接渲染文字。请保留 `alt`、`data-word` 或等价字段为原字符，复制、检索、辅助技术和失败回退都会用到它。
+
+## 模板：文本优先，SVG 只负责稳定呈现
+
+下面以 Go 模板为例。普通字走字体栈；扩展区字改用图片，但 `alt` 始终为原始汉字。
+
+```html
+{{if .OutsideBMP}}
+  <img class="glyph-image" src="{{.GlyphURL}}" alt="{{.Word}}" width="48" height="48" />
+{{else}}
+  <span class="hanzi">{{.Word}}</span>
+{{end}}
+```
+
+```html
+<link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/crgkk/dist/程荣光刻楷/result.css" />
+<style>
+.hanzi {
+  font-family: chengrongguangke, "Songti SC", STSong, "SimSun-ExtB",
+    "Noto Serif CJK SC", HanaMinB, HanaMinA, serif;
+}
+</style>
+```
+
+字体栈仍然值得保留：它让普通字无需额外网络请求就能像文本一样选中、缩放和复制；SVG 只用于不能可靠显示的那一小部分结果。
+
+## 前端：SVG 不可用时回退为可复制文本
+
+外部字形源不是查询功能的前提。为每张字形图加上 `error` 监听；加载失败或浏览器已经报告自然宽度为零时，用原始文本替换图片。
+
+```js
+function textFallback(word) {
+  const text = document.createElement("span");
+  text.textContent = word;
+  text.className = "hanzi";
+  text.style.userSelect = "text";
+  return text;
+}
+
+document.querySelectorAll(".glyph-image").forEach((image) => {
+  const fallback = () => image.replaceWith(textFallback(image.alt));
+  image.addEventListener("error", fallback, { once: true });
+  if (image.complete && image.naturalWidth === 0) fallback();
+});
+```
+
+这套顺序的重点是：**视觉呈现可以降级，信息不能丢失。** 复制按钮应复制 `data-word` 中的原字符而不是图片 URL；放大预览也应复用同一套 SVG 与文本回退逻辑。这样，即便用户的字体不全、GlyphWiki 暂时不可用，仍能得到字、码点和可复制结果。
 
 # 动态查询页如何避免 SEO 失控
 
