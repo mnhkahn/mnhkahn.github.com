@@ -1,7 +1,10 @@
 $(document).ready(function () {
     initImagePreview();
-    initCode();
-    initCopyBtn();
+    // 高亮和复制是一组能力：任一基础脚本未就绪时，两者都不初始化，
+    // 避免出现只有复制按钮、却没有对应高亮的半完成状态。
+    if (initCode()) {
+        initCopyBtn();
+    }
 });
 
 function initCode() {
@@ -14,7 +17,15 @@ function initCode() {
             codeEl.className += ""; // 已有语言类，只加内边距
         }
     });
-    Prism.highlightAll();
+    if (!window.Prism || typeof window.Prism.highlightAll !== "function") {
+        console.error("Prism 未加载，代码高亮与复制按钮均不会初始化。");
+        return false;
+    }
+    if (window.Prism.plugins && window.Prism.plugins.Autoloader) {
+        window.Prism.plugins.Autoloader.languages_path = "/assets/vendor/prism/components/";
+    }
+    window.Prism.highlightAll();
+    return true;
 }
 
 function initCopyBtn() {

@@ -93,7 +93,7 @@ func decompKey(parts []string) string {
                            点击任一部件继续反查
 ```
 
-这让它不仅适合“找一个不知道怎么写的字”，也适合拆字学习、古文字阅读时的部件探索。前端用 Bootstrap 卡片组织结果，移动端可自适应排列；对超出 BMP 的生僻字符以字形图片降级显示，避免不同操作系统字体覆盖不一致导致“查到了却看不见”。
+看里面用了大量的找一个不知道怎么写的字”，也适合拆字学习、古文字阅读时的部件探索。前端用 Bootstrap 卡片组织结果，移动端可自适应排列；对超出 BMP 的生僻字符以字形图片降级显示，避免不同操作系统字体覆盖不一致导致“查到了却看不见”。
 
 # 生僻字查到了，为什么还要处理“显示不出来”
 
@@ -146,11 +146,13 @@ func glyphURL(word string) string {
 下面以 Go 模板为例。普通字走字体栈；扩展区字改用图片，但 `alt` 始终为原始汉字。
 
 ```html
+{% raw %}
 {{if .OutsideBMP}}
   <img class="glyph-image" src="{{.GlyphURL}}" alt="{{.Word}}" width="48" height="48" />
 {{else}}
   <span class="hanzi">{{.Word}}</span>
 {{end}}
+{% endraw %}
 ```
 
 ```html
