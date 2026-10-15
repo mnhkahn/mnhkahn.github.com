@@ -1,0 +1,43 @@
+name: Send Blog Newsletter
+
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Preview only (no campaign creation, sending or state changes)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-newsletter
+  cancel-in-progress: false
+
+jobs:
+  newsletter:
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.ref_name == github.event.repository.default_branch) ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == github.event.repository.default_branch &&
+       github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Send new published posts through Mailchimp
+        env:
+          MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_REVISION: ${{ github.event.workflow_run.head_sha }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        run: python scripts/send_newsletter.py

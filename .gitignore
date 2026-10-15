@@ -12,3 +12,4 @@ Thumbs.db
 *.sh
 
 .env
+__pycache__/

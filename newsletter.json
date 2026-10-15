@@ -1,0 +1,20 @@
+---
+layout: null
+permalink: /newsletter.json
+---
+{
+  "revision": {{ site.github.build_revision | default: "" | jsonify }},
+  "site_url": {{ site.production_url | jsonify }},
+  "audience_id": {{ site.newsletter.audience_id | jsonify }},
+  "posts": [
+    {% for post in site.posts %}
+    {
+      "id": {{ post.id | jsonify }},
+      "title": {{ post.title | jsonify }},
+      "description": {{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncate: 240 | jsonify }},
+      "url": {{ site.production_url | append: post.url | jsonify }},
+      "newsletter": {% if post.newsletter == false %}false{% else %}true{% endif %}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}

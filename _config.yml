@@ -2,7 +2,7 @@
 # For more see: https://jekyllrb.com/docs/permalinks/
 permalink: /:categories/:year/:month/:day/:title
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "scripts", "tests"]
 #pygments: true
 highlighter: rouge
 
@@ -28,6 +28,12 @@ author:
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
 production_url: https://blog.cyeam.com
+
+# Public signup settings only. MAILCHIMP_API_KEY belongs in GitHub Actions Secrets.
+newsletter:
+    audience_id: 6ef0d9748c
+    form_action: https://cyeam.us22.list-manage.com/subscribe/post
+    account_id: 653b7818d31c2e6382c1ee95f
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #

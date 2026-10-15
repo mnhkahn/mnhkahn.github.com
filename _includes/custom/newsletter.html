@@ -1,0 +1,19 @@
+{% if site.newsletter.form_action %}
+<section class="newsletter" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">下一篇，邮件见。</h2>
+    <p>订阅 Cyeam，有新的 Go、后端架构与 AI 实践文章时，通过邮件通知你。</p>
+    <form action="{{ site.newsletter.form_action | escape }}" method="post" target="_blank" rel="noopener noreferrer">
+        <input type="hidden" name="u" value="{{ site.newsletter.account_id | escape }}" />
+        <input type="hidden" name="id" value="{{ site.newsletter.audience_id | escape }}" />
+        <label for="newsletter-email">邮箱地址</label>
+        <div class="newsletter-fields">
+            <input id="newsletter-email" type="email" name="EMAIL" placeholder="you@example.com" autocomplete="email" autocapitalize="off" required aria-describedby="newsletter-note" />
+            <button type="submit">订阅更新</button>
+        </div>
+        <div class="newsletter-trap" aria-hidden="true">
+            <input type="text" name="b_{{ site.newsletter.account_id }}_{{ site.newsletter.audience_id }}" tabindex="-1" value="" autocomplete="off" />
+        </div>
+        <p id="newsletter-note" class="newsletter-note">不定期更新 · 随时可以退订 · 提交后将在新窗口完成订阅</p>
+    </form>
+</section>
+{% endif %}
