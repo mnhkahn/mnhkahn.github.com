@@ -2,7 +2,7 @@
 layout: post
 title: "ACP 协议详解（Agent Client Protocol）"
 description: "介绍 Agent Client Protocol 的通信模型、核心接口、会话流程、生态采用及模型选择机制，并对比 ACP、MCP、A2A 与 LSP 的分工。"
-image: "https://res.cloudinary.com/cyeam/image/upload/v1792080175/blog-images/2026-10-15-acp-cover.webp"
+figure: "https://res.cloudinary.com/cyeam/image/upload/v1792080175/blog-images/2026-10-15-acp-cover.webp"
 category: "AI"
 tags: ["AI", "ACP", "Agent", "协议"]
 ---
