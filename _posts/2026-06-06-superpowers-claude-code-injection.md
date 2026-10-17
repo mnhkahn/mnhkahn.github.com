@@ -15,7 +15,7 @@ Superpowers（`github.com/obra/superpowers`，219k stars）是当前最火的"AI
 
 ---
 
-# TL;DR
+## TL;DR
 
 **Superpowers = Claude Code 原生 Plugin 机制 + SessionStart Hook 注入一段强制性 Meta-Skill。**
 
@@ -23,9 +23,9 @@ Superpowers（`github.com/obra/superpowers`，219k stars）是当前最火的"AI
 
 ---
 
-# 三层结构
+## 三层结构
 
-## 插件清单（.claude-plugin/plugin.json）
+### 插件清单（.claude-plugin/plugin.json）
 
 ```json
 {
@@ -38,7 +38,7 @@ Superpowers（`github.com/obra/superpowers`，219k stars）是当前最火的"AI
 
 这只是声明"我是一个叫 superpowers 的插件"，让 Claude Code 在 `/plugin install` 时认识它。配套的 `.claude-plugin/marketplace.json` 把它登记到 marketplace，本质都是元数据。
 
-## Hook 注册（hooks/hooks.json）
+### Hook 注册（hooks/hooks.json）
 
 这是**真正的插装点**：
 
@@ -65,7 +65,7 @@ Superpowers（`github.com/obra/superpowers`，219k stars）是当前最火的"AI
 
 `run-hook.cmd` 是个 polyglot 脚本：Windows 上是 cmd 块（找 Git Bash 调用），Unix 上是 bash 块（直接 exec）。这样同一个 `session-start` 脚本跨平台。
 
-## 注入内容（hooks/session-start）
+### 注入内容（hooks/session-start）
 
 bash 脚本核心逻辑：
 
@@ -88,7 +88,7 @@ You have superpowers.
 </EXTREMELY_IMPORTANT>
 ```
 
-## 注入机制：stdout JSON 契约
+### 注入机制：stdout JSON 契约
 
 上一节留了一个关键问题没说透：**hook 子进程退出后，它的输出是怎么变成 system prompt 的？** 没有常驻连接、没有共享内存、没有回调函数——hook 只是一次同步子进程调用。
 
@@ -112,7 +112,7 @@ Claude Code 读取 stdout，按 JSON schema 解析
 
 **真正干"插入"动作的是 Claude Code 自己，不是 hook 脚本。** Hook 只是个信使，stdout 就是信的内容。Superpowers 写的 `session-start` bash 脚本本质是：**按 SessionStart 事件的 JSON schema 严格格式化一段字符串，输出到 stdout。** 之后的事 harness 处理。
 
-### additionalContext 永远追加，不挑食
+#### additionalContext 永远追加，不挑食
 
 对 SessionStart 这个事件，**`additionalContext` 永远会被追加进 system prompt**——harness 不会判断"这段值不值得注入"，看到字段就拼。具体行为：
 
@@ -122,7 +122,7 @@ Claude Code 读取 stdout，按 JSON schema 解析
 
 整套机制能成立就建立在这个"机械式契约"上：Claude Code 不挑食、不判断、看到字段就拼。
 
-### 关键陷阱：harness 不做字段去重
+#### 关键陷阱：harness 不做字段去重
 
 这是 `session-start` 脚本注释里专门警告的坑：
 
@@ -158,7 +158,7 @@ fi
 
 **字段去重是 hook 写作者的活，harness 不帮你擦屁股。**
 
-### 跨平台 polyglot 的同款机制
+#### 跨平台 polyglot 的同款机制
 
 `run-hook.cmd` 是同一个模式的递归应用——
 
@@ -175,7 +175,7 @@ Claude Code → run-hook.cmd stdout → bash session-start stdout → Claude Cod
 
 `run-hook.cmd` 自己不产生 JSON，它只做"找到 bash 并把子进程的 stdout 透传"。这种 polyglot 设计保证了 Windows / Unix 走的是同一份 `session-start` 脚本，行为一致。
 
-### 其他 hook 事件的契约
+#### 其他 hook 事件的契约
 
 Claude Code 的 hook 体系是一套**多事件多 schema** 的设计，不止 SessionStart 一招。每种事件有自己专属的 JSON schema，harness 按字段执行对应动作：
 
@@ -191,7 +191,7 @@ Claude Code 的 hook 体系是一套**多事件多 schema** 的设计，不止 S
 
 **这套契约就是"在不修改 Claude Code 源码的前提下扩展其行为"的完整接口。** Superpowers 只用了 SessionStart 一个事件；其他事件留出了大量未被开发的扩展空间——比如用 PreToolUse 拦截危险命令、用 Stop 强制 agent 完成自检流程。
 
-### 为什么必须包 JSON：每种事件的返回字段不同
+#### 为什么必须包 JSON：每种事件的返回字段不同
 
 上表的"能干什么"看起来很泛，落到 JSON 上每个事件有**专属字段名**，harness 按字段决定动作：
 
@@ -214,7 +214,7 @@ Claude Code 的 hook 体系是一套**多事件多 schema** 的设计，不止 S
 
 如果 hook 只回 raw text，harness 拿到 `"deny"` 该当权限拦截还是当文本注入？拿到 `"block"` 该当阻止停止还是当字符串？**没有结构就没有语义边界**。
 
-### 动手验证：自己跑一遍这条管道
+#### 动手验证：自己跑一遍这条管道
 
 上面全是原理，把整套链路在 Mac 上**自己执行**一遍最快。Claude Code 实际 spawn 的就是 `run-hook.cmd session-start` 这一个命令：
 
@@ -258,11 +258,11 @@ CLAUDE_PLUGIN_ROOT="$(cd .. && pwd)" bash run-hook.cmd session-start | jq 'keys,
 
 ---
 
-# 与默认 Skill 加载的本质差异
+## 与默认 Skill 加载的本质差异
 
 Claude Code 原生就有 Skill 机制：把 `SKILL.md` 放到 `~/.claude/skills/` 或 `.claude/skills/`，自动注册到 `Skill` 工具的可用列表。那 Superpowers 到底改了什么？
 
-## 默认是"能力暴露"，Superpowers 是"行为约束"
+### 默认是"能力暴露"，Superpowers 是"行为约束"
 
 | 维度 | Claude Code 原生 | Superpowers |
 |---|---|---|
@@ -273,13 +273,13 @@ Claude Code 原生就有 Skill 机制：把 `SKILL.md` 放到 `~/.claude/skills/
 | 流程定义 | 自由 | 状态机式流程图 |
 | 优先级 | 默认行为为最高 | 显式压过默认系统 prompt |
 
-## 元规则免疫的精妙设计
+### 元规则免疫的精妙设计
 
 `using-superpowers` 这条 skill 自己**不是通过 Skill 工具加载的**——如果它走 Skill 工具，就会陷入"agent 觉得不需要就不加载"的死结。
 
 它走的是 `SessionStart` Hook → `additionalContext` → 直接进 system prompt。所以"强制检查并加载 skill"这条规则本身**是被强制注入的**，免疫于它自己所对抗的"agent 自由裁量"问题。
 
-## 反合理化（Anti-Rationalization）武器
+### 反合理化（Anti-Rationalization）武器
 
 `using-superpowers` skill 里的核心话术：
 
@@ -302,7 +302,7 @@ Claude Code 原生就有 Skill 机制：把 `SKILL.md` 放到 `~/.claude/skills/
 
 这是从 CBT（认知行为疗法）借来的行为干预技术，针对 LLM "急于产出答案"的默认倾向。**不是告诉 agent 怎么做，而是堵死它逃避的借口。**
 
-## 优先级覆盖
+### 优先级覆盖
 
 skill 文本里有一句关键声明：
 
@@ -312,17 +312,17 @@ skill 文本里有一句关键声明：
 
 ---
 
-# 最精妙的一招：抗上下文压缩
+## 最精妙的一招：抗上下文压缩
 
 `hooks.json` 的 matcher 是 `startup|clear|compact`，**包括 `compact`**。
 
 这意味着：
 
-## 默认行为下的脆弱性
+### 默认行为下的脆弱性
 
 默认机制里，Skill 工具的返回值（skill 全文）会变成**普通对话内容**进入上下文。当上下文撑爆触发自动 compact 时，这些 skill 文本**会一起被压缩掉**——时间一长，agent 就"忘了还有 TDD 这回事"。
 
-## Superpowers 的解法
+### Superpowers 的解法
 
 SessionStart Hook 在每次 compact 之后**重新跑一次**，把 `using-superpowers` 全文连同反合理化清单**重新注入到 system prompt**。
 
@@ -347,11 +347,11 @@ Agent 通过 Skill 工具按需重新加载具体的 TDD / brainstorming 等
 
 ---
 
-# 抽象出来的设计模式
+## 抽象出来的设计模式
 
 Superpowers 展示了一套可复用的"在不修改 LLM 宿主的前提下改变 agent 行为"的设计模式：
 
-## 三层插装模型
+### 三层插装模型
 
 ```
 ┌──────────────────────────────────────────────┐
@@ -370,7 +370,7 @@ Superpowers 展示了一套可复用的"在不修改 LLM 宿主的前提下改�
 └──────────────────────────────────────────────┘
 ```
 
-## 关键设计原则
+### 关键设计原则
 
 1. **元规则不能依赖自己**——bootstrap 规则必须由系统级机制（Hook）直接注入，不能走 agent 自主决策的路径，否则陷入递归。
 
@@ -384,19 +384,19 @@ Superpowers 展示了一套可复用的"在不修改 LLM 宿主的前提下改�
 
 ---
 
-# 注入只是上半场：运行时几乎不执行代码
+## 注入只是上半场：运行时几乎不执行代码
 
 到这里讲的全是「怎么把强制令注入进去」。但注入只是把话说出口——**模型听不听是另一回事**。Superpowers 凭什么相信模型真会遵守那些纯文本铁律？答案不在运行时。
 
 直觉上，一个号称能强制 agent「先写测试再写实现」「违规就删掉重来」的框架，应该有一堆拦截逻辑。实际拆开看，运行时空得惊人。
 
-## 14 个 Skill，98% 是纯 Markdown
+### 14 个 Skill，98% 是纯 Markdown
 
 Superpowers 的 Skill 目录里，绝大多数文件是 `SKILL.md`——铁律横幅、红旗表、合理化反制表、流程图、正反例、子代理模板，全是**给模型读的文字**。它们不被任何解析器消费，不触发任何代码路径。
 
 唯一称得上「代码」的，是 subagent-driven-development（SDD）里的三个 bash helper，而且**需要模型主动调用**才会跑——模型不调，它们就是磁盘上的死文件。
 
-## 运行时没有任何看门狗
+### 运行时没有任何看门狗
 
 把常见的「强制」手段逐一对照，会发现 Superpowers 一个都没在运行时落地：
 
@@ -413,15 +413,15 @@ Superpowers 的 Skill 目录里，绝大多数文件是 `SKILL.md`——铁律�
 
 ---
 
-# 真正的执法：离线 Quorum Eval 闭环
+## 真正的执法：离线 Quorum Eval 闭环
 
 这套机制不在你的 session 里，而在作者开发 Skill 时跑的离线评估管线里。
 
-## 为什么纯 prompt 约束必须配 eval
+### 为什么纯 prompt 约束必须配 eval
 
 纯 prompt 约束有个致命问题：**你怎么知道这段措辞真的管用？** 把「YOU MUST USE THE SKILL」改成「Please consider using the skill」，遵从率会掉多少？把红旗表删掉，模型会不会开始找借口跳过流程？这些问题没法靠读 prompt 拍脑袋回答，只能**测**。Quorum Eval 就是这套测量工具。
 
-## 双 LLM 分离评审
+### 双 LLM 分离评审
 
 核心是把「跑场景」和「评判结果」拆给两个独立的 LLM：
 
@@ -430,7 +430,7 @@ Superpowers 的 Skill 目录里，绝大多数文件是 `SKILL.md`——铁律�
 
 分离的意义在于**避免「自己批改自己作业」的偏袒**——执行者和评审者不是同一次推理，评审更客观。
 
-## 确定性时序检查可以推翻 LLM 判决
+### 确定性时序检查可以推翻 LLM 判决
 
 光靠 LLM 评审还不够，因为 LLM 评审本身也会出错、会被说服。所以 Quorum Eval 叠了一层**确定性检查**：
 
@@ -439,7 +439,7 @@ Superpowers 的 Skill 目录里，绝大多数文件是 `SKILL.md`——铁律�
 
 这些检查是**确定性**的（不是 LLM 主观判断），所以当它们和 LLM 评审冲突时，**确定性检查可以推翻 LLM 判决**。比如 LLM 评审说「这条轨迹遵守了 TDD」，但时序检查发现实现文件的写入时间早于测试文件，那就直接判定违规——不管 LLM 怎么说。这是整套架构里少有的「硬」逻辑：**用确定性时序断言给主观的 LLM 评审兜底。**
 
-## eval 数据驱动的 prompt 调优闭环
+### eval 数据驱动的 prompt 调优闭环
 
 把上面的拼起来，就是 Superpowers 真正的开发循环：
 
@@ -461,11 +461,11 @@ Superpowers 的 Skill 目录里，绝大多数文件是 `SKILL.md`——铁律�
 
 ---
 
-# 「想起」从哪来：模型为什么会在发命令前改主意
+## 「想起」从哪来：模型为什么会在发命令前改主意
 
 理解了「注入 + eval」双环，就能解释一个常见现象：模型本来打算「马上 git commit」，结果在真正发出工具调用之前，自己改了主意先去跑测试或审查。这个「想起」从哪来？
 
-## 三层上下文一直在窗口里
+### 三层上下文一直在窗口里
 
 ```
                   ┌─ "想起"的来源：三层上下文一直在窗口里
@@ -491,13 +491,13 @@ Superpowers 的 Skill 目录里，绝大多数文件是 `SKILL.md`——铁律�
 
 关键在于：**模型不是发出命令后被拦下来，而是在同一轮推理里、命令还没出口时就修正了。** 没有「撤回」这个动作，因为根本没发出去。这正是接入层的价值——它保证那三层文本一直在窗口里，模型每次推理都能「看见」，于是有机会在最后一刻改主意。而这张图的下半段已经预告了后文要展开的对比：同样发生了「想起」，Inline 和 SDD 的兜底强度完全不同。
 
-## 但内循环是单点失败
+### 但内循环是单点失败
 
 问题是：这个「改主意」发生在模型的内循环里，**全凭那一刻的记忆力和自觉**。如果模型这次就是没想起来，命令照发不误。一旦真的发出去且通过了，在 **Inline 模式**（在主会话里直接干活）下就只能看运气——大约一半情况模型自己会 `git reset` 补救，另一半就这么过去了。单点失败的根源就在这：**约束力是心理的，没有结构兜底。**
 
 ---
 
-# Inline vs SDD：把「被检查」从运气变成结构保证
+## Inline vs SDD：把「被检查」从运气变成结构保证
 
 Superpowers 真正解决单点失败的，是 subagent-driven-development（SDD）这条 Skill。它和 Inline 的差别不在「规则更严」，而在**把检查动作外置成独立的流程步骤**。
 
@@ -510,7 +510,7 @@ Superpowers 真正解决单点失败的，是 subagent-driven-development（SDD�
 - **Inline**：单点失败。干活、检查、补救全在同一个模型的同一条推理链上，哪一环掉了就掉了。
 - **SDD**：大部分干活仍是模型内循环，但**审查和测试被外置到独立的子代理和硬性步骤上**。
 
-## SDD 的三道外循环兜底
+### SDD 的三道外循环兜底
 
 SDD 不指望某个模型某个瞬间记得要自检，而是用流程结构保证「被检查」这件事**一定会发生**：
 
@@ -520,7 +520,7 @@ SDD 不指望某个模型某个瞬间记得要自检，而是用流程结构保�
 
 这三道兜底的共同点：**它们是流程结构的一部分，不依赖某个模型某个瞬间的记忆力。** 执行者就算忘了自检，审查子代理也会被流程拉起来；就算审查者放水，finishing Step 1 的 pytest 还会硬跑一遍。
 
-## 这其实是 eval 思路在运行时的投影
+### 这其实是 eval 思路在运行时的投影
 
 注意 SDD 的「双代理分离审查 + 硬性测试步骤」，和离线 Quorum Eval 的「双 LLM 分离评审 + 确定性检查」是**同一个设计哲学**：
 
@@ -530,7 +530,7 @@ SDD 不指望某个模型某个瞬间记得要自检，而是用流程结构保�
 
 ---
 
-# 对我们自己的启示
+## 对我们自己的启示
 
 如果想给 opencode / Claude Code / Codex 等编码 agent 增强行为约束，可以直接复用这套双环模式：
 

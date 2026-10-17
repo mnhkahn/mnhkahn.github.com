@@ -12,7 +12,7 @@ tags: ["AI", "Claude"]
 
 ---
 
-# 准备
+## 准备
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
@@ -20,11 +20,11 @@ curl -fsSL https://claude.ai/install.sh | bash
 
 这里需要魔法，绕过Claude登录限制。
 
-# 安装使用OpenRouter模型
+## 安装使用OpenRouter模型
 
 官方文档：[Claude Code](https://openrouter.ai/docs/guides/coding-agents/claude-code-integration)
 
-## 配置环境变量 
+### 配置环境变量
 
 注意`ANTHROPIC_API_KEY`要留空，保存后执行`source`。
 
@@ -37,7 +37,7 @@ export ANTHROPIC_API_KEY=""
 source ~/.zshrc # 记得要让模型生效
 ```
 
-## 启动
+### 启动
 
 如果前面的配置都正确，不会要求登录并且执行`/init`命令后会初始化项目，创建CLAUDE.md文件。
 
@@ -48,7 +48,7 @@ claude
 /init
 ```
 
-# 使用黄大善人模型
+## 使用黄大善人模型
 
 [claude-code-router](https://github.com/musistudio/claude-code-router?tab=readme-ov-file)支持在本地路由模型、做协议转换。在这里我们用它代理黄大善人的模型。
 
@@ -59,16 +59,16 @@ claude
 3. 配置`ccr ui`。强烈建议用这个，比直接改配置省事。
 4. 启动Claude。`ccr code`。
 
-# 接入LangSmith
+## 接入LangSmith
 
-## 安装插件
+### 安装插件
 ```
 /plugin marketplace add langchain-ai/langsmith-claude-code-plugins
 /plugin install langsmith-tracing@langsmith-claude-code-plugins
 /reload-plugins
 ```
 
-## 配置Token
+### 配置Token
 
 路径：`.claude/settings.local.json`。
 ```
@@ -83,7 +83,7 @@ claude
 
 [Trace Claude Code applications](https://docs.langchain.com/langsmith/trace-claude-code)
 
-# 模型选择
+## 模型选择
 
 | 模型名称                                   | 别名     | 核心定位                   | 适用场景                                                         | 核心优势                                                               |
 | ------------------------------------------ | -------- | -------------------------- | ---------------------------------------------------------------- |
@@ -91,7 +91,7 @@ claude
 | Claude 3.5/4.5 Opus（逻辑王 / 高阶规划）   | 宏大乐章 | 复杂任务攻坚               | 系统架构设计、高复杂度算法开发、大型项目重构、超长上下文深度理解 | 思考逻辑缜密、具备全局统筹能力，是 Claude 系列中推理能力最强的型号     |
 | Claude 3.5/4.5 Haiku（闪电速 / 轻量级）    | 俳句     | 简单辅助、高频轻量任务处理 | 简单样板代码生成、文档内容总结、代码格式化、轻量自动化脚本编写   | 响应速度最快，调用成本极低，适合高频次、低复杂度的辅助需求             |
 
-# Claude Teams
+## Claude Teams
 
 官方文档：[协调 Claude Code 会话团队](https://code.claude.com/docs/zh-CN/agent-teams#%E5%90%AF%E7%94%A8-agent-teams)
 
@@ -99,7 +99,7 @@ claude
 我需要做一个安卓app，功能是xxxx。创建一个Agent团队， 从不同的角度来探索这个问题：一个负责调研xxxxxx；一个负责交互，要设计出来完整功能，例如xxxxxx；一个负责开发app，基于原生安卓框架开发；一个负责测试，确保调研和设计到功能都被实现。这几个角色的工作有依赖关系，注意工作流程。
 ```
 
-# 增加提示音
+## 增加提示音
 
 这个很重要，由于CC能力很强需要后台做很多事情，所以需要提示音来提醒我们任务进度。你可以参考这篇文档调整自己喜欢的提示音[配置任务提示音](https://claude-docs.plugins-world.cn/claude-docs/experience/notification-sound.html)。
 
@@ -136,7 +136,7 @@ vi ~/.claude/settings.json
 }
 ```
 
-# Shortcuts
+## Shortcuts
 
 | Shortcut  | Action                                     |
 | --------- | ------------------------------------------ |
@@ -153,7 +153,7 @@ vi ~/.claude/settings.json
 
 [Claude Code Cheat Sheet – Commands, Shortcuts, Tips](https://computingforgeeks.com/claude-code-cheat-sheet/#google_vignette)
 
-# 配置文件
+## 配置文件
 
 [Claude Code 设置](https://code.claude.com/docs/zh-CN/settings)。
 

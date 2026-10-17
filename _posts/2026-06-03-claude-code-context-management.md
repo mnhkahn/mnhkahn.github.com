@@ -15,7 +15,7 @@ tags: ["AI", "Claude Code", "上下文管理", "Auto Compact", "Memory"]
 
 ---
 
-# 全局流程图
+## 全局流程图
 
 下面的 Mermaid 流程图展示了从会话开始到触发压缩再到压缩后继续工作的完整生命周期：
 
@@ -70,7 +70,7 @@ flowchart TD
 
 ---
 
-# 会话初始阶段：构建初始上下文
+## 会话初始阶段：构建初始上下文
 
 当用户启动一个新会话时，**不存在任何压缩**。此时发送给模型的完整上下文由以下四部分组成：
 
@@ -110,11 +110,11 @@ flowchart TD
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-## System Prompt 各部分规则
+### System Prompt 各部分规则
 
 System Prompt 不是凭空写在内存里的字符串，而是由若干"section 函数"动态拼装而成。每段规则都对应一个出处：
 
-### 静态部分（DYNAMIC_BOUNDARY 之前，可全局缓存）
+#### 静态部分（DYNAMIC_BOUNDARY 之前，可全局缓存）
 
 > **这部分整体在做什么？** 这 7 条静态 section 合起来构成 Claude Code 的**"行为宪法"**——定义的是**模型是谁、能做什么、该怎么做**，而不是**具体任务是什么**。它们与具体项目/任务无关，对任何用户、任何会话都成立，因此被刻意放在 `DYNAMIC_BOUNDARY` 之前：① 可用 `scope: 'global'` 跨用户/会话缓存，省 token 省延迟；② 保证 Claude Code 行为一致、可预期；③ 与"会话特有"的动态内容（CLAUDE.md、Git 状态、当前任务）解耦。一句话：**静态内容是人格和行为准则，动态内容才是具体任务的上下文。**
 
@@ -137,7 +137,7 @@ System Prompt 不是凭空写在内存里的字符串，而是由若干"section 
 >
 > 少数例外会改变这套前缀：极简模式（环境变量 `CLAUDE_CODE_SIMPLE`）整体替换为一句话；Proactive/KAIROS 模式走另一套 prompt；自定义 Output Style 且 `keepCodingInstructions !== true` 时会裁掉 "Doing tasks" 一条；Subagent 可能用各自的 system prompt 覆盖。
 
-### 动态部分（DYNAMIC_BOUNDARY 之后，按会话/请求生成）
+#### 动态部分（DYNAMIC_BOUNDARY 之后，按会话/请求生成）
 
 这部分内容**因会话而异**，分两类：一类是功能启用就有的"固定骨架文本"，一类是完全取决于用户数据、只能实测的"可变内容"。
 
@@ -181,7 +181,7 @@ Output Style        = 0
 
 > 注：MCP 在两处各出现一次且内容不重复——`tools` 字段里是**可调用工具的 schema**，动态部分这里是 MCP 服务器提供的**引导提示词**。
 
-### 静态/动态分界标记
+#### 静态/动态分界标记
 
 system prompt 中间有一道分界线（`DYNAMIC_BOUNDARY`），作用是**把"不变的"和"会变的"分开，以便缓存**：
 
@@ -190,7 +190,7 @@ system prompt 中间有一道分界线（`DYNAMIC_BOUNDARY`），作用是**把"
 
 换句话说，这道线是缓存的"安全边界"：把稳定内容放前面尽量复用缓存，把易变内容放后面避免频繁打破缓存。
 
-## System Context 与 User Context
+### System Context 与 User Context
 
 System Prompt 之外，还有两块上下文。注意它们**不属于** system prompt 内部的"静态/动态 section"体系，注入位置也不同：
 
@@ -201,7 +201,7 @@ System Prompt 之外，还有两块上下文。注意它们**不属于** system 
 
 > 来源区别：System Context 是 Claude Code **自动采集**的环境快照（跑 `git status`/`git log`）；User Context 里的 CLAUDE.md 才是**用户写的提示词**，日期由系统补上。
 
-### Token 估算
+#### Token 估算
 
 **实测举例**（当前环境）：
 
@@ -212,15 +212,15 @@ System Prompt 之外，还有两块上下文。注意它们**不属于** system 
 
 > 即这两块通常合计在 **几百到上千 tokens** 量级：System Context 受 2000 字符上限约束、封顶 ~600；User Context 取决于 CLAUDE.md 写多长。
 
-## Tools 列表
+### Tools 列表
 
 `tools` 是与 `system`、`messages` 平级的独立字段，并**不只是内置工具**。它由三大类工具汇总而成（统一经 `toolToAPISchema()` 序列化），其内容在会话内基本固定，压缩机制不会触碰它：
 
-### 内置工具（写死在源码里）
+#### 内置工具（写死在源码里）
 
 随程序打包的固定工具，主要包括：Read、Write、Edit、Bash、Glob、Grep、Agent、AskUserQuestion、TodoWrite / TaskCreate、Sleep 等。
 
-### Skill 工具（携带 skill 清单，非完整正文）
+#### Skill 工具（携带 skill 清单，非完整正文）
 
 `Skill` 工具本身是内置工具，但它的 **description 里嵌入了所有可用 skill 的清单**（名字 + 一句话描述）。关键区别：
 
@@ -239,13 +239,13 @@ skill 来源**不是单一层级**，从多处汇总：
 
 > 对照会话开头的 `<available_skills>`：`<location>user</location>` 即用户级，`<location>plugin</location>`（如 ecc: 系列）即插件级，`<location>builtin</location>`（如 traecli-doc）即内置级。
 
-### MCP 工具（运行时动态注册）
+#### MCP 工具（运行时动态注册）
 
 MCP 工具不写死在代码里，而是**运行时连接 MCP 服务器后动态注册**。schema 存放在 `.mcp-tools/<namespace>/`，可声明 `defer_loading` 延迟加载以节省 prompt cache。MCP 服务器配置同样分**用户级 / 项目级 / 系统托管级**。
 
 > 小结：Tools = 内置工具 + Skill 工具（携带多来源 skill 清单）+ MCP 工具（运行时注册）。skill 与 MCP 都**不是纯系统级**，均支持用户级、项目级与系统托管级。
 
-### Tools 字段的 Token 预估
+#### Tools 字段的 Token 预估
 
 按文本量粗算（token ≈ 字符数 / 4，非精确计数）。**内置工具最确定**，Skill 清单随安装数量变化，MCP 随连接情况变化。
 
@@ -285,7 +285,7 @@ MCP 工具不写死在代码里，而是**运行时连接 MCP 服务器后动态
 
 ---
 
-# 消息积累阶段：上下文不断增长
+## 消息积累阶段：上下文不断增长
 
 每一轮对话交互，都会在 messages 数组中增加以下内容：
 
@@ -333,7 +333,7 @@ MCP 工具不写死在代码里，而是**运行时连接 MCP 服务器后动态
 - 优先用 API 返回的真实 `usage` 值
 - 新增消息用 ~4 字符/token 粗估（JSON 内容用 ~2 字符/token）
 
-## 用 `/context` 查看实时占用
+### 用 `/context` 查看实时占用
 
 前面所有估算都可以用 `/context` 命令实测核对。它把当前上下文按类别画成方格图（每格代表一部分 token），并列出每类的占用。各类别含义：
 
@@ -360,7 +360,7 @@ MCP 工具不写死在代码里，而是**运行时连接 MCP 服务器后动态
 
 ---
 
-# 压缩前的轻量处理：Microcompact
+## 压缩前的轻量处理：Microcompact
 
 > **先厘清"怎么压"**：压缩 Messages 有四种手段，本质分两类——**纯文本操作**（不调模型）和**模型生成摘要**（调模型）：
 >
@@ -375,7 +375,7 @@ MCP 工具不写死在代码里，而是**运行时连接 MCP 服务器后动态
 
 在正式触发 Auto Compact **之前**，每次 API 请求都会先执行轻量处理：
 
-## Microcompact（微压缩）
+### Microcompact（微压缩）
 
 **触发条件**：距上次 assistant 响应超过阈值时间（缓存已冷）
 
@@ -394,9 +394,9 @@ After:   tool_result = "[Old tool result content cleared]"
 
 ---
 
-# 触发压缩：阈值与决策
+## 触发压缩：阈值与决策
 
-## 阈值计算
+### 阈值计算
 
 阈值由有效上下文窗口逐级扣减得到（取自 `autoCompact.ts` 中的 buffer 常量）：
 
@@ -412,7 +412,7 @@ Error    阈值     = 有效窗口 - 20,000 (ERROR_THRESHOLD_BUFFER_TOKENS)
 
 > 是否启用自动压缩由规则 `isAutoCompactEnabled()` 决定：环境变量 `DISABLE_COMPACT` / `DISABLE_AUTO_COMPACT` 或用户配置 `autoCompactEnabled=false` 都会关闭它（关闭后手动 `/compact` 仍可用）。连续失败超过 3 次（`MAX_CONSECUTIVE_AUTOCOMPACT_FAILURES`）后将放弃自动压缩，避免空耗 API 调用。
 
-## 压缩决策流程
+### 压缩决策流程
 
 ```mermaid
 flowchart TD
@@ -429,9 +429,9 @@ flowchart TD
 
 ---
 
-# 压缩内容：被压缩了什么？保留了什么？
+## 压缩内容：被压缩了什么？保留了什么？
 
-## 被压缩的内容
+### 被压缩的内容
 
 压缩边界**之前**的所有消息都会被丢弃，包括：
 - 所有早期的 user / assistant 消息
@@ -439,7 +439,7 @@ flowchart TD
 - 模型的思考过程（thinking blocks）
 - 中间的错误消息和重试消息
 
-## 保留/恢复的内容
+### 保留/恢复的内容
 
 ```
 压缩后的消息历史（发送给下一轮 API）：
@@ -466,7 +466,7 @@ flowchart TD
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## 失忆边界：哪部分一定会丢，什么条件下丢
+### 失忆边界：哪部分一定会丢，什么条件下丢
 
 压缩**不是清空**，而是"细节降级为摘要"。把压缩后那 ~40K messages 残留拆开，能清楚看到**哪些保住、哪些一定丢**：
 
@@ -502,9 +502,9 @@ flowchart TD
 
 ---
 
-# 压缩算法详解
+## 压缩算法详解
 
-## Session Memory Compaction（优先，零成本）
+### Session Memory Compaction（优先，零成本）
 
 ```
 原始消息: [msg1, msg2, msg3, ..., msg50, msg51, ..., msg60]
@@ -524,7 +524,7 @@ Session Memory 文件已有摘要（后台持续更新），直接用作 summary
 | `minTextBlockMessages` | 5      | 最少保留的含文本消息条数      |
 | `maxTokens`            | 40,000 | 最多保留的 token 数（硬上限） |
 
-## 传统 AI 摘要压缩（兜底）
+### 传统 AI 摘要压缩（兜底）
 
 **压缩 Prompt 的 9 段结构规则**（来自 `prompt.ts` 中的 `BASE_COMPACT_PROMPT`）。该 prompt 的开头还有一条硬规则 `NO_TOOLS_PREAMBLE`：要求模型**只输出文本、不得调用任何工具**，否则会浪费唯一的一次生成机会。
 
@@ -555,7 +555,7 @@ Your summary should include the following sections:
 
 ---
 
-# 压缩后继续工作
+## 压缩后继续工作
 
 压缩完成后，会话继续，此时的上下文结构变为：
 
@@ -581,7 +581,7 @@ Your summary should include the following sections:
 
 ---
 
-# 多层防线总览
+## 多层防线总览
 
 整个压缩体系是一套**渐进式降级**设计，按成本从低到高排列。其中实验性层级由 feature flag 控制开关：
 
@@ -596,13 +596,13 @@ Your summary should include the following sections:
 
 ---
 
-# 会话能撑多久？（重度写代码场景推算）
+## 会话能撑多久？（重度写代码场景推算）
 
 把前面所有估算串起来，算一笔账：**一个长会话到底能跑多少轮，压缩后还能续多久，能不能开一个月。**
 
 > 窗口口径：本推算按 **1M（100 万）上下文窗口**计算。当前最新的 Claude（Opus 4.6/4.7/4.8、Sonnet 4.6）已默认 1M 窗口、标准定价，市面常见模型（GLM、Gemini 等）也普遍到 1M 档。若用旧的 200K 窗口，把下面的阈值换成 ~167K 即可，轮数约为 1/5。
 
-## 输入参数（全部取自前文估算）
+### 输入参数（全部取自前文估算）
 
 | 量 | 取值 | 来源 |
 |----|------|------|
@@ -612,7 +612,7 @@ Your summary should include the following sections:
 | 每轮新增（重度写代码） | **~20K** | 多文件 + 命令，第二部分单轮量级 |
 | 压缩后 messages 残留 | **~40K** | 摘要 ~5K + 恢复附件（最近文件/plan/skills）~15K + 保留最近消息 ~20K |
 
-## 第一阶段：首次压缩前能跑几轮
+### 第一阶段：首次压缩前能跑几轮
 
 ```
 留给 messages 的空间 = 阈值 967K − 固定底座 19K = 948K
@@ -621,7 +621,7 @@ Your summary should include the following sections:
 
 即重度写代码下，**大约第 47 轮**才触发第一次 Auto Compact。
 
-## 第二阶段：每个压缩周期能续几轮
+### 第二阶段：每个压缩周期能续几轮
 
 压缩后 messages 不是清零，而是残留 ~40K（摘要 + 恢复附件 + 最近消息）。所以之后每个周期可增长空间：
 
@@ -632,7 +632,7 @@ Your summary should include the following sections:
 
 即首次压缩后，**每 ~45 轮才会再压一次**，进入稳定的"压缩—增长—再压缩"循环。
 
-## 能长期持续吗？开一个月行不行
+### 能长期持续吗？开一个月行不行
 
 **能持续，且 1M 窗口下"记忆衰减"比 200K 时缓和得多。**
 
@@ -641,7 +641,7 @@ Your summary should include the following sections:
 - **代价仍是早期细节流失**：每次压缩把"边界前的几十轮"挤成一份 ~5K 摘要。跑足够久后，最早的对话只剩"摘要的摘要"，逐字细节、中间推理会丢——只是 1M 下这个过程慢得多。
 - **稳定态有效记忆窗口**：任意时刻模型能"看清"的 ≈ **压缩残留 40K + 当前周期新增 ≤908K ≈ 最近 ~45 轮的完整内容 + 更早内容的摘要**。
 
-## 总结
+### 总结
 
 | 问题 | 答案（1M 窗口 / 重度写代码） |
 |------|------|
@@ -654,7 +654,7 @@ Your summary should include the following sections:
 
 ---
 
-# 关键设计思想
+## 关键设计思想
 
 1. **Compact Boundary 是核心**：每次压缩后打一个边界标记，之后只发送边界后的消息。摘要承载了边界前所有历史的"记忆"。
 

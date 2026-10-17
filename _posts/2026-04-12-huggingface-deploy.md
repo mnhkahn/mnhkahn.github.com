@@ -47,11 +47,13 @@ git lfs install
 
 创建完成后，在本地克隆仓库：
 
+```bash
 # 方式1：HTTPS
 git clone https://huggingface.co/spaces/YOUR_USERNAME/YOUR_SPACE_NAME
 
 # 方式2：SSH（需配置SSH密钥）
 git clone git@huggingface.co:spaces/YOUR_USERNAME/YOUR_SPACE_NAME
+```
 
 ---
 ## 3. 项目配置

@@ -12,7 +12,7 @@ tags: ["AI", "Skills", "Claude Code", "OpenClaw", "Agent"]
 
 ---
 
-# npx skills——AI Agent 能力包管理器
+## npx skills——AI Agent 能力包管理器
 
 **npx skills = Vercel 开源 AI 代理技能管理器 CLI（Claude Code / Cursor / OpenCode 专用**
 
@@ -20,7 +20,7 @@ tags: ["AI", "Skills", "Claude Code", "OpenClaw", "Agent"]
 
 官方商店：[The Agent Skills Directory](https://skills.sh)
 
-## 常用命令
+### 常用命令
 
 ```
 npx skills add 仓库地址       # 安装技能
@@ -31,7 +31,7 @@ npx skills remove 作者/仓库名  # 删除技能包
 npx skills update 作者/仓库名  # 更新技能包
 npx skills path               # 查看技能包目录
 ```
-## 核心结构
+### 核心结构
 
 ```
 skill-name/
@@ -46,7 +46,7 @@ skill-name/
 2. tools（可执行命令 / API / 浏览器操作）
 3. knowledge（文档 / 规范 / 最佳实践）
 
-## 测试Skill
+### 测试Skill
 
 
 ```
@@ -54,7 +54,7 @@ skill-name/
 npx skills-ref validate ~/.claude/skills/wiki/SKILL.md
 ```
 
-## SKILL.md 文档YAML规范
+### SKILL.md 文档YAML规范
 
 | 字段          | 必填 | 约束说明                                                                |
 | ------------- | ---- | ----------------------------------------------------------------------- |
@@ -65,7 +65,7 @@ npx skills-ref validate ~/.claude/skills/wiki/SKILL.md
 | metadata      | 否   | 用于附加元数据的任意键值对配置。                                        |
 | allowed-tools | 否   | 由空格分隔的字符串，列出该技能可使用的预授权工具。（实验性功能）        |
 
-# Claude Code Skill / OpenCLaw Skill / Vercel Skill
+## Claude Code Skill / OpenCLaw Skill / Vercel Skill
 
 有这么多工具都支持Skill，他们是一回事么？区别是什么？
 
@@ -85,20 +85,20 @@ npx skills-ref validate ~/.claude/skills/wiki/SKILL.md
 | 安全模型    | Anthropic 托管 + 权限沙箱                               | 用户自行负责：需审计 Skill 内容防止 RCE、数据泄露                          |
 | 生态规模    | 官方内置 + 社区贡献                                     | ClawHub 市场 860+ 技能 + 社区贡献                                          |
 
-## 关键差异总结
+### 关键差异总结
 
 1. 格式层面几乎一致 — 都是 `SKILL.md` + YAML frontmatter + Markdown 指令 + scripts/references 辅助文件，迁移成本低
 2. 最大差异在模型绑定 — Claude Code 锁定 Anthropic 生态，OpenClaw 支持任意 LLM
 3. 安全模型不同 — Claude Code 有 Anthropic 官方沙箱保护；OpenClaw 需自行审计 Skill 安全性（已有案例：Cisco 安全团队发现第三方 Skill 存在数据泄露和 prompt 注入风险）
 4. 迁移注意 — Claude Code Skill 迁移到 OpenClaw 时，需确保 frontmatter 包含 `name:` 和 `description:` 字段，否则 OpenClaw 无法加载
 
-# 优秀案例
+## 优秀案例
 
 Skill除了官方商店，还可以自行实现，下面这个例子就非常经典可以深入学习。它做到了仅用一篇文档就能够实现带命令行的技能包，效果不亚于代码实现。
 
 [wiki-gen-skill.md](https://gist.github.com/farzaa/c35ac0cfbeb957788650e36aabea836d)。
 
-## 命令
+### 命令
 
 ```
 /wiki ingest        # Convert your data into raw markdown entries
@@ -106,15 +106,15 @@ Skill除了官方商店，还可以自行实现，下面这个例子就非常经
 /wiki query 什么是agent  # Ask questions about the wiki 
 ```
 
-## 提示词洞察
+### 提示词洞察
 
-### Hint
+#### Hint
 
 ```
 argument-hint: "ingest | absorb [date-range] | query <question> | cleanup | breakdown | status"
 ```
 
-### ingest
+#### ingest
 
 > Write a Python script ingest.py to do this. This step is mechanical, no LLM intelligence needed.
 
@@ -124,7 +124,7 @@ argument-hint: "ingest | absorb [date-range] | query <question> | cleanup | brea
 
 语气比我写的更重——**绝对不能商量**。
 
-### absorb
+#### absorb
 
 - Anti-Cramming反灌输。禁止文件过大堆砌
 - Anti-Thinning 禁止创建无实质内容的空页面 / 薄页面
@@ -140,7 +140,7 @@ argument-hint: "ingest | absorb [date-range] | query <question> | cleanup | brea
 >    5. Would a reader learn something non-obvious? If any article reads like an event log, rewrite it.
 > 2. Check if any articles exceed 150 lines and should be split.
 
-### query
+#### query
 
 **不要猜、不要阅读整个wiki、禁止修改**
 
@@ -149,7 +149,7 @@ argument-hint: "ingest | absorb [date-range] | query <question> | cleanup | brea
 > - Don't read the entire wiki. Be surgical.
 > - Don't modify any wiki files. Query is read-only.
 
-## 关系图谱可视化
+### 关系图谱可视化
 
 生成的关系图谱可以用工具可视化：[Obsidian](https://release-assets.githubusercontent.com/github-production-release-asset/262342594/c77de2d1-539d-4976-bd10-6eebc9e43184?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-04-14T02%3A45%3A51Z&rscd=attachment%3B+filename%3DObsidian-1.12.7.dmg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-04-14T01%3A45%3A02Z&ske=2026-04-14T02%3A45%3A51Z&sks=b&skv=2018-11-09&sig=SI02YTivj8%2FlbTzaDjNqtHLLnZ65XOW82LHLgh8h0PA%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc3NjEzNjExMSwibmJmIjoxNzc2MTMyNTExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.usFElitqhWQxEiPysghDs7biTxHARBNr7u4EraBVWcQ&response-content-disposition=attachment%3B%20filename%3DObsidian-1.12.7.dmg&response-content-type=application%2Foctet-stream)。它会扫描当前目录所有md文件，所以打开目录时选择要注意下要选择生成的文件夹，选根目录内容会非常多。
 

@@ -12,12 +12,12 @@ tags: ["AI", "OpenClaw"]
 
 ---
 
-# 准备工作
+## 准备工作
 
 - 对话日志目录：`/data/.openclaw/agents/<agent_id>/sessions/<run_id>.jsonl`；
 - OpenRouter并不支持查看完整上下文，这里建议接入[LangSmith](https://smith.langchain.com/)库来解决。
 
-# 全链路数据流转总流程
+## 全链路数据流转总流程
 
 ```
 用户消息 → 对应Channel适配器（协议转换）→ Gateway 接收校验 → 会话锁获取与上下文加载
@@ -26,7 +26,7 @@ tags: ["AI", "OpenClaw"]
 → Gateway 消息封装 → 对应 Channel 适配器 → 用户端接收
 ```
 
-## 源码目录
+### 源码目录
 
 ```
 openclaw/
@@ -52,7 +52,7 @@ openclaw/
 | Command Queue    | src/auto-reply/reply/queue.ts        | 指令队列：收到的消息不会立即执行，而是进入一个基于会话（Session）的队列。该队列有三种模式（collect/steer/followup），决定了新消息是排队等待、中断当前任务还是作为后续指令，确保了任务处理的并发与有序。 |
 | agent/agent.wait | src/auto-reply/reply/agent-runner.ts | 执行触发器：队列中的任务最终通过调用 agent() 或 agent.wait() RPC 方法，唤醒 Agent Runtime，正式开始一个完整的 ReAct 执行回合。agent.wait() 会等待任务执行完毕并返回结果。                               |
 
-## 四层调用链
+### 四层调用链
 
 | 层级 | 关键函数                 | 文件路径                                       | 职责说明                                                                                                                                                               |
 | ---- | ------------------------ | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -61,9 +61,9 @@ openclaw/
 | L3   | runEmbeddedPiAgent       | src/agents/pi-embedded-runner/run.ts           | 并发控制与资源准备层：管理执行“车道”（Lane），确保每个会话的任务串行执行。此层还负责解析模型、迭代认证配置（Auth Profile）。                                           |
 | L4   | runEmbeddedAttempt       | src/agents/pi-embedded-runner/run/attempt.ts   | 单次尝试执行层：这是最核心的执行单元。它负责准备工作区（Workspace）、创建工具集、初始化会话，并最终调用 subscribeEmbeddedPiSession 发起对大语言模型（LLM）的单次请求。 |
 
-# 模型选择规则
+## 模型选择规则
 
-## 实际案例
+### 实际案例
 
 ```
 "agents": {
@@ -100,7 +100,7 @@ openclaw/
 }
 ```
 
-## 选择规则&优先级
+### 选择规则&优先级
 
 - 当前请求的模型 （动态传入的 provider/model）；
 - 单个智能体的 model.fallbacks；
@@ -109,13 +109,13 @@ openclaw/
 - 全局允许列表：agents.defaults.models 作为模型白名单，仅列表内的模型可被调用；
 - 提供者内部回退：同一模型提供商内的接口 / 认证失败，会先在提供商内部重试，再切换到下一个模型。
 
-# SKILL
+## SKILL
 
 - SKILL名称是url链接里的，有很多事重复的，以这个为准，例如https://clawhub.ai/pskoett/self-improving-agent名称是self-improving-agent。
 - 可以直接对话里安装SKILL。
 ![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1774963371/Screenshot_2026-03-31-19-26-12-991_com.larksuite.suite-edit.webp)
 
-## 执行过程
+### 执行过程
 
 ```mermaid
 sequenceDiagram
@@ -159,7 +159,7 @@ sequenceDiagram
 
 OpenClaw也是用Reasoning and Acting（推理与行动）模式。
 
-## 计算执行方式activeRunQueueAction
+### 计算执行方式activeRunQueueAction
 
 | 判断条件                               | activeRunQueueAction |
 | -------------------------------------- | -------------------- | --------------------------- |
@@ -168,11 +168,11 @@ OpenClaw也是用Reasoning and Acting（推理与行动）模式。
 | 应该后续执行 OR messages.queue "steer" | enqueue-followup     | messages.queue默认是collect |
 | 默认                                   | run-now              |                             |
 
-## LLM交互案例
+### LLM交互案例
 
-### INPUT
+#### INPUT
 
-#### SYSTEM
+##### SYSTEM
 SYSTEM 系统角色 / System Prompt，AI 的 “身份说明书” 和 “行为准则”，由开发者设定，是整个对话的「总纲领」。
 定义 AI 的角色、任务、回答风格、约束条件（比如 “你是一个专业的天气助手，只回答北京的天气问题，用口语化表达”）。
 - 给模型设定上下文背景、规则、格式要求，全程约束模型的输出。
@@ -191,7 +191,7 @@ Tool names are case-sensitive. Call tools exactly as listed.
 - web_fetch: Fetch and extract readable content from a URL
 ```
 
-#### HUMAN&AI
+##### HUMAN&AI
 1. HUMAN。human（用户角色 / Human Message），真实用户的提问 / 输入，代表用户的需求、问题、补充信息，是模型需要响应的核心输入。
 ```
 ou_aaaaaa: 明天北京需要带伞吗？
@@ -227,7 +227,7 @@ exec{"command":"curl -s \"https://api.open-meteo.com/v1/forecast?latitude=39.904
 {"latitude":39.875,"longitude":116.375,"generationtime_ms":0.042319297790527344,"utc_offset_seconds":28800,"timezone":"Asia/Shanghai","timezone_abbreviation":"GMT+8","elevation":47.0,"daily_units":{"time":"iso8601","precipitation_sum":"mm"},"daily":{"time":["2026-03-31","2026-04-01","2026-04-02","2026-04-03","2026-04-04","2026-04-05","2026-04-06"],"precipitation_sum":[1.00,0.00,0.00,0.30,1.50,0.00,0.00]}}
 ```
 
-### OUTPUT（输出）
+#### OUTPUT（输出）
 
 ```
 明天北京不需要带伞☀️  
@@ -238,9 +238,9 @@ exec{"command":"curl -s \"https://api.open-meteo.com/v1/forecast?latitude=39.904
 - 定义：这是 AI 模型返回的最终响应结果。这一轮它最后吐出的那一条 AI 回复；
 - 内容：就是模型给用户的自然语言回答或结构化数据。
 
-# HEARTBEAT
+## HEARTBEAT
 
-## CLI
+### CLI
 
 ```
 openclaw system event --text "手动触发心跳" --mode now # 手动执行
@@ -257,7 +257,7 @@ openclaw system heartbeat last # 查询上一次执行结果
 ```
 重点关注`status`、`reason`字段。
 
-## 开启心跳
+### 开启心跳
 ```
 "heartbeat": {
     "every": "120m",
@@ -288,7 +288,7 @@ openclaw system heartbeat last # 查询上一次执行结果
 }
 ```
 
-## 飞书场景配置
+### 飞书场景配置
 
 | 场景                | 配置格式示例                                                  | ID 前缀  | 对应的 receive_id_type |
 | ------------------- | ------------------------------------------------------------- | -------- | ---------------------- |
@@ -297,7 +297,7 @@ openclaw system heartbeat last # 查询上一次执行结果
 | 用户私聊（user_id） | user:abc123、dm:abc123、abc123                                | 无前缀   | user_id                |
 | 邮箱                | email:user@example.com、user@example.com                      | 邮箱格式 | email                  |
 
-## 流程图
+### 流程图
 
 ```mermaid
 
@@ -405,7 +405,7 @@ graph TB
     C5 --> B5
 ```
 
-## 发送结果
+### 发送结果
 
 | status   | reason               | result                           |
 | -------- | -------------------- | -------------------------------- |
@@ -435,7 +435,7 @@ graph TB
 | retry      | 重试      | 心跳失败重试                          |
 | other      | 其他      | 未识别的触发方式                      |
 
-## 交互案例
+### 交互案例
 
 与SKILL区别不大，提示词如下：
 ```
@@ -444,9 +444,9 @@ When reading HEARTBEAT.md, use workspace file /data/.openclaw/workspace/HEARTBEA
 Current time: Tuesday, March 31st, 2026 — 04:15 (UTC) / 2026-03-31 04:15 UTC
 ```
 
-# Approval
+## Approval
 
-## security - 安全模式
+### security - 安全模式
 
 | 值          | 代码作用                  | 说明                                   |
 | ----------- | ------------------------- | -------------------------------------- |
@@ -454,7 +454,7 @@ Current time: Tuesday, March 31st, 2026 — 04:15 (UTC) / 2026-03-31 04:15 UTC
 | "allowlist" | 只允许 allowlist 中的命令 | 平衡安全和灵活，需要手动配置 allowlist |
 | "full"      | 允许所有命令              | 最宽松，完全关闭安全检查               |
 
-## ask - 审批询问策略
+### ask - 审批询问策略
 
 | 值        | 代码作用                | 说明                                          |
 | --------- | ----------------------- | --------------------------------------------- |
@@ -462,7 +462,7 @@ Current time: Tuesday, March 31st, 2026 — 04:15 (UTC) / 2026-03-31 04:15 UTC
 | "on-miss" | 不在 allowlist 中时询问 | 只有当命令不在 allowlist 中时才弹出审批询问   |
 | "always"  | 总是询问审批            | 无论命令是否在 allowlist 中，都会弹出审批询问 |
 
-## askFallback - 审批超时后的行为 
+### askFallback - 审批超时后的行为
 
 | 值          | 代码作用             | 说明                                  |
 | ----------- | -------------------- | ------------------------------------- |

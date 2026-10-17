@@ -11,9 +11,9 @@ tags: ["AI", "Sub2API", "Fly.io"]
 
 ---
 
-# Sub2API Fly.io 部署实战指南
+## Sub2API Fly.io 部署实战指南
 
-## 项目简介
+### 项目简介
 
 **Sub2API** 是一个开源的 AI API 网关平台，用于集中管理和分发 Claude、Gemini、OpenAI 等 AI 服务的 API 配额。它支持多账号管理、Token 级计费、智能调度、并发控制等功能，适合自建 AI API 代理服务。
 
@@ -21,7 +21,7 @@ tags: ["AI", "Sub2API", "Fly.io"]
 
 ---
 
-## 架构原理
+### 架构原理
 
 ```
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
@@ -38,22 +38,22 @@ tags: ["AI", "Sub2API", "Fly.io"]
 
 ---
 
-## 部署步骤
+### 部署步骤
 
-### 1. 准备工作
+#### 1. 准备工作
 
 注册三个服务账号：
 - [Fly.io](https://fly.io) - 应用托管
 - [Neon](https://neon.tech) - PostgreSQL 数据库
 - [Upstash](https://upstash.com) - Redis 缓存
 
-### 2. 获取连接信息
+#### 2. 获取连接信息
 
 **Neon**：创建项目后，在 Connect 页面选择 **Direct** 连接方式（重要！），复制连接参数。
 
 **Upstash**：创建 Redis 数据库后，在 Details 页面获取 Endpoint 和 Password。
 
-### 3. 配置环境变量
+#### 3. 配置环境变量
 
 复制模板文件并填写：
 
@@ -84,7 +84,7 @@ TOTP_ENCRYPTION_KEY=$(openssl rand -hex 32)
 ADMIN_EMAIL=your-email@example.com
 ```
 
-### 4. 一键部署
+#### 4. 一键部署
 
 ```bash
 ./deploy/deploy.sh
@@ -99,9 +99,9 @@ ADMIN_EMAIL=your-email@example.com
 
 ---
 
-## 遇到的坑
+### 遇到的坑
 
-### 坑 1：Neon Pooled 连接导致 SQL 错误
+#### 坑 1：Neon Pooled 连接导致 SQL 错误
 
 **现象**：登录后页面频繁报错 500，日志显示：
 ```
@@ -112,7 +112,7 @@ pq: bind message supplies 5 parameters, but prepared statement "" requires 2
 
 **解决**：在 Neon Console 中切换为 **Direct** 连接，不使用 `-pooler` 的 host。
 
-### 坑 2：JWT_SECRET 未设置导致登录失效
+#### 坑 2：JWT_SECRET 未设置导致登录失效
 
 **现象**：登录后 5 秒自动跳回登录页，会话无法保持。
 
@@ -120,7 +120,7 @@ pq: bind message supplies 5 parameters, but prepared statement "" requires 2
 
 **解决**：必须设置固定的 `JWT_SECRET`（64 位 hex 字符串），通过 `fly secrets set` 配置。
 
-### 坑 3：fly.toml 被自动重写
+#### 坑 3：fly.toml 被自动重写
 
 **现象**：配置文件里的 `memory = '256mb'` 被改成 `memory = '1gb'`，还自动添加了 `max_machines_running = 2`。
 
@@ -137,13 +137,13 @@ pq: bind message supplies 5 parameters, but prepared statement "" requires 2
   max_machines_running = 1  # 限制最多 1 台实例
 ```
 
-### 坑 4：数据卷配置问题
+#### 坑 4：数据卷配置问题
 
 **现象**：部署报错需要创建 `sub2api_data` 卷。
 
 **解决**：如果不需要持久化配置文件和日志，可以直接注释掉 `fly.toml` 中的 `[[mounts]]` 部分，所有配置通过环境变量传递。
 
-### 坑 5：CORS 和代理设置
+#### 坑 5：CORS 和代理设置
 
 **现象**：前端 API 调用返回 401 或跨域错误。
 
@@ -153,7 +153,7 @@ pq: bind message supplies 5 parameters, but prepared statement "" requires 2
 
 ---
 
-## 运维建议
+### 运维建议
 
 1. **监控日志**：`fly logs --app sub2api-flyio`
 2. **查看状态**：`fly status --app sub2api-flyio`
@@ -166,7 +166,7 @@ pq: bind message supplies 5 parameters, but prepared statement "" requires 2
 
 ---
 
-## 总结
+### 总结
 
 通过 Fly.io + Neon + Upstash 的组合，可以零成本部署 Sub2API，适合个人使用或小型团队。关键是正确配置数据库连接（用 Direct 不用 Pooled）和固定 JWT 密钥。整个方案月成本为 $0，但需要注意免费额度限制。
 

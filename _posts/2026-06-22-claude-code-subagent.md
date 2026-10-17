@@ -12,7 +12,7 @@ figure: https://res.cloudinary.com/cyeam/image/upload/v1782138740/subagent.webp
 
 ---
 
-# 核心关系图
+## 核心关系图
 
 ```mermaid
 graph TD
@@ -45,9 +45,9 @@ graph TD
 
 一句话：**AgentDefinition 是类型配置；Agent/Subagent/Fork Agent 是运行实例；Context 是运行实例携带的上下文状态；Task 是把一次运行实例纳入前台/后台管理的任务记录。普通Subagent和Fork Agent都属于 Subagent 运行实例，通常会对应一个 `local_agent` Task；但 Task 不是 Agent 类型本身。**
 
-# 普通子Agent vs Fork子Agent
+## 普通子Agent vs Fork子Agent
 
-## 场景
+### 场景
 
 **普通子Agent**适合明确、独立的小任务：主Agent只把任务说明交给子Agent，子Agent自己读代码、搜索、分析。
 
@@ -61,7 +61,7 @@ graph TD
 主Agent --复制当前上下文 + 给任务说明--> Fork子Agent
 ```
 
-## 对比
+### 对比
 
 | 项目 | 普通子Agent | Fork子Agent |
 |---|---|---|
@@ -85,7 +85,7 @@ graph TD
 
 一句话：**普通子Agent是"重新开一个人，给他任务"；Fork子Agent是"复制当前我，再给副本任务"。**
 
-# Agent Type 的实现方式
+## Agent Type 的实现方式
 
 ```text
 Agent type 来源有三类：
@@ -106,7 +106,7 @@ Agent type 来源有三类：
 
 普通 Agent 可以通过 Markdown 定义或覆盖；但 Fork 这种"运行机制级别"的 Agent，不是 Markdown Agent 能完整实现的，必须靠 `AgentTool` 的特殊 fork path 支持。
 
-## Markdown Agent 示例：Verification
+### Markdown Agent 示例：Verification
 
 如果要用 Markdown 近似实现内置 `verification` Agent，可以写成 `.claude/agents/verification.md`：
 
@@ -172,7 +172,7 @@ VERDICT: PARTIAL
 
 注意：这个 Markdown 版本可以复刻 `verification` 的大部分角色、工具、后台运行和只读约束；但内置版本里的 `criticalSystemReminder_EXPERIMENTAL`、部分动态工具检查、产品侧开关等 TypeScript 级能力，Markdown 不能完全等价实现。
 
-## 类图
+### 类图
 
 ```
 type AgentKind = 'main' | 'subagent' | 'fork'
@@ -227,7 +227,7 @@ type AgentKind = 'main' | 'subagent' | 'fork'
     }
 ```
 
-# 主Agent ↔ 子Agent 的结果回流
+## 主Agent ↔ 子Agent 的结果回流
 
 `general-purpose`、普通子Agent、Fork Agent 本质都是主Agent派生的子Agent，子Agent之间默认不直接通信，主Agent是中枢。结果回流有两种通道，由 `run_in_background` 决定：
 
@@ -244,7 +244,7 @@ type AgentKind = 'main' | 'subagent' | 'fork'
 - 子Agent之间默认不直接通信；子A要把结果交给子B，需走 子A → 主Agent → 子B。
 - Fork Agent 输入是"父上下文快照 + directive"，输出走 task-notification，且禁止递归 fork。
 
-# /tasks 面板示意
+## /tasks 面板示意
 
 `/tasks` 打开的是「后台任务」面板（不是 to-do 待办清单），按任务类型分组，每组带数量。下面是"所有类型凑齐"的拼装示意（真实场景通常只出现一两组）：
 

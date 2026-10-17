@@ -12,7 +12,7 @@ tags: ["AI", "Harness Engineering", "Prompt Engineering", "Context Engineering"]
 
 ---
 
-# AI工程化三阶段
+## AI工程化三阶段
 
 | 维度       | Prompt Engineering（提示词工程） | Context Engineering（上下文工程） | Harness Engineering（驾驭 / 控束工程） |
 | ---------- | -------------------------------- | --------------------------------- | -------------------------------------- |
@@ -25,7 +25,7 @@ tags: ["AI", "Harness Engineering", "Prompt Engineering", "Context Engineering"]
 | 交互层级   | 单次交互（点）                   | 多轮记忆（面）                    | 自主执行（体）                         |
 | 代表产物   | 各种提示词模板、咒语             | RAG 系统、聊天记录管理器          | OpenClaw、AutoGPT、Claude Code         |
 
-# Code Harness Engineering架构
+## Code Harness Engineering架构
 
 Code Harness = 模型层 + 智能体循环 + 运行时支撑
 - 模型层：LLM / Reasoning LLM（引擎）
@@ -34,9 +34,9 @@ Code Harness = 模型层 + 智能体循环 + 运行时支撑
 
 ![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1775461401/fddabad8-788e-43aa-af06-f99a7e861c60.webp)
 
-## 第一阶段：系统启动与加载（构建底座）
+### 第一阶段：系统启动与加载（构建底座）
 
-### 1. 实时代码仓库上下文 (Live Repo Context)
+#### 1. 实时代码仓库上下文 (Live Repo Context)
 
 ```mermaid
 flowchart TD
@@ -55,7 +55,7 @@ flowchart TD
     H -->|7| I["Model response<br/>Tool call or final answer"]:::normal
 ```
 
-### 2. 提示词形态与缓存复用 (Prompt Shape And Cache Reuse)
+#### 2. 提示词形态与缓存复用 (Prompt Shape And Cache Reuse)
 
 ```mermaid
 flowchart LR
@@ -77,7 +77,7 @@ flowchart LR
 - 对稳定前缀做缓存复用，降本提效
 - 联动全链路模块，为 Agent 循环打基础
 
-#### Stable Prompt Prefix（稳定提示词前缀）——CLAUDE.md
+##### Stable Prompt Prefix（稳定提示词前缀）——CLAUDE.md
 
 CLAUDE.md 文件：你编写的指令，为 Claude 提供持久上下文。CLAUDE.md不会被压缩，每个文件目标在 200 行以下。
 
@@ -91,7 +91,7 @@ your-project/
 │       └── security.md     # 安全要求
 ```
 
-#### Rules
+##### Rules
 
 CLAUDE.md 是「主项目说明」，rules 是「模块化补充规则」，二者共同构成项目级稳定提示词前缀，且 rules 优先级更高。
 
@@ -100,9 +100,9 @@ CLAUDE.md 是「主项目说明」，rules 是「模块化补充规则」，二�
 | CLAUDE.md | ./CLAUDE.md 或 ./.claude/CLAUDE.md | 主项目说明     | 项目整体架构、全局约定、常用命令、团队共享的核心规则 |
 | rules     | ./.claude/rules/*.md               | 模块化专项规则 | 特定语言指南、测试约定、API 标准、安全要求等细分主题 |
 
-## 第二阶段：对话运行与组装（核心循环）
+### 第二阶段：对话运行与组装（核心循环）
 
-### 5. 结构化的会话记忆 (Structured Session Memory)
+#### 5. 结构化的会话记忆 (Structured Session Memory)
 
 ```mermaid
 flowchart TD
@@ -124,7 +124,7 @@ flowchart TD
     end
 ```
 
-#### 记忆系统Memory:
+##### 记忆系统Memory:
 
 - 自动记忆：Claude 根据你的更正和偏好自己编写的笔记
 - 使用Sonnet模型，扫描 memory 目录下所有 .md，排除 MEMORY.md，只读每个文件前 30 行 frontmatter，按 mtime 倒序排序，最多保留 200 个候选
@@ -154,7 +154,7 @@ flowchart TD
 └── ...                # Claude 创建的任何其他主题文件
 ```
 
-#### 会话Transcript：
+##### 会话Transcript：
 
 | 层级                | 项目                                | 保存位置                                     | 存储内容                                                                  | 生命周期                                                 |
 | ------------------- | ----------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------- |
@@ -177,9 +177,9 @@ flowchart TD
 - 文件实体级：真正的旧文件内容只在 ~/.claude/file-history/<sessionId>/...。
 
 
-## 第三阶段：工具执行与安全管控（驾驭核心）
+### 第三阶段：工具执行与安全管控（驾驭核心）
 
-### 3. 工具的接入与调用 (Tool Access and Use)
+#### 3. 工具的接入与调用 (Tool Access and Use)
 
 ![IMG-THUMBNAIL](https://res.cloudinary.com/cyeam/image/upload/v1775463413/clipboard_1775463409762_44x6c7ixb.webp)
 
@@ -191,12 +191,12 @@ flowchart TD
 
 相关配置：[Claude Code 完整使用指南](https://www.claude-cn.org/posts/claude-code-complete-guide#_6%EF%B8%8F%E2%83%A3-%E5%AE%89%E5%85%A8%E5%92%8C%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86-%E2%80%8B)
 
-#### 低幻觉
+##### 低幻觉
 
 - 生成 → 执行 → 验证 → 诊断 → 自愈 → 再执行
 - 闭环 = 零幻觉、高可靠的根本原因
 
-#### 强力提示词
+##### 强力提示词
 
 - `src/services/compact/prompt.ts:19`：明确要求 Your entire response must be plain text: an <analysis> block followed by a <summary> block.这是最直接的“先分析再给总结”。
 - `src/services/compact/prompt.ts:31`：Before providing your final summary, wrap your
@@ -206,9 +206,9 @@ analysis in <analysis> tags...，属于硬性两阶段输出。
 - `src/memdir/memoryTypes.ts:201`：Before answering the user ... verify that the memory is still correct and up-to-date，这是“先验证再回答”。
 - `src/coordinator/coordinatorMode.ts:328`：Prove the code works, don't just confirm it exists，要求给可验证依据，不接受口头确认。
 
-## 第四阶段：上下文瘦身（防爆炸与优化）
+### 第四阶段：上下文瘦身（防爆炸与优化）
 
-### 4. 给上下文瘦身，防止撑爆 (Minimizing Context Bloat)
+#### 4. 给上下文瘦身，防止撑爆 (Minimizing Context Bloat)
 
 在长会话（比如写代码、改项目）中，AI 会产生大量冗余信息，如果全部塞给 LLM，会：
 - 超 Token 限制（报错）
@@ -222,12 +222,12 @@ analysis in <analysis> tags...，属于硬性两阶段输出。
 4. Compact transcript（精简转录）。经过上面 3 步处理后，得到一个短小、干净、无冗余的历史记录。
 5. Prompt assembly（组装）。把精简后的历史，和其他信息（规则、任务、记忆）拼成最终 Prompt，发给 LLM。
 
-#### 压缩时机
+##### 压缩时机
 
 - 手动执行：`/compact`。/compact 能明显压缩当前会话上下文，让后续对话继续跑下去；但它不会把磁盘上的 transcript JSONL 文件变小。
 - 自动执行：系统在上下文快满时自动做的 autoCompact
 
-#### 压缩方式
+##### 压缩方式
 
 压缩内容：session transcript 
 在这条链上插入 compact boundary 和 compact summary
@@ -250,13 +250,13 @@ flowchart LR
     I -->|7| J[LLM]
 ```
 
-## 第五阶段：任务委派与复杂场景
+### 第五阶段：任务委派与复杂场景
 
-### 6. 任务委派与受限子智能体 (Delegation With (Bounded) Subagents)
+#### 6. 任务委派与受限子智能体 (Delegation With (Bounded) Subagents)
 
 官方文档：[创建自定义 subagents](https://code.claude.com/docs/zh-CN/sub-agents)
 
-#### 配置方式
+##### 配置方式
 ```
 claude --agents '{
   "code-reviewer": {
@@ -272,7 +272,7 @@ claude --agents '{
 }'
 ```
 
-#### 调用方式
+##### 调用方式
 
 - 自动委托：Claude 根据您请求中的任务描述、subagent 配置中的 description 字段和当前上下文自动委托任务。要鼓励主动委托，在您的 subagent 的 description 字段中包含”use proactively”之类的短语。
 - 显示调用
@@ -280,7 +280,7 @@ claude --agents '{
   - @-mention：保证 subagent 为一个任务运行
   - 会话范围：整个会话使用该 subagent 的系统提示、工具限制和模型，通过 --agent 标志或 agent 设置
 
-## 完整架构图
+### 完整架构图
 
 ```mermaid
 graph TD
@@ -350,7 +350,7 @@ graph TD
     Execution_Layer -- 最终响应 --> User
 ```
 
-# 更多阅读
+## 更多阅读
 - [2026 AI 开发新范式：Harness Engineering（驾驭工程）为何是智能体的决胜点？](https://mp.weixin.qq.com/s?__biz=MzY4NzAzOTMxMQ==&mid=2247483770&idx=1&sn=f35fe72584f3a06e415374b93866e52e&chksm=f285a3b7f5525c7728c4786d9cdb2d537175bbc80ab29cdfcf82306cc0ceeb67679d47766b52&mpshare=1&srcid=0405ou8kKlrFZwUPMWG0RKdg&sharer_shareinfo=ca6d0395e3844d726629609a65950860&sharer_shareinfo_first=ca6d0395e3844d726629609a65950860&from=timeline&scene=2&subscene=1&sessionid=1775389781&clicktime=1775393610&enterid=1775393610&ascene=2&fasttmpl_type=0&fasttmpl_fullversion=8198750-zh_CN-zip&fasttmpl_flag=0&realreporttime=1775393610299&devicetype=android-36&version=2800455e&nettype=WIFI&abtest_cookie=AAACAA%3D%3D&lang=zh_CN&countrycode=CN&exportkey=n_ChQIAhIQLrV3Z6FNARBA18j6HgJWhhLZAQIE97dBBAEAAAAAAMF4EGXkL1oAAAAOpnltbLcz9gKNyK89dVj05Fua3wl%2BOMIR6nYzbVRQBjfErWIK0N4guPCG7YeZuqKnrUZN%2FHW874oZ9E%2F8tS49gafo3KWnb6Ut%2F16f8u8Ew23eUaI8YTD%2BF1L7JeKTAP73H%2BCdM3Y7BqzPgZ%2B5t4PUj8UKuj2Fo%2Fsbcz6SbulnaWlp9dXHcZ4%2FbQSOrTwPqrO2EEclzAhjqxAKDoHf1tIi4IZ5verd7%2BJU%2Fn2xordqbyecazhHe6JpAlt%2FopoJaeXvNZE%3D&pass_ticket=STXDxqr1fHzDxQgY62AnLArtheY%2Bt%2BnwvStnOl71NpzsFioMSJ%2BoMzc5Vo6XrORM&wx_header=3)   
 - [HComponents of A Coding Agent](https://magazine.sebastianraschka.com/p/components-of-a-coding-agent)
 
