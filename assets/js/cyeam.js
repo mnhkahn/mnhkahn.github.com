@@ -130,6 +130,35 @@ function initImagePreview() {
     });
 }
 
+function cloneSvgForPreview(element) {
+    const svg = element.cloneNode(true);
+    const viewBox = element.viewBox && element.viewBox.baseVal;
+    const bounds = element.getBoundingClientRect();
+    const width = viewBox && viewBox.width > 0 ? viewBox.width : bounds.width;
+    const height = viewBox && viewBox.height > 0 ? viewBox.height : bounds.height;
+    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    if (width > 0 && height > 0) {
+        svg.setAttribute("width", width);
+        svg.setAttribute("height", height);
+        // Percentage dimensions would shrink again inside the full-screen transform.
+        svg.style.width = width + "px";
+        svg.style.height = height + "px";
+    }
+    svg.style.maxWidth = "none";
+    svg.style.maxHeight = "none";
+    svg.style.transform = "none";
+    return svg;
+}
+
+function createMermaidInitializer(container) {
+    class SizedMermaidInitializer extends MermaidInitializer {
+        openFullscreen(svg) {
+            super.openFullscreen(cloneSvgForPreview(svg));
+        }
+    }
+    return new SizedMermaidInitializer(container);
+}
+
 function showModal(element) {
     let modal = document.getElementById("image-preview");
     if (!modal) {
@@ -146,9 +175,13 @@ function showModal(element) {
         });
     }
     const image = modal.querySelector("img");
-    if (element.tagName.toLowerCase() === "svg") {
-        const svg = element.cloneNode(true);
-        svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    const isDiagram = element.tagName.toLowerCase() === "svg";
+    modal.classList.toggle("is-diagram", isDiagram);
+    image.style.width = "";
+    if (isDiagram) {
+        const svg = cloneSvgForPreview(element);
+        // Keep diagram labels at their natural size; scroll long diagrams instead of shrinking them.
+        image.style.width = Math.max(Number(svg.getAttribute("width")) || 0, window.innerWidth - 24) + "px";
         image.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(svg));
     } else {
         image.src = element.currentSrc || element.src;

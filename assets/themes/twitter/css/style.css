@@ -488,8 +488,14 @@ a:hover {
     object-fit: contain;
 }
 
+.image-preview.is-diagram .modal-image {
+    max-width: none;
+    max-height: none;
+    background: #fff;
+}
+
 .preview-close {
-    position: absolute;
+    position: fixed;
     top: 8px;
     right: 12px;
     min-width: 44px;
