@@ -154,12 +154,12 @@ def deliver(store, state, manifest, mailchimp):
         defaults = mailchimp.call("lists/" + audience_id)["campaign_defaults"]
         posts = pending["posts"]
         subject = ("Cyeam 新文章：" + posts[0]["title"] if len(posts) == 1
-                   else f"Cyeam 博客更新：{len(posts)} 篇新文章")
+                   else f"Cyeam 博客更新：{len(posts)} 篇新文章 · " + posts[0]["title"])
         campaign = mailchimp.call("campaigns", "POST", {
             "type": "regular", "recipients": {"list_id": audience_id},
             "settings": {"title": pending["title"], "subject_line": subject[:150],
                          "from_name": defaults["from_name"], "reply_to": defaults["from_email"],
-                         "preview_text": posts[0]["description"][:150]},
+                         "preview_text": "；".join(p["title"] for p in posts)[:150]},
         })
     pending["campaign_id"] = campaign["id"]
     store.save(state)

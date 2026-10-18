@@ -2,6 +2,7 @@ import copy
 import importlib.util
 import unittest
 from pathlib import Path
+from unittest.mock import Mock
 
 spec = importlib.util.spec_from_file_location('newsletter', Path(__file__).parents[1] / 'scripts/send_newsletter.py')
 n = importlib.util.module_from_spec(spec)
@@ -66,6 +67,30 @@ class NewsletterTests(unittest.TestCase):
         n.deliver(store, copy.deepcopy(store.value), self.manifest, mc)
         self.assertEqual(sum(path.endswith('/actions/send') for _, path, _ in mc.calls), 1)
         self.assertIn('/new', store.value['known_ids'])
+
+    def test_long_titles_are_used_in_subject_for_single_and_batch(self):
+        long_post = {**POST, 'title': '小米与 Mac 如何互联：' + '设备广播与身份认证' * 50}
+        for posts in ([long_post], [long_post, {**POST, 'id': '/other'}]):
+            with self.subTest(count=len(posts)):
+                store, mc = Store(), Mailchimp()
+                mc.find_campaign = Mock(return_value=None)
+                original_call = mc.call
+
+                def call(path, method='GET', data=None):
+                    if path.startswith('lists/'):
+                        return {'campaign_defaults': {'from_name': 'Cyeam', 'from_email': 'blog@example.com'}}
+                    return original_call(path, method, data)
+
+                mc.call = call
+                n.deliver(store, copy.deepcopy(store.value), {**self.manifest, 'posts': posts}, mc)
+                settings = next(data['settings'] for method, path, data in mc.calls
+                                if method == 'POST' and path == 'campaigns')
+                prefix = 'Cyeam 新文章：' if len(posts) == 1 else 'Cyeam 博客更新：2 篇新文章 · '
+                self.assertEqual(settings['subject_line'], (prefix + long_post['title'])[:150])
+                self.assertEqual(settings['preview_text'], long_post['title'][:150])
+                content = next(data['html'] for method, path, data in mc.calls
+                               if method == 'PUT' and path.endswith('/content'))
+                self.assertIn(long_post['title'], content)
 
     def test_retry_after_ambiguous_send_uses_same_campaign(self):
         store, mc = Store(), Mailchimp(fail_send=True)
