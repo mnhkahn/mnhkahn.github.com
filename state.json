@@ -196,6 +196,7 @@
     "/postgraduate/2014/04/23/pager_settings",
     "/redis/2018/05/30/redis-module-go",
     "/regex/2014/07/02/regex",
+    "/rust/2026/10/18/mi-clip-protocol",
     "/se/2014/12/26/search_engine",
     "/se/2015/04/05/maodou",
     "/server/2025/04/15/otp",
@@ -212,18 +213,6 @@
     "/web/2014/12/01/golang_pup",
     "/web/2015/01/20/urlsafebase64"
   ],
-  "pending": {
-    "posts": [
-      {
-        "id": "/rust/2026/10/18/mi-clip-protocol",
-        "title": "小米与 Mac 如何互联：从设备广播、身份认证到剪贴板和文件传输",
-        "description": "结合小米官方资料和 Mi Clip 的实现，用部署图与连接时序说明手机、Mac 和账号服务器各自的职责，再解释设备发现、同账号认证、剪贴板推送与文件传输的完整过程。",
-        "url": "https://blog.cyeam.com/rust/2026/10/18/mi-clip-protocol",
-        "newsletter": true
-      }
-    ],
-    "title": "cyeam-blog-16516e349885f65b66ecdd62",
-    "campaign_id": "6a0a14831d"
-  },
-  "last_campaign_id": "c30e53c3b7"
+  "pending": null,
+  "last_campaign_id": "6a0a14831d"
 }
