@@ -1,12 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 	<head>
 		<title>404</title>
 		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-		<meta http-equiv="refresh" content="1; url=https://www.cyeam.com/404.html" />
+		<meta name="robots" content="noindex,follow" />
+		<noscript><meta http-equiv="refresh" content="1; url=https://www.cyeam.com/404.html" /></noscript>
 	</head>
 
 	<body>
-		<p><a href="https://irsali.github.io/">Redirect</a></p>
+		<p><a id="redirect" href="https://www.cyeam.com/404.html">页面不存在，正在跳转 / Continue</a></p>
+		<script>
+			(function () {
+				function cleanPath(path) {
+					return path.split(/[?#]/, 1)[0].replace(/%(?:3f|23).*$/i, "");
+				}
+				function cleanReferrer(value) {
+					try {
+						var url = new URL(value);
+						return /^https?:$/.test(url.protocol) ? url.origin + cleanPath(url.pathname) : "";
+					} catch (error) {
+						return "";
+					}
+				}
+				var path = cleanPath(window.location.pathname);
+				var referrer = cleanReferrer(document.referrer);
+				var target = new URL("https://www.cyeam.com/404.html");
+				target.searchParams.set("from", "blog");
+				target.searchParams.set("path", path);
+				document.getElementById("redirect").href = target.href;
+				var redirected = false;
+				function redirect() {
+					if (redirected) return;
+					redirected = true;
+					window.location.replace(target.href);
+				}
+				// Keep navigation working even if analytics is blocked or never loads.
+				window.setTimeout(redirect, 2000);
+				window.dataLayer = window.dataLayer || [];
+				window.gtag = function () { window.dataLayer.push(arguments); };
+				window.gtag("js", new Date());
+				window.gtag("config", "G-3DYWV52C0C", {
+					send_page_view: false,
+					page_location: window.location.origin + path,
+					page_referrer: referrer
+				});
+				window.gtag("event", "page_not_found", {
+					send_to: "G-3DYWV52C0C",
+					source_site: "blog",
+					missing_path: path,
+					page_location: window.location.origin + path,
+					page_referrer: referrer,
+					event_callback: redirect,
+					event_timeout: 1500
+				});
+				var script = document.createElement("script");
+				script.async = true;
+				script.src = "https://www.googletagmanager.com/gtag/js?id=G-3DYWV52C0C";
+				document.head.appendChild(script);
+			})();
+		</script>
 	</body>
 </html>
