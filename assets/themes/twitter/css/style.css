@@ -609,42 +609,6 @@ table tr:nth-child(even) {
     padding: 0 6px;
 }
 
-/* 架构师问答 */
-.ai-search-container:hover,
-.ai-search-container:focus-within {
-    background: #fff !important;
-    border-color: #0d6efd !important;
-}
-.ai-search-container:hover .ai-search-icon,
-.ai-search-container:focus-within .ai-search-icon {
-    color: #333 !important;
-}
-.ai-search-container:hover .ai-search-input,
-.ai-search-container:focus-within .ai-search-input {
-    color: #333 !important;
-}
-.ai-search-container:hover .ai-search-shortcut button,
-.ai-search-container:focus-within .ai-search-shortcut button {
-    color: #333 !important;
-    background: #e9ecef !important;
-    border-color: #ced4da !important;
-}
-.ai-search-input::placeholder {
-    color: #aaa !important;
-    opacity: 1 !important;
-}
-.ai-search-input::-webkit-input-placeholder {
-    color: #aaa !important;
-}
-.ai-search-input::-moz-placeholder {
-    color: #aaa !important;
-}
-.ai-search-input:-ms-input-placeholder {
-    color: #aaa !important;
-}
-.ai-search-input:-moz-placeholder {
-    color: #aaa !important;
-}
 /* 翻译 */
 .flag-icon {
     display: inline-block;
@@ -774,10 +738,6 @@ table tr:nth-child(even) {
 @media (max-width: 767px) {
     .container-narrow { width: 100%; padding: 12px; box-sizing: border-box; }
     .site-nav { gap: 2px; }
-    .site-nav > .ai-search-item { flex: 1 1 calc(100% - 48px); }
-    .site-nav .ai-search-container { width: 100% !important; }
-    .site-nav .ai-search-input { min-width: 0; font-size: 16px; }
-    .site-nav .ai-search-shortcut { display: none !important; }
     .site-nav .nav-link, #languageDropdown { min-height: 44px; }
     #languageDropdown { min-width: 44px; height: 44px !important; }
     .copy-btn { min-width: 44px; min-height: 44px; }
