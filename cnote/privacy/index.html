@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CNote 隐私政策 · Privacy Policy</title>
+  <style>
+    body { margin: auto; max-width: 46rem; padding: 1.5rem; font: 1rem/1.65 system-ui, sans-serif; color: #1b2942; background: #f9fbff; overflow-wrap: anywhere; }
+    a { color: #164fa7; }
+    nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+    article + article { border-top: 1px solid #c9d4e6; margin-top: 3rem; padding-top: 1rem; }
+    h1, h2 { line-height: 1.3; }
+  </style>
+</head>
+<body>
+  <nav aria-label="Language"><a href="#zh">简体中文</a><a href="#en" lang="en">English</a></nav>
+  <main>
+    <article id="zh">
+      <h1>CNote Android 隐私政策</h1>
+      <p>Cyeam 提供 CNote Android（com.cyeam.cnote）。你可以直接在本机创建和编辑笔记。使用 OneDrive 或 Trello 工作区时，需要连接相应的第三方账号。</p>
+      <h2>笔记和 OneDrive</h2>
+      <p>笔记标题、正文、图片和编辑状态保存在设备上。连接 Microsoft 个人账号后，CNote 从 Microsoft 获取账号标识和显示名称，通过 Microsoft Graph 读取和同步 OneDrive 中的笔记，并按你的操作浏览、下载或修改 OneDrive 文件。登录凭据在设备上由 Android Keystore 保护。打开外部链接或加载远程图片时，目标网站会收到连接所需的信息，例如 IP 地址和资源地址。</p>
+      <h2>Trello 和作业</h2>
+      <p>连接 Trello 后，CNote 使用授权凭据向 Atlassian Trello 请求获准访问的看板、卡片、评论和附件，并按你的操作修改这些内容。使用跨设备作业连接时，Cyeam 使用 Microsoft 登录验证你的身份，并加密保存 Trello 授权凭据和关联的账号及看板标识。主动发起作业批改时，Cyeam 接收所选作业图片或录音及相关词表或原文，并使用识别服务生成结果。图片识别服务随模型配置而定，可能经 OpenRouter 处理。语音识别使用 Hugging Face 上的 SenseVoice。你选择发布批改结果时，结果会写回 Trello。</p>
+      <h2>使用统计</h2>
+      <p>Google Firebase Analytics 处理应用互动事件、应用实例标识、设备或应用版本，以及从网络连接推导的大致地区。Cyeam 使用这些信息了解功能使用情况和同步表现。CNote 自定义统计事件不包含笔记正文、标题、账号或登录凭据。广告 ID 收集和广告个性化已关闭。你可以在笔记列表右上角菜单关闭使用统计。</p>
+      <h2>保留、删除与联系</h2>
+      <p>本机笔记保留至你删除笔记或清除应用数据。退出 OneDrive 会清除本机 Microsoft 登录凭据，已缓存的笔记仍保留于相应账号的本机工作区。导出或下载的文件可在系统文件管理器删除。OneDrive 和 Trello 中的内容由相应服务管理，可在这些服务中查看或删除。解除云端作业连接可移除 Cyeam 保存的连接记录，你也可以在 Trello 撤销授权。</p>
+      <p>Cyeam 保留跨设备连接数据以维持你启用的连接。批改请求中的原始附件用于处理请求，Cyeam 的作业接口会在请求结束后清理临时上传文件。使用统计由 Cyeam 的 Google Analytics 留存设置管理。第三方服务按各自的政策处理数据。</p>
+      <p>如有隐私问题，或希望请求访问、更正或删除 Cyeam 持有的可识别数据，请联系 <a href="mailto:lichao@cyeam.com">lichao@cyeam.com</a>。请勿发送账号密码或授权令牌。</p>
+    </article>
+    <article id="en" lang="en">
+      <h1>CNote Android Privacy Policy</h1>
+      <p>Cyeam provides CNote Android (com.cyeam.cnote). You can create and edit notes on your device without signing in. The OneDrive and Trello workspaces require the corresponding third-party accounts.</p>
+      <h2>Notes and OneDrive</h2>
+      <p>CNote stores note titles, content, images and editing state on your device. When you connect a personal Microsoft account, CNote receives your account identifier and display name from Microsoft. It uses Microsoft Graph to read and sync OneDrive notes and to browse, download or modify OneDrive files at your request. Android Keystore protects sign-in credentials on your device. Opening links or loading remote images can disclose connection details such as your IP address and the requested URL to the destination.</p>
+      <h2>Trello and homework</h2>
+      <p>When you connect Trello, CNote uses the authorization credentials to access permitted boards, cards, comments and attachments through Atlassian Trello and to apply the changes you request. For cross-device homework connections, Cyeam verifies your identity using Microsoft sign-in and stores the Trello authorization credentials and associated account and board identifiers in encrypted form. When you request homework grading, Cyeam receives the selected images or recording and any applicable word list or reading passage. Cyeam uses recognition services to return a result. Image recognition providers depend on the configured model and may include OpenRouter. Speech recognition uses SenseVoice on Hugging Face. If you publish the result, it is written to Trello.</p>
+      <h2>Usage analytics</h2>
+      <p>Google Firebase Analytics processes app interactions, an app-instance identifier, device or app version information and approximate location inferred from the connection. Cyeam uses analytics to understand feature use and sync performance. CNote’s custom analytics events exclude note content, titles, accounts and sign-in credentials. Advertising ID collection and ad personalization are disabled. You can turn off usage analytics in the menu on the notes list.</p>
+      <h2>Retention, deletion and contact</h2>
+      <p>Local notes remain until you delete them or clear app data. Signing out clears local Microsoft sign-in credentials, while cached notes remain in the corresponding account’s local workspace. Use your device’s file manager to delete exported or downloaded files. Microsoft and Atlassian manage content stored in their services. You can view or delete cloud content there, remove the cross-device homework connection to delete Cyeam’s stored connection, and revoke access in Trello.</p>
+      <p>Cyeam keeps cross-device connection data to maintain the connection you enabled. Its homework endpoints use original attachments to process each request and remove temporary upload files when the request finishes. Cyeam’s Google Analytics retention settings govern analytics data. Third-party providers process data under their own policies.</p>
+      <p>For privacy questions or to request access, correction or deletion of identifiable data held by Cyeam, contact <a href="mailto:lichao@cyeam.com">lichao@cyeam.com</a>. Please keep passwords and authorization tokens private.</p>
+    </article>
+  </main>
+</body>
+</html>
