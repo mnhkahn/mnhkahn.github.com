@@ -29,9 +29,15 @@
   <li>Seal stores up to 50 recognition records on your device, with an aggregate limit of 32 MB for images. You can delete individual records or clear History. These actions remove the app’s local history.</li>
 </ul>
 
+<h2 id="app-verification-trial-and-purchase">App verification, trial and purchase</h2>
+
+<p>The Google Play version uses Firebase App Check with Play Integrity. Google processes app and device integrity information to issue a short-lived token. Seal sends the token to Cyeam to authorize recognition requests and help prevent abuse.</p>
+
+<p>Seal sends the app-scoped Android device identifier to Cyeam to enforce the recognition trial. Cyeam stores a hash of the identifier and trial usage. Google Play processes payment and provides Seal a purchase token. Cyeam uses it to verify, acknowledge and restore the unlock with Google Play, and briefly caches the verification result in memory.</p>
+
 <h2 id="usage-analytics">Usage analytics</h2>
 
-<p>When usage analytics is enabled, Google Firebase Analytics receives app events, an app-instance identifier, device information and approximate geography derived from the connection. We use this information to understand how the app is used. Seal’s recognition analytics events can include counts and candidate ranks. They do not include the submitted image, recognized characters, filenames or image links. You can turn off usage analytics in Seal’s Settings.</p>
+<p>When usage analytics is enabled, Google Firebase Analytics receives app events, an app-instance identifier, device information and approximate geography derived from the connection. Analytics may also receive Google Play purchase events with product and price information. We use this information to understand how the app is used. Seal’s recognition analytics events can include counts and candidate ranks. They do not include the submitted image, recognized characters, filenames or image links. You can turn off usage analytics in Seal’s Settings.</p>
 
 <h2 id="retention-and-deletion">Retention and deletion</h2>
 
@@ -55,9 +61,15 @@
   <li>Seal 在设备上最多保存 50 条识别历史，图片合计最多 32 MB。你可以在「历史」中逐条删除或清空，移除应用中的本机历史。</li>
 </ul>
 
+<h2 id="chinese-app-verification-trial-and-purchase">应用验证、免费试用与购买</h2>
+
+<p>Google Play 版使用 Firebase App Check 和 Play Integrity。Google 处理应用及设备完整性信息，签发短期凭证。Seal 将该凭证发送给 Cyeam，用于验证识别请求和防止滥用。</p>
+
+<p>Seal 将应用范围内的 Android 设备标识发送给 Cyeam，用于计算免费识别次数。Cyeam 保存该标识的哈希值和试用用量。Google Play 处理付款并向 Seal 提供购买凭证。Cyeam 使用该凭证向 Google Play 核验、确认和恢复买断权益，并在内存中短暂缓存核验结果。</p>
+
 <h2 id="section-1">使用统计</h2>
 
-<p>开启使用统计时，Google Firebase Analytics 会收到应用互动事件、应用实例标识、设备信息，以及从网络连接推导的大致地区。Cyeam 使用这些信息了解应用的使用情况。Seal 的识别统计事件可以包含数量和候选排名，不包含提交字图、识别文字、文件名或图片链接。你可以在 Seal 的设置中关闭使用统计。</p>
+<p>开启使用统计时，Google Firebase Analytics 会收到应用互动事件、应用实例标识、设备信息，以及从网络连接推导的大致地区。使用统计也可能收到包含商品和价格信息的 Google Play 购买事件。Cyeam 使用这些信息了解应用的使用情况。Seal 的识别统计事件可以包含数量和候选排名，不包含提交字图、识别文字、文件名或图片链接。你可以在 Seal 的设置中关闭使用统计。</p>
 
 <h2 id="section-2">保留与删除</h2>
 
