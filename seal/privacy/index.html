@@ -18,22 +18,23 @@
     <article id="english" lang="en">
 <h1 id="seal-privacy-policy">Seal privacy policy</h1>
 
-<p>Seal is an Android app from Cyeam for recognizing Chinese seal script and looking up Chinese characters. Seal does not offer an app account.</p>
+<p>Seal is an Android app from Cyeam for recognizing Chinese seal script, looking up Chinese characters, and creating seals. Seal does not offer an app account.</p>
 
-<h2 id="recognition-feedback-and-lookup">Recognition, feedback and lookup</h2>
+<h2 id="recognition-feedback-and-lookup">Recognition, feedback, lookup and seal making</h2>
 
 <ul>
   <li>Seal crops photos and prepares handwritten character images on your device. When you submit a character for recognition, the app sends that image over HTTPS to Cyeam. Cyeam forwards it to its recognition service hosted on ModelScope and returns the recognition candidates.</li>
   <li>Cyeam may keep the submitted image in private ImageKit storage with recognition results, submission time, request ID, IP address and app or device information from the request. We use these records to diagnose recognition problems and evaluate and improve recognition. If you send feedback, we record your choice and any selected character with the recognition record. Selected records may be annotated and exported for recognition evaluation and model improvement.</li>
   <li>When you look up a character, Seal sends the query to Cyeam and requests reference images from Cloudinary or, when needed to display characters, GlyphWiki. These services receive the information needed to respond, such as the requested image and network address. Stroke-order and component data packaged with Seal can be viewed on the device.</li>
+  <li>When you create a seal, Seal sends the entered Chinese characters to Cyeam to look up their seal-script forms and requests the reference images from Cloudinary. The final seal image is rendered on your device.</li>
   <li>Seal stores up to 50 recognition records on your device, with an aggregate limit of 32 MB for images. You can delete individual records or clear History. These actions remove the app’s local history.</li>
 </ul>
 
 <h2 id="app-verification-trial-and-purchase">App verification, trial and purchase</h2>
 
-<p>The Google Play version uses Firebase App Check with Play Integrity. Google processes app and device integrity information to issue a short-lived token. Seal sends the token to Cyeam to authorize recognition requests and help prevent abuse.</p>
+<p>The Google Play version uses Firebase App Check with Play Integrity. Google processes app and device integrity information to issue a short-lived token. Seal sends the token to Cyeam to obtain a short-lived access token and help prevent abuse. Seal signs cloud requests with a device key. The private key stays on your device, and Cyeam checks the public key and briefly stores request identifiers to prevent replay.</p>
 
-<p>Seal sends the app-scoped Android device identifier to Cyeam to enforce the recognition trial. Cyeam stores a hash of the identifier and trial usage. Google Play processes payment and provides Seal a purchase token. Cyeam uses it to verify, acknowledge and restore the unlock with Google Play, and briefly caches the verification result in memory.</p>
+<p>Seal sends the app-scoped Android device identifier to Cyeam to enforce the shared trial for cloud recognition, seal-script lookup, and seal making. Cyeam stores a hash of the identifier and trial usage. Google Play processes payment and provides Seal a purchase token. Cyeam uses it to verify, acknowledge and restore the unlock with Google Play, and briefly caches the verification result in memory.</p>
 
 <h2 id="usage-analytics">Usage analytics</h2>
 
@@ -50,22 +51,23 @@
     <article id="chinese" lang="zh-Hans">
 <h1 id="seal-">Seal 隐私政策</h1>
 
-<p>Seal 是 Cyeam 提供的 Android 篆书识别与汉字查字应用。Seal 不提供应用账号注册。</p>
+<p>Seal 是 Cyeam 提供的 Android 篆书识别、汉字查字与制印应用。Seal 不提供应用账号注册。</p>
 
-<h2 id="section">识别、反馈与查字</h2>
+<h2 id="section">识别、反馈、查字与制印</h2>
 
 <ul>
   <li>Seal 在本机裁剪照片并生成手写字图。你发起识别时，应用通过 HTTPS 将提交的字图发送给 Cyeam。Cyeam 将字图转交托管在 ModelScope 上的识别服务，并返回识别候选。</li>
   <li>为排查识别问题、评估及改进识别效果，Cyeam 可能将提交的字图、识别结果、上传时间、请求编号、IP 地址和请求中的应用或设备信息保存在 ImageKit 私有存储。你提交识别反馈时，反馈选择和候选字会记录到对应识别记录。选中的记录可能被标注并导出，用于评估和改进识别模型。</li>
   <li>查字时，Seal 将所查的字发送给 Cyeam，并向 Cloudinary 请求字库图片。设备缺少所需字形时，应用也可能向 GlyphWiki 请求字形。这些服务会收到处理请求所需的信息，如所请求的图片和网络地址。应用随附的笔顺和部件资料可在本机查看。</li>
+  <li>制印时，Seal 将输入的汉字发送给 Cyeam 查询篆书字形，并从 Cloudinary 请求字库图片。最终印章图片在你的设备上生成。</li>
   <li>Seal 在设备上最多保存 50 条识别历史，图片合计最多 32 MB。你可以在「历史」中逐条删除或清空，移除应用中的本机历史。</li>
 </ul>
 
 <h2 id="chinese-app-verification-trial-and-purchase">应用验证、免费试用与购买</h2>
 
-<p>Google Play 版使用 Firebase App Check 和 Play Integrity。Google 处理应用及设备完整性信息，签发短期凭证。Seal 将该凭证发送给 Cyeam，用于验证识别请求和防止滥用。</p>
+<p>Google Play 版使用 Firebase App Check 和 Play Integrity。Google 处理应用及设备完整性信息，签发短期凭证。Seal 将该凭证发送给 Cyeam，以获取短期访问令牌并防止滥用。Seal 用设备密钥为云端请求签名。私钥留在设备上，Cyeam 核验公钥并短暂保存请求标识，以防止重放。</p>
 
-<p>Seal 将应用范围内的 Android 设备标识发送给 Cyeam，用于计算免费识别次数。Cyeam 保存该标识的哈希值和试用用量。Google Play 处理付款并向 Seal 提供购买凭证。Cyeam 使用该凭证向 Google Play 核验、确认和恢复买断权益，并在内存中短暂缓存核验结果。</p>
+<p>Seal 将应用范围内的 Android 设备标识发送给 Cyeam，用于计算云端识别、篆书查字和制印共享的免费试用次数。Cyeam 保存该标识的哈希值和试用用量。Google Play 处理付款并向 Seal 提供购买凭证。Cyeam 使用该凭证向 Google Play 核验、确认和恢复买断权益，并在内存中短暂缓存核验结果。</p>
 
 <h2 id="section-1">使用统计</h2>
 
