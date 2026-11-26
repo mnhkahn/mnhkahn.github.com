@@ -1,3 +1,6 @@
+// Match the fenced blocks consumed by MermaidInitializer.
+const mermaidCodeSelector = "pre code.language-mermaid, pre code.mermaid";
+
 function initArticleTools() {
     initResponsiveTables();
     initImagePreview();
@@ -16,23 +19,20 @@ if (document.readyState === "loading") {
 }
 
 function initCode() {
-    const codeBlocks = document.querySelectorAll("code");
-    codeBlocks.forEach(function (codeEl) {
-        // 4. 给 <code> 补充默认语言类（如果没有的话）
-        if (!codeEl.className.includes("language-")) {
-            codeEl.className = "language-text"; // 默认设为纯文本
-        } else {
-            codeEl.className += ""; // 已有语言类，只加内边距
-        }
-    });
-    if (!window.Prism || typeof window.Prism.highlightAll !== "function") {
+    if (!window.Prism || typeof window.Prism.highlightElement !== "function") {
         console.error("Prism 未加载，代码高亮与复制按钮均不会初始化。");
         return false;
     }
     if (window.Prism.plugins && window.Prism.plugins.Autoloader) {
         window.Prism.plugins.Autoloader.languages_path = "/assets/vendor/prism/components/";
     }
-    window.Prism.highlightAll();
+    document.querySelectorAll("code").forEach(function (codeEl) {
+        if (codeEl.matches(mermaidCodeSelector)) return;
+        if (!codeEl.className.includes("language-")) {
+            codeEl.classList.add("language-text");
+        }
+        window.Prism.highlightElement(codeEl);
+    });
     return true;
 }
 
@@ -40,7 +40,7 @@ function initCopyBtn() {
     const pres = document.querySelectorAll("pre");
     pres.forEach(function (pre) {
         const codeEl = pre.querySelector("code");
-        if (!codeEl) return;
+        if (!codeEl || codeEl.matches(mermaidCodeSelector)) return;
 
         // The button belongs to the outer frame, not the scrolling pre.
         let frame = pre.parentElement;

@@ -227,7 +227,7 @@
         <!-- Local jQuery keeps shared tools available when external CDNs are slow. -->
         <script defer src="/assets/js/jquery-1.7.2.min.js"></script>
         <!-- 代码高亮与复制成组延迟加载；defer 保证 Prism、自动加载器、复制脚本的执行顺序。 -->
-        <script defer src="/assets/vendor/prism/prism.min.js"></script>
+        <script defer data-manual src="/assets/vendor/prism/prism.min.js"></script>
         <script defer src="/assets/vendor/prism/prism-autoloader.min.js"></script>
         <script defer src="/assets/js/cyeam.js?v={{ site.time | date: '%s' }}"></script>
 
@@ -240,7 +240,6 @@
             document.addEventListener("DOMContentLoaded", function () {
                 mermaid.initialize({
                     startOnLoad: true,
-                    theme: "forest",
                     securityLevel: "loose",
                 });
                 const preview = document.getElementById("content");
